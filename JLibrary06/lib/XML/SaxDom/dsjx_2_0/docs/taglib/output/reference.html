@@ -1,0 +1,553 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>XML Output JSP Actions</title>
+</head>
+<body>
+<center>
+<h1>XML Output JSP Actions<br>Tag Reference</h1>
+<h3>JSP Tag Library for Generating XML Dynamically</h3>
+</center>
+<P>
+<CENTER>
+<A HREF="index.html">Overview</A>&nbsp;&nbsp;&nbsp;<A HREF="deploy.html">Deployment</A>&nbsp;&nbsp;&nbsp;<A HREF="examples.html">Examples</A>&nbsp;&nbsp;&nbsp;<A HREF="builder.html">Builder</A>&nbsp;&nbsp;&nbsp;<A HREF="../../api/index.html">API</A>
+</CENTER>
+</P>
+<table cellspacing="1" cellpadding="6" border="1" width="100%">
+<tr bgcolor="#eeeeee" valign="top">
+<td><b>Action</b></td><td width="100%"><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td><a href="#document">document</a></td><td width="100%">
+			Outputs a DOM tree or just sets the context for generating
+			an XML document dynamically.</td>
+</tr>
+<tr valign="top">
+<td><a href="#fragment">fragment</a></td><td width="100%">
+			Outputs a DOM fragment/sub-tree.</td>
+</tr>
+<tr valign="top">
+<td><a href="#element">element</a></td><td width="100%">
+			Outputs an XML element.</td>
+</tr>
+<tr valign="top">
+<td><a href="#start">start</a></td><td width="100%">
+			Outputs an XML start tag.</td>
+</tr>
+<tr valign="top">
+<td><a href="#end">end</a></td><td width="100%">
+			Outputs an XML end tag.</td>
+</tr>
+<tr valign="top">
+<td><a href="#attributes">attributes</a></td><td width="100%">
+			Exports a variable holding a SAX list of attributes.</td>
+</tr>
+<tr valign="top">
+<td><a href="#attribute">attribute</a></td><td width="100%">
+			Adds an attribute to a variable exported by
+			&lt;o:attributes&gt;.</td>
+</tr>
+<tr valign="top">
+<td><a href="#data">data</a></td><td width="100%">
+			Outputs XML character data.</td>
+</tr>
+<tr valign="top">
+<td><a href="#comment">comment</a></td><td width="100%">
+			Outputs an XML comment.</td>
+</tr>
+<tr valign="top">
+<td><a href="#pi">pi</a></td><td width="100%">
+			Outputs an XML processing instruction.</td>
+</tr>
+</table>
+<p>
+<br>
+</p>
+<h3>
+<a name="document">&lt;document&gt;</a>
+</h3>
+<p>
+			Outputs a DOM tree or just sets the context for generating
+			an XML document dynamically.
+		</p>
+<p>
+<b>Syntax: Serializing a DOM tree</b>
+<br>
+<code>
+				&lt;o:document
+					dom="<i>DOM node</i>"
+					[xmldecl="<u>true</u>|false"]
+					[standalone="true|<u>false</u>"]
+					[version="<u>1.0</u>"]
+					[encoding="<i>string</i>"]
+					[systemId="<i>string</i>"]
+					[publicId="<i>string</i>"]
+					[method="<u>xml</u>|html|text"]
+					[indent="<i>number</i>"]/&gt;
+			</code>
+</p>
+<p>
+<b>Syntax: Generating a document dynamically</b>
+<br>
+<code>
+				&lt;o:document
+					[xmldecl="<u>true</u>|false"]
+					[standalone="true|<u>false</u>"]
+					[version="<u>1.0</u>"]
+					[encoding="<i>string</i>"]
+					[systemId="<i>string</i>"]
+					[publicId="<i>string</i>"]
+					[method="<u>xml</u>|html|text"]
+					[indent="<i>number</i>"]&gt;
+				<br>
+<i>...actions that generate XML content...</i>
+<br>
+				&lt;/o:document&gt;
+			</code>
+</p>
+<table cellspacing="1" cellpadding="6" border="1" width="100%">
+<tr bgcolor="#eeeeee" valign="top">
+<td><b>Attribute</b></td><td><b>Dynamic</b></td><td><b>Type</b></td><td><b>Default</b></td><td width="100%"><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td>dom</td><td>yes</td><td>org.w3c.dom.Node</td><td>null</td><td width="100%">
+				DOM tree that must be serialized to the JSP output.
+			</td>
+</tr>
+<tr valign="top">
+<td>xmldecl</td><td>yes</td><td>boolean</td><td>true</td><td width="100%">
+				Flag indicating if the XML declaration should be included
+				at the beginning of the produced XML document.
+			</td>
+</tr>
+<tr valign="top">
+<td>standalone</td><td>yes</td><td>boolean</td><td>false</td><td width="100%">
+				Flag indicating if the document should be declared standalone.
+			</td>
+</tr>
+<tr valign="top">
+<td>version</td><td>yes</td><td>String</td><td>1.0</td><td width="100%">
+				XML version.
+			</td>
+</tr>
+<tr valign="top">
+<td>encoding</td><td>yes</td><td>String</td><td>UTF-8</td><td width="100%">
+				XML encoding.
+			</td>
+</tr>
+<tr valign="top">
+<td>publicId</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				Public doctype identifier of the produced XML document.
+			</td>
+</tr>
+<tr valign="top">
+<td>systemId</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				System doctype identifier of the produced XML document.
+			</td>
+</tr>
+<tr valign="top">
+<td>method</td><td>yes</td><td>String</td><td>xml</td><td width="100%">
+				Output method: xml, html, text.
+			</td>
+</tr>
+<tr valign="top">
+<td>indent</td><td>yes</td><td>int</td><td>0</td><td width="100%">
+				Number of spaces used for indenting.
+			</td>
+</tr>
+</table>
+<p>
+<br>
+</p>
+<h3>
+<a name="fragment">&lt;fragment&gt;</a>
+</h3>
+<p>
+			Outputs a DOM fragment/sub-tree.
+		</p>
+<p>
+<b>Syntax:</b>
+<br>
+<code>
+				&lt;o:fragment
+					dom="<i>DOM node</i>"
+					[method="<u>xml</u>|html|text"]
+					[indent="<i>number</i>"]/&gt;
+			</code>
+</p>
+<table cellspacing="1" cellpadding="6" border="1" width="100%">
+<tr bgcolor="#eeeeee" valign="top">
+<td><b>Attribute</b></td><td><b>Dynamic</b></td><td><b>Type</b></td><td><b>Default</b></td><td width="100%"><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td>dom</td><td>yes</td><td>org.w3c.dom.Node</td><td>null</td><td width="100%">
+				DOM sub-tree that must be serialized to the JSP output.
+			</td>
+</tr>
+<tr valign="top">
+<td>method</td><td>yes</td><td>String</td><td>xml</td><td width="100%">
+				Output method: xml, html, text.
+			</td>
+</tr>
+<tr valign="top">
+<td>indent</td><td>yes</td><td>int</td><td>0</td><td width="100%">
+				Number of spaces used for indenting.
+			</td>
+</tr>
+</table>
+<p>
+<br>
+</p>
+<h3>
+<a name="element">&lt;element&gt;</a>
+</h3>
+<p>
+			Outputs an XML element.
+		</p>
+<p>
+<b>Syntax:</b>
+<br>
+<code>
+				&lt;o:element
+					name="<i>string</i>"
+					[uri="<i>string</i>"]
+					[attr="<i>attributes</i>"]
+					[empty="true|<u>false</u>"]&gt;
+				<br>
+<i>...actions that generate the element's content...</i>
+<br>
+				&lt;o:/element&gt;
+			</code>
+</p>
+<table cellspacing="1" cellpadding="6" border="1" width="100%">
+<tr bgcolor="#eeeeee" valign="top">
+<td><b>Attribute</b></td><td><b>Dynamic</b></td><td><b>Type</b></td><td><b>Default</b></td><td width="100%"><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td>name</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				Name of the element.
+			</td>
+</tr>
+<tr valign="top">
+<td>uri</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				Namespace URI of the element, which will be the value
+				of an XMLNS attribute.
+			</td>
+</tr>
+<tr valign="top">
+<td>attr</td><td>yes</td><td>String<br>org.xml.sax.helpers.AttributesImpl</td><td>null</td><td width="100%">
+				Attributes of the element.
+				The value of the evaluated expression is expected to be
+				a SAX AttributesImpl object or a list of names of JSP variables
+				separated by spaces. In the latter case, the attributes will 
+				have the names and values of the JSP variables.
+			</td>
+</tr>
+<tr valign="top">
+<td>empty</td><td>yes</td><td>boolean</td><td>false</td><td width="100%">
+				Flag indicating if the produced element must be empty.
+			</td>
+</tr>
+</table>
+<p>
+<br>
+</p>
+<h3>
+<a name="start">&lt;start&gt;</a>
+</h3>
+<p>
+			Outputs an XML start tag.
+		</p>
+<p>
+<b>Syntax:</b>
+<br>
+<code>
+				&lt;o:start
+					name="<i>string</i>"
+					[uri="<i>string</i>"]
+					[attr="<i>attributes</i>"]/&gt;
+			</code>
+</p>
+<table cellspacing="1" cellpadding="6" border="1" width="100%">
+<tr bgcolor="#eeeeee" valign="top">
+<td><b>Attribute</b></td><td><b>Dynamic</b></td><td><b>Type</b></td><td><b>Default</b></td><td width="100%"><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td>name</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				Name of the XML tag.
+			</td>
+</tr>
+<tr valign="top">
+<td>uri</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				Namespace URI of the XML tag, which will be the value
+				of an XMLNS attribute.
+			</td>
+</tr>
+<tr valign="top">
+<td>attr</td><td>yes</td><td>String<br>org.xml.sax.helpers.AttributesImpl</td><td>null</td><td width="100%">
+				Attributes of the XML tag.
+				The value of the evaluated expression is expected to be
+				a SAX AttributesImpl object or a list of names of JSP variables
+				separated by spaces. In the latter case, the attributes will 
+				have the names and values of the JSP variables.
+			</td>
+</tr>
+</table>
+<p>
+<br>
+</p>
+<h3>
+<a name="end">&lt;end&gt;</a>
+</h3>
+<p>
+			Outputs an XML end tag.
+		</p>
+<p>
+<b>Syntax:</b>
+<br>
+<code>
+				&lt;o:end
+					name="<i>string</i>"/&gt;
+			</code>
+</p>
+<table cellspacing="1" cellpadding="6" border="1" width="100%">
+<tr bgcolor="#eeeeee" valign="top">
+<td><b>Attribute</b></td><td><b>Dynamic</b></td><td><b>Type</b></td><td><b>Default</b></td><td width="100%"><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td>name</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				Name of the XML tag.
+			</td>
+</tr>
+</table>
+<p>
+<br>
+</p>
+<h3>
+<a name="attributes">&lt;attributes&gt;</a>
+</h3>
+<p>
+			Exports a variable holding a SAX list of attributes.
+		</p>
+<p>
+<b>Syntax:</b>
+<br>
+<code>
+				&lt;o:attributes
+					var="<i>name</i>"
+					[scope="<u>page</u>|request|session|application"]
+					[copy="<i>attributes</i>"]&gt;
+				<br>
+<i>...&lt;/o:attribute&gt; actions...</i>
+<br>
+				&lt;/o:attributes&gt;
+			</code>
+</p>
+<table cellspacing="1" cellpadding="6" border="1" width="100%">
+<tr bgcolor="#eeeeee" valign="top">
+<td><b>Attribute</b></td><td><b>Dynamic</b></td><td><b>Type</b></td><td><b>Default</b></td><td width="100%"><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td>var</td><td>no</td><td>String</td><td>null</td><td width="100%">
+				Name of the variable exported by this action.
+				The value of the variable will be the SAX object that holds
+				the attributes.
+			</td>
+</tr>
+<tr valign="top">
+<td>scope</td><td>no</td><td>String</td><td>page</td><td width="100%">
+				Scope of the variable exported by this action.
+			</td>
+</tr>
+<tr valign="top">
+<td>copy</td><td>yes</td><td>org.xml.sax.helpers.AttributesImpl</td><td>null</td><td width="100%">
+				Initial attribute list, which is empty by default.
+				The value of the evaluated expression is expected to be
+				a org.xml.sax.helpers.AttributesImpl object.
+				The list of attributes exported by this action 
+				will contain copies of all attributes of the given initial list.
+			</td>
+</tr>
+</table>
+<p>
+<br>
+</p>
+<h3>
+<a name="attribute">&lt;attribute&gt;</a>
+</h3>
+<p>
+			Adds an attribute to a variable exported by
+			&lt;o:attributes&gt;.
+		</p>
+<p>
+<b>Syntax: Value specified via an attribute</b>
+<br>
+<code>
+				&lt;o:attribute
+					name="<i>string</i>"
+					value="<i>string</i>"/&gt;
+			</code>
+</p>
+<p>
+<b>Syntax: Value specified via the body content</b>
+<br>
+<code>
+				&lt;o:attribute
+					name="<i>string</i>"&gt;
+				<br>
+<i>...value...</i>
+<br>
+				&lt;/o:attribute&gt;
+			</code>
+</p>
+<table cellspacing="1" cellpadding="6" border="1" width="100%">
+<tr bgcolor="#eeeeee" valign="top">
+<td><b>Attribute</b></td><td><b>Dynamic</b></td><td><b>Type</b></td><td><b>Default</b></td><td width="100%"><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td>name</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				Attribute name.
+			</td>
+</tr>
+<tr valign="top">
+<td>value</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				Attribute value.
+			</td>
+</tr>
+</table>
+<p>
+<br>
+</p>
+<h3>
+<a name="data">&lt;data&gt;</a>
+</h3>
+<p>
+			Outputs XML character data.
+		</p>
+<p>
+<b>Syntax: Data specified via an attribute</b>
+<br>
+<code>
+				&lt;o:data
+					value="<i>string</i>"
+					[section="<i>boolean</i>"]/&gt;
+			</code>
+</p>
+<p>
+<b>Syntax: Data specified via the body content</b>
+<br>
+<code>
+				&lt;o:data
+					[section="<i>boolean</i>]"&gt;
+				<br>
+<i>...value...</i>
+<br>
+				&lt;/o:data&gt;
+			</code>
+</p>
+<table cellspacing="1" cellpadding="6" border="1" width="100%">
+<tr bgcolor="#eeeeee" valign="top">
+<td><b>Attribute</b></td><td><b>Dynamic</b></td><td><b>Type</b></td><td><b>Default</b></td><td width="100%"><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td>value</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				Character data.
+			</td>
+</tr>
+<tr valign="top">
+<td>section</td><td>yes</td><td>boolean</td><td>false</td><td width="100%">
+				Flag indicating if the character data should be produced
+				as a CDATA section.
+			</td>
+</tr>
+</table>
+<p>
+<br>
+</p>
+<h3>
+<a name="comment">&lt;comment&gt;</a>
+</h3>
+<p>
+			Outputs an XML comment.
+		</p>
+<p>
+<b>Syntax: Comment specified via an attribute</b>
+<br>
+<code>
+				&lt;o:comment
+					text="<i>string</i>"/&gt;
+			</code>
+</p>
+<p>
+<b>Syntax: Comment specified via the body content</b>
+<br>
+<code>
+				&lt;o:comment&gt;
+				<br>
+<i>...text...</i>
+<br>
+				&lt;/o:comment&gt;
+			</code>
+</p>
+<table cellspacing="1" cellpadding="6" border="1" width="100%">
+<tr bgcolor="#eeeeee" valign="top">
+<td><b>Attribute</b></td><td><b>Dynamic</b></td><td><b>Type</b></td><td><b>Default</b></td><td width="100%"><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td>text</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				Text of the comment.
+			</td>
+</tr>
+</table>
+<p>
+<br>
+</p>
+<h3>
+<a name="pi">&lt;pi&gt;</a>
+</h3>
+<p>
+			Outputs an XML processing instruction.
+		</p>
+<p>
+<b>Syntax: Data specified via an attribute</b>
+<br>
+<code>
+				&lt;o:pi
+					target="<i>string</i>"
+					data="<i>string</i>"/&gt;
+			</code>
+</p>
+<p>
+<b>Syntax: Data specified via the body content</b>
+<br>
+<code>
+				&lt;o:pi
+					target="<i>string</i>"&gt;
+				<br>
+<i>...data...</i>
+<br>
+				&lt;/o:pi&gt;
+			</code>
+</p>
+<table cellspacing="1" cellpadding="6" border="1" width="100%">
+<tr bgcolor="#eeeeee" valign="top">
+<td><b>Attribute</b></td><td><b>Dynamic</b></td><td><b>Type</b></td><td><b>Default</b></td><td width="100%"><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td>target</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				Target of the processing instruction.
+			</td>
+</tr>
+<tr valign="top">
+<td>data</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				Data of the processing instruction.
+			</td>
+</tr>
+</table>
+<P>
+<CENTER>
+<A HREF="../../index.html">Devsphere Java XML Projects - Documentation</A>
+</CENTER>
+</P>
+</body>
+</html>

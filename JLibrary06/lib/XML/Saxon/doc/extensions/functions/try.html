@@ -1,0 +1,234 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: saxon:try()</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: saxon:try()">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:1300px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:1300px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:1300px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:1300px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../../index/intro.html"><img src="../../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro.html">Introduction</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../exslt.html">EXSLT Extensions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../attributes.html">Extension attributes (XSLT only)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../output-extras.html">Additional serialization parameters</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="../functions.html">Extension functions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../instructions.html">Extension instructions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>saxon:try()</h1>
+         <p><i>This function is available only in Saxon-SA</i></p>
+         <p>This function provides a simple way of recovering from dynamic errors (including type
+            errors). It comes in two forms:
+         </p>
+         <p><b>try($arg1 as item()*, $arg2 as function) ==&gt; item()*</b></p>
+         <p>This returns the value of the first argument, unless evaluation of the first argument
+            fails. If a failure occurs, then the function identified by the second argument (created
+            using <a class="bodylink" href="../../extensions/functions/function.html">saxon:function</a>)
+            is called, supplying error information as an argument. For example:
+         </p>
+         <div class="codeblock" style="border: solid thin; background-color: #B1CCC7; padding: 2px"><pre><code>&lt;xsl:template match="/"&gt;
+  &lt;o&gt;
+    &lt;xsl:copy-of select="saxon:try(1 div 0, 
+                            saxon:function('f:catch-division-error',1))"/&gt;
+  &lt;/o&gt;
+&lt;/xsl:template&gt;
+
+&lt;xsl:function name="f:catch-division-error"&gt;
+ &lt;xsl:param name="error-info"/&gt;
+ &lt;xsl:sequence select="$error-info"/&gt;
+&lt;/xsl:function&gt;</code></pre></div>
+         <p>This produces the output:</p>
+         <div class="codeblock" style="border: solid thin; background-color: #B1CCC7; padding: 2px"><pre><code>&lt;o&gt;
+  &lt;error code="FOAR0001" 
+         namespace="http://www.w3.org/2004/07/xqt-errors"
+         module="file:/c:/MyJava/tests/testsuite/saxon/saxon87.xsl"
+         line="15"&gt;
+    &lt;message&gt;Integer division by zero&lt;/message&gt;
+  &lt;/error&gt;
+&lt;/o&gt;</code></pre></div>
+         <p>The error information is passed to the catch function in the form of an XML document node. This contains
+            a single <code>&lt;error&gt;</code> element as its outermost element. The <code>&lt;error&gt;</code>
+            element has a <code>&lt;message&gt;</code> element child giving the text of the error message, and
+            attributes giving the error code, the namespace of the error code, and the module, line number and column number
+            of the place where the error occurred. Information that is not available is omitted. Further attributes and child
+            elements may be added to this structure in future releases (for example, to provide a stack trace or information
+            about underlying errors.)
+         </p>
+         <p>If you want to handle some errors but not others, the way to achieve this is to catch all errors, and then
+            re-throw those that you don't want to handle. This can be achieved by calling
+            <code>error(xs:QName($error-info/error/@namespace, $error-info/error/@code), $error-info/error/message, $error-info)</code>
+            (The third argument is recognized as being an <code>&lt;error&gt;</code> element, and the location information
+            is extracted and placed in the exception that is then thrown.)
+         </p>
+         <p><b>try($arg1 as item()*, $arg2 as item()*) ==&gt; item()*</b></p>
+         <p>This simpler form of the function returns the value of the first argument, unless evaluation of the first argument
+            fails. If a failure occurs, then the second argument is evaluated and its value is returned.
+         </p>
+         <p>Here is an example showing the simpler form of call: the expression
+            <code>saxon:try(1 div 0, "divide by zero")</code> returns the string "divide by zero".
+         </p>
+         <p>To recover from failures occurring in XSLT instructions, for example schema validation errors,
+            wrap the instructions in a stylesheet function (<code>xsl:function</code>) and call this function
+            within a call of <code>saxon:try()</code>.
+         </p>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="typeannotation.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

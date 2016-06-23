@@ -1,0 +1,137 @@
+<HTML>
+<HEAD>
+<TITLE>WrapperTransformer</TITLE>
+</HEAD>
+<BODY>
+
+ <CENTER><H1>WrapperTransformer</H1></CENTER>
+
+ <P>This example is based on <CODE>SmartTransformer</CODE>, but it creates
+ an HTML file as output. The SAX events are ignored during the mixed parsing.
+ The markup that results from the transformation of the DOM trees
+ is outputted between a header and a footer, which are taken from an HTML
+ wrapper.
+
+ <P>We have the following <CODE>WrapperTransformer.xml</CODE> file:
+ <PRE>
+    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;table&gt;
+        &lt;record&gt;
+            &lt;painter&gt;Matisse, Henri&lt;/painter&gt;
+            &lt;title&gt;La Musique&lt;/title&gt;
+            &lt;year&gt;1939&lt;/year&gt;
+            &lt;size&gt;115.2 x 115.2 cm&lt;/size&gt;
+        &lt;/record&gt;
+        &lt;record&gt;
+            &lt;painter&gt;Monet, Claude&lt;/painter&gt;
+            &lt;title&gt;The Artist's Garden at Vetheuil&lt;/title&gt;
+            &lt;year&gt;1881&lt;/year&gt;
+            &lt;size&gt;100 x 80 cm&lt;/size&gt;
+        &lt;/record&gt;
+        &lt;record&gt;
+            &lt;painter&gt;Monet, Claude&lt;/painter&gt;
+            &lt;title&gt;Poplars along the River Epte, Autumn&lt;/title&gt;
+            &lt;year&gt;1891&lt;/year&gt;
+            &lt;size&gt;100 x 65 cm&lt;/size&gt;
+        &lt;/record&gt;
+        &lt;record&gt;
+            &lt;painter&gt;Monet, Claude&lt;/painter&gt;
+            &lt;title&gt;Meule, Soleil Couchant&lt;/title&gt;
+            &lt;year&gt;1891&lt;/year&gt;
+            &lt;size&gt;73.3 x 92.6 cm&lt;/size&gt;
+        &lt;/record&gt;
+        &lt;record&gt;
+            &lt;painter&gt;Turner, Joseph Mallord William&lt;/painter&gt;
+            &lt;title&gt;Snowstorm&lt;/title&gt;
+            &lt;year&gt;1842&lt;/year&gt;
+            &lt;size&gt;91.5 x 122 cm&lt;/size&gt;
+        &lt;/record&gt;
+    &lt;/table&gt;</PRE>
+
+ <P>We want to transform the XML table into an HTML table
+ using <CODE>WrapperTransformer.xsl</CODE>:
+ <PRE>
+    &lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+    &lt;xsl:stylesheet version="1.0"
+        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+        &lt;xsl:template match="record"&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;xsl:value-of select="painter"/&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;xsl:value-of select="title"/&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;xsl:value-of select="year"/&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;xsl:value-of select="size"/&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/xsl:template&gt;
+
+    &lt;/xsl:stylesheet&gt;</PRE>
+
+ <P>The <CODE>$$$</CODE> string from the following <CODE>wrapper.html</CODE> file will be
+ replaced with the content of the table.
+ <PRE>
+    &lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Table&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;table cellpadding="5" cellspacing="5" border="1"&gt;
+    $$$
+    &lt;/table&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</PRE>
+
+ <P>Execute this command:
+ <PRE>
+    java com.devsphere.examples.xml.saxdomix.WrapperTransformer
+    -in WrapperTransformer.xml -out WrapperTransformer.html
+    -xsl WrapperTransformer.xsl -method xhtml -omitdecl
+    -wrapper wrapper.html -variable $$$</PRE>
+
+ <P>The resulted <CODE>WrapperTransformer.html</CODE> file looks like this:
+ <PRE>
+    &lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Table&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;table cellpadding="5" cellspacing="5" border="1"&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Matisse, Henri&lt;/td&gt;
+        &lt;td&gt;La Musique&lt;/td&gt;
+        &lt;td&gt;1939&lt;/td&gt;
+        &lt;td&gt;115.2 x 115.2 cm&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Monet, Claude&lt;/td&gt;
+        &lt;td&gt;The Artist's Garden at Vetheuil&lt;/td&gt;
+        &lt;td&gt;1881&lt;/td&gt;
+        &lt;td&gt;100 x 80 cm&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Monet, Claude&lt;/td&gt;
+        &lt;td&gt;Poplars along the River Epte, Autumn&lt;/td&gt;
+        &lt;td&gt;1891&lt;/td&gt;
+        &lt;td&gt;100 x 65 cm&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Monet, Claude&lt;/td&gt;
+        &lt;td&gt;Meule, Soleil Couchant&lt;/td&gt;
+        &lt;td&gt;1891&lt;/td&gt;
+        &lt;td&gt;73.3 x 92.6 cm&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Turner, Joseph Mallord William&lt;/td&gt;
+        &lt;td&gt;Snowstorm&lt;/td&gt;
+        &lt;td&gt;1842&lt;/td&gt;
+        &lt;td&gt;91.5 x 122 cm&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;/table&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</PRE>
+
+<P><CENTER><A HREF="../../index.html">Devsphere Java XML Projects - Documentation</A></CENTER>
+
+</BODY>
+</HTML>

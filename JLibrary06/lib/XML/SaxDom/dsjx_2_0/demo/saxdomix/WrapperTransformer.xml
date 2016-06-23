@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table>
+    <record>
+        <painter>Matisse, Henri</painter>
+        <title>La Musique</title>
+        <year>1939</year>
+        <size>115.2 x 115.2 cm</size>
+    </record>
+    <record>
+        <painter>Monet, Claude</painter>
+        <title>The Artist's Garden at Vetheuil</title>
+        <year>1881</year>
+        <size>100 x 80 cm</size>
+    </record>
+    <record>
+        <painter>Monet, Claude</painter>
+        <title>Poplars along the River Epte, Autumn</title>
+        <year>1891</year>
+        <size>100 x 65 cm</size>
+    </record>
+    <record>
+        <painter>Monet, Claude</painter>
+        <title>Meule, Soleil Couchant</title>
+        <year>1891</year>
+        <size>73.3 x 92.6 cm</size>
+    </record>
+    <record>
+        <painter>Turner, Joseph Mallord William</painter>
+        <title>Snowstorm</title>
+        <year>1842</year>
+        <size>91.5 x 122 cm</size>
+    </record>
+</table>

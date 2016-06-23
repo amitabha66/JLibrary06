@@ -1,0 +1,131 @@
+In using FXDI programs, you must agree to the following license agreement.
+
+Software License Agreement
+--------------------------
+
+PLEASE READ THE TERMS AND CONDITIONS OF THIS LICENSE AGREEMENT CAREFULLY BEFORE YOU START
+USE FXDI (THE "PROGRAM") TOGETHER WITH ASSOCIATED DOCUMENTS (COLLECTIVELY REFERRED TO AS
+"SOFTWARE"). THIS LICENSE AGREEMENT ("AGREEMENT") REPRESENTS THE ENTIRE AGREEMENT CONCERNING
+THE PROGRAM BETWEEN YOU ("LICENSEE") AND FUJITSU LIMITED ("LICENSOR"). 
+
+1. DEFINITIONS 
+
+"Expiration Date" for this Agreement shall mean Dec 31, 2007.
+
+2. LICENSE GRANT 
+
+A Licensor hereby grants to Licensee a non-exclusive, non-transferable limited license
+to use the Software under the terms and conditions of this Agreement during the term of
+this Agreement only for the purpose written below ("Purpose"):
+
+(a) of performing activities authorized by W3C Efficient XML Interchange Working Group;
+
+or
+
+(b) of academic use of the Software such as study in universities or public research
+    organizations. 
+
+Licensee may install the Software on up to one (1) computer.
+
+B Licensee shall not: 
+
+(a) use the Software for commercial purposes, including purposes of making profit by
+    internally using the Software;
+
+(b) transfer, sell, supply, assign or otherwise convey or distribute the Software
+    in whole or in part;
+
+(c) modify, adapt, amend, merge or otherwise alter the Software, in whole or in part,
+    without Licensor's prior written consent;
+
+(d) attempt reverse engineering, disassembly, or decompilation of any part of the Software; or
+
+(e) remove, alter or delete any copyright notices, proprietary markings or confidential
+    legends placed upon or contained within the Software. 
+
+3. LIMITATION OF LIABILITY 
+
+A IN NO EVENT SHALL LICENSOR BE LIABLE TO LICENSEE OR TO ANY THIRD PARTY, FOR ANY LOST
+  PROFITS, LOST DATA, EQUIPMENT DOWNTIME, OR FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+  SPECIAL OR CONSEQUENTIAL DAMAGES, ARISING OUT OF OR IN CONNECTION WITH THE PROGRAM OR
+  THIS AGREEMENT, EVEN IF LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. 
+
+B LICENSOR WILL NOT PROVIDE ERROR CORRECTION, PROGRAM UPDATES, AND ANY OTHER MAINTENANCE
+  ACTIVITIES AND SUPPORTS EVEN IF LICENSOR RECEIVES A BUG AND/OR ERROR REPORT RELATING
+  TO THE PROGRAM BY LICENSEE.
+
+4. WARRANTY DISCLAIMER 
+
+LICENSEE ACKNOWLEDGES AND AGREES THAT THE PROGRAM IS PROVIDED "AS IS", WITHOUT ANY WARRANTY
+OF ANY KIND. LICENSOR HEREBY EXPRESSLY DISCLAIMS ANY AND ALL WARRANTIES OF ANY KIND OR NATURE,
+WHETHER EXPRESS, IMPLIED, OR STATUTORY, RELATING TO THE PROGRAM, INCLUDING ANY WARRANTIES OF
+TITLE, NON-INFRINGEMENT, MARCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND UNINTERRUPTED
+OR ERROR FREE OPERATION.
+
+5. COPYRIGHT/OWNERSHIP 
+
+Licensee acknowledges and agrees that Licensor retains all rights, title, and interest,
+including all intellectual property rights, in the Software and any modification thereto
+by Licensee and that Licensee is acquiring only a limited use right under this Agreement. 
+
+6. TERM OF AGREEMENT 
+
+A Unless terminated earlier as provided herein, this Agreement shall continue in full
+  force and effect from the date when Licensee downloaded the Software through the
+  Expiration Date. Licensor may terminate this Agreement at any time, and with or without
+  cause, by written notice to Licensee. 
+
+B In the event that Licensee has committed a material breach of this Agreement, Licensor
+  shall have the right to terminate this Agreement immediately. 
+
+C Upon any termination or expiration of this Agreement, the licenses granted herein shall
+  terminate, and Licensee shall immediately cease to use the Software and shall promptly
+  destroy the Software and erase all copies occurred by installation of the Software. 
+
+7. SURVIVAL 
+
+Articles 3, 4, 5, 6C, 7, 8, 9, 10, 11, and 12 shall survive any termination or expiration
+of this Agreement. 
+
+8. ATTORNEYS' FEES; GOVERNING LAW 
+
+All disputes arisen in connection with this Agreement shall be settled by Tokyo District
+Court in Japan. In the event of any litigation or other legal proceedings between the
+parties, the prevailing party shall be entitled to reasonable attorneys' fees and all
+costs of proceedings incurred in enforcing this Agreement. The validity, interpretation,
+and performance of this Agreement shall be governed by the laws of Japan, excluding its
+conflict of law rules. 
+
+9. INJUNCTIVE RELIEF 
+
+Licensee understands that any violation of this Agreement would subject Licensor to
+irreparable injury. Therefore, in addition to any remedies otherwise available, Licensor
+shall be entitled to injunctive relief or equitable relief as well as monetary damages
+as may be deemed proper or necessary by a court of competent jurisdiction. 
+
+10. ASSIGNMENT 
+
+No rights and obligations under this Agreement shall be assigned by Licensee whether
+voluntarily or involuntarily or by operation of law, in whole or in part, to any party
+without the prior written consent of Licensor, which consent may be granted or refused
+at Licensor's sole discretion. No such assignment by Licensee howsoever occurring shall
+relieve Licensee of its rights and obligations hereunder. Any assignment in violation of
+this Article 10 shall be null and void from the beginning, and shall be deemed a material
+breach of this Agreement. 
+
+11. SEVERABILITY. 
+
+If any provision of this Agreement is declared or found to be illegal, unenforceable or
+void, then it will be amended to the extent necessary to make it legal and enforceable
+while preserving its intent; the unenforceability of any provision of this Agreement
+will not impair the enforceability of any other provision of this Agreement. 
+
+12. ENTIRE AGREEMENT 
+
+This Agreement supersedes any arrangements, understandings, promises or agreements
+made or existing between the parties hereto prior to or simultaneously with this
+Agreement and constitutes the entire understanding between the parties hereto.
+No addition, amendment to or modification of this Agreement shall be effective unless
+it is in writing and signed by and on behalf of both parties. It is acknowledged that
+the terms of this Agreement have been negotiated between the parties. 
+

@@ -1,0 +1,389 @@
+<HTML>
+<HEAD>
+<TITLE>XML Processing JSP Actions: Examples</TITLE>
+</HEAD>
+<BODY>
+
+<CENTER>
+<H1>XML Processing JSP Actions
+<BR>Examples</H1>
+<h3>JSP Tag Library for Fast and Easy XML Parsing</h3>
+</CENTER>
+
+<P><CENTER>
+<A HREF="index.html">Overview</A>&nbsp;&nbsp;&nbsp;
+<A HREF="deploy.html">Deployment</A>&nbsp;&nbsp;&nbsp;
+<A HREF="builder.html">Builder</A>&nbsp;&nbsp;&nbsp;
+<A HREF="reference.html">Reference</A>&nbsp;&nbsp;&nbsp;
+<A HREF="../../api/index.html">API</A>
+</CENTER></P>
+
+<P>The following JSP examples process XML documents using
+<UL>
+<LI>Devsphere XML JSP Tag Library (XJTL)
+<LI>Apache/Sun JSP Standard Tag Library (JSTL)
+</UL></P>
+
+<P>XJTL supports the SAX and DOM standards hiding their complexities from the JSP developer. JSTL supports DOM, XPath and XSLT. The XML processing methods of XJTL and JSTL are different, but this doesn't mean that you can't use these two JSP tag libraries together since they complement each other.</P>
+
+<P>The <CODE>JSTLParse.jsp</CODE>, <CODE>XJTLParse.jsp</CODE> and <CODE>XJTLParse2.jsp</CODE> examples process the <CODE>sample.xml</CODE> file whose content is listed below:</P>
+
+<PRE>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;person id='js890'&gt;
+    &lt;name&gt;John Smith&lt;/name&gt;
+    &lt;email&gt;John.Smith@yahoo.com&lt;/email&gt;
+    &lt;phone&gt;650-123-4567&lt;/phone&gt;
+    &lt;address city='Palo Alto' state='CA' zip='94303' country='USA'&gt;
+        &lt;line1&gt;JS Information Systems, Inc.&lt;/line1&gt;
+        &lt;line2&gt;1001 San Antonio Road&lt;/line2&gt;
+    &lt;/address&gt;
+&lt;/person&gt;
+</PRE>
+
+<P>The <CODE>JSTLTable.jsp</CODE>, <CODE>XJTLTable.jsp</CODE> and <CODE>XJTLTable2.jsp</CODE> examples process the <CODE>big.xml</CODE> file that contains 10,000 XML fragments with the same structure as <CODE>sample.xml</CODE>.</P>
+
+<PRE>
+&lt;?xml version='1.0' encoding='US-ASCII'?&gt;
+&lt;database&gt;
+    &lt;person id='000000'&gt;
+        ...
+    &lt;/person&gt;
+    &lt;person id='000001'&gt;
+        ...
+    &lt;/person&gt;
+    &lt;person id='000002'&gt;
+        ...
+    &lt;/person&gt;
+
+    ....................
+
+    &lt;person id='009999'&gt;
+        ...
+    &lt;/person&gt;
+&lt;/database&gt;
+</PRE>
+
+<P>We use "c", "x" and "p" as prefixes for the actions of JSTL Core, JSTL XML and XJTL Process, respectively:
+
+<PRE>
+&lt;%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %&gt;
+&lt;%@ taglib prefix="x" uri="http://java.sun.com/jstl/xml" %&gt;
+&lt;%@ taglib prefix="p" uri="http://devsphere.com/xml/taglib/process" %&gt;
+</PRE>
+
+
+
+
+
+<H2>JSTLParse.jsp</H2>
+
+<PRE>
+http://localhost:8080/xjtldemo/process/JSTLParse.jsp
+</PRE>
+
+<P>This JSTL example parses an XML file called <CODE>sample.xml</CODE> and queries the obtained DOM tree with XPath.</P>
+
+<PRE>
+&lt;c:import var="xml" url="sample.xml"/&gt;
+&lt;x:parse varDom="dom" xml="${xml}"/&gt;
+&lt;x:set var="attrPersonId"       select="string($dom/person/@id)"/&gt;
+&lt;x:set var="dataName"           select="string($dom/person/name/text())"/&gt;
+&lt;x:set var="dataEmail"          select="string($dom/person/email/text())"/&gt;
+&lt;x:set var="dataPhone"          select="string($dom/person/phone/text())"/&gt;
+&lt;x:set var="attrAddressCity"    select="string($dom/person/address/@city)"/&gt;
+&lt;x:set var="attrAddressState"   select="string($dom/person/address/@state)"/&gt;
+&lt;x:set var="attrAddressZip"     select="string($dom/person/address/@zip)"/&gt;
+&lt;x:set var="attrAddressCountry" select="string($dom/person/address/@country)"/&gt;
+&lt;x:set var="dataAddressLine1"   select="string($dom/person/address/line1/text())"/&gt;
+&lt;x:set var="dataAddressLine2"   select="string($dom/person/address/line2/text())"/&gt;
+</PRE>
+
+<P>The <CODE>&lt;c:import&gt;</CODE> action loads the <CODE>sample.xml</CODE> file and stores its content into a JSP variable called <CODE>xml</CODE>. The <CODE>&lt;x:parse&gt;</CODE> action parses the XML content and creates a new JSP variable called <CODE>dom</CODE> that holds the resulted DOM tree.</P>
+
+<P>There are 10 pieces of information maintained in the DOM tree as attribute values or character data. Each such information can be identified by an XPath and stored in a JSP variable with the help of the <CODE>&lt;x:set&gt;</CODE> action. For example, the <CODE>"string($dom/person/name/text())"</CODE> XPath identifies the name of the person whose contact information in stored in our XML document. The <CODE>&lt;x:set&gt;</CODE> action stores the person's name into a JSP variable called <CODE>dataName</CODE>.</P>
+
+
+
+
+<H2>XJTLParse.jsp</H2>
+
+<PRE>
+http://localhost:8080/xjtldemo/process/XJTLParse.jsp
+</PRE>
+
+<P>This is the XJTL version of the previous JSTL example. It doesn't create a DOM tree in memory and it does not need XPath to identify the information from the XML document. It uses instead the very efficient SAX parsing method internally and it creates the JSP variables on the fly. This is the XML content that has to be parsed:</P>
+
+<PRE>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;person id='js890'&gt;
+    &lt;name&gt;John Smith&lt;/name&gt;
+    &lt;email&gt;John.Smith@yahoo.com&lt;/email&gt;
+    &lt;phone&gt;650-123-4567&lt;/phone&gt;
+    &lt;address city='Palo Alto' state='CA' zip='94303' country='USA'&gt;
+        &lt;line1&gt;JS Information Systems, Inc.&lt;/line1&gt;
+        &lt;line2&gt;1001 San Antonio Road&lt;/line2&gt;
+    &lt;/address&gt;
+&lt;/person&gt;
+</PRE>
+
+<P>The JSP code uses the XJTL actions to process the above XML content.</P>
+
+<PRE>
+&lt;p:parse systemId="sample.xml" ignoreSpaces="true"&gt;
+    &lt;p:element varAttr="attrPerson" testName="person"&gt;
+        &lt;p:element testName="name"&gt;&lt;p:data varData="dataName"/&gt;&lt;/p:element&gt;
+        &lt;p:element testName="email"&gt;&lt;p:data varData="dataEmail"/&gt;&lt;/p:element&gt;
+        &lt;p:element testName="phone"&gt;&lt;p:data varData="dataPhone"/&gt;&lt;/p:element&gt;
+        &lt;p:element varAttr="attrAddress" testName="address"&gt;
+            &lt;p:element testName="line1"&gt;&lt;p:data varData="dataAddressLine1"/&gt;&lt;/p:element&gt;
+            &lt;p:element testName="line2"&gt;&lt;p:data varData="dataAddressLine2"/&gt;&lt;/p:element&gt;
+        &lt;/p:element&gt;
+    &lt;/p:element&gt;
+&lt;/p:parse&gt;
+</PRE>
+
+<P>The <CODE>&lt;p:parse&gt;</CODE> action of XJTL starts the parsing of the XML document using SAX and it iterates over the SAX events generated by the XML parser. Those SAX events are intercepted for processing by the <CODE>&lt;p:element&gt;</CODE> and <CODE>&lt;p:data&gt;</CODE> actions in the body of <CODE>&lt;p:parse&gt;</CODE>.</P> 
+
+<P>The <CODE>ignoreSpaces</CODE> flag is set to <CODE>true</CODE> in order to ignore the irrelevant indenting spaces between the XML elements. This feature of the <CODE>&lt;p:parse&gt;</CODE> action can be used to speed the parsing.</P>
+
+<P>There is one <CODE>&lt;p:element&gt;</CODE> action for each element of the XML document. Those XJTL actions form a tree structure similar to the hierarchy of the XML elements. The body of a <CODE>&lt;p:element&gt;</CODE> action is evaluated only if its <CODE>testName</CODE> attribute has the same value as the name of the current element of the SAX parsing. For example, <CODE>&lt;p:element testName="email"&gt;</CODE> is executed only for the <CODE>&lt;email&gt;</CODE> XML element. 
+
+The <CODE>&lt;p:element&gt;</CODE> action has additional attributes named <CODE>testQname</CODE> and <CODE>testUri</CODE> that can be used to test the qualified name and the namespace URI of an XML element. If these tests aren't enough, you may use the <CODE>test</CODE> attribute that accepts an arbitrary conditional expression just like the <CODE>&lt;c:if&gt;</CODE> action of JSTL.</P>
+
+<P>When an XML element has attributes, the corresponding <CODE>&lt;p:element&gt;</CODE> action creates a JSP variable that holds a <CODE>java.util.Map</CODE> object containing the name-value attribute pairs. The default name of this JSP variable is <CODE>attr</CODE> and it can be changed by adding a <CODE>varAttr</CODE> attribute to the <CODE>&lt;p:element&gt;</CODE> action. For example, the <CODE>&lt;p:element&gt;</CODE> that processes the <CODE>&lt;address&gt;</CODE> element has <CODE>varAttr="attrAddress"</CODE>. The attributes of the XML element are accessed later in the JSP page using JSTL:</P>
+
+<PRE>
+&lt;BR&gt;City:    &lt;c:out value="${attrAddress.city}"/&gt;
+&lt;BR&gt;State:   &lt;c:out value="${attrAddress.state}"/&gt;
+&lt;BR&gt;ZIP:     &lt;c:out value="${attrAddress.zip}"/&gt;
+&lt;BR&gt;Country: &lt;c:out value="${attrAddress.country}"/&gt;
+</PRE>
+
+<P>The <CODE>&lt;p:element&gt;</CODE> also exports variables that hold the local name, qualified name and namespace URI of the processed XML element, but these aren't used in this example. Also, a very useful feature of XJTL is the ability to export a DOM tree in the middle of the SAX-based processing. The <CODE>XJTLTable2.jsp</CODE> example will show how this works.</P>
+
+<P>When an XML element wraps some character data, the corresponding <CODE>&lt;p:element&gt;</CODE> contains a <CODE>&lt;p:data&gt;</CODE> action, which exports a JSP variable holding the XML data. The default name of this JSP variable is <CODE>data</CODE> and it can be changed by adding a <CODE>varData</CODE> attribute to the <CODE>&lt;p:data&gt;</CODE> action. For example, the <CODE>&lt;p:element&gt;</CODE> that processes the <CODE>&lt;phone&gt;</CODE> element contains a <CODE>&lt;p:data&gt;</CODE> action that has <CODE>varData="dataPhone"</CODE>. The character data from the XML element is accessed later in the JSP page using JSTL:</P>
+
+<PRE>
+&lt;BR&gt;Phone:   &lt;c:out value="${dataPhone}"/&gt;
+</PRE>
+
+
+
+
+<H2>XJTLParse2.jsp</H2>
+
+<PRE>
+http://localhost:8080/xjtldemo/process/XJTLParse2.jsp
+</PRE>
+
+<P>The previous example shows how easy is to parse an XML document and retain its information into JSP variables. You can use the XJTL actions (<CODE>&lt;p:element&gt;</CODE> and <CODE>&lt;p:data&gt;</CODE>) to create JSP variables that hold the attribute values and the character data. XJTL also has two other actions called <CODE>&lt;p:start&gt;</CODE> and <CODE>&lt;p:end&gt;</CODE> whose bodies are evaluated when the processing of their parent <CODE>&lt;p:element&gt;</CODE> starts and ends.</P>
+
+<P>As mentioned earlier XJTL uses the SAX parsing method internally. The <CODE>&lt;p:parse&gt;</CODE> action iterates over the SAX events generated between a <CODE>startDocument()</CODE> event and an <CODE>endDocument()</CODE> event. The <CODE>&lt;p:element&gt;</CODE> action iterates over the SAX events generated between a <CODE>startElement()</CODE> event and an <CODE>endElement()</CODE> event. Multiple events can be consumed in a single iteration by the sub-actions contained by <CODE>&lt;p:parse&gt;</CODE> and <CODE>&lt;p:element&gt;</CODE>. You should always keep in mind that these are iteration tags and their body may be evaluated multiple times.</P>
+
+<P>The <CODE>&lt;p:start&gt;</CODE> and <CODE>&lt;p:end&gt;</CODE> actions can be included within <CODE>&lt;p:parse&gt;</CODE> to handle the <CODE>startDocument()</CODE> and <CODE>endDocument()</CODE> SAX events. The body of <CODE>&lt;p:parse&gt;</CODE> may be evaluated multiple times, but its <CODE>&lt;p:start&gt;</CODE> and <CODE>&lt;p:end&gt;</CODE> sub-actions will be executed only once when the parsing starts and ends, respectively.</P>
+
+<P>The <CODE>&lt;p:start&gt;</CODE> and <CODE>&lt;p:end&gt;</CODE> actions can also be included within <CODE>&lt;p:element&gt;</CODE> to handle the <CODE>startElement()</CODE> and <CODE>endElement()</CODE> SAX events. You'll normally use <CODE>&lt;p:start&gt;</CODE> if  you want to process the attributes of an element right after they become available as JSP variables. The <CODE>&lt;p:end&gt;</CODE> action is executed after the entire content of an XML element was processed and you have access to all JSP variables created by the sub-actions of the parent <CODE>&lt;p:element&gt;</CODE>.</P>
+
+<P>XJTL has default names for the JSP variables that hold the local name, qualified name, namespace URI, attributes and character data of an element. These default names are: <CODE>name, qname, uri, attr</CODE> and <CODE>data</CODE>. If you want to process the attributes and data of multiple elements as in <CODE>XJTLParse.jsp</CODE>, you have to provide your own names for these variables. Otherwise, they overwrite each other and the old values are lost. The <CODE>XJTLParse.jsp</CODE> example has unique variable names for each element: <CODE>attrPerson, dataName, dataEmail, dataPhone, attrAddress, dataAddressLine1, dataAddressLine2</CODE>.</P>
+
+<P>The following JSP fragment doesn't provide its own names for the JSP variables, but it handles all SAX events.  Each <CODE>&lt;p:start&gt;</CODE>, <CODE>&lt;p:end&gt;</CODE> and <CODE>&lt;p:data&gt;</CODE> action contains a comment that specifies the name of the handled SAX event followed by the JSP variables that are created.</P> 
+
+<PRE>
+&lt;p:parse systemId="sample.xml" ignoreSpaces="true"&gt;
+    &lt;p:start&gt; &lt;%-- startDocument --%&gt; &lt;/p:start&gt;
+    &lt;p:element testName="person"&gt;
+        &lt;p:start&gt; &lt;%-- startElement name="person", attr.id="js890" --%&gt; &lt;/p:start&gt;
+        &lt;p:element testName="name"&gt;
+            &lt;p:start&gt; &lt;%-- startElement name="name" --%&gt; &lt;/p:start&gt;
+            &lt;p:data&gt; &lt;%-- characters data="John Smith" --%&gt; &lt;/p:data&gt;
+            &lt;p:end&gt; &lt;%-- endElement name="name" --%&gt; &lt;/p:end&gt;
+        &lt;/p:element&gt;
+        &lt;p:element testName="email"&gt;
+            &lt;p:start&gt; &lt;%-- startElement name="email" --%&gt; &lt;/p:start&gt;
+            &lt;p:data&gt; &lt;%-- characters data="John.Smith@yahoo.com" --%&gt; &lt;/p:data&gt;
+            &lt;p:end&gt; &lt;%-- endElement name="email" --%&gt; &lt;/p:end&gt;
+        &lt;/p:element&gt;
+        &lt;p:element testName="phone"&gt;
+            &lt;p:start&gt; &lt;%-- startElement name="phone" --%&gt; &lt;/p:start&gt;
+            &lt;p:data&gt; &lt;%-- characters data="650-123-4567" --%&gt; &lt;/p:data&gt;
+            &lt;p:end&gt; &lt;%-- endElement name="phone" --%&gt; &lt;/p:end&gt;
+        &lt;/p:element&gt;
+        &lt;p:element testName="address"&gt;
+            &lt;p:start&gt; &lt;%-- startElement name="address", attr.city="Palo Alto", 
+                attr.state="CA", attr.zip="94303", attr.country="USA" --%&gt; &lt;/p:start&gt;
+            &lt;p:element testName="line1"&gt;
+                &lt;p:start&gt; &lt;%-- startElement name="line1" --%&gt; &lt;/p:start&gt;
+                &lt;p:data&gt; &lt;%-- characters data="JS Information Systems, Inc." --%&gt; &lt;/p:data&gt;
+                &lt;p:end&gt; &lt;%-- endElement name="line1" --%&gt; &lt;/p:end&gt;
+            &lt;/p:element&gt;
+            &lt;p:element testName="line2"&gt;
+                &lt;p:start&gt; &lt;%-- startElement name="line2" --%&gt; &lt;/p:start&gt;
+                &lt;p:data&gt; &lt;%-- characters data="1001 San Antonio Road" --%&gt; &lt;/p:data&gt;
+                &lt;p:end&gt; &lt;%-- endElement name="line2" --%&gt; &lt;/p:end&gt;
+            &lt;/p:element&gt;
+            &lt;p:end&gt; &lt;%-- endElement name="address" --%&gt; &lt;/p:end&gt;
+        &lt;/p:element&gt;
+        &lt;p:end&gt; &lt;%-- endElement name="person" --%&gt; &lt;/p:end&gt;
+    &lt;/p:element&gt;
+    &lt;p:end&gt; &lt;%-- endDocument --%&gt; &lt;/p:end&gt;
+&lt;/p:parse&gt;
+</PRE>
+
+<P>Usually, only some of the SAX events must to be handled. XJTL allows you to ignore the events that you don't need. The structure of the <CODE>XJTLParse2.jsp</CODE> example looks like this:</P>
+
+<PRE>
+&lt;p:parse systemId="sample.xml" ignoreSpaces="true"&gt;
+    &lt;p:start&gt; ... &lt;/p:start&gt;
+    &lt;p:element testName="person"&gt;
+        &lt;p:start&gt; ... &lt;/p:start&gt;
+        &lt;p:element testName="name"&gt;
+            &lt;p:data&gt; ... &lt;/p:data&gt;
+        &lt;/p:element&gt;
+        &lt;p:element testName="email"&gt;
+            &lt;p:data&gt; ... &lt;/p:data&gt;
+        &lt;/p:element&gt;
+        &lt;p:element testName="phone"&gt;
+            &lt;p:data&gt; ... &lt;/p:data&gt;
+        &lt;/p:element&gt;
+        &lt;p:element testName="address"&gt;
+            &lt;p:start&gt; ... &lt;/p:start&gt;
+            &lt;p:element testName="line1"&gt;
+                &lt;p:data&gt; ... &lt;/p:data&gt;
+            &lt;/p:element&gt;
+            &lt;p:element testName="line2"&gt;
+                &lt;p:data&gt; ... &lt;/p:data&gt;
+            &lt;/p:element&gt;
+        &lt;/p:element&gt;
+    &lt;/p:element&gt;
+    &lt;p:end&gt; ... &lt;/p:end&gt;
+&lt;/p:parse&gt;
+</PRE>
+
+
+
+
+<H2>JSTLTable.jsp</H2>
+
+<PRE>
+http://localhost:8080/xjtldemo/process/JSTLTable.jsp
+</PRE>
+
+<P>There are cases when a relational or object database is exported using an XML format and the resulted document must be processed. This happens, for example, when different application based on incompatible technologies must be integrated somehow. XML is a good choice for solving this type of problems because it is language and platform neutral.</P>
+
+<PRE>
+&lt;c:import var="xml" url="big.xml"/&gt;
+&lt;x:parse varDom="dom" xml="${xml}"/&gt;
+&lt;x:forEach var="person" select="$dom/database/person"&gt;
+&lt;x:set var="attrPersonId"       select="string($person/@id)"/&gt;
+&lt;x:set var="dataName"           select="string($person/name/text())"/&gt;
+&lt;x:set var="dataEmail"          select="string($person/email/text())"/&gt;
+&lt;x:set var="dataPhone"          select="string($person/phone/text())"/&gt;
+&lt;x:set var="attrAddressCity"    select="string($person/address/@city)"/&gt;
+&lt;x:set var="attrAddressState"   select="string($person/address/@state)"/&gt;
+&lt;x:set var="attrAddressZip"     select="string($person/address/@zip)"/&gt;
+&lt;x:set var="attrAddressCountry" select="string($person/address/@country)"/&gt;
+&lt;x:set var="dataAddressLine1"   select="string($person/address/line1/text())"/&gt;
+&lt;x:set var="dataAddressLine2"   select="string($person/address/line2/text())"/&gt;
+...
+&lt;/x:forEach&gt;
+</PRE>
+
+<P>The <CODE>JSTLTable.jsp</CODE> example is similar to <CODE>JSTLParse.jsp</CODE>, but it processes a file containing 10,000 XML "fragments" with the same structure. If we want to use JSTL, we have to parse this large XML document and create a DOM structure that takes a lot of memory. Then we iterate over the XML fragments using the <CODE>&lt;x:forEach&gt;</CODE> action of JSTL.</P>
+
+<P>Obviously, this is not a scalable solution. No matter how much memory we have, we can get an XML document that won't fit into the computer's memory as a DOM tree. Then the application will crash throwing an <CODE>OutOfMemoryError</CODE>. The <CODE>XJTLTable.jsp</CODE> example will show how to solve the scalability issue.</P>
+
+
+
+
+<H2>XJTLTable.jsp</H2>
+
+<PRE>
+http://localhost:8080/xjtldemo/process/XJTLTable.jsp
+</PRE>
+
+<P>The <CODE>XJTLTable.jsp</CODE> example solves the scalability problem  described earlier and it processes the same <CODE>big.xml</CODE> file as <CODE>JSTLTable.jsp</CODE>.</P>
+
+<PRE>
+&lt;?xml version='1.0' encoding='US-ASCII'?&gt;
+&lt;database&gt;
+    &lt;person id='000000'&gt;
+        ...
+    &lt;/person&gt;
+    &lt;person id='000001'&gt;
+        ...
+    &lt;/person&gt;
+    &lt;person id='000002'&gt;
+        ...
+    &lt;/person&gt;
+
+    ....................
+
+    &lt;person id='009999'&gt;
+        ...
+    &lt;/person&gt;
+&lt;/database&gt;
+</PRE>
+
+<P>Processing 10,000 XML fragments with XJTL is as simple and efficient as processing only one small piece of XML. The XJTL actions use the SAX parsing method internally and no data structures like DOM are created in memory.</P>
+
+<PRE>
+&lt;p:parse systemId="big.xml" ignoreSpaces="true"&gt;
+&lt;p:element testName="database"&gt;
+    &lt;p:element varAttr="attrPerson" testName="person"&gt;
+        &lt;p:element testName="name"&gt;&lt;p:data varData="dataName"/&gt;&lt;/p:element&gt;
+        &lt;p:element testName="email"&gt;&lt;p:data varData="dataEmail"/&gt;&lt;/p:element&gt;
+        &lt;p:element testName="phone"&gt;&lt;p:data varData="dataPhone"/&gt;&lt;/p:element&gt;
+        &lt;p:element varAttr="attrAddress" testName="address"&gt;
+            &lt;p:element testName="line1"&gt;&lt;p:data varData="dataAddressLine1"/&gt;&lt;/p:element&gt;
+            &lt;p:element testName="line2"&gt;&lt;p:data varData="dataAddressLine2"/&gt;&lt;/p:element&gt;
+        &lt;/p:element&gt;
+        &lt;p:end&gt;
+            ...
+        &lt;/p:end&gt;
+    &lt;/p:element&gt;
+&lt;/p:element&gt;
+&lt;/p:parse&gt;
+</PRE>
+
+<P>The first <CODE>&lt;p:element&gt;</CODE> action of <CODE>XJTLTable.jsp</CODE> will handle the root element of the XML element, which is <CODE>&lt;database&gt;</CODE>. All SAX events that are generated between the <CODE>&lt;database&gt;</CODE> start tag and the <CODE>&lt;/database&gt;</CODE> end tag will be handled inside the first <CODE>&lt;p:element&gt;</CODE> action, which iterates over those SAX events. Therefore, the second <CODE>&lt;p:element&gt;</CODE> action will handle all <CODE>&lt;person&gt;</CODE> elements that start the XML fragments. Inside the second <CODE>&lt;p:element&gt;</CODE> action, there are other XJTL actions that handle the sub-elements of <CODE>&lt;person&gt;</CODE>, and so on.</P>
+
+<P>The <CODE>&lt;p:element&gt;</CODE> and <CODE>&lt;p:data&gt;</CODE> actions of XJTL export JSP variables that contain the information of each XML fragment. Those JSP variables can be used within the <CODE>&lt;p:end&gt;</CODE> action that is executed after each fragment is parsed. After processing the information of an XML fragment, the XJTL actions are executed again and the JSP variables are overwritten with the new information from the next XML fragment. The old values of the JSP variables become available for the garbage collector, which will free the memory occupied by the already processed information. This allows us to process any XML document that can be split into reasonably large fragments.</P>
+
+
+
+
+<H2>XJTLTable2.jsp</H2>
+
+<PRE>
+http://localhost:8080/xjtldemo/process/XJTLTable2.jsp
+</PRE>
+
+<P>XJTL lets you get a DOM tree at any point during the processing of the XML content. You just have to add a <CODE>varDom</CODE> attribute to a <CODE>&lt;p:element&gt;</CODE> action, which will use the SAX events to build a DOM structure internally, instead of looping over the SAX events. Therefore, a <CODE>&lt;p:element&gt;</CODE> action with a <CODE>varDom</CODE> attribute may not contain other XJTL actions. The element handled by the <CODE>&lt;p:element&gt;</CODE> action will be the root of the constructed DOM tree. All elements, character data, processing instructions and comments that are contained directly or indirectly by the root element will be part of the DOM tree.</P>
+
+<PRE>
+&lt;p:parse systemId="big.xml" ignoreSpaces="true"&gt;
+&lt;p:element testName="database"&gt;
+    &lt;p:element varDom="person" testName="person"&gt;
+&lt;x:set var="attrPersonId"       select="string($person/@id)"/&gt;
+&lt;x:set var="dataName"           select="string($person/name/text())"/&gt;
+&lt;x:set var="dataEmail"          select="string($person/email/text())"/&gt;
+&lt;x:set var="dataPhone"          select="string($person/phone/text())"/&gt;
+&lt;x:set var="attrAddressCity"    select="string($person/address/@city)"/&gt;
+&lt;x:set var="attrAddressState"   select="string($person/address/@state)"/&gt;
+&lt;x:set var="attrAddressZip"     select="string($person/address/@zip)"/&gt;
+&lt;x:set var="attrAddressCountry" select="string($person/address/@country)"/&gt;
+&lt;x:set var="dataAddressLine1"   select="string($person/address/line1/text())"/&gt;
+&lt;x:set var="dataAddressLine2"   select="string($person/address/line2/text())"/&gt;
+...
+    &lt;/p:element&gt;
+&lt;/p:element&gt;
+&lt;/p:parse&gt;
+</PRE>
+
+<P>The XJTL support for DOM is useful, for example, when an action of some tag library requires DOM nodes as attributes. The <CODE>XJTLTable2.jsp</CODE> example gets each XML fragment of the <CODE>big.xml</CODE> file as a DOM tree that is processed with JSTL exactly like in <CODE>JSTLTable.jsp</CODE>. However, each DOM tree is made available to the garbage collector right after processing, since the <CODE>person</CODE> JSP variable that holds the DOM tree is overwritten at each iteration. With XJTL, you can use DOM without having scalability problems.<P>
+
+<P><CENTER><A HREF="../../index.html">Devsphere Java XML Projects - Documentation</A></CENTER>
+
+</BODY>
+</HTML>

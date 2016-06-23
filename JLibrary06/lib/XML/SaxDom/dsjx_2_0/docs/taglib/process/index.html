@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>XML Processing JSP Actions: Overview</TITLE>
+</HEAD>
+<BODY>
+
+<CENTER>
+<H1>XML Processing JSP Actions
+<BR>Overview</H1>
+<h3>JSP Tag Library for Fast and Easy XML Parsing</h3>
+</CENTER>
+
+<P><CENTER>
+<A HREF="deploy.html">Deployment</A>&nbsp;&nbsp;&nbsp;
+<A HREF="examples.html">Examples</A>&nbsp;&nbsp;&nbsp;
+<A HREF="builder.html">Builder</A>&nbsp;&nbsp;&nbsp;
+<A HREF="reference.html">Reference</A>&nbsp;&nbsp;&nbsp;
+<A HREF="../../api/index.html">API</A>
+</CENTER></P>
+
+<P>Devsphere has designed the XML JSP Tag Library (XJTL) for building Java XML-driven Web Applications together with the JSP Standard Tag Library (JSTL). XJTL provides several XML parsing actions (&lt;p:parse&gt;, &lt;p:element&gt;,  &lt;p:start&gt;,  &lt;p:end&gt;, &lt;p:data&gt; and &lt;o:pi&gt;) that let you build JSP pages that process XML documents in the most natural and easiest way possible. See <A HREF="examples.html">examples</A>. If you use SAX, DOM or some other API to parse XML on the server side, you'll appreciate the XJTL solution because it solves the main problems of those APIs. </P>
+
+<P>SAX is a very efficient low-level parsing API, but it is hard to use because the information extracted from the XML document is provided as events that have no context. For example, you don't know the parent element of some character data, unless you code a mechanism that tracks the parsed XML elements. Also, the same SAX method handles all elements or all character data. Typically, you have to provide code that delegates the processing of different elements to different Java methods.</P>
+
+<P>XJTL uses SAX internally, but it solves the hard-to-use problem of SAX by allowing the processing of each XML element in a separate &lt;p:element&gt; action. The body of a &lt;p:element&gt; may contain other &lt;p:element&gt; and &lt;p:data&gt; actions for processing the sub-elements and character data of an XML element. The XJTL actions form a tree within the JSP page that is similar to the tree of XML elements from the parsed document. This lets you process each element and data within its context.</P>
+
+<P>DOM is a good language-neutral standard solution for parsing XML content. However, it is not Java-friendly and it certainly isn't the ideal technology to be used in a JSP page. JSTL has actions for parsing an XML document, querying the obtained DOM tree with XPath and transforming a document with XSLT. XPath tends to be slow because it involves DOM traversal, evaluation of expressions and many string equality tests. XSLT-based processing is even slower since it is implemented on top of DOM and XPath. When working with large XML sources, a big issue of the classical DOM parsing is that the entire document must be kept in memory as a DOM tree structure so that it can be queried or modified. This doesn't allow DOM-based applications to scale well. </P>
+
+<P>XJTL supports DOM by allowing you to get a DOM sub-tree in the middle of the SAX-based parsing. In most cases, working with DOM fragments instead of whole documents solves the DOM scalability issue, but you'll probably find the XJTL actions much easier to use than the DOM-XPath combination. The DOM support from XJTL is helpful when you use XJTL together with other tag libraries (such as JSTL) that are based on DOM.</P>
+
+<P>The Devsphere Java XML Projects download includes a code generator that takes an XML sample and produces a JSP page that parses the given XML document using the JSP actions provided by XJTL. Then you may modify this page adding the code that processes the information that is extracted from the XML content and exported as JSP variables by XJTL.</P>
+
+<P>XJTL needs JSP 1.2+ and uses the expression language introduced by JSTL that is now part of JSP 2.0.</P>
+
+<P><CENTER><A HREF="../../index.html">Devsphere Java XML Projects - Documentation</A></CENTER>
+
+</BODY>
+</HTML>

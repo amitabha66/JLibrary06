@@ -1,0 +1,264 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: Functions and Operators</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: Functions and Operators">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:1000px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:1000px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:1000px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:1000px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../../index/intro.html"><img src="../../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro.html">Version 8.9 (2007-02-12)</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="../intro88.html">Version 8.8 (2006-09-05)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro873.html">Version 8.7.3 (2006-06-13)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v872.html">Version 8.7.2 (2006-04-19)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v871.html">Version 8.7.1 (2006-04-13)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro87.html">Version 8.7 (2006-02-24)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro861.html">Version 8.6.1 (24 November 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro86.html">Version 8.6 (3 November 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro851.html">Version 8.5.1 (26 August 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro85.html">Version 8.5 (2 August 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v84.html">Version 8.4 (4 April 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v83.html">Version 8.3 (11 February 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v8.2.html">Version 8.2 (21 December 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v811.html">Version 8.1.1 (8 October 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro81.html">Version 8.1 (24 September 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v8.0.html">Version 8.0 (1 June 2004)</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>Functions and Operators</h1>
+         <p>The new XSLT function <code>type-available</code> has been implemented. See
+            <a href="http://www.w3.org/Bugs/Public/show_bug.cgi?id=3165" target="_blank" class="bodylink">W3C Bugzilla entry 3165</a> for details.
+         </p>
+         <p>The component extraction functions on <code>xs:duration</code> have been changed to return normalized
+            values. For example <code>seconds-from-duration(xs:duration('PT90S'))</code> now returns 30 rather than 90.
+            See
+            <a href="http://www.w3.org/Bugs/Public/show_bug.cgi?id=3369" target="_blank" class="bodylink">W3C Bugzilla entry 3369</a> 
+            for details of the specification change.
+         </p>
+         <p>On JDK 1.5, and on the .NET platform, a case-blind regular expression (that is, the "i" flag) is now 
+            expanded by Saxon into the equivalent case-sensitive regular expression, rather than relying on the 
+            implementation of case-blind searching in the underlying regex engine. This change has been made because
+            it was found that on both the Java and .NET platforms, case-blind searching did not behave according to the
+            detailed rules defined for XPath, and in fact it was impossible to determine what the detailed rules were.
+            On JDK 1.4, however, the underlying implementation is still used, which gives slighly different behaviour in
+            corner cases involving character negation and subtraction.
+         </p>
+         <p>The <code>document-uri()</code> function now returns a document URI in a wider range of circumstances,
+            for example, it returns a value for documents returned by the <code>collection()</code> function. This has
+            been achieved by ignoring the requirement that <code>doc(document($D))</code> should always return $D.
+            For example, if all the documents returned by a user-written CollectionURIResolver have the SystemId "dummy",
+            then this string will be returned as the value of the document-uri property, even though the call
+            <code>doc('dummy')</code> will not deliver the same (or any) document.
+         </p>
+         <p><i>A consequence of this change is that the data model now distinguishes more carefully between the
+               document URI and the base URI. For a document node, the document URI is represented internally by the
+               <code>SystemId</code> property of the <code>DocumentInfo</code> object, while the base URI is represented
+               by the <code>BaseURI</code> property. The document node of a temporary tree has a base URI, but it has
+               no document URI. This means that the <code>SystemId</code> of a temporary document should now be null,
+               whereas it was previously set to the value of the base URI.</i></p>
+         <p>If a URI passed to the <code>document()</code> function contains a fragment identifier, the fragment
+            identifier must now be a valid NCName, otherwise a fatal error <code>XTRE1160</code> is reported. Note
+            that Saxon (as permitted by the letter of the specification) treats any document successfully retrieved by the
+            <code>document()</code> function as having media type <code>application/xml</code> for the purpose of 
+            interpreting any fragment identifier.
+         </p>
+         <p>The <code>CollectionURIResolver</code> interface has changed to allow collections to be stable (in the sense
+            that retrieving the same collection twice will return the same nodes). The items in the <code>SequenceIterator</code>
+            returned by this class may now be <code>xs:anyURI</code> values, as an alternative to returning nodes directly
+            as NodeInfo instances. If <code>xs:anyURI</code> values are returned, the actual document is obtained by supplying
+            this URI to the doc() function. This means Saxon first checks to see if there is already a loaded document with this URI,
+            and if so, that document is returned. If there is no such document, then it will be loaded by calling the registered
+            URIResolver. This mechanism is backwards compatible with existing user-written <code>CollectionURIResolver</code>
+            implementations.
+         </p>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="dotnet88.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

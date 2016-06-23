@@ -1,0 +1,386 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: xsl:comment</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: xsl:comment">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:1000px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:1000px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:1000px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:1000px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../index/intro.html"><img src="../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro.html">Introduction</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="analyze-string.html">xsl:analyze-string</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="apply-imports.html">xsl:apply-imports</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="apply-templates.html">xsl:apply-templates</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="attribute.html">xsl:attribute</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="attribute-set.html">xsl:attribute-set</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="call-template.html">xsl:call-template</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="character-map.html">xsl:character-map</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="choose.html">xsl:choose</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="comment.html">xsl:comment</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="copy.html">xsl:copy</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="copy-of.html">xsl:copy-of</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="decimal-format.html">xsl:decimal-format</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="document.html">xsl:document</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="element.html">xsl:element</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="fallback.html">xsl:fallback</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="for-each.html">xsl:for-each</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="for-each-group.html">xsl:for-each-group</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="function.html">xsl:function</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="if.html">xsl:if</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="include.html">xsl:include</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="import.html">xsl:import</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="import-schema.html">xsl:import-schema</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="key.html">xsl:key</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="matching-substring.html">xsl:matching-substring</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="message.html">xsl:message</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="namespace.html">xsl:namespace</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="namespace-alias.html">xsl:namespace-alias</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="next-match.html">xsl:next-match</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="non-matching-substring.html">xsl:non-matching-substring</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="number.html">xsl:number</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="otherwise.html">xsl:otherwise</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="output.html">xsl:output</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="output-character.html">xsl:output-character</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="param.html">xsl:param</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="perform-sort.html">xsl:perform-sort</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="preserve-space.html">xsl:preserve-space</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="processing-instruction.html">xsl:processing-instruction</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="result-document.html">xsl:result-document</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="sequence.html">xsl:sequence</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="sort.html">xsl:sort</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="strip-space.html">xsl:strip-space</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="stylesheet.html">xsl:stylesheet</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="template.html">xsl:template</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="text.html">xsl:text</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="value-of.html">xsl:value-of</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="variable.html">xsl:variable</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="when.html">xsl:when</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="with-param.html">xsl:with-param</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="lre.html">Literal Result Elements</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="patterns.html">XSLT Patterns</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>xsl:comment</h1>
+         <p>The <code>xsl:comment</code> element can appear anywhere within an <code>xsl:template</code>. It indicates
+            text that is to be output to the current output stream in the form of an XML or HTML
+            comment.
+         </p>
+         <p>The content of the comment may be given either by a <code>select</code> attribute or by an enclosed
+            sequence constructor. If the <code>select</code> attribute is used and the value is a sequence, then
+            the items in the sequence are output space-separated.
+         </p>
+         <p>For example, the text below inserts some JavaScript into a generated HTML document:</p>
+         <div class="codeblock" style="border: solid thin; background-color: #B1CCC7; padding: 2px"><pre><code>&lt;script language="JavaScript"&gt;
+    &lt;xsl:comment&gt;
+        function bk(n) {
+            parent.frames['content'].location="chap" + n + ".1.html";
+        }
+    //&lt;/xsl:comment&gt;
+&lt;/script&gt;
+</code></pre></div>
+         <p>Note that special characters occurring within the comment text will <i>not</i>
+            be escaped.
+         </p>
+         <p>The <code>xsl:comment</code> element will normally contain text only but it may contain other
+            elements such as <a class="bodylink" href="../xsl-elements/if.html">xsl:if</a> or <a class="bodylink" href="../xsl-elements/value-of.html">xsl:value-of</a>.
+            However, it should not contain literal result elements.
+            
+         </p>
+         <p><i>Tip: the <code>xsl:comment</code> element can be very useful for debugging your stylesheet. Use comments in the generated
+               output as a way of tracking which rules in the stylesheet were invoked to produce the output.</i></p>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="copy.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,104 @@
+<HTML>
+<HEAD>
+<TITLE>MixedTransformer</TITLE>
+</HEAD>
+<BODY>
+
+ <CENTER><H1>MixedTransformer</H1></CENTER>
+
+ <P>This example uses SAXDOMIX to apply an XSLT transformation
+ to each DOM tree created during the mixed SAX-DOM parsing of an XML
+ document. All SAX events that aren't used to build DOM trees are copied to the resulted XML document.
+
+ <P>We have the following <CODE>MixedTransformer.xml</CODE> file:
+ <PRE>
+    &lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+    &lt;root&gt;
+        &lt;elem1 <B>wantDOM="true"</B>&gt;
+            &lt;!-- comment1 --&gt;
+            &lt;elem11&gt;text11&lt;/elem11&gt;
+            &lt;elem12&gt;&lt;![CDATA[cdata12]]&gt;&lt;/elem12&gt;
+            &lt;elem13&gt;
+                &lt;elem131/&gt;
+                &lt;elem132/&gt;
+            &lt;/elem13&gt;
+            &lt;?proc1 data?&gt;
+        &lt;/elem1&gt;
+        &lt;elem2&gt;
+            &lt;!-- comment2 --&gt;
+            &lt;elem21 <B>wantDOM="true"</B>&gt;data21&lt;/elem21&gt;
+            &lt;elem22 <B>wantDOM="true"</B>&gt;&lt;![CDATA[cdata22]]&gt;&lt;/elem22&gt;
+            &lt;elem23&gt;text23&lt;/elem23&gt;
+            &lt;?proc2 data?&gt;
+        &lt;/elem2&gt;
+    &lt;/root&gt;</PRE>
+
+ <P>We want the apply the transformation instructions contained
+ by a file called <CODE>MixedTransformer.xsl</CODE> to all XML fragments that
+ start with an element that has a <CODE>wantDOM="true"</CODE> attribute.
+ The content of <CODE>MixedTransformer.xsl</CODE> is included below:
+ <PRE>
+    &lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+    &lt;xsl:stylesheet version="1.0"
+        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+        &lt;xsl:output cdata-section-elements="elem12 elem22"/&gt;
+
+        &lt;xsl:template match="elem1"&gt;
+            &lt;NEW-elem1&gt;
+                &lt;xsl:comment&gt; NEW&lt;xsl:value-of select="comment()"/&gt;&lt;/xsl:comment&gt;
+                &lt;NEW-elem11&gt;NEW &lt;xsl:value-of select="elem11"/&gt;&lt;/NEW-elem11&gt;
+                &lt;NEW-elem12&gt;&lt;xsl:value-of select="concat('NEW ', elem12)"/&gt;&lt;/NEW-elem12&gt;
+                &lt;NEW-elem13&gt;
+                    &lt;NEW-elem131/&gt;
+                    &lt;NEW-elem132/&gt;
+                &lt;/NEW-elem13&gt;
+                &lt;xsl:processing-instruction name="NEW-proc1"&gt; NEW &lt;xsl:value-of
+                    select="processing-instruction()"/&gt;&lt;/xsl:processing-instruction&gt;
+            &lt;/NEW-elem1&gt;
+        &lt;/xsl:template&gt;
+
+        &lt;xsl:template match="elem21"&gt;
+            &lt;NEW-elem21&gt;NEW &lt;xsl:value-of select="."/&gt;&lt;/NEW-elem21&gt;
+        &lt;/xsl:template&gt;
+
+        &lt;xsl:template match="elem22"&gt;
+            &lt;NEW-elem22&gt;&lt;xsl:value-of select="concat('NEW ', .)"/&gt;&lt;/NEW-elem22&gt;
+        &lt;/xsl:template&gt;
+
+    &lt;/xsl:stylesheet&gt;</PRE>
+
+ <P>Execute this command:
+ <PRE>
+    java com.devsphere.examples.xml.saxdomix.MixedTransformer
+    -xsl MixedTransformer.xsl -in MixedTransformer.xml</PRE>
+
+ <P>You'll get the following output:
+ <PRE>
+    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;root&gt;
+        &lt;NEW-elem1&gt;
+            &lt;!-- NEW comment1 --&gt;
+            &lt;NEW-elem11&gt;NEW text11&lt;/NEW-elem11&gt;
+            &lt;NEW-elem12&gt;NEW cdata12&lt;/NEW-elem12&gt;
+            &lt;NEW-elem13&gt;
+                &lt;NEW-elem131/&gt;
+                &lt;NEW-elem132/&gt;
+            &lt;/NEW-elem13&gt;
+            &lt;?NEW-proc1 NEW data?&gt;
+        &lt;/NEW-elem1&gt;
+        &lt;elem2&gt;
+            &lt;!-- comment2 --&gt;
+            &lt;NEW-elem21&gt;NEW data21&lt;/NEW-elem21&gt;
+            &lt;NEW-elem22&gt;NEW cdata22&lt;/NEW-elem22&gt;
+            &lt;elem23&gt;text23&lt;/elem23&gt;
+            &lt;?proc2 data?&gt;
+        &lt;/elem2&gt;
+    &lt;/root&gt;</PRE>
+
+<P><CENTER><A HREF="../../index.html">Devsphere Java XML Projects - Documentation</A></CENTER>
+
+</BODY>
+</HTML>

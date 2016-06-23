@@ -1,0 +1,275 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: Internal Changes</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: Internal Changes">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:1225px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:1225px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:1225px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:1225px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../../index/intro.html"><img src="../../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro.html">Version 8.9 (2007-02-12)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro88.html">Version 8.8 (2006-09-05)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro873.html">Version 8.7.3 (2006-06-13)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v872.html">Version 8.7.2 (2006-04-19)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v871.html">Version 8.7.1 (2006-04-13)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro87.html">Version 8.7 (2006-02-24)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro861.html">Version 8.6.1 (24 November 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro86.html">Version 8.6 (3 November 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro851.html">Version 8.5.1 (26 August 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro85.html">Version 8.5 (2 August 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v84.html">Version 8.4 (4 April 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v83.html">Version 8.3 (11 February 2005)</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="../v8.2.html">Version 8.2 (21 December 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v811.html">Version 8.1.1 (8 October 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro81.html">Version 8.1 (24 September 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v8.0.html">Version 8.0 (1 June 2004)</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>Internal Changes</h1>
+         <p>The <code>Receiver</code> interface has been changed: instead of a <code>Configuration</code> and
+            a <code>LocationProvider</code> being passed down the pipeline, the context information for the pipeline is
+            now passed as a <code>PipelineConfiguration</code> object. The provides access to the <code>Configuration</code> and
+            the <code>LocationProvider</code>, as well as other information: currently an <code>ErrorListener</code> and
+            a <code>URIResolver</code>. This means that warnings detected by receivers in the pipeline (for example, serialization
+            errors and validation warnings) can now be properly reported to the <code>ErrorListener</code> associated with a
+            transformation, rather than with the global <code>ErrorListener</code> associated with the <code>Configuration</code>.
+            This change was necessary in order to implement the JAXP <code>Validator</code> interface (which uses a local
+            <code>ErrorHandler</code>), but it has other spin-off benefits. In particular, it means that the information passed
+            down a pipeline can in future be extended by adding new fields to the <code>PipelineConfiguration</code> class,
+            with no impact on the <code>Receiver</code> interface itself.
+         </p>
+         <p>User-defined functions are now evaluated lazily (that is, if the function returns a sequence, each item in the sequence
+            is evaluated only when it is needed). This has required some changes to the implementation of tail call optimization.
+            There are now two kinds of Closure: the new <code>Closure</code> class is used when the results are
+            needed only once, as when
+            evaluating a function call. The old <code>Closure</code> class is renamed <code>MemoClosure</code>,
+            and is used when the results are likely
+            to be needed more than once, as when evaluating a variable.
+         </p>
+         <p>Saxon now does static analysis of variable references to identify variables that are never referenced, and
+            variables that are only referenced once. If a variable is only referenced once, then during lazy evaluation of
+            the variable the value will be discarded rather than being retained in memory for subsequent reference. There
+            are now two classes supporting lazy evaluation: <code>Closure</code> is a value that is evaluated when first
+            needed and is immediately discarded from
+            memory, while <code>MemoClosure</code> also defers evaluation, but retains each item in the evaluated sequence
+            once it is known. This analysis is currently done only for local variables and function parameters
+            (not for global variables or XSLT template parameters).
+         </p>
+         <p>The algorithm for type-checking (the XPath function call rules) has been rewritten to follow the specification more
+            precisely. The rules have gradually been refined over successive W3C drafts, and although the changes are very minor,
+            the implementation had got a little out of step.
+         </p>
+         <p>The optimizer now recognizes that certain expressions cannot be moved out of a loop. A classic example is
+            the XQuery expression <code>count(./(for $i in 1 to 5 return &lt;a/&gt;))</code>, which should return 5. Previous
+            Saxon releases moved the element constructor out of the loop, and thus returned the value 1. Similar
+            constructs occur in XSLT in the case of an XPath expression that calls a stylesheet function. At present all calls
+            on user-defined functions (and XSLT templates) are treated as if they might create new nodes. This does not
+            affect expressions that create new nodes in a context where the final result cannot depend on the identity of the
+            new nodes: for example, if a node is created or a function is called within the predicate of a filter expression,
+            this will still be extracted from the loop and evaluated only once.
+         </p>
+         <p>The same considerations apply to path expressions in which one of the steps constructs new nodes.
+            For example the result of <code>count(a/&lt;x/&gt;)</code> should be equal to the number of <code>a</code>
+            elements selected; in previous Saxon releases it was always 1.
+         </p>
+         <p>The TinyTree data structure now allows a single TinyTree to contain any number of trees rooted either at
+            document nodes or element nodes. Allowing multiple parentless element nodes in a single TinyTree reduces the
+            overhead involved in constructing sequences of elements.
+         </p>
+         <p>Where appropriate, <code>xsl:copy-of</code> now creates virtual copies of nodes, using the new class
+            <code>VirtualCopy</code>. This is simply a reference to the node that was copied, together with sufficient
+            information to give the copy a different node identity from the original. This technique is used in cases where
+            the copy is not being directly written to another tree, for example where it is returned as the value of a
+            variable or function.
+         </p>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="../v811.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

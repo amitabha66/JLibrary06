@@ -1,0 +1,17 @@
+cc=cl
+
+liboption1=
+liboption2=
+
+jdkdir=D:/jdk1.5.0_06
+osrootdir=D:/acrtdev/dev
+libxml2dir=d:/libxml2-2.6.23
+
+srcdir1=src
+
+srcdir2=src_ubl
+
+libprefix=
+libsuffix=.dll
+
+

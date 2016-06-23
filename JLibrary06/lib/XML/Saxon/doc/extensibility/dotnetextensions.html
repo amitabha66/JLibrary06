@@ -1,0 +1,344 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: Writing extension functions for .NET</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: Writing extension functions for .NET">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:1491px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:1491px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:1491px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:1491px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../index/intro.html"><img src="../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro.html">Introduction</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="functions.html">Writing extension functions in Java</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="converting-args.html">Converting Arguments to Java Extension Functions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="function-result.html">Converting the Result of a Java Extension Function</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="dotnetextensions.html">Writing extension functions for .NET</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="converting-args.net.html">Converting Arguments to .NET Extension Functions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="function-result.net.html">Converting the Result of a .NET Extension Function</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="instructions.html">Writing XSLT extension instructions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="output-filters.html">Customizing Serialization</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="collation.html">Implementing a collating sequence</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="localizing.html">Localizing numbers and dates</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="output-encoding.html">Adding an output encoding</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="uri-resolver.html">Writing a URI Resolver for Input Files</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="output-uri-resolver.html">Writing a URI Resolver for Output Files</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>Writing extension functions for .NET</h1>
+         <p>On the .NET platform extension functions may be implemented in any
+            .NET language (the examples here assume C#).
+         </p>
+         <div class="boxed" style="border: solid thin; background-color: #B1CCC7; padding: 2px">Queries and stylesheets running on the .NET platform may also call
+            Java extension functions, provided the Java class is part of the standard library
+            implemented in the GNU Classpath DLL, or in Saxon itself. For calling conventions,
+            see <a class="bodylink" href="../extensibility/functions.html">Writing extension functions in Java</a>. If
+            you want to write your own extensions in Java, you will need to compile them
+            to .NET assemblies using IKVMC.
+         </div>
+         <p>An extension function is invoked using a name such as <code>prefix:localname()</code>.
+            The prefix must be the prefix associated with a namespace declaration that is in scope. 
+            The namespace URI is used to identify a .NET class, and the local name is used to identify
+            a method, property, or constructor within the class.
+         </p>
+         <p><b>The command line option -TJ is useful for debugging the loading of .NET
+               extensions. It gives detailed information about the methods that are examined for
+               a possible match.</b></p>
+         <p>The basic form of the namespace URI is
+            "clitype:" followed by the fully-qualified type name
+            (for example <code>xmlns:env="clitype:System.Environment"</code>). This form
+            works for system classes and classes in a loaded assembly. If an assembly needs
+            to be loaded, extra information can be given in the form of query parameters. For example
+            <code>xmlns:env="type:Acme.Payroll.Employee?asm=payroll;version=4.12.0.0"</code>.
+         </p>
+         <p>The parameters that are recognized are:</p>
+         <table>
+            <tr>
+               <td>
+                  <p>Keyword</p>
+               </td>
+               <td>
+                  <p>Value</p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>asm</p>
+               </td>
+               <td>
+                  <p>The simple name of the assembly</p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>ver</p>
+               </td>
+               <td>
+                  <p>The version number, up to four integers separated by periods</p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>loc</p>
+               </td>
+               <td>
+                  <p>The culture (locale), for example "en-US"</p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>sn</p>
+               </td>
+               <td>
+                  <p>The public key token of the assembly's strong name, as 16 hex digits</p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>from</p>
+               </td>
+               <td>
+                  <p>The location of the assembly, as a URI</p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>partialname</p>
+               </td>
+               <td>
+                  <p>The partial name of the assembly (as supplied to 
+                     <code>Assembly.LoadWithPartialName()</code>).
+                  </p>
+               </td>
+            </tr>
+         </table>
+         <p>If the <code>from</code> keyword is present, the other parameters are ignored. The value of
+            <code>from</code> must be a URI: if it is relative, it is relative to the current directory from
+            which the application is launched.
+         </p>
+         <p>If the <code>partialName</code> keyword is present, the assembly is loaded (if possible) using
+            <code>Assembly.LoadWithPartialName()</code> and the other parameters are ignored. 
+         </p>
+         <p>Note that loading an assembly by simple name works only in limited cases: for example, if the 
+            assembly is already loaded, or if it is in the same directory as the entry point of the application. This option works
+            well if the extension function is in a class contained in the same assembly as the application that fired off the
+            query or transformation.
+         </p>
+         <p>If the assembly is a library DLL in the global assembly cache, use the <code>gacutil /l</code> command
+            to list the assemblies present in the GAC, and to extract the required version, culture, and strong name attributes.
+            For example, suppose you want to call a static method <code>disappear()</code> in class <code>Conjurer</code> in 
+            namespace <code>Magic.Circle</code>, and this class is contained in an assembly <code>Magic</code> 
+            listed as:
+         </p>
+         <p><code>Magic, Version=7.2.2200.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a4b, Custom=null</code></p>
+         <p>Then the URI you would use to identify this class is
+            <code>clitype:Magic.Circle.Conjurer?asm=Magic;ver=7.2.2200.0;sn=b03f5f7f11d50a4b</code>, and an actual call
+            of the function might take the form:
+         </p>
+         <div class="codeblock" style="border: solid thin; background-color: #B1CCC7; padding: 2px"><pre><code>
+&lt;xsl:value-of select="m:disappear()"
+     xmlns:m="clitype:Magic.Circle.Conjurer?asm=Magic;ver=7.2.2200.0;sn=b03f5f7f11d50a4b"/&gt; 
+</code></pre></div>
+         <p>The rest of this section considers how a .NET method, property, or constructor is identified. This decision
+            (called binding) is always made at the time the XPath expression is compiled.
+         </p>
+         <p>There are three cases to consider: static methods, constructors, and instance-level methods. In
+            addition, a public property in a class is treated as if it were a zero-argument method, so static properties
+            can be accessed in the same way as static methods, and instance-level properties
+            in the same way as instance-level methods. (Note that the property name is used directly: it is not
+            prefixed by "get".)
+         </p>
+         <ul>
+            <li>
+               <p><a class="bodylink" href="dotnetextensions/staticmethods.net.html">Calling Static Methods in a .NET Class</a></p>
+            </li>
+            <li>
+               <p><a class="bodylink" href="dotnetextensions/constructors.net.html">Calling .NET Constructors</a></p>
+            </li>
+            <li>
+               <p><a class="bodylink" href="dotnetextensions/instance-methods.net.html">Calling .NET Instance-Level Methods</a></p>
+            </li>
+         </ul>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="dotnetextensions/staticmethods.net.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

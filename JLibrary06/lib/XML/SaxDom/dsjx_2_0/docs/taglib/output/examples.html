@@ -1,0 +1,554 @@
+<HTML>
+<HEAD>
+<TITLE>XML Output JSP Actions: Examples</TITLE>
+</HEAD>
+<BODY>
+
+<CENTER>
+<H1>XML Output JSP Actions
+<BR>Examples</H1>
+<h3>JSP Tag Library for Generating XML Dynamically</h3>
+</CENTER>
+
+<P><CENTER>
+<A HREF="index.html">Overview</A>&nbsp;&nbsp;&nbsp;
+<A HREF="deploy.html">Deployment</A>&nbsp;&nbsp;&nbsp;
+<A HREF="builder.html">Builder</A>&nbsp;&nbsp;&nbsp;
+<A HREF="reference.html">Reference</A>&nbsp;&nbsp;&nbsp;
+<A HREF="../../api/index.html">API</A>
+</CENTER></P>
+
+<P>The following JSP examples output XML elements, character data, comments, processing instructions or entire XML documents using
+<UL>
+<LI>Devsphere XML JSP Tag Library (XJTL)
+<LI>Apache/Sun JSP Standard Tag Library (JSTL)
+<LI>Java Server Pages without any tag library (JSP)
+</UL></P>
+
+<P>You'll find the XJTL actions much easier to use that the JSP or JSTL alternatives because dynamic XML output is one of the two core functions of XJTL. (The other one is XML processing.) This doesn't mean that you can't use the XJTL and JSTL tag libraries together in JSP applications since they complement each other.</P>
+
+<P>We use "c", "x" and "o" as prefixes for the actions of JSTL Core, JSTL XML and XJTL Output, respectively:</P>
+
+<PRE>
+&lt;%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %&gt;
+&lt;%@ taglib prefix="x" uri="http://java.sun.com/jstl/xml" %&gt;
+&lt;%@ taglib prefix="o" uri="http://devsphere.com/xml/taglib/output" %&gt;
+</PRE>
+
+
+
+
+<H2>Element1.jsp</H2>
+
+<PRE>
+http://localhost:8080/xjtldemo/output/Element1.jsp?a1=v1&amp;a2=v2&amp;a3=v3
+</PRE>
+
+<P>This example outputs an element with three attributes whose values are obtained from the URL's request parameters.</P>
+
+<PRE>
+&lt;e a1="v1" a2="v2" a3="v3"&gt;
+...
+&lt;/e&gt;
+</PRE>
+
+<P>XJTL can generate the above XML construct very easily with the <CODE>&lt;o:element&gt;</CODE> action. XJTL extracts the names of the three attributes (<CODE>a1</CODE>, <CODE>a2</CODE> and <CODE>a3</CODE>) from the <CODE>"param.a1 param.a2 param.a3"</CODE> string. Then it evaluates <CODE>${param.a1}</CODE>, <CODE>${param.a2}</CODE> and <CODE>${param.a3}</CODE> to obtain the values of the attributes.</P>
+
+<P>JSTL doesn't have a specialized action for generating an XML element. Therefore, you have to use one <CODE>&lt;c:out&gt;</CODE> action for each attribute, which leads to an ugly syntax like this <CODE>&lt;e a1="&lt;c:out value='${param.a1}'/&gt;" ... &gt;</CODE></P>
+
+<P>The JSP alternative without any tag library requires more coding because JSP doesn't have a mechanism for escaping &amp;, &lt;, &gt; and ". We use our own <CODE>DemoUtils.escapeXml()</CODE> routine.</P>
+
+<TABLE BORDER="0" CELLPADDING="1" CELLSPACING="5">
+
+<TR VALIGN="TOP">
+<TD><B>XJTL</B></TD>
+<TD>
+<PRE>
+&lt;o:element name="e" attr="param.a1 param.a2 param.a3"&gt;
+...
+&lt;/o:element&gt;
+</PRE>
+</TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><B>JSTL</B></TD>
+<TD>
+<PRE>
+&lt;e a1="&lt;c:out value='${param.a1}'/&gt;"
+   a2="&lt;c:out value='${param.a2}'/&gt;"
+   a3="&lt;c:out value='${param.a3}'/&gt;"&gt;
+...
+&lt;/e&gt;
+</PRE>
+</TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><B>JSP</B></TD>
+<TD>
+<PRE>
+&lt;%
+String v1 = DemoUtils.escapeXml(request.getParameter("a1"));
+String v2 = DemoUtils.escapeXml(request.getParameter("a2"));
+String v3 = DemoUtils.escapeXml(request.getParameter("a3"));
+%&gt;
+&lt;e a1="&lt;%=v1%&gt;" a2="&lt;%=v2%&gt;" a3="&lt;%=v3%&gt;"&gt;
+...
+&lt;/e&gt;
+</PRE>
+</TD>
+</TR>
+
+</TABLE>
+
+<P>The <CODE>&lt;o:element&gt;</CODE> action is much easier to use than the two alternatives because XJTL tokenizes the <CODE>attr</CODE> string and takes everything it needs from the obtained tokens. To get an attribute name from a token, XJTL takes all characters after the last dot. In order to obtain the value of the attribute, XJTL evaluates the token after wrapping it with ${ and }.</P>
+
+<P>JSP variables (also known as page/request/session/application attributes), request parameters, initialization parameters and bean properties can be outputted as attributes of an XML element using the expressions that were introduced by JSTL and adopted by JSP 2.0.</P>
+
+<TABLE BORDER="0" CELLPADDING="1" CELLSPACING="15">
+
+<TR VALIGN="TOP">
+<TD><B>JSTL &amp; XJTL</B></TD>
+<TD><B>JSP 1.x</B></TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><CODE>pageScope.<I>name</I></CODE></TD>
+<TD><CODE>pageContext.getAttribute("<I>name</I>")</CODE></TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><CODE>requestScope.<I>name</I></CODE></TD>
+<TD><CODE>request.getAttribute("<I>name</I>")</CODE></TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><CODE>sessionScope.<I>name</I></CODE></TD>
+<TD><CODE>session.getAttribute("<I>name</I>")</CODE></TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><CODE>applicationScope.<I>name</I></CODE></TD>
+<TD><CODE>application.getAttribute("<I>name</I>")</CODE></TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><CODE>param.<I>name</I></CODE></TD>
+<TD><CODE>request.getParameter("<I>name</I>")</CODE></TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><CODE>initParam.<I>name</I></CODE></TD>
+<TD><CODE>application.getInitParameter("<I>name</I>")</CODE></TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><CODE><I>bean</I>.<I>name</I></CODE></TD>
+<TD><CODE><I>bean</I>.get<I>Name</I>()</CODE></TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><CODE><I>bean</I>.<I>subBean</I>.<I>name</I></CODE></TD>
+<TD><CODE><I>bean</I>.get<I>SubBean</I>().get<I>Name</I>()</CODE></TD>
+</TR>
+
+</TABLE>
+
+<P>There are cases when the name of the XML attribute is not the same as the name of a request parameter or a bean property. Sometimes, the expression that must be evaluated in order to obtain the attribute's value doesn't end with the desired attribute name. For such cases, XJTL provides the <CODE>&lt;o:attributes&gt;</CODE> and <CODE>&lt;o:attribute&gt;</CODE> actions, which let you specify the name and value of each XML attribute separately. The following code fragment generates the same XML element as the previous examples.</P>
+
+<PRE>
+&lt;o:attributes var="a"&gt;
+  &lt;o:attribute name="a1" value="${param['a1']}"/&gt;
+  &lt;o:attribute name="a2" value="${param['a2']}"/&gt;
+  &lt;o:attribute name="a3" value="${param['a3']}"/&gt;
+&lt;/o:attributes&gt;
+&lt;o:element name="e" attr="${a}"&gt;
+...
+&lt;/o:element&gt;
+</PRE>
+
+
+
+
+<H2>Element2.jsp</H2>
+
+<PRE>
+http://localhost:8080/xjtldemo/output/Element2.jsp
+</PRE>
+
+<P>This second example is very similar to the first one. It generates the same XML element with three attributes, but this time the values of the attributes are obtained from the properties of a JavaBean object.</P>
+
+<PRE>
+&lt;e a1="v1" a2="v2" a3="v3"&gt;
+...
+&lt;/e&gt;
+</PRE>
+
+<P>The JavaBean class is named <CODE>TestBean</CODE> and it looks like this:</P>
+
+<PRE>
+package com.devsphere.examples.xml.taglib;
+
+public class TestBean {
+    private String a1 = "v1";
+    private String a2 = "v2";
+    private String a3 = "v3";
+
+    public String getA1() { return a1; }
+    public String getA2() { return a2; }
+    public String getA3() { return a3; }
+}
+</PRE>
+
+<P>Our JavaBean is instantiated within the JSP page using the standard <CODE>&lt;jsp:useBean&gt;</CODE> action.</P>
+
+<PRE>
+&lt;jsp:useBean id="b" scope="page" 
+    class="com.devsphere.examples.xml.taglib.TestBean"/&gt;
+</PRE>
+
+<P>XJTL extracts the names of the three attributes (<CODE>a1</CODE>, <CODE>a2</CODE> and <CODE>a3</CODE>) from the <CODE>"b.a1 b.a2 b.a3"</CODE> string. Then it evaluates <CODE>${b.a1}</CODE>, <CODE>${b.a2}</CODE> and <CODE>${b.a3}</CODE> to obtain the values of the attributes from the bean's properties. With JSTL, you have to include a <CODE>&lt;c:out&gt;</CODE> action within the quotes of each XML attribute in order to output its value. In the case of JSP, the &amp;, &lt;, &gt; and " characters must be escaped using a routine like <CODE>DemoUtils.escapeXml()</CODE>.</P>
+
+<TABLE BORDER="0" CELLPADDING="1" CELLSPACING="5">
+
+<TR VALIGN="TOP">
+<TD><B>XJTL</B></TD>
+<TD>
+<PRE>
+&lt;o:element name="e" attr="b.a1 b.a2 b.a3"&gt;
+...
+&lt;/o:element&gt;
+</PRE>
+</TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><B>JSTL</B></TD>
+<TD>
+<PRE>
+&lt;e a1="&lt;c:out value='${b.a1}'/&gt;"
+   a2="&lt;c:out value='${b.a2}'/&gt;"
+   a3="&lt;c:out value='${b.a3}'/&gt;"&gt;
+...
+&lt;/e&gt;
+</PRE>
+</TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><B>JSP</B></TD>
+<TD>
+<PRE>
+&lt;%
+String v1 = DemoUtils.escapeXml(b.getA1());
+String v2 = DemoUtils.escapeXml(b.getA2());
+String v3 = DemoUtils.escapeXml(b.getA3());
+%&gt;
+&lt;e a1="&lt;%=v1%&gt;" a2="&lt;%=v2%&gt;" a3="&lt;%=v3%&gt;"&gt;
+...
+&lt;/e&gt;
+</PRE>
+</TD>
+</TR>
+
+</TABLE>
+
+
+
+
+<H2>Data.jsp</H2>
+
+<PRE>
+http://localhost:8080/xjtldemo/output/Data.jsp?d=data
+</PRE>
+
+<P>The <CODE>&lt;o:data&gt;</CODE> XJTL action is very similar to the <CODE>&lt;c:out&gt;</CODE> JSTL action. Both can be used to output XML character data and know how to escape &amp;, &lt; and &gt;. However, <CODE>&lt;o:data&gt;</CODE> also knows how to output <CODE>CDATA</CODE> sections as we'll see in <CODE>CData.jsp</CODE>. The <CODE>Data.jsp</CODE> page just outputs some character data which is given as request parameter.</P>
+
+<TABLE BORDER="0" CELLPADDING="1" CELLSPACING="5">
+
+<TR VALIGN="TOP">
+<TD><B>XJTL</B></TD>
+<TD>
+<PRE>
+&lt;o:data value="${param.d}"/&gt;
+</PRE>
+</TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><B>JSTL</B></TD>
+<TD>
+<PRE>
+&lt;c:out value="${param.d}"/&gt;
+</PRE>
+</TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><B>JSP</B></TD>
+<TD>
+<PRE>
+&lt;%= DemoUtils.escapeXml(request.getParameter("d")) %&gt;
+</PRE>
+</TD>
+</TR>
+
+</TABLE>
+
+
+
+
+<H2>CData.jsp</H2>
+
+<PRE>
+http://localhost:8080/xjtldemo/output/CData.jsp?d=data
+</PRE>
+
+<P>The <CODE>CData.jsp</CODE> example gets some character data as request parameter and produces a <CODE>CDATA</CODE> section.</P>
+
+<PRE>
+&lt;![CDATA[data]]&gt;
+</PRE>
+
+<P>Unlike the JSTL and JSP equivalents, the XJTL action knows how to generate the <CODE>&lt;![CDATA[</CODE> and <CODE>]]&gt;</CODE> delimiters automatically since <CODE>&lt;o:data&gt;</CODE> is an action specialized on XML character data output. In this case, &amp;, &lt; and &gt; must not be escaped.</P>
+
+<TABLE BORDER="0" CELLPADDING="1" CELLSPACING="5">
+
+<TR VALIGN="TOP">
+<TD><B>XJTL</B></TD>
+<TD>
+<PRE>
+&lt;o:data value="${param.d}" section="true"/&gt;
+</PRE>
+</TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><B>JSTL</B></TD>
+<TD>
+<PRE>
+&lt;![CDATA[&lt;c:out value="${param.d}" escapeXml="false"/&gt;]]&gt;
+</PRE>
+</TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><B>JSP</B></TD>
+<TD>
+<PRE>
+&lt;![CDATA[&lt;%= request.getParameter("d") %&gt;]]&gt;
+</PRE>
+</TD>
+</TR>
+
+</TABLE>
+
+
+
+
+<H2>Comment.jsp</H2>
+
+<PRE>
+http://localhost:8080/xjtldemo/output/Comment.jsp?c=comment
+</PRE>
+
+<P>The <CODE>Comment.jsp</CODE> example takes a request parameter and produces an XML comment.</P>
+
+<PRE>
+&lt;!--comment--&gt;
+</PRE>
+
+<P>Unlike the JSTL and JSP equivalents, the XJTL action knows how to generate the <CODE>&lt;!--</CODE> and <CODE>--&gt;</CODE> delimiters automatically since <CODE>&lt;o:comment&gt;</CODE> is an action specialized on outputting XML comments.</P>
+
+<TABLE BORDER="0" CELLPADDING="1" CELLSPACING="5">
+
+<TR VALIGN="TOP">
+<TD><B>XJTL</B></TD>
+<TD>
+<PRE>
+&lt;o:comment text="${param.c}"/&gt;
+</PRE>
+</TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><B>JSTL</B></TD>
+<TD>
+<PRE>
+&lt;!--&lt;c:out value="${param.c}" escapeXml="false"/&gt;--&gt;
+</PRE>
+</TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><B>JSP</B></TD>
+<TD>
+<PRE>
+&lt;!--&lt;%= request.getParameter("c") %&gt;--&gt;
+</PRE>
+</TD>
+</TR>
+
+</TABLE>
+
+
+
+
+<H2>PI.jsp</H2>
+
+<PRE>
+http://localhost:8080/xjtldemo/output/PI.jsp?d=data&amp;t=target
+</PRE>
+
+<P>The <CODE>PI.jsp</CODE> example outputs an XML processing instruction with the given target and data.</P>
+
+<PRE>
+&lt;?target data?&gt;
+</PRE>
+
+<P>Unlike the JSTL and JSP equivalents, the XJTL action knows how to generate the <CODE>&lt;?</CODE> and <CODE>?&gt;</CODE> delimiters automatically since <CODE>&lt;o:pi&gt;</CODE> is an action specialized on outputting XML processing instructions.</P>
+
+<TABLE BORDER="0" CELLPADDING="1" CELLSPACING="5">
+
+<TR VALIGN="TOP">
+<TD><B>XJTL</B></TD>
+<TD>
+<PRE>
+&lt;o:pi target="${param.t}" data="${param.d}"/&gt;
+</PRE>
+</TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><B>JSTL</B></TD>
+<TD>
+<PRE>
+&lt;?&lt;c:out value="${param.t}"/&gt; &lt;c:out value="${param.d}" escapeXml="false"/&gt;?&gt;
+</PRE>
+</TD>
+</TR>
+
+<TR VALIGN="TOP">
+<TD><B>JSP</B></TD>
+<TD>
+<PRE>
+&lt;?&lt;%= request.getParameter("t") %&gt; &lt;%= request.getParameter("d") %&gt;?&gt;</PRE>
+</TD>
+</TR>
+
+</TABLE>
+
+
+
+
+<H2>Dynamic.jsp</H2>
+
+<PRE>
+http://localhost:8080/xjtldemo/output/Dynamic.jsp
+</PRE>
+
+<P>This example uses XJTL and JSTL together in order to generate an XML document dynamically.</P>
+
+<PRE>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;person id='js890'&gt;
+    &lt;name&gt;John Smith&lt;/name&gt;
+    &lt;email&gt;John.Smith@yahoo.com&lt;/email&gt;
+    &lt;phone&gt;650-123-4567&lt;/phone&gt;
+    &lt;address city='Palo Alto' state='CA' zip='94303' country='USA'&gt;
+        &lt;line1&gt;JS Information Systems, Inc.&lt;/line1&gt;
+        &lt;line2&gt;1001 San Antonio Road&lt;/line2&gt;
+    &lt;/address&gt;
+&lt;/person&gt;
+</PRE>
+
+<P>The <CODE>&lt;o:document&gt;</CODE> action produces the XML header and initializes the internal mechanisms of XJTL. Then <CODE>&lt;o:element&gt;</CODE> and <CODE>&lt;o:data&gt;</CODE> generate the XML elements and character data. The <CODE>&lt;c:set&gt;</CODE> action of JSTL creates the JSP variables that hold the values of the XML attributes.</P>
+
+<PRE>
+&lt;%@ page language="java" %&gt;
+&lt;%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %&gt;
+&lt;%@ taglib prefix="o" uri="http://devsphere.com/xml/taglib/output" %&gt;
+
+&lt;o:document&gt;
+    &lt;c:set var="id" value="js890"/&gt;
+    &lt;o:element name="person" attr="id"&gt;
+        &lt;o:element name="name"&gt;
+            &lt;o:data&gt;John Smith&lt;/o:data&gt;
+        &lt;/o:element&gt;
+        &lt;o:element name="email"&gt;
+            &lt;o:data&gt;John.Smith@yahoo.com&lt;/o:data&gt;
+        &lt;/o:element&gt;
+        &lt;o:element name="phone"&gt;
+            &lt;o:data&gt;650-123-4567&lt;/o:data&gt;
+        &lt;/o:element&gt;
+        &lt;c:set var="city" value="Palo Alto"/&gt;
+        &lt;c:set var="state" value="CA"/&gt;
+        &lt;c:set var="zip" value="94303"/&gt;
+        &lt;c:set var="country" value="USA"/&gt;
+        &lt;o:element name="address" attr="city state zip country"&gt;
+            &lt;o:element name="line1"&gt;
+                &lt;o:data&gt;JS Information Systems, Inc.&lt;/o:data&gt;
+            &lt;/o:element&gt;
+            &lt;o:element name="line2"&gt;
+                &lt;o:data&gt;1001 San Antonio Road&lt;/o:data&gt;
+            &lt;/o:element&gt;
+        &lt;/o:element&gt;
+    &lt;/o:element&gt;
+&lt;/o:document&gt;
+</PRE>
+
+
+
+
+<H2>Document.jsp</H2>
+
+<PRE>
+http://localhost:8080/xjtldemo/output/Document.jsp
+</PRE>
+
+<P>This JSP parses an XML file obtaining a DOM tree with the help of JSTL and then it serializes the DOM tree back to XML using XJTL. In other words, this example outputs the content of the XML file going through an intermediary DOM phase. The XML content could have been printed directly to the JSP output, but we want to show how to use the <CODE>&lt;o:document&gt;</CODE> action for serializing a DOM tree. This XJTL action is very useful when some Java code produces or modifies a DOM tree that must be returned as XML by a JSP.</P>
+
+<P>The <CODE>&lt;c:import&gt;</CODE> JSTL action loads the <CODE>sample.xml</CODE> file and stores its content into a JSP variable called <CODE>xml</CODE>. The <CODE>&lt;x:parse&gt;</CODE> JSTL action parses the XML content and creates a new JSP variable called <CODE>dom</CODE> that holds the resulted DOM tree. The <CODE>&lt;o:document&gt;</CODE> XJTL action reconstructs the XML content from the DOM tree and outputs that XML content.</P>
+
+<PRE>
+&lt;%@ page language="java" %&gt;
+&lt;%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %&gt;
+&lt;%@ taglib prefix="x" uri="http://java.sun.com/jstl/xml" %&gt;
+&lt;%@ taglib prefix="o" uri="http://devsphere.com/xml/taglib/output" %&gt;
+
+&lt;c:import url="sample.xml" var="xml"/&gt;
+&lt;x:parse xml="${xml}" varDom="dom"/&gt;
+&lt;o:document dom="${dom}"/&gt;
+</PRE>
+
+
+
+
+<H2>Fragment.jsp</H2>
+
+<PRE>
+http://localhost:8080/xjtldemo/output/Fragment.jsp
+</PRE>
+
+<P>This JSP uses the same JSTL actions to parse an XML document and obtain a DOM tree. Then it uses <CODE>&lt;o:document&gt;</CODE> to output an XML header and generates some XML content in the body of this action. The <CODE>&lt;x:forEach&gt;</CODE> JSTL action is used to find all fragments of the DOM tree that are identified by the <CODE>/person/address</CODE> XPath, i.e. all <CODE>&lt;address&gt;</CODE> XML elements within the <CODE>&lt;person&gt;</CODE> root element of <CODE>sample.xml</CODE>. (There is only one.) Each DOM sub-tree identified by <CODE>/person/address</CODE> is outputted with the <CODE>&lt;o:fragment&gt;</CODE> XJTL action.</P>
+
+<PRE>
+&lt;%@ page language="java" %&gt;
+&lt;%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %&gt;
+&lt;%@ taglib prefix="x" uri="http://java.sun.com/jstl/xml" %&gt;
+&lt;%@ taglib prefix="o" uri="http://devsphere.com/xml/taglib/output" %&gt;
+
+&lt;c:import url="sample.xml" var="xml"/&gt;
+&lt;x:parse xml="${xml}" varDom="dom"/&gt;
+&lt;o:document&gt;
+    &lt;x:forEach select="$dom/person/address" var="address"&gt;
+        &lt;o:fragment dom="${address}"/&gt;
+    &lt;/x:forEach&gt;
+&lt;/o:document&gt;
+</PRE>
+
+<P><CENTER><A HREF="../../index.html">Devsphere Java XML Projects - Documentation</A></CENTER>
+
+</BODY>
+</HTML>

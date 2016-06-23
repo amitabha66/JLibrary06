@@ -1,0 +1,291 @@
+<HTML>
+<HEAD>
+<TITLE>XML Processing JSP Actions: Code Generator</TITLE>
+</HEAD>
+<BODY>
+
+<CENTER>
+<H1>XML Processing JSP Actions
+<BR>Code Generator</H1>
+<h3>JSP Tag Library for Fast and Easy XML Parsing</h3>
+</CENTER>
+
+<P><CENTER>
+<A HREF="index.html">Overview</A>&nbsp;&nbsp;&nbsp;
+<A HREF="deploy.html">Deployment</A>&nbsp;&nbsp;&nbsp;
+<A HREF="examples.html">Examples</A>&nbsp;&nbsp;&nbsp;
+<A HREF="reference.html">Reference</A>&nbsp;&nbsp;&nbsp;
+<A HREF="../../api/index.html">API</A>
+</CENTER></P>
+
+<P>Devsphere XML JSP Tag Library (XJTL) comes with a code builder that takes a sample XML document and generates a JSP page that parses the sample XML content. You may edit the generated JSP adding the code that processes the XML information according to the requirements of your application.</P>
+
+<H2>Syntax</H2>
+
+<PRE>
+java com.devsphere.xml.taglib.process.builder.Main
+    -sample  XML_file_path
+    -output  JSP_file_path
+   [-varXml  variable_name]
+   [-systemId  XML_system_identifier]
+   [-validate]
+   [-ignoreSpaces]
+   [-rootElements  element_name_1  element_name_2  ...]
+</PRE>
+
+<P>where 
+<UL>
+<LI><CODE>XML_file_path</CODE> is the file path of the sample XML file
+<LI><CODE>JSP_file_path</CODE> is the file path of the JSP that will be generated
+<LI><CODE>variable_name</CODE> is the name of the JSP variable that holds the XML input source that must be processed
+<LI><CODE>XML_system_identifier</CODE> is the ID of the XML source that the application wants to process
+<LI><CODE>validate</CODE> indicates that the XML source must be validated
+<LI><CODE>ignoreSpaces</CODE> indicates that the space character data that indents the elements must be ignored
+<LI><CODE>element_name_1 element_name_2 ...</CODE> are the names of the root elements of the XML fragments that the application wants to get as DOM trees rather than SAX events.
+</UL></P>
+
+<H2>Example 1</H2>
+
+<P>The <CODE>XJTLParse.jsp</CODE> and <CODE>XJTLParse2.jsp</CODE> examples are derived from the following generated code. The two examples are explained in a different <A HREF="examples.html">page</A> of this documentation. The generated code contains the SAX events as comments so that you can replace them with code that processes the XML information exported as JSP variables. The <CODE>varName="name"</CODE>, <CODE>varAttr="attr"</CODE> and <CODE>varData="data"</CODE> attributes specify the default names of the variables exported by the XJTL actions. You can rename those variables. If each variable has a unique name, the XML information is kept within the JSP page context for later processing.</P>
+
+<P>Command Line:</P>
+
+<PRE>
+java com.devsphere.xml.taglib.process.builder.Main 
+-sample xjtldemo\process\sample.xml -systemId sample.xml 
+-ignoreSpaces -output xjtldemo\builder\processSAX.jsp 
+</PRE>
+
+<P>Generated Code:</P>
+
+<PRE>
+&lt;%@ page language="java" %&gt;
+&lt;%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %&gt;
+&lt;%@ taglib prefix="x" uri="http://java.sun.com/jstl/xml" %&gt;
+&lt;%@ taglib prefix="p" uri="http://devsphere.com/xml/taglib/process" %&gt;
+
+&lt;p:parse systemId="sample.xml" validate="false" ignoreSpaces="true"&gt;
+    &lt;p:start&gt;
+        &lt;%-- startDocument --%&gt;
+    &lt;/p:start&gt;
+    &lt;p:element varName="name" varAttr="attr" testName="person"&gt;
+        &lt;p:start&gt;
+            &lt;%-- startElement name="person", attr.id="js890" --%&gt;
+        &lt;/p:start&gt;
+        &lt;p:element varName="name" varAttr="attr" testName="name"&gt;
+            &lt;p:start&gt;
+                &lt;%-- startElement name="name" --%&gt;
+            &lt;/p:start&gt;
+            &lt;p:data varData="data"&gt;
+                &lt;%-- characters data="John Smith" --%&gt;
+            &lt;/p:data&gt;
+            &lt;p:end&gt;
+                &lt;%-- endElement name="name" --%&gt;
+            &lt;/p:end&gt;
+        &lt;/p:element&gt;
+        &lt;p:element varName="name" varAttr="attr" testName="email"&gt;
+            &lt;p:start&gt;
+                &lt;%-- startElement name="email" --%&gt;
+            &lt;/p:start&gt;
+            &lt;p:data varData="data"&gt;
+                &lt;%-- characters data="John.Smith@yahoo.com" --%&gt;
+            &lt;/p:data&gt;
+            &lt;p:end&gt;
+                &lt;%-- endElement name="email" --%&gt;
+            &lt;/p:end&gt;
+        &lt;/p:element&gt;
+        &lt;p:element varName="name" varAttr="attr" testName="phone"&gt;
+            &lt;p:start&gt;
+                &lt;%-- startElement name="phone" --%&gt;
+            &lt;/p:start&gt;
+            &lt;p:data varData="data"&gt;
+                &lt;%-- characters data="650-123-4567" --%&gt;
+            &lt;/p:data&gt;
+            &lt;p:end&gt;
+                &lt;%-- endElement name="phone" --%&gt;
+            &lt;/p:end&gt;
+        &lt;/p:element&gt;
+        &lt;p:element varName="name" varAttr="attr" testName="address"&gt;
+            &lt;p:start&gt;
+                &lt;%-- startElement name="address", attr.city="Palo Alto", attr.state="CA", attr.zip="94303", attr.country="USA" --%&gt;
+            &lt;/p:start&gt;
+            &lt;p:element varName="name" varAttr="attr" testName="line1"&gt;
+                &lt;p:start&gt;
+                    &lt;%-- startElement name="line1" --%&gt;
+                &lt;/p:start&gt;
+                &lt;p:data varData="data"&gt;
+                    &lt;%-- characters data="JS Information Systems, Inc." --%&gt;
+                &lt;/p:data&gt;
+                &lt;p:end&gt;
+                    &lt;%-- endElement name="line1" --%&gt;
+                &lt;/p:end&gt;
+            &lt;/p:element&gt;
+            &lt;p:element varName="name" varAttr="attr" testName="line2"&gt;
+                &lt;p:start&gt;
+                    &lt;%-- startElement name="line2" --%&gt;
+                &lt;/p:start&gt;
+                &lt;p:data varData="data"&gt;
+                    &lt;%-- characters data="1001 San Antonio Road" --%&gt;
+                &lt;/p:data&gt;
+                &lt;p:end&gt;
+                    &lt;%-- endElement name="line2" --%&gt;
+                &lt;/p:end&gt;
+            &lt;/p:element&gt;
+            &lt;p:end&gt;
+                &lt;%-- endElement name="address" --%&gt;
+            &lt;/p:end&gt;
+        &lt;/p:element&gt;
+        &lt;p:end&gt;
+            &lt;%-- endElement name="person" --%&gt;
+        &lt;/p:end&gt;
+    &lt;/p:element&gt;
+    &lt;p:end&gt;
+        &lt;%-- endDocument --%&gt;
+    &lt;/p:end&gt;
+&lt;/p:parse&gt;
+</PRE>
+
+
+
+
+<H2>Example 2</H2>
+
+<P>This example shows you how to use XJTL to build a DOM tree. The generated code contains a list of valid XPaths within a comment. These XPaths could be used with JSTL actions, for example.</P>
+<P>Command Line:</P>
+
+<PRE>
+java com.devsphere.xml.taglib.process.builder.Main 
+-sample xjtldemo\process\sample.xml -systemId sample.xml 
+-ignoreSpaces -output xjtldemo\builder\processDOM.jsp 
+-rootElements person
+</PRE>
+
+<P>Generated Code:</P>
+
+<PRE>
+&lt;%@ page language="java" %&gt;
+&lt;%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %&gt;
+&lt;%@ taglib prefix="x" uri="http://java.sun.com/jstl/xml" %&gt;
+&lt;%@ taglib prefix="p" uri="http://devsphere.com/xml/taglib/process" %&gt;
+
+&lt;p:parse systemId="sample.xml" validate="false" ignoreSpaces="true"&gt;
+    &lt;p:start&gt;
+        &lt;%-- startDocument --%&gt;
+    &lt;/p:start&gt;
+    &lt;p:element varName="name" varAttr="attr" varDom="dom" testName="person"&gt;
+        &lt;%-- dom="..." name="person", attr.id="js890" --%&gt;
+        &lt;%-- XPath expressions:
+            $dom
+                string($dom/@id)
+                $dom/name
+                    string($dom/name/text())
+                $dom/email
+                    string($dom/email/text())
+                $dom/phone
+                    string($dom/phone/text())
+                $dom/address
+                    string($dom/address/@city)
+                    string($dom/address/@state)
+                    string($dom/address/@zip)
+                    string($dom/address/@country)
+                    $dom/address/line1
+                        string($dom/address/line1/text())
+                    $dom/address/line2
+                        string($dom/address/line2/text())
+        --%&gt;
+    &lt;/p:element&gt;
+    &lt;p:end&gt;
+        &lt;%-- endDocument --%&gt;
+    &lt;/p:end&gt;
+&lt;/p:parse&gt;
+</PRE>
+
+
+
+
+<H2>Example 3</H2>
+
+<P>This example mixes the SAX and DOM parsing methods during the processing of an XML document. Much of the code is based on SAX, but two XML fragments, which have <CODE>email</CODE> and <CODE>address</CODE> as root elements, are obtained as DOM trees.</P>
+
+<P>Command Line:</P>
+
+<PRE>
+java com.devsphere.xml.taglib.process.builder.Main 
+-sample xjtldemo\process\sample.xml -systemId sample.xml 
+-ignoreSpaces -output xjtldemo\builder\processSAXDOMIX.jsp 
+-rootElements email address
+</PRE>
+
+<P>Generated Code:</P>
+
+<PRE>
+&lt;%@ page language="java" %&gt;
+&lt;%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %&gt;
+&lt;%@ taglib prefix="x" uri="http://java.sun.com/jstl/xml" %&gt;
+&lt;%@ taglib prefix="p" uri="http://devsphere.com/xml/taglib/process" %&gt;
+
+&lt;p:parse systemId="sample.xml" validate="false" ignoreSpaces="true"&gt;
+    &lt;p:start&gt;
+        &lt;%-- startDocument --%&gt;
+    &lt;/p:start&gt;
+    &lt;p:element varName="name" varAttr="attr" testName="person"&gt;
+        &lt;p:start&gt;
+            &lt;%-- startElement name="person", attr.id="js890" --%&gt;
+        &lt;/p:start&gt;
+        &lt;p:element varName="name" varAttr="attr" testName="name"&gt;
+            &lt;p:start&gt;
+                &lt;%-- startElement name="name" --%&gt;
+            &lt;/p:start&gt;
+            &lt;p:data varData="data"&gt;
+                &lt;%-- characters data="John Smith" --%&gt;
+            &lt;/p:data&gt;
+            &lt;p:end&gt;
+                &lt;%-- endElement name="name" --%&gt;
+            &lt;/p:end&gt;
+        &lt;/p:element&gt;
+        &lt;p:element varName="name" varAttr="attr" varDom="dom" testName="email"&gt;
+            &lt;%-- dom="..." name="email" --%&gt;
+            &lt;%-- XPath expressions:
+                $dom
+                    string($dom/text())
+            --%&gt;
+        &lt;/p:element&gt;
+        &lt;p:element varName="name" varAttr="attr" testName="phone"&gt;
+            &lt;p:start&gt;
+                &lt;%-- startElement name="phone" --%&gt;
+            &lt;/p:start&gt;
+            &lt;p:data varData="data"&gt;
+                &lt;%-- characters data="650-123-4567" --%&gt;
+            &lt;/p:data&gt;
+            &lt;p:end&gt;
+                &lt;%-- endElement name="phone" --%&gt;
+            &lt;/p:end&gt;
+        &lt;/p:element&gt;
+        &lt;p:element varName="name" varAttr="attr" varDom="dom" testName="address"&gt;
+            &lt;%-- dom="..." name="address", attr.city="Palo Alto", attr.state="CA", attr.zip="94303", attr.country="USA" --%&gt;
+            &lt;%-- XPath expressions:
+                $dom
+                    string($dom/@city)
+                    string($dom/@state)
+                    string($dom/@zip)
+                    string($dom/@country)
+                    $dom/line1
+                        string($dom/line1/text())
+                    $dom/line2
+                        string($dom/line2/text())
+            --%&gt;
+        &lt;/p:element&gt;
+        &lt;p:end&gt;
+            &lt;%-- endElement name="person" --%&gt;
+        &lt;/p:end&gt;
+    &lt;/p:element&gt;
+    &lt;p:end&gt;
+        &lt;%-- endDocument --%&gt;
+    &lt;/p:end&gt;
+&lt;/p:parse&gt;
+</PRE>
+
+<P><CENTER><A HREF="../../index.html">Devsphere Java XML Projects - Documentation</A></CENTER>
+
+</BODY>
+</HTML>

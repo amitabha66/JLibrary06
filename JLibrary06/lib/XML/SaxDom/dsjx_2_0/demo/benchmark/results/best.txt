@@ -1,0 +1,506 @@
+SAX - OLD OFF
+
+    Best Time - OLD OFF - JDK 1.3 - JAXP 1.0 - SAX - Records=10000 --- 0.851
+    Best Time - OLD OFF - JDK 1.3 - JAXP 1.0 - SAX - Records=20000 --- 1.472
+    Best Time - OLD OFF - JDK 1.3 - JAXP 1.0 - SAX - Records=30000 --- 2.113
+    Best Time - OLD OFF - JDK 1.3 - JAXP 1.0 - SAX - Records=40000 --- 2.754
+    Best Time - OLD OFF - JDK 1.3 - JAXP 1.0 - SAX - Records=50000 --- 3.395
+
+        Best Memory - OLD OFF - JDK 1.3 - Xerces 1.3 - SAX - Records=10000 --- 0.2
+        Best Memory - OLD OFF - JDK 1.2 - JAXP 1.0 - SAX - Records=20000 --- 0.07
+        Best Memory - OLD OFF - JDK 1.3 - JAXP 1.0 - SAX - Records=30000 --- 0.09
+        Best Memory - OLD OFF - JDK 1.3 - JAXP 1.0 - SAX - Records=40000 --- 0.17
+        Best Memory - OLD OFF - JDK 1.3 - Xerces 1.4 - SAX - Records=50000 --- 0.2
+
+            Best Memory after GC - OLD OFF - JDK 1.3 - JAXP 1.0 - SAX - Records=10000 --- 0.0
+            Best Memory after GC - OLD OFF - JDK 1.3 - JAXP 1.0 - SAX - Records=20000 --- 0.0
+            Best Memory after GC - OLD OFF - JDK 1.3 - JAXP 1.0 - SAX - Records=30000 --- 0.0
+            Best Memory after GC - OLD OFF - JDK 1.2 - JAXP 1.1 - SAX - Records=40000 --- 0.02
+            Best Memory after GC - OLD OFF - JDK 1.2 - JAXP 1.1 - SAX - Records=50000 --- 0.02
+
+
+
+
+SAX - OLD VAL
+
+    Best Time - OLD VAL - JDK 1.3 - JAXP 1.0 - SAX - Records=10000 --- 0.981
+    Best Time - OLD VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=20000 --- 1.722
+    Best Time - OLD VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=30000 --- 2.423
+    Best Time - OLD VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=40000 --- 3.194
+    Best Time - OLD VAL - JDK 1.3 - JAXP 1.0 - SAX - Records=50000 --- 3.916
+
+        Best Memory - OLD VAL - JDK 1.3 - JAXP 1.0 - SAX - Records=10000 --- 0.28
+        Best Memory - OLD VAL - JDK 1.3 - JAXP 1.0 - SAX - Records=20000 --- 0.14
+        Best Memory - OLD VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=30000 --- 0.08
+        Best Memory - OLD VAL - JDK 1.2 - JAXP 1.1 - SAX - Records=40000 --- 0.12
+        Best Memory - OLD VAL - JDK 1.3 - JAXP 1.0 - SAX - Records=50000 --- 0.24
+
+            Best Memory after GC - OLD VAL - JDK 1.2 - JAXP 1.0 - SAX - Records=10000 --- 0.02
+            Best Memory after GC - OLD VAL - JDK 1.2 - JAXP 1.0 - SAX - Records=20000 --- 0.02
+            Best Memory after GC - OLD VAL - JDK 1.2 - JAXP 1.0 - SAX - Records=30000 --- 0.02
+            Best Memory after GC - OLD VAL - JDK 1.2 - JAXP 1.0 - SAX - Records=40000 --- 0.02
+            Best Memory after GC - OLD VAL - JDK 1.2 - JAXP 1.0 - SAX - Records=50000 --- 0.02
+
+
+
+
+SAX - OFF
+
+    Best Time - OFF - JDK 1.3 - JAXP 1.1 - SAX - Records=10000 --- 1.012
+    Best Time - OFF - JDK 1.3 - JAXP 1.1 - SAX - Records=20000 --- 1.743
+    Best Time - OFF - JDK 1.3 - JAXP 1.1 - SAX - Records=30000 --- 2.483
+    Best Time - OFF - JDK 1.3 - JAXP 1.1 - SAX - Records=40000 --- 3.235
+    Best Time - OFF - JDK 1.3 - JAXP 1.1 - SAX - Records=50000 --- 3.965
+
+        Best Memory - OFF - JDK 1.2 - Xerces 1.2 - SAX - Records=10000 --- 0.36
+        Best Memory - OFF - JDK 1.3 - JAXP 1.1 - SAX - Records=20000 --- 0.06
+        Best Memory - OFF - JDK 1.3 - JAXP 1.1 - SAX - Records=30000 --- 0.14
+        Best Memory - OFF - JDK 1.1 - JAXP 1.1 - SAX - Records=40000 --- 0.08
+        Best Memory - OFF - JDK 1.2 - Xerces 1.4 - SAX - Records=50000 --- 0.28
+
+            Best Memory after GC - OFF - JDK 1.2 - JAXP 1.1 - SAX - Records=10000 --- 0.02
+            Best Memory after GC - OFF - JDK 1.2 - JAXP 1.1 - SAX - Records=20000 --- 0.02
+            Best Memory after GC - OFF - JDK 1.2 - JAXP 1.1 - SAX - Records=30000 --- 0.02
+            Best Memory after GC - OFF - JDK 1.2 - JAXP 1.1 - SAX - Records=40000 --- 0.02
+            Best Memory after GC - OFF - JDK 1.2 - JAXP 1.1 - SAX - Records=50000 --- 0.02
+
+
+
+
+SAX - NS
+
+    Best Time - NS - JDK 1.3 - JAXP 1.1 - SAX - Records=10000 --- 1.152
+    Best Time - NS - JDK 1.3 - JAXP 1.1 - SAX - Records=20000 --- 2.073
+    Best Time - NS - JDK 1.3 - JAXP 1.1 - SAX - Records=30000 --- 2.985
+    Best Time - NS - JDK 1.3 - JAXP 1.1 - SAX - Records=40000 --- 3.875
+    Best Time - NS - JDK 1.3 - JAXP 1.1 - SAX - Records=50000 --- 4.777
+
+        Best Memory - NS - JDK 1.2 - Xerces 1.2 - SAX - Records=10000 --- 0.41
+        Best Memory - NS - JDK 1.3 - JAXP 1.1 - SAX - Records=20000 --- 0.07
+        Best Memory - NS - JDK 1.3 - JAXP 1.1 - SAX - Records=30000 --- 0.15
+        Best Memory - NS - JDK 1.1 - JAXP 1.1 - SAX - Records=40000 --- 0.12
+        Best Memory - NS - JDK 1.2 - JAXP 1.1 - SAX - Records=50000 --- 0.11
+
+            Best Memory after GC - NS - JDK 1.2 - JAXP 1.1 - SAX - Records=10000 --- 0.02
+            Best Memory after GC - NS - JDK 1.2 - JAXP 1.1 - SAX - Records=20000 --- 0.02
+            Best Memory after GC - NS - JDK 1.2 - JAXP 1.1 - SAX - Records=30000 --- 0.02
+            Best Memory after GC - NS - JDK 1.2 - JAXP 1.1 - SAX - Records=40000 --- 0.02
+            Best Memory after GC - NS - JDK 1.2 - JAXP 1.1 - SAX - Records=50000 --- 0.02
+
+
+
+
+SAX - VAL
+
+    Best Time - VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=10000 --- 1.142
+    Best Time - VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=20000 --- 1.993
+    Best Time - VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=30000 --- 2.844
+    Best Time - VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=40000 --- 3.696
+    Best Time - VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=50000 --- 4.546
+
+        Best Memory - VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=10000 --- 0.35
+        Best Memory - VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=20000 --- 0.21
+        Best Memory - VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=30000 --- 0.07
+        Best Memory - VAL - JDK 1.2 - JAXP 1.1 - SAX - Records=40000 --- 0.17
+        Best Memory - VAL - JDK 1.2 - JAXP 1.1 - SAX - Records=50000 --- 0.11
+
+            Best Memory after GC - VAL - JDK 1.1 - JAXP 1.1 - SAX - Records=10000 --- 0.02
+            Best Memory after GC - VAL - JDK 1.1 - JAXP 1.1 - SAX - Records=20000 --- 0.02
+            Best Memory after GC - VAL - JDK 1.1 - JAXP 1.1 - SAX - Records=30000 --- 0.02
+            Best Memory after GC - VAL - JDK 1.1 - JAXP 1.1 - SAX - Records=40000 --- 0.02
+            Best Memory after GC - VAL - JDK 1.1 - JAXP 1.1 - SAX - Records=50000 --- 0.02
+
+
+
+
+SAX - NS VAL
+
+    Best Time - NS VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=10000 --- 1.332
+    Best Time - NS VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=20000 --- 2.343
+    Best Time - NS VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=30000 --- 3.395
+    Best Time - NS VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=40000 --- 4.416
+    Best Time - NS VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=50000 --- 5.448
+
+        Best Memory - NS VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=10000 --- 0.35
+        Best Memory - NS VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=20000 --- 0.21
+        Best Memory - NS VAL - JDK 1.3 - JAXP 1.1 - SAX - Records=30000 --- 0.07
+        Best Memory - NS VAL - JDK 1.2 - JAXP 1.1 - SAX - Records=40000 --- 0.23
+        Best Memory - NS VAL - JDK 1.2 - JAXP 1.1 - SAX - Records=50000 --- 0.18
+
+            Best Memory after GC - NS VAL - JDK 1.1 - JAXP 1.1 - SAX - Records=10000 --- 0.02
+            Best Memory after GC - NS VAL - JDK 1.1 - JAXP 1.1 - SAX - Records=20000 --- 0.02
+            Best Memory after GC - NS VAL - JDK 1.1 - JAXP 1.1 - SAX - Records=30000 --- 0.02
+            Best Memory after GC - NS VAL - JDK 1.1 - JAXP 1.1 - SAX - Records=40000 --- 0.02
+            Best Memory after GC - NS VAL - JDK 1.1 - JAXP 1.1 - SAX - Records=50000 --- 0.02
+
+
+
+
+DOM - OLD OFF
+
+    Best Time - OLD OFF - JDK 1.1 - Xerces 1.3 - DOM - Records=10000 --- 2.023
+    Best Time - OLD OFF - JDK 1.1 - Xerces 1.2 - DOM - Records=20000 --- 3.885
+    Best Time - OLD OFF - JDK 1.1 - Xerces 1.2 - DOM - Records=30000 --- 5.898
+    Best Time - OLD OFF - JDK 1.3 - Xerces 1.2 - DOM - Records=40000 --- 7.832
+    Best Time - OLD OFF - JDK 1.3 - Xerces 1.2 - DOM - Records=50000 --- 9.374
+
+        Best Memory - OLD OFF - JDK 1.1 - Xerces 1.3 - DOM - Records=10000 --- 21.23
+        Best Memory - OLD OFF - JDK 1.1 - Xerces 1.2 - DOM - Records=20000 --- 42.04
+        Best Memory - OLD OFF - JDK 1.1 - Xerces 1.2 - DOM - Records=30000 --- 63.11
+        Best Memory - OLD OFF - JDK 1.1 - Xerces 1.2 - DOM - Records=40000 --- 83.87
+        Best Memory - OLD OFF - JDK 1.1 - Xerces 1.3 - DOM - Records=50000 --- 104.6
+
+            Best Memory after GC - OLD OFF - JDK 1.1 - Xerces 1.3 - DOM - Records=10000 --- 19.55
+            Best Memory after GC - OLD OFF - JDK 1.3 - Xerces 1.2 - DOM - Records=20000 --- 38.9
+            Best Memory after GC - OLD OFF - JDK 1.1 - Xerces 1.3 - DOM - Records=30000 --- 58.45
+            Best Memory after GC - OLD OFF - JDK 1.1 - Xerces 1.3 - DOM - Records=40000 --- 77.82
+            Best Memory after GC - OLD OFF - JDK 1.1 - Xerces 1.3 - DOM - Records=50000 --- 97.18
+
+
+
+
+DOM - OLD VAL
+
+    Best Time - OLD VAL - JDK 1.1 - Xerces 1.2 - DOM - Records=10000 --- 2.814
+    Best Time - OLD VAL - JDK 1.1 - Xerces 1.2 - DOM - Records=20000 --- 5.258
+    Best Time - OLD VAL - JDK 1.1 - Xerces 1.2 - DOM - Records=30000 --- 7.731
+    Best Time - OLD VAL - JDK 1.3 - Xerces 1.2 - DOM - Records=40000 --- 10.114
+    Best Time - OLD VAL - JDK 1.3 - Xerces 1.2 - DOM - Records=50000 --- 12.107
+
+        Best Memory - OLD VAL - JDK 1.1 - Xerces 1.4 - DOM - Records=10000 --- 21.91
+        Best Memory - OLD VAL - JDK 1.3 - Xerces 1.4 - DOM - Records=20000 --- 43.14
+        Best Memory - OLD VAL - JDK 1.2 - Xerces 1.3 - DOM - Records=30000 --- 64.45
+        Best Memory - OLD VAL - JDK 1.2 - Xerces 1.3 - DOM - Records=40000 --- 86.47
+        Best Memory - OLD VAL - JDK 1.2 - Xerces 1.2 - DOM - Records=50000 --- 107.15
+
+            Best Memory after GC - OLD VAL - JDK 1.1 - Xerces 1.3 - DOM - Records=10000 --- 19.6
+            Best Memory after GC - OLD VAL - JDK 1.3 - Xerces 1.3 - DOM - Records=20000 --- 38.92
+            Best Memory after GC - OLD VAL - JDK 1.1 - Xerces 1.3 - DOM - Records=30000 --- 58.5
+            Best Memory after GC - OLD VAL - JDK 1.1 - Xerces 1.3 - DOM - Records=40000 --- 77.87
+            Best Memory after GC - OLD VAL - JDK 1.1 - Xerces 1.3 - DOM - Records=50000 --- 97.22
+
+
+
+
+DOM - OFF
+
+    Best Time - OFF - JDK 1.1 - Xerces 1.3 - DOM - Records=10000 --- 2.033
+    Best Time - OFF - JDK 1.1 - Xerces 1.2 - DOM - Records=20000 --- 3.875
+    Best Time - OFF - JDK 1.1 - Xerces 1.2 - DOM - Records=30000 --- 5.899
+    Best Time - OFF - JDK 1.3 - Xerces 1.2 - DOM - Records=40000 --- 7.812
+    Best Time - OFF - JDK 1.3 - Xerces 1.2 - DOM - Records=50000 --- 9.374
+
+        Best Memory - OFF - JDK 1.1 - Xerces 1.3 - DOM - Records=10000 --- 21.23
+        Best Memory - OFF - JDK 1.1 - Xerces 1.2 - DOM - Records=20000 --- 42.04
+        Best Memory - OFF - JDK 1.1 - Xerces 1.2 - DOM - Records=30000 --- 63.11
+        Best Memory - OFF - JDK 1.1 - Xerces 1.2 - DOM - Records=40000 --- 83.87
+        Best Memory - OFF - JDK 1.1 - Xerces 1.3 - DOM - Records=50000 --- 104.6
+
+            Best Memory after GC - OFF - JDK 1.1 - Xerces 1.3 - DOM - Records=10000 --- 19.55
+            Best Memory after GC - OFF - JDK 1.3 - Xerces 1.2 - DOM - Records=20000 --- 38.9
+            Best Memory after GC - OFF - JDK 1.1 - Xerces 1.3 - DOM - Records=30000 --- 58.45
+            Best Memory after GC - OFF - JDK 1.1 - Xerces 1.3 - DOM - Records=40000 --- 77.82
+            Best Memory after GC - OFF - JDK 1.1 - Xerces 1.3 - DOM - Records=50000 --- 97.18
+
+
+
+
+DOM - NS
+
+    Best Time - NS - JDK 1.1 - Xerces 1.4 - DOM - Records=10000 --- 2.524
+    Best Time - NS - JDK 1.1 - Xerces 1.3 - DOM - Records=20000 --- 4.917
+    Best Time - NS - JDK 1.1 - Xerces 1.3 - DOM - Records=30000 --- 7.531
+    Best Time - NS - JDK 1.3 - Xerces 1.2 - DOM - Records=40000 --- 9.875
+    Best Time - NS - JDK 1.3 - Xerces 1.2 - DOM - Records=50000 --- 11.977
+
+        Best Memory - NS - JDK 1.2 - Xerces 1.4 - DOM - Records=10000 --- 23.96
+        Best Memory - NS - JDK 1.3 - Xerces 1.4 - DOM - Records=20000 --- 47.79
+        Best Memory - NS - JDK 1.2 - Xerces 1.3 - DOM - Records=30000 --- 71.65
+        Best Memory - NS - JDK 1.2 - Xerces 1.4 - DOM - Records=40000 --- 95.16
+        Best Memory - NS - JDK 1.1 - Xerces 1.3 - DOM - Records=50000 --- 118.76
+
+            Best Memory after GC - NS - JDK 1.1 - Xerces 1.3 - DOM - Records=10000 --- 22.37
+            Best Memory after GC - NS - JDK 1.3 - Xerces 1.3 - DOM - Records=20000 --- 44.53
+            Best Memory after GC - NS - JDK 1.1 - Xerces 1.3 - DOM - Records=30000 --- 66.87
+            Best Memory after GC - NS - JDK 1.1 - Xerces 1.3 - DOM - Records=40000 --- 89.06
+            Best Memory after GC - NS - JDK 1.1 - Xerces 1.3 - DOM - Records=50000 --- 111.2
+
+
+
+
+DOM - VAL
+
+    Best Time - VAL - JDK 1.1 - Xerces 1.2 - DOM - Records=10000 --- 2.824
+    Best Time - VAL - JDK 1.1 - Xerces 1.2 - DOM - Records=20000 --- 5.268
+    Best Time - VAL - JDK 1.1 - Xerces 1.2 - DOM - Records=30000 --- 7.741
+    Best Time - VAL - JDK 1.3 - Xerces 1.2 - DOM - Records=40000 --- 10.105
+    Best Time - VAL - JDK 1.3 - Xerces 1.2 - DOM - Records=50000 --- 12.078
+
+        Best Memory - VAL - JDK 1.1 - Xerces 1.4 - DOM - Records=10000 --- 21.91
+        Best Memory - VAL - JDK 1.3 - Xerces 1.4 - DOM - Records=20000 --- 43.14
+        Best Memory - VAL - JDK 1.2 - Xerces 1.3 - DOM - Records=30000 --- 64.45
+        Best Memory - VAL - JDK 1.2 - Xerces 1.3 - DOM - Records=40000 --- 86.47
+        Best Memory - VAL - JDK 1.2 - Xerces 1.2 - DOM - Records=50000 --- 107.15
+
+            Best Memory after GC - VAL - JDK 1.1 - Xerces 1.3 - DOM - Records=10000 --- 19.6
+            Best Memory after GC - VAL - JDK 1.3 - Xerces 1.3 - DOM - Records=20000 --- 38.92
+            Best Memory after GC - VAL - JDK 1.1 - Xerces 1.3 - DOM - Records=30000 --- 58.5
+            Best Memory after GC - VAL - JDK 1.1 - Xerces 1.3 - DOM - Records=40000 --- 77.87
+            Best Memory after GC - VAL - JDK 1.1 - Xerces 1.3 - DOM - Records=50000 --- 97.22
+
+
+
+
+DOM - NS VAL
+
+    Best Time - NS VAL - JDK 1.1 - Xerces 1.2 - DOM - Records=10000 --- 3.405
+    Best Time - NS VAL - JDK 1.1 - Xerces 1.2 - DOM - Records=20000 --- 6.38
+    Best Time - NS VAL - JDK 1.3 - Xerces 1.2 - DOM - Records=30000 --- 9.233
+    Best Time - NS VAL - JDK 1.3 - Xerces 1.2 - DOM - Records=40000 --- 11.917
+    Best Time - NS VAL - JDK 1.3 - Xerces 1.2 - DOM - Records=50000 --- 14.37
+
+        Best Memory - NS VAL - JDK 1.2 - Xerces 1.3 - DOM - Records=10000 --- 24.59
+        Best Memory - NS VAL - JDK 1.3 - Xerces 1.3 - DOM - Records=20000 --- 48.54
+        Best Memory - NS VAL - JDK 1.3 - Xerces 1.3 - DOM - Records=30000 --- 72.94
+        Best Memory - NS VAL - JDK 1.1 - Xerces 1.3 - DOM - Records=40000 --- 97.58
+        Best Memory - NS VAL - JDK 1.1 - Xerces 1.3 - DOM - Records=50000 --- 121.55
+
+            Best Memory after GC - NS VAL - JDK 1.1 - Xerces 1.3 - DOM - Records=10000 --- 22.41
+            Best Memory after GC - NS VAL - JDK 1.1 - Xerces 1.2 - DOM - Records=20000 --- 44.62
+            Best Memory after GC - NS VAL - JDK 1.1 - Xerces 1.2 - DOM - Records=30000 --- 66.92
+            Best Memory after GC - NS VAL - JDK 1.1 - Xerces 1.3 - DOM - Records=40000 --- 89.1
+            Best Memory after GC - NS VAL - JDK 1.1 - Xerces 1.3 - DOM - Records=50000 --- 111.25
+
+
+
+
+SAXDOMIX - OLD OFF
+
+    Best Time - OLD OFF - JDK 1.3 - JAXP 1.0 - SAXDOMIX - Records=10000 --- 1.512
+    Best Time - OLD OFF - JDK 1.3 - JAXP 1.0 - SAXDOMIX - Records=20000 --- 2.624
+    Best Time - OLD OFF - JDK 1.3 - JAXP 1.0 - SAXDOMIX - Records=30000 --- 3.726
+    Best Time - OLD OFF - JDK 1.3 - JAXP 1.0 - SAXDOMIX - Records=40000 --- 4.817
+    Best Time - OLD OFF - JDK 1.3 - JAXP 1.0 - SAXDOMIX - Records=50000 --- 5.928
+
+        Best Memory - OLD OFF - JDK 1.2 - JAXP 1.0 - SAXDOMIX - Records=10000 --- 0.09
+        Best Memory - OLD OFF - JDK 1.2 - JAXP 1.0 - SAXDOMIX - Records=20000 --- 0.06
+        Best Memory - OLD OFF - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=30000 --- 0.16
+        Best Memory - OLD OFF - JDK 1.2 - JAXP 1.1 - SAXDOMIX - Records=40000 --- 0.06
+        Best Memory - OLD OFF - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=50000 --- 0.22
+
+            Best Memory after GC - OLD OFF - JDK 1.3 - JAXP 1.0 - SAXDOMIX - Records=10000 --- 0.03
+            Best Memory after GC - OLD OFF - JDK 1.3 - JAXP 1.0 - SAXDOMIX - Records=20000 --- 0.03
+            Best Memory after GC - OLD OFF - JDK 1.3 - JAXP 1.0 - SAXDOMIX - Records=30000 --- 0.03
+            Best Memory after GC - OLD OFF - JDK 1.3 - JAXP 1.0 - SAXDOMIX - Records=40000 --- 0.03
+            Best Memory after GC - OLD OFF - JDK 1.3 - JAXP 1.0 - SAXDOMIX - Records=50000 --- 0.03
+
+
+
+
+SAXDOMIX - OLD VAL
+
+    Best Time - OLD VAL - JDK 1.3 - JAXP 1.0 - SAXDOMIX - Records=10000 --- 1.452
+    Best Time - OLD VAL - JDK 1.3 - JAXP 1.0 - SAXDOMIX - Records=20000 --- 2.463
+    Best Time - OLD VAL - JDK 1.3 - JAXP 1.0 - SAXDOMIX - Records=30000 --- 3.445
+    Best Time - OLD VAL - JDK 1.3 - JAXP 1.0 - SAXDOMIX - Records=40000 --- 4.497
+    Best Time - OLD VAL - JDK 1.3 - JAXP 1.0 - SAXDOMIX - Records=50000 --- 5.498
+
+        Best Memory - OLD VAL - JDK 1.3 - JAXP 1.0 - SAXDOMIX - Records=10000 --- 0.16
+        Best Memory - OLD VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=20000 --- 0.17
+        Best Memory - OLD VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=30000 --- 0.32
+        Best Memory - OLD VAL - JDK 1.2 - JAXP 1.1 - SAXDOMIX - Records=40000 --- 0.25
+        Best Memory - OLD VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=50000 --- 0.09
+
+            Best Memory after GC - OLD VAL - JDK 1.3 - JAXP 1.0 - SAXDOMIX - Records=10000 --- 0.03
+            Best Memory after GC - OLD VAL - JDK 1.2 - JAXP 1.0 - SAXDOMIX - Records=20000 --- 0.03
+            Best Memory after GC - OLD VAL - JDK 1.2 - JAXP 1.0 - SAXDOMIX - Records=30000 --- 0.03
+            Best Memory after GC - OLD VAL - JDK 1.2 - JAXP 1.0 - SAXDOMIX - Records=40000 --- 0.03
+            Best Memory after GC - OLD VAL - JDK 1.2 - JAXP 1.0 - SAXDOMIX - Records=50000 --- 0.03
+
+
+
+
+SAXDOMIX - OFF
+
+    Best Time - OFF - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=10000 --- 1.833
+    Best Time - OFF - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=20000 --- 3.205
+    Best Time - OFF - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=30000 --- 4.557
+    Best Time - OFF - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=40000 --- 5.859
+    Best Time - OFF - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=50000 --- 7.181
+
+        Best Memory - OFF - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=10000 --- 0.1
+        Best Memory - OFF - JDK 1.1 - Xerces 1.4 - SAXDOMIX - Records=20000 --- 0.32
+        Best Memory - OFF - JDK 1.2 - JAXP 1.1 - SAXDOMIX - Records=30000 --- 0.07
+        Best Memory - OFF - JDK 1.2 - Xerces 1.3 - SAXDOMIX - Records=40000 --- 0.28
+        Best Memory - OFF - JDK 1.1 - JAXP 1.1 - SAXDOMIX - Records=50000 --- 0.18
+
+            Best Memory after GC - OFF - JDK 1.1 - JAXP 1.1 - SAXDOMIX - Records=10000 --- 0.03
+            Best Memory after GC - OFF - JDK 1.2 - JAXP 1.1 - SAXDOMIX - Records=20000 --- 0.03
+            Best Memory after GC - OFF - JDK 1.2 - JAXP 1.1 - SAXDOMIX - Records=30000 --- 0.03
+            Best Memory after GC - OFF - JDK 1.2 - JAXP 1.1 - SAXDOMIX - Records=40000 --- 0.03
+            Best Memory after GC - OFF - JDK 1.1 - JAXP 1.1 - SAXDOMIX - Records=50000 --- 0.03
+
+
+
+
+SAXDOMIX - NS
+
+    Best Time - NS - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=10000 --- 2.083
+    Best Time - NS - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=20000 --- 3.635
+    Best Time - NS - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=30000 --- 5.247
+    Best Time - NS - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=40000 --- 6.83
+    Best Time - NS - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=50000 --- 8.412
+
+        Best Memory - NS - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=10000 --- 0.21
+        Best Memory - NS - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=20000 --- 0.09
+        Best Memory - NS - JDK 1.2 - JAXP 1.1 - SAXDOMIX - Records=30000 --- 0.15
+        Best Memory - NS - JDK 1.2 - JAXP 1.1 - SAXDOMIX - Records=40000 --- 0.1
+        Best Memory - NS - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=50000 --- 0.24
+
+            Best Memory after GC - NS - JDK 1.2 - JAXP 1.1 - SAXDOMIX - Records=10000 --- 0.03
+            Best Memory after GC - NS - JDK 1.2 - JAXP 1.1 - SAXDOMIX - Records=20000 --- 0.03
+            Best Memory after GC - NS - JDK 1.2 - JAXP 1.1 - SAXDOMIX - Records=30000 --- 0.03
+            Best Memory after GC - NS - JDK 1.2 - JAXP 1.1 - SAXDOMIX - Records=40000 --- 0.03
+            Best Memory after GC - NS - JDK 1.2 - JAXP 1.1 - SAXDOMIX - Records=50000 --- 0.03
+
+
+
+
+SAXDOMIX - VAL
+
+    Best Time - VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=10000 --- 1.763
+    Best Time - VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=20000 --- 3.004
+    Best Time - VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=30000 --- 4.236
+    Best Time - VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=40000 --- 5.498
+    Best Time - VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=50000 --- 6.73
+
+        Best Memory - VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=10000 --- 0.54
+        Best Memory - VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=20000 --- 0.17
+        Best Memory - VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=30000 --- 0.31
+        Best Memory - VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=40000 --- 0.46
+        Best Memory - VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=50000 --- 0.08
+
+            Best Memory after GC - VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIX - Records=10000 --- 0.03
+            Best Memory after GC - VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIX - Records=20000 --- 0.03
+            Best Memory after GC - VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIX - Records=30000 --- 0.03
+            Best Memory after GC - VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIX - Records=40000 --- 0.03
+            Best Memory after GC - VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIX - Records=50000 --- 0.03
+
+
+
+
+SAXDOMIX - NS VAL
+
+    Best Time - NS VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=10000 --- 2.013
+    Best Time - NS VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=20000 --- 3.515
+    Best Time - NS VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=30000 --- 4.987
+    Best Time - NS VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=40000 --- 6.459
+    Best Time - NS VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=50000 --- 7.932
+
+        Best Memory - NS VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIX - Records=10000 --- 0.11
+        Best Memory - NS VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIX - Records=20000 --- 0.15
+        Best Memory - NS VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=30000 --- 0.1
+        Best Memory - NS VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIX - Records=40000 --- 0.21
+        Best Memory - NS VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIX - Records=50000 --- 0.08
+
+            Best Memory after GC - NS VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIX - Records=10000 --- 0.03
+            Best Memory after GC - NS VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIX - Records=20000 --- 0.03
+            Best Memory after GC - NS VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIX - Records=30000 --- 0.03
+            Best Memory after GC - NS VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIX - Records=40000 --- 0.03
+            Best Memory after GC - NS VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIX - Records=50000 --- 0.03
+
+
+
+
+SAXDOMIXT - OFF
+
+    Best Time - OFF - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=10000 --- 2.033
+    Best Time - OFF - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=20000 --- 3.395
+    Best Time - OFF - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=30000 --- 4.777
+    Best Time - OFF - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=40000 --- 6.209
+    Best Time - OFF - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=50000 --- 7.471
+
+        Best Memory - OFF - JDK 1.2 - JAXP 1.1 - SAXDOMIXT - Records=10000 --- 0.29
+        Best Memory - OFF - JDK 1.1 - Xerces 1.3 - SAXDOMIXT - Records=20000 --- 0.31
+        Best Memory - OFF - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=30000 --- 0.11
+        Best Memory - OFF - JDK 1.2 - JAXP 1.1 - SAXDOMIXT - Records=40000 --- 0.11
+        Best Memory - OFF - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=50000 --- 0.32
+
+            Best Memory after GC - OFF - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=10000 --- 0.04
+            Best Memory after GC - OFF - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=20000 --- 0.04
+            Best Memory after GC - OFF - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=30000 --- 0.04
+            Best Memory after GC - OFF - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=40000 --- 0.04
+            Best Memory after GC - OFF - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=50000 --- 0.04
+
+
+
+
+SAXDOMIXT - NS
+
+    Best Time - NS - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=10000 --- 2.294
+    Best Time - NS - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=20000 --- 3.926
+    Best Time - NS - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=30000 --- 5.658
+    Best Time - NS - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=40000 --- 7.33
+    Best Time - NS - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=50000 --- 8.993
+
+        Best Memory - NS - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=10000 --- 0.16
+        Best Memory - NS - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=20000 --- 0.07
+        Best Memory - NS - JDK 1.2 - JAXP 1.1 - SAXDOMIXT - Records=30000 --- 0.33
+        Best Memory - NS - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=40000 --- 0.16
+        Best Memory - NS - JDK 1.3 - Xerces 1.4 - SAXDOMIXT - Records=50000 --- 0.32
+
+            Best Memory after GC - NS - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=10000 --- 0.04
+            Best Memory after GC - NS - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=20000 --- 0.04
+            Best Memory after GC - NS - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=30000 --- 0.04
+            Best Memory after GC - NS - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=40000 --- 0.04
+            Best Memory after GC - NS - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=50000 --- 0.04
+
+
+
+
+SAXDOMIXT - VAL
+
+    Best Time - VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=10000 --- 1.993
+    Best Time - VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=20000 --- 3.245
+    Best Time - VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=30000 --- 4.527
+    Best Time - VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=40000 --- 5.828
+    Best Time - VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=50000 --- 7.1
+
+        Best Memory - VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=10000 --- 0.2
+        Best Memory - VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=20000 --- 0.09
+        Best Memory - VAL - JDK 1.2 - JAXP 1.1 - SAXDOMIXT - Records=30000 --- 0.3
+        Best Memory - VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=40000 --- 0.29
+        Best Memory - VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=50000 --- 0.11
+
+            Best Memory after GC - VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=10000 --- 0.04
+            Best Memory after GC - VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=20000 --- 0.04
+            Best Memory after GC - VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=30000 --- 0.04
+            Best Memory after GC - VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=40000 --- 0.04
+            Best Memory after GC - VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=50000 --- 0.04
+
+
+
+
+SAXDOMIXT - NS VAL
+
+    Best Time - NS VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=10000 --- 2.253
+    Best Time - NS VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=20000 --- 3.785
+    Best Time - NS VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=30000 --- 5.367
+    Best Time - NS VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=40000 --- 6.92
+    Best Time - NS VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=50000 --- 8.472
+
+        Best Memory - NS VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=10000 --- 0.31
+        Best Memory - NS VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=20000 --- 0.27
+        Best Memory - NS VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=30000 --- 0.29
+        Best Memory - NS VAL - JDK 1.2 - JAXP 1.1 - SAXDOMIXT - Records=40000 --- 0.19
+        Best Memory - NS VAL - JDK 1.3 - JAXP 1.1 - SAXDOMIXT - Records=50000 --- 0.28
+
+            Best Memory after GC - NS VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=10000 --- 0.04
+            Best Memory after GC - NS VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=20000 --- 0.04
+            Best Memory after GC - NS VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=30000 --- 0.04
+            Best Memory after GC - NS VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=40000 --- 0.04
+            Best Memory after GC - NS VAL - JDK 1.1 - JAXP 1.1 - SAXDOMIXT - Records=50000 --- 0.04
+
+
+
+

@@ -1,0 +1,53 @@
+﻿<html dir="LTR"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5"><title>Processor Members</title><xml></xml><link rel="stylesheet" type="text/css" href="MSDN.css"></head><body id="bodyID" class="dtBODY"><div id="nsbanner"><div id="bannerrow1"><table class="bannerparthead" cellspacing="0"><tr id="hdr"><td class="runninghead">Saxon API for .NET</td><td class="product"></td></tr></table></div><div id="TitleRow"><h1 class="dtH1">Processor Members
+					</h1></div></div><div id="nstext"><p><a href="Saxon.Api.Processor.html">Processor overview</a></p><h4 class="dtH4">Public Instance Constructors</h4><div class="tablediv"><table class="dtTABLE" cellspacing="0"><tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"><a href="Saxon.Api.ProcessorConstructor.html">Processor</a></td><td width="50%">Overloaded. Initializes a new instance of the Processor class.</td></tr></table></div><h4 class="dtH4">Public Instance Properties</h4><div class="tablediv"><table class="dtTABLE" cellspacing="0">
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"><a href="Saxon.Api.Processor.Implementation.html">Implementation</a></td><td width="50%">
+            The underlying Configuration object in the Saxon implementation
+            </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"><a href="Saxon.Api.Processor.IsSchemaAware.html">IsSchemaAware</a></td><td width="50%">
+            Indicates whether the Processor is schema-aware
+            </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"><a href="Saxon.Api.Processor.ProductTitle.html">ProductTitle</a></td><td width="50%">
+            Get the full name of the Saxon product version implemented by this Processor
+            </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"><a href="Saxon.Api.Processor.ProductVersion.html">ProductVersion</a></td><td width="50%">
+            Get the Saxon product version number (for example, "8.8.1")
+            </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"><a href="Saxon.Api.Processor.SchemaManager.html">SchemaManager</a></td><td width="50%">
+            Gets the SchemaManager for the Processor. Returns null
+            if the Processor is not schema-aware.
+            </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"><a href="Saxon.Api.Processor.XmlResolver.html">XmlResolver</a></td><td width="50%">
+            An XmlResolver, which will be used while compiling and running queries, 
+            XPath expressions, and stylesheets, if no other XmlResolver is nominated
+            </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"><a href="Saxon.Api.Processor.XmlVersion.html">XmlVersion</a></td><td width="50%">
+            The XML version used in this <code>Processor</code> (for example, this determines what characters
+            are permitted in a name)
+            </td></tr></table></div><h4 class="dtH4">Public Instance Methods</h4><div class="tablediv"><table class="dtTABLE" cellspacing="0">
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"><a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassEqualsTopic.htm">Equals</a> (inherited from <b>Object</b>)</td><td width="50%">Determines whether the specified <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassTopic.htm">Object</a> is equal to the current <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassTopic.htm">Object</a>.</td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"><a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassGetHashCodeTopic.htm">GetHashCode</a> (inherited from <b>Object</b>)</td><td width="50%">Serves as a hash function for a particular type, suitable
+      for use in hashing algorithms and data structures like a hash table.</td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"><a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassGetTypeTopic.htm">GetType</a> (inherited from <b>Object</b>)</td><td width="50%">Gets the <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemTypeClassTopic.htm">Type</a> of the current instance.</td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"><a href="Saxon.Api.Processor.NewDocumentBuilder.html">NewDocumentBuilder</a></td><td width="50%">
+            Create a new <code>DocumentBuilder</code>, which may be used to build XDM documents from
+            a variety of sources.
+            </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"><a href="Saxon.Api.Processor.NewXPathCompiler.html">NewXPathCompiler</a></td><td width="50%">
+            Create a new XPathCompiler, which may be used to compile XPath expressions.
+            </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"><a href="Saxon.Api.Processor.NewXQueryCompiler.html">NewXQueryCompiler</a></td><td width="50%">
+            Create a new XQueryCompiler, which may be used to compile XQuery queries.
+            </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"><a href="Saxon.Api.Processor.NewXsltCompiler.html">NewXsltCompiler</a></td><td width="50%">
+            Create a new XsltCompiler, which may be used to compile XSLT stylesheets.
+            </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"><a href="Saxon.Api.Processor.RegisterCollection.html">RegisterCollection</a></td><td width="50%">
+            Register a named collection. A collection is identified by a URI (the collection URI),
+            and its content is represented by an <code>IEnumerable</code> that enumerates the contents
+            of the collection. The values delivered by this enumeration are Uri values, which 
+            can be mapped to nodes using the registered <code>XmlResolver</code>.
+            </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"><a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassToStringTopic.htm">ToString</a> (inherited from <b>Object</b>)</td><td width="50%">Returns a <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemStringClassTopic.htm">String</a> that represents the current <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassTopic.htm">Object</a>.</td></tr></table></div><h4 class="dtH4">Protected Instance Methods</h4><div class="tablediv"><table class="dtTABLE" cellspacing="0">
+<tr VALIGN="top"><td width="50%"><img src="protmethod.gif"><a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassFinalizeTopic.htm">Finalize</a> (inherited from <b>Object</b>)</td><td width="50%">Allows an <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassTopic.htm">Object</a> to attempt to free resources and perform other cleanup operations before
+   the <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassTopic.htm">Object</a> is reclaimed by garbage collection.</td></tr>
+<tr VALIGN="top"><td width="50%"><img src="protmethod.gif"><a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassMemberwiseCloneTopic.htm">MemberwiseClone</a> (inherited from <b>Object</b>)</td><td width="50%">Creates a shallow copy of the current <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassTopic.htm">Object</a>.</td></tr></table></div><h4 class="dtH4">See Also</h4><p><a href="Saxon.Api.Processor.html">Processor Class</a> | <a href="Saxon.Api.html">Saxon.Api Namespace</a></p><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;"><param name="Keyword" value="Processor class"><param name="Keyword" value="Saxon.Api.Processor class"><param name="Keyword" value="Processor class, all members"></object></div></body></html>

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Sealed: false
+Specification-Title: JSR 206 Java(TM) API for XML Processing 1.3
+Specification-Version: @jaxp.spec.version@
+Specification-Vendor: Sun Microsystems, Inc.
+Implementation-Title: JSR 206 Java(TM) API for XML Processing 1.3
+Implementation-Version: @jaxp.impl.version@
+Implementation-Vendor: Sun Microsystems, Inc.
+Implementation-Vendor-Id: com.sun 
+Implementation-URL: http://java.sun.com/xml/jaxp
+Extension-Name: javax.xml.parsers, javax.xml.transform, javax.xml.validation, javax.xml.xpath, javax.xml.datatypes

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+
+Name: org/apache/xerces
+Comment: Xerces parser implementing JAXP
+Specification-Title: Java API for XML Processing
+Specification-Version: @jaxp.spec.version@
+Specification-Vendor: Sun Microsystems Inc.
+Implementation-Title: Xerces 2 Implementation
+Implementation-Version: @xerces.version@
+Implementation-Vendor: Apache Software Foundation
+Implementation-Vendor-Id: org.apache
+Implementation-URL: http://xml.apache.org/xerces2-j
+Extension-Name: org.apache.xerces

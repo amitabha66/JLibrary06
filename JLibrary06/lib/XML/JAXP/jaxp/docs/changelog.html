@@ -1,0 +1,247 @@
+<html>
+<head><title>Changes Made and Bugs Fixed in JAXP 1.4.1</title>
+</head>
+<body>
+<h2 align="center">Changes Made and Bugs Fixed in JAXP 1.4.1</h2><br>
+<table border="1">
+<tr>
+<th>Nr</th>
+<th>Category</th>
+<th>ID/Class</th>
+<th>Synopsis/Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>JAXP/DOM</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6521260">6521260</a></td>
+<td>DOM attributes can become unsorted</td>
+</tr>
+<tr>
+<td>2</td>
+<td>JAXP/DOM</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6526547">6526547</a></td>
+<td>JAXP behaving different for schema validation in Java 1.5 and Java 1.6</td>
+</tr>
+<tr>
+<td>3</td>
+<td>JAXP/DOM</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6531160">6531160</a></td>
+<td>1.6: DOM level 1 documents cannot be validated with a Schema, works with 1.5</td>
+</tr>
+<tr>
+<td>4</td>
+<td>JAXP/DOM3</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4963562">4963562</a></td>
+<td>revert changes made in support of features being optional, final version of spec is mandatory.
+in support of:
+CR 4963562: DOMConfiguration: some required Document configuration properties are not supported </td>
+</tr>
+<tr>
+<td>5</td>
+<td>JAXP/Parse</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6311448">6311448</a></td>
+<td>XML transformer failed to output surrorates pair.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>JAXP/Performance</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6478375">6478375</a></td>
+<td>JAXP debug messages unnecessarily calculate expensive strings.</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>JAXP/SAX</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6518733">6518733</a></td>
+<td>Regression: SAX not correctly handling attributes with newlines</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td>JAXP/STAX</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6489890">6489890</a></td>
+<td>XMLEventReader's initial state is incorrect when created using an XMLStreamReader</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td>JAXP/STAX</td>
+<td><!a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6497142">N/A</td>
+<td>Error occurred while trying to cache START_ELEMENT 
+    com.sun.xml.stream.buffer.stax.StreamReaderBufferProcessor$InternalNamespaceContext. 
+    The filter implementation is trying to cache the NamesapceContext. It assumes the implementation 
+    of the NamespaceContext class ,hence the classcast exception.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>JAXP/STAX</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6498139">6498139</a></td>
+<td>Buffer allocations in SJSXP introduce large constant factors</td>
+</tr>
+<tr>
+<td>11</td>
+<td>JAXP/STAX</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6500909">6500909</a></td>
+<td>getAttributeName throws nullpointer exception for an element without attribute</td>
+</tr>
+<tr>
+<td>12</td>
+<td>JAXP/STAX</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6509774">6509774</a></td>
+<td>Can't parse document with doctype declaration without retrieving DTD</td>
+</tr>
+
+<tr>
+<td>13</td>
+<td>JAXP/STAX</td>
+<td><a href="https://sjsxp.dev.java.net/issues/show_bug.cgi?id=1">Issue 1</a></td>
+<td>getNamespaceURI(String prefix) returns incorrect results</td>
+</tr>
+<tr>
+<td>14</td>
+<td>JAXP/STAX</td>
+<td><a href="https://jaxp.dev.java.net/issues/show_bug.cgi?id=12">Issue 12</a></td>
+<td>toString method of XMLGregorianCalendar does not return a valid dateTime value</td>
+</tr>
+<tr>
+<td>15</td>
+<td>JAXP/STAX</td>
+<td><a href="https://sjsxp.dev.java.net/issues/show_bug.cgi?id=17">Issue 17</a></td>
+<td>Exception not thrown when next() called after hasNext() == false</td>
+</tr>
+<tr>
+<td>16</td>
+<td>JAXP/STAX</td>
+<td><a href="https://sjsxp.dev.java.net/issues/show_bug.cgi?id=18">Issue 18</a></td>
+<td>NullPointerException thrown if DTD has no internal subset</td>
+</tr>
+<tr>
+<td>17</td>
+<td>JAXP/STAX</td>
+<td><a href="https://sjsxp.dev.java.net/issues/show_bug.cgi?id=21">Issue 21</a></td>
+<td>IllegalStateException for XMLStreamReaderImpl.getLocalName() not thrown correctly</td>
+</tr>
+<tr>
+<td>18</td>
+<td>JAXP/STAX</td>
+<td><a href="https://sjsxp.dev.java.net/issues/show_bug.cgi?id=22">Issue 22</a></td>
+<td>XMLStreamReaderImpl.hasName() returns true on PROCESSING_INSTRUCTION</td>
+</tr>
+<tr>
+<td>19</td>
+<td>JAXP/STAX</td>
+<td><a href="https://sjsxp.dev.java.net/issues/show_bug.cgi?id=24">Issue 24</a></td>
+<td>Inconsistent behavior for getPrefix() when no prefix</td>
+</tr>
+<tr>
+<td>20</td>
+<td>JAXP/STAX</td>
+<td><a href="https://sjsxp.dev.java.net/issues/show_bug.cgi?id=27">Issue 27</a></td>
+<td>IllegalArgumentException not thrown for XMLReaderImpl.getNamespaceURI(null)</td>
+</tr>
+<tr>
+<td>21</td>
+<td>JAXP/STAX</td>
+<td><a href="https://sjsxp.dev.java.net/issues/show_bug.cgi?id=28">Issue 28</a></td>
+<td>NullPointerException thrown by XMLStreamWriterImpl.getProperty(String)</td>
+</tr>
+<tr>
+<td>22</td>
+<td>JAXP/STAX</td>
+<td><a href="https://sjsxp.dev.java.net/issues/show_bug.cgi?id=32">Issue 32</a></td>
+<td>NullPointerException in XMLDOMWriterImpl.writeCharacters()</td>
+</tr>
+<tr>
+<td>23</td>
+<td>JAXP/STAX</td>
+<td><a href="https://sjsxp.dev.java.net/issues/show_bug.cgi?id=34">Issue 34</a></td>
+<td>getPrefix returns namespace prefix of the previous element written using writeEmptyElement.</td>
+</tr>
+<tr>
+<td>24</td>
+<td>JAXP/STAX</td>
+<td><a href="https://sjsxp.dev.java.net/issues/show_bug.cgi?id=35">Issue 35</a></td>
+<td>XMLStreamReader can't parse schema for XML Schema.</td>
+</tr>
+
+<tr>
+<td>25</td>
+<td>JAXP/STAX</td>
+<td>Filtered Stream Reader</td>
+<td>Refer to <a href="https://sjsxp.dev.java.net/ReleaseNotes.html">the SJSXP 1.0.1 Release Notes</a>, 
+    the filtered stream reader was rewritten in an effort to make it more compatible with that in other 
+    implementations. The new class passed the JSR173 TCK. </td>
+</tr>
+<tr>
+<td>26</td>
+<td>JAXP/XPATH</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4991857">4991857</a></td>
+<td>Report an error if the context node used to initialize a NodeSequence is DTM.NULL. This should only happen if there's a problem with the context, or if the context is null. This addresses the evaluation of the "self::node()" expression with a null context.</td>
+</tr>
+<tr>
+<td>27</td>
+<td>JAXP/XPath</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6354969">6354969</a></td>
+<td>Bug in XPathFactory.newInstance() method</td>
+</tr>
+
+<tr>
+<td>28</td>
+<td>JAXP/XSLT</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6481337">6481337</a></td>
+<td>SAX2DOM creates JAXP SAXParserFactory unnecessarily</td>
+</tr>
+
+<tr>
+<td>29</td>
+<td>JAXP/XSLT</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6513892">6513892</a></td>
+<td>redirect encodes output file using the platform's default charset</td>
+</tr>
+<tr>
+<td>30</td>
+<td>JAXP/XSLTC</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6384805">6384805</a></td>
+<td>Fixes regression caused by patch for CR 6384805. Must override addAttribute(String, String, String, String, String) because the one from base class does not apply to this class. Note that this class delegates to the actual serializer, so the state inherited from SerializerBase is not actually used.</td>
+</tr>
+<tr>
+<td>31</td>
+<td>JAXP/XSLTC</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6384805">6384805</a></td>
+<td>Patch for CR 6384805. Implementation of xsltc.runtime.AttributeList was buggy, it mixed prefixes and URIs. Since it was pretty memory inefficient as well, I modified the code to use AttributesImpl helper from the SAX package (already part of JAXP). Moreover, I've modified the places where attributes are added to make sure that their URIs are passed.</td>
+</tr>
+<tr>
+<td>32</td>
+<td>JAXP/Validation</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6509668">6509668</a></td>
+<td>Wrong TypeInfoProvider.getElementTypeInfo() behavior</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Performance</td>
+<td>XMLOutputFactoryImpl</td>
+<td>Porting patch applied to standalone SJSXP. Make instances of this class thread safe to enable pooling and re-usability.</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Performance</td>
+<td>XMLStreamWriterImpl</td>
+<td>Porting original patch from SJSXP to JAXP 1.4. Set certain variables to null in close() so that the objects can be garbage collected. This is particularly useful when writers are pooled and re-used.</td>
+</tr>
+<tr>
+<td>35</td>
+<td>JAXP/XSLT</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6490380">6490380</a></td>
+<td>Doctype declaration appears twice before and after XML declaration</td>
+</tr>
+<tr>
+<td>36</td>
+<td>JAXP/XSLT</td>
+<td><a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6490921">6490921</a></td>
+<td>The transformer API sometimes ignores the property org.xml.sax.driver</td>
+</tr>
+
+
+</table>
+</body>
+</html>

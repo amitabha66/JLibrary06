@@ -1,0 +1,17 @@
+cc=gcc
+
+debugoption=-O2
+
+liboption1=-fPIC
+liboption2=-shared
+liboption3=-Wl,-R${basedir}/${lib.dir}:${basedir}/${lib.dir}/drivers
+
+includedir1=${java.home}/../include/linux
+includedir2=.
+
+libprefix=lib
+libsuffix=.so
+
+z.lib=-lz
+xsdc.lib=-l${xsdcrt}
+xsdcore.lib=-l${xsdcengine}

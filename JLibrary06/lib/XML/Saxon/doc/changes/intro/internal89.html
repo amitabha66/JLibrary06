@@ -1,0 +1,323 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: Internal Changes</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: Internal Changes">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:1848px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:1848px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:1848px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:1848px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../../index/intro.html"><img src="../../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="../intro.html">Version 8.9 (2007-02-12)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro88.html">Version 8.8 (2006-09-05)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro873.html">Version 8.7.3 (2006-06-13)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v872.html">Version 8.7.2 (2006-04-19)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v871.html">Version 8.7.1 (2006-04-13)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro87.html">Version 8.7 (2006-02-24)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro861.html">Version 8.6.1 (24 November 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro86.html">Version 8.6 (3 November 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro851.html">Version 8.5.1 (26 August 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro85.html">Version 8.5 (2 August 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v84.html">Version 8.4 (4 April 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v83.html">Version 8.3 (11 February 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v8.2.html">Version 8.2 (21 December 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v811.html">Version 8.1.1 (8 October 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro81.html">Version 8.1 (24 September 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v8.0.html">Version 8.0 (1 June 2004)</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>Internal Changes</h1>
+         <p>The atomic type constants (such as <code>Type.STRING_TYPE</code>) in class <code>Type</code> have been removed.
+            They have been replaced with constants (such as <code>BuiltInAtomicType.STRING</code> in class
+            <code>BuiltInAtomicType</code>.
+         </p>
+         <p>The class <code>Value</code> no longer implements <code>Expression</code>. Instead, an expression that evaluates
+            to constant value is now represented by a <code>Literal</code> that encapsulates the <code>Value</code>. This simplifies
+            the implementation of <code>Value</code> and all its subclasses, and it also means that all the objects on an expression
+            tree can now contain location information and parent pointers, simplifying the manipulation of the tree. As a consequence
+            of this change, it has been possible to merge the class <code>ComputedExpression</code> and the interface
+            <code>Expression</code> into a single abstract class.
+         </p>
+         <p>The hierarchy of <code>SequenceIterator</code> classes and interfaces has been changed. The interface
+            <code>AxisIterator</code> (which is returned by <code>NodeInfo.iterateAxis()</code>) is now reserved
+            for iterators that return nodes only. Several new methods are defined in this interface, designed to
+            allow implementations that return "wrapper" nodes to defer the construction of the wrapper until it
+            is actually needed. Default implementations of these methods can be copied from the class
+            <code>net.sf.saxon.om.AxisIteratorImpl</code>.
+         </p>
+         <p>The concept of an atomizable iterator no longer exists: this was a previous attempt to allow construction
+            of nodes to be avoided when not required, and is superseded by the new mechanism. A client can now call
+            the <code>atomize()</code> method on the <code>AxisIterator</code> itself, to avoid materializing the node
+            when only its atomized value is required.
+         </p>
+         <p>There has been some reorganization of the classes used to represent collations. Previously
+            the general-purpose <code>Comparator</code> class was widely used, which led to confusion as to which kind of
+            <code>Comparator</code> was needed in different places. The code now distinguishes two kinds of comparator:
+            a <code>StringCollator</code>, which represents a collation in the XPath sense and is used specifically to
+            compare strings, and an <code>AtomicComparer</code>, which is used to compare arbitrary atomic values (and which
+            may encapsulate a <code>StringCollator</code> when string comparison using a collation is called for). This
+            change affects some user-visible interfaces, for example the <code>CollationURIResolver</code>.
+         </p>
+         <p>The class <code>NamedCollation</code> (an implementation of <code>StringCollator</code>) has been
+            introduced to represent a collation other than the default collation. It encapsulates a collation
+            URI and the <code>StringCollator</code> object used to perform the actual comparison. The URI is retained
+            so that the <code>NamedCollation</code> can be reconstructed, for example when compiled code
+            is executed.
+         </p>
+         <p>The code for arithmetic expressions has been extensively reorganized. All arithmetic expressions
+            are now represented on the expression tree by one of two classes: <code>ArithmeticExpression</code> 
+            or <code>ArithmeticExpression10</code>,
+            the latter being used only when backwards compatibility mode is in force. The <code>ArithmeticExpression</code> object
+            contains a reference to a <code>Calculator</code> object, which is not itself an expression, but is a helper object that
+            actually performs the computation. There are many different subclasses of <code>Calculator</code> for different operators
+            and combinations of operands. If the types of the operands are known early, then a specific <code>Calculator</code> can be
+            allocated at compile time; if not, a generic <code>Calculator</code> is used which examines the dynamic types of the operands
+            at run-time and invokes one of the specific <code>Calculator</code>s accordingly. This reorganization should give a slight
+            speed-up to interpreted code, especially where static types can be inferred, but the main purpose is to enable the
+            Java code generator to do a good job in translating XPath arithmetic expressions to Java.
+         </p>
+         <p>When the API for free-standing XPath expressions is used, an <code>Executable</code> object is
+            now created, which makes it possible to use extension functions such as <code>saxon:evaluate()</code>
+            that rely on the presence of an <code>Executable</code>.
+         </p>
+         <p>When running XQuery with a non-schema-aware Configuration, the default construction mode in the static context
+            has changed from "preserve" to "strip". In this situation, the input nodes will normally be untyped, and this
+            choice ensures that if new document is constructed by the query, the output nodes will also be untyped.
+         </p>
+         <p>There has been some reorganization of the classes used to represent atomic values, designed to bring the
+            Java class hierarchy into closer alignment with the XPath type hierarchy:
+         </p>
+         <ul>
+            <li>
+               <p>The class <code>DerivedAtomicValue</code>, used for values belonging to a user-defined atomic type,
+                  is no longer used; instead, the relevant primitive type is used, for example <code>StringValue</code>
+                  or <code>DoubleValue</code>. The root <code>AtomicValue</code> class now contains a field giving the type
+                  label so that subtypes can be distinguished. In consequence, the method <code>getPrimitiveValue()</code>
+                  is no longer required, and has been removed.
+               </p>
+            </li>
+            <li>
+               <p>The class <code>RestrictedStringValue</code> has been removed; strings belonging to subtypes of
+                  <code>xs:string</code> (for example, <code>xs:NCName</code>) are now instances of <code>StringValue</code>.
+               </p>
+            </li>
+            <li>
+               <p>All integers now belong to the abstract class <code>IntegerValue</code>, which has two concrete
+                  implementation classes, <code>Int64Value</code> and <code>BigIntegerValue</code>.
+               </p>
+            </li>
+            <li>
+               <p><code>NotationValue</code> no longer inherits from <code>QNameValue</code>, instead both share
+                  a common abstract superclass, <code>QualifiedNameValue</code>.
+               </p>
+            </li>
+            <li>
+               <p>The classes <code>GYearValue</code>, <code>GYearMonthValue</code>, <code>GMonthValue</code>, 
+                  <code>GMonthDayValue</code>, and <code>GDayValue</code>
+                  no longer inherit from <code>DateValue</code>. Instead they now share an abstract superclass <code>GDateValue</code>
+                  which contains the shared code.
+               </p>
+            </li>
+         </ul>
+         <p>These changes mean that in most cases it is now possible to use Java tests such as 
+            <code>x instanceof DateTimeValue</code> to 
+            test whether an <code>AtomicValue</code> is an instance of <code>xs:dateTime</code> or one of its subtypes. 
+            There are still one or two
+            exceptions to this, however: <code>IntegerValue</code> in the Java class hierarchy is not a subclass of
+            <code>DecimalValue</code>, while <code>UntypedAtomicValue</code> and <code>AnyURIValue</code> are both 
+            implemented as subclasses of <code>StringValue</code>. It should also be noted that an atomic value is
+            not necessarily represented by an instance of the <code>AtomicValue</code> class: it might also on occasions
+            be represented, say, by a <code>SequenceExtent</code> of length one, or by a <code>MemoClosure</code>.
+            Before relying on the representation,
+            the method <code>Value.reduce()</code> should be used to simplify such representations.
+         </p>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="../intro88.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

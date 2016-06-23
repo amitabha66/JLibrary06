@@ -1,0 +1,21 @@
+﻿<html dir="LTR"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5"><title>DocumentBuilder.Build Method (XmlReader)</title><xml></xml><link rel="stylesheet" type="text/css" href="MSDN.css"></head><body id="bodyID" class="dtBODY"><div id="nsbanner"><div id="bannerrow1"><table class="bannerparthead" cellspacing="0"><tr id="hdr"><td class="runninghead">Saxon API for .NET</td><td class="product"></td></tr></table></div><div id="TitleRow"><h1 class="dtH1">DocumentBuilder.Build Method (XmlReader)</h1></div></div><div id="nstext"><p>
+            Load an XML document, delivered using an XmlReader.
+            </p><div class="syntax">public <a href="Saxon.Api.XdmNode.html">XdmNode</a> Build(<br>   <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemXmlXmlReaderClassTopic.htm">XmlReader</a> <i>reader</i><br>);</div><h4 class="dtH4">Parameters</h4><dl><dt><i>reader</i></dt><dd>The XMLReader that supplies the parsed XML source</dd></dl><h4 class="dtH4">Return Value</h4><p>An <code>XdmNode</code>, the document node at the root of the tree of the resulting
+            in-memory document
+            </p><h4 class="dtH4">Remarks</h4><p>The XmlReader is responsible for parsing the document; this method builds a tree
+            representation of the document (in an internal Saxon format) and returns its document node.
+            The XmlReader is not required to perform validation but it must expand any entity references.
+            Saxon uses the properties of the <code>XmlReader</code> as supplied.</p><p>Use of a plain <code>XmlTextReader</code> is discouraged, because it does not expand entity
+            references. This should only be used if you know in advance that the document will contain
+            no entity references (or perhaps if your query or stylesheet is not interested in the content
+            of text and attribute nodes). Instead, with .NET 1.1 use an <code>XmlValidatingReader</code> (with <code>ValidationType</code>
+            set to <code>None</code>). The constructor for <code>XmlValidatingReader</code> is obsolete in .NET 2.0,
+            but the same effect can be achieved by using the <code>Create</code> method of <code>XmlReader</code> with
+            appropriate <code>XmlReaderSettings</code></p><p>Conformance with the W3C specifications requires that the <code>Normalization</code> property
+            of an <code>XmlTextReader</code> should be set to <code>true</code>. However, Saxon does not insist
+            on this.</p><p>If the <code>XmlReader</code> performs schema validation, Saxon will ignore any resulting type
+            information. Type information can only be obtained by using Saxon's own schema validator, which
+            will be run if the <code>SchemaValidationMode</code> property is set to <code>Strict</code> or <code>Lax</code></p><p>Note that the Microsoft <code>System.Xml</code> parser does not report whether attributes are
+            defined in the DTD as being of type <code>ID</code> and <code>IDREF</code>. This is true whether or not
+            DTD-based validation is enabled. This means that such attributes are not accessible to the 
+            <code>id()</code> and <code>idref()</code> functions.</p><h4 class="dtH4">See Also</h4><p><a href="Saxon.Api.DocumentBuilder.html">DocumentBuilder Class</a> | <a href="Saxon.Api.html">Saxon.Api Namespace</a> | <a href="Saxon.Api.DocumentBuilder.Build_overloads.html">DocumentBuilder.Build Overload List</a></p><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;"><param name="Keyword" value="Build method"><param name="Keyword" value="Build method, DocumentBuilder class"><param name="Keyword" value="DocumentBuilder.Build method"></object></div></body></html>

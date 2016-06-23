@@ -1,0 +1,18 @@
+﻿<html dir="LTR"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5"><title>Processor.RegisterCollection Method</title><xml></xml><link rel="stylesheet" type="text/css" href="MSDN.css"></head><body id="bodyID" class="dtBODY"><div id="nsbanner"><div id="bannerrow1"><table class="bannerparthead" cellspacing="0"><tr id="hdr"><td class="runninghead">Saxon API for .NET</td><td class="product"></td></tr></table></div><div id="TitleRow"><h1 class="dtH1">Processor.RegisterCollection Method </h1></div></div><div id="nstext"><p>
+            Register a named collection. A collection is identified by a URI (the collection URI),
+            and its content is represented by an <code>IEnumerable</code> that enumerates the contents
+            of the collection. The values delivered by this enumeration are Uri values, which 
+            can be mapped to nodes using the registered <code>XmlResolver</code>.
+            </p><div class="syntax">public <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemVoidClassTopic.htm">void</a> RegisterCollection(<br>   <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemUriClassTopic.htm">Uri</a> <i>collectionUri</i>,<br>   <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemCollectionsIEnumerableClassTopic.htm">IEnumerable</a> <i>contents</i><br>);</div><h4 class="dtH4">Parameters</h4><dl><dt><i>collectionUri</i></dt><dd>The URI used to identify the collection in a call
+            of the XPath <code>collection()</code> function. The default collection is registered
+            by supplying null as the value of this argument (this is the collection returned
+            when the XPath <code>collection()</code> function is called with no arguments).</dd><dt><i>contents</i></dt><dd>An enumerable object that represents the contents of the
+            collection, as a sequence of document URIs. The enumerator returned by this
+            IEnumerable object must return instances of the Uri class.</dd></dl><h4 class="dtH4">Remarks</h4><p>Collections should be stable: that is, two calls to retrieve the same collection URI
+            should return the same sequence of document URIs. This requirement is imposed by the
+            W3C specifications, but in the case of a user-defined collection it is not enforced by
+            the Saxon product.</p><p>A collection may be "unregistered" by providing null as the value of the
+            contents argument. A collection may be replaced by specifying the URI of an existing
+            collection.</p><p>Collections registered with a processor are available to all queries and stylesheets
+            running under the control that processor. Collections should not normally be registered
+            while queries and transformations are in progress.</p><h4 class="dtH4">See Also</h4><p><a href="Saxon.Api.Processor.html">Processor Class</a> | <a href="Saxon.Api.html">Saxon.Api Namespace</a></p><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;"><param name="Keyword" value="RegisterCollection method"><param name="Keyword" value="RegisterCollection method, Processor class"><param name="Keyword" value="Processor.RegisterCollection method"></object></div></body></html>

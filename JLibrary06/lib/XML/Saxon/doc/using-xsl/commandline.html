@@ -1,0 +1,703 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: Running XSLT from the Command Line</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: Running XSLT from the Command Line">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:3931.2px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:3931.2px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:3931.2px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:3931.2px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../index/intro.html"><img src="../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro.html">Using XSLT 2.0 Stylesheets</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="commandline.html">Running XSLT from the Command Line</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="compiling.html">Compiling a Stylesheet</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="xsltfromant.html">Running Saxon XSLT transformations from Ant</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="embedding.html">Invoking XSLT from an application</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="performanceanalysis.html">Performance Analysis</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>Running XSLT from the Command Line</h1>
+         <p>A command is available to apply a given stylesheet to a given source XML document. The form of
+            command on the Java platform is:
+         </p>
+         <p class="command">java&nbsp; net.sf.saxon.Transform 
+            &nbsp; [options]&nbsp;&nbsp; stylesheet&nbsp;&nbsp; [ <i>params...</i>]
+         </p>
+         <p>For the .NET platform, the command is simply:</p>
+         <p class="command">Transform 
+            &nbsp; [options]&nbsp;&nbsp; stylesheet&nbsp;&nbsp; [ <i>params...</i>]
+         </p>
+         <p>For a schema-aware transformation, specify the option <code>-sa</code>, or (on the
+            Java platform only) use the alternate entry point <code>com.saxonica.Transform</code>. 
+            For more details see <a class="bodylink" href="../schema-processing/satransformcmd.html">Schema-Aware Transformations</a>.
+         </p>
+         <p>The options must come first, then the file name, then the params.
+            The stylesheet is omitted if the -a option is present.
+         </p>
+         <p><i>The source document is supplied using the <code>-s</code> option. 
+               For backwards compatibility, the source document filename can also be supplied without
+               an option flag, immediately before the stylesheet filename, provided that neither the <code>-it</code>
+               nor <code>-s</code> options are present.</i></p>
+         <p>For this to work, all the necessary Java components must be available on the classpath. See
+            <a class="bodylink" href="../index/installation.html">Installation</a> for details of how to set up the classpath.
+         </p>
+         <p>If you are are not using any additional Java libraries, you can use the simpler form of command:</p>
+         <p class="command">java&nbsp; -jar <i>dir</i>/saxon8.jar 
+            &nbsp; [options]&nbsp;&nbsp; stylesheet&nbsp;&nbsp; [ <i>params...</i>]
+         </p>
+         <p><i>Note, however, that this does not work if you need to load user-written extension functions or 
+               other classes from the classpath. It will therefore not work if your stylesheet uses extension functions,
+               or if you are using other modules such as the Saxon JDOM or XOM interfaces. It also does not work if
+               you are using Saxon-SA, because the license file needs to be on the classpath.</i></p>
+         <p>The options are as follows (in any order): </p>
+         <table>
+            <tr>
+               <td valign="top" width="20%">
+                  <p>-a</p>
+               </td>
+               <td>
+                  <p>Use the xml-stylesheet processing instruction in the source document
+                     to identify the stylesheet to be used. The stylesheet argument must not be present on the command line.
+                     
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top" width="20%">
+                  <p>-c</p>
+               </td>
+               <td>
+                  <p>Indicates that the stylesheet argument identifies a compiled stylesheet rather
+                     than an XML source stylesheet. The stylesheet must have been previously compiled as
+                     described in <a class="bodylink" href="../using-xsl/compiling.html">Compiling a Stylesheet</a>.
+                     
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-cr classname</p>
+               </td>
+               <td>
+                  <p>Use the specified CollectionURIResolver to process collection URIs passed to the
+                     <code>collection()</code> function.
+                     The CollectionURIResolver is a user-defined class
+                     that implements the <code>net.sf.saxon.CollectionURIResolver</code> interface.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-ds | -dt</p>
+               </td>
+               <td>
+                  <p>Selects the implementation of the internal tree model. -dt selects the "tiny tree"
+                     model (the default). -ds selects the linked tree model. See <a class="bodylink" href="../sourcedocs/choosingmodel.html">
+                        Choosing a tree model</a>.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-im modename</p>
+               </td>
+               <td>
+                  <p>Selects the initial mode for the transformation. If this is namespaced, it can be 
+                     written as <code>{uri}localname</code></p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-it template</p>
+               </td>
+               <td>
+                  <p>Selects the initial named template to be executed. If this is namespaced, it can be 
+                     written as <code>{uri}localname</code>. When this option is used, you do not need to supply
+                     a source file, but if you do, you must supply it using the <code>-s</code> option.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-l</p>
+               </td>
+               <td>
+                  <p>Switches line numbering on for the source document. Line numbers are accessible
+                     through the extension function saxon:line-number(), or from a trace listener.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-m classname</p>
+               </td>
+               <td>
+                  <p>Use the specified Receiver to process the output from xsl:message. The class must implement
+                     the <code>net.sf.saxon.event.Receiver</code> class. This interface is similar to a SAX ContentHandler,
+                     it takes a stream of events to generate output. In general the content of a message is an XML
+                     fragment. By default the standard XML emitter is used, configured to write to the standard error
+                     stream, and to include no XML declaration. Each message is output as a new document.
+                  </p>
+                  <p>The sequence of calls to this Receiver is as follows: there is a single <code>open()</code> call at
+                     the start of the transformation, and a single <code>close()</code> call at the end; and each evaluation of an <code>xsl:message</code>
+                     instruction starts with a <code>startDocument()</code> call and ends with <code>endDocument()</code>. The <code>startDocument()</code>
+                     event has a <code>properties</code> argument indicating whether <code>terminate="yes"</code> was specified, and the
+                     <code>locationId</code> on calls such as <code>startElement()</code> and <code>characters()</code> can be used to identify
+                     the location in the stylesheet where the message data originated (this is achieved by passing the supplied <code>locationId</code>
+                     in a call to <code>getPipelineConfiguration().getLocator().getSystemId(locationId)</code>, or to <code>getLineNumber()</code>
+                     on the same object).
+                  </p>
+                  <p>Select the class <code>net.sf.saxon.event.MessageWarner</code> to have <code>xsl:message</code> output
+                     notified to the JAXP <code>ErrorListener</code>, as described in the JAXP documentation.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-noext</p>
+               </td>
+               <td>
+                  <p>Suppress calls on extension functions, other than system-supplied Saxon and EXSLT extension
+                     functions. This option is useful when loading an untrusted stylesheet, perhaps from a remote
+                     site using an <code>http://</code> URL; it ensures that the stylesheet cannot call Java methods
+                     and thereby gain privileged access to resources on your machine.
+                     
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-novw</p>
+               </td>
+               <td>
+                  <p>No version warnings. This suppresses the warning message that is normally issued
+                     (as required by the W3C specification) when running an XSLT 2.0 processor against a stylesheet
+                     that specifies <code>version="1.0"</code>.
+                     
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-o filename</p>
+               </td>
+               <td>
+                  <p>Send output to named file. In the absence of this option, the results go to standard output.
+                     If the source argument identifies a directory, this option is mandatory and must also identify
+                     a directory; on completion it will contain one output file for each file in the source directory.
+                     If the stylesheet writes secondary output files using the <code>xsl:result-document</code>
+                     instruction; this filename acts as the base URI for the <code>href</code> attribute of this instruction.
+                     In the absence of this option, secondary output files are written relative to the current working directory.
+                     
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-or classname</p>
+               </td>
+               <td>
+                  <p>Use the specified OutputURIResolver to process output URIs appearing in the <code>href</code>
+                     attribute of <code>xsl:result-document</code>.
+                     The OutputURIResolver is a user-defined class
+                     that implements the <code>net.sf.saxon.OutputURIResolver</code> interface.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-p</p>
+               </td>
+               <td>
+                  <p>Use the PTreeURIResolver. This option is available in Saxon-SA only. It cannot be used in conjunction
+                     with the -r option, and it automatically switches on the -u and -sa options. The effect is twofold. Firstly, Saxon-specific
+                     file extensions are recognized in URIs (including the URI of the source document on the command line). Currently
+                     the only Saxon-specific file extension is <code>.ptree</code>, which indicates that the source document is supplied
+                     in the form of a Saxon PTree. This is a binary representation of an XML document, designed for speed of loading.
+                     Secondly, Saxon-specific query parameters are recognized in a URI. Currently the only query parameter that is
+                     recognized is <code>val</code>. This may take the values <code>strict</code>, <code>lax</code>, or <code>strip</code>.
+                     For example, <code>source.xml?val=strict</code> loads a document with strict schema validation.
+                     
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-r classname</p>
+               </td>
+               <td>
+                  <p>Use the specified URIResolver to process all URIs. The URIResolver is a user-defined class,
+                     that extends the net.sf.saxon.URIResolver class, whose function is to take a URI supplied as
+                     a string, and return a SAX InputSource. It is invoked to process URIs used in the document() function,
+                     in the xsl:include and xsl:import elements, and (if -u is also specified) to process the URIs
+                     of the source file and stylesheet file provided on the command line.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-s filename</p>
+               </td>
+               <td>
+                  <p>Identifies the source file or directory. Mandatory unless the <code>-t</code> option is used.
+                     The source file is parsed to create a tree, and the document node of this tree acts as the initial context
+                     item for the transformation.
+                  </p>
+                  <p>If the name identifies a directory, all the
+                     files in the directory will be processed individually. In this case the <code>-o</code> option is
+                     mandatory, and must also identify a directory, to contain the corresponding output files.
+                     A directory must be specified as a filename, not as a URL.
+                  </p>
+                  <p>The source-document can be
+                     specified as "-" to take the source from standard input.
+                  </p>
+                  <p><i>For backwards compatibility the source filename can also be specified immediately before the
+                        stylesheet filename, without the <code>-s</code> flag, provided that the <code>-it</code> option
+                        is not present.</i></p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-sa</p>
+               </td>
+               <td>
+                  <p>Invoke a schema-aware transformation. Requires Saxon-SA to be installed.</p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-sall</p>
+               </td>
+               <td>
+                  <p>Strips all whitespace text nodes from source documents before any further processing,
+                     regardless of any <code>xsl:strip-space</code> declarations in the stylesheet, or any
+                     <code>xml:space</code> attributes in the source document.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-signorable</p>
+               </td>
+               <td>
+                  <p>Strips all ignorable whitespace text nodes from source documents before any further processing,
+                     regardless of any <code>xsl:strip-space</code> declarations in the stylesheet, or any
+                     <code>xml:space</code> attributes in the source document. Whitespace text nodes are ignorable
+                     if they appear in elements defined in the DTD or schema as having element-only content.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-snone</p>
+               </td>
+               <td>
+                  <p>Strips no whitespace before further processing. (However, whitespace will still be stripped if
+                     this is specified in the stylesheet using <code>xsl:strip-space</code>).
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-t</p>
+               </td>
+               <td>
+                  <p>Display version and timing information to the standard error output. The output also traces
+                     the files that are read and writing, and extension modules that are loaded.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-T</p>
+               </td>
+               <td>
+                  <p>Display stylesheet tracing information to the standard error output. This traces execution of
+                     each instruction in the stylesheet, so the output can be quite voluminous.
+                     Also switches line numbering on for the source document.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-TJ</p>
+               </td>
+               <td>
+                  <p>Switches on tracing of the binding of calls to external Java methods.
+                     This is useful when analyzing why Saxon fails to find a Java method to match
+                     an extension function call in the stylesheet, or why it chooses one method over another when several
+                     are available.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-TL classname</p>
+               </td>
+               <td>
+                  <p>Run the stylesheet using the specified TraceListener. The classname names a user-defined
+                     class, which must implement net.sf.saxon.trace.TraceListener
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-TP</p>
+               </td>
+               <td>
+                  <p>Run the stylesheet using the TraceListener <code>TimedTraceListener</code>. This creates
+                     an output file giving timings for each instruction executed. This output file can subsequently
+                     be analyzed to give an execution time profile for the stylesheet. 
+                     See <a class="bodylink" href="../using-xsl/performanceanalysis.html">Performance Analysis</a>.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-u</p>
+               </td>
+               <td>
+                  <p>Indicates that the names of the source document and the stylesheet document are URLs;
+                     otherwise they are taken as filenames, unless they start with "http:" or "file:", in which
+                     case they are taken as URLs
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-v</p>
+               </td>
+               <td>
+                  <p>Requests DTD-based validation of the source file and of any files read using the document()
+                     function. Requires an XML parser that supports validation.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-val</p>
+               </td>
+               <td>
+                  <p>Requests schema-based validation of the source file and of any files read using the document()
+                     function. This option is available only with Saxon-SA, and it automatically switches on the
+                     -sa option.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-vlax</p>
+               </td>
+               <td>
+                  <p>This option is available only with Saxon-SA, and it automatically switches on the
+                     -sa option.
+                     It requests lax validation of source documents using an XML Schema. That is, the
+                     document will be validated if a suitable schema is available, and will not be validated
+                     otherwise.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-vw</p>
+               </td>
+               <td>
+                  <p>Indicates that validation errors found when validating the result tree should be treated as warnings only.
+                     This option is available only with Saxon-SA.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-w0, w1, or w2</p>
+               </td>
+               <td>
+                  <p>Indicates the policy for handling recoverable errors in the stylesheet: w0 means
+                     recover silently, w1 means recover after writing a warning message to the system error
+                     output, w2 means signal the error and do not attempt recovery. (Note, this does not
+                     currently apply to all errors that the XSLT recommendation describes as recoverable).
+                     The default is w1.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-x classname</p>
+               </td>
+               <td>
+                  <p>Use specified SAX parser for source file and any files loaded using the document() function.
+                     The parser must be the fully-qualified class name
+                     of a Java class that implements the org.xml.sax.Parser or org.xml.sax.XMLReader interface
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-xi</p>
+               </td>
+               <td>
+                  <p>Apply XInclude processing to all input XML documents (including schema and stylesheet modules as
+                     well as source documents). This currently only works when documents are parsed using the Xerces
+                     parser, which is the default in JDK 1.5 and later.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-y classname</p>
+               </td>
+               <td>
+                  <p>Use specified SAX parser for stylesheet file, including any loaded using xsl:include
+                     or xsl:import. The parser must be the fully-qualified class name
+                     of a Java class that implements the org.xml.sax.Parser or org.xml.sax.XMLReader interface
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-1.1</p>
+               </td>
+               <td>
+                  <p>Allow XML 1.1 and XML Namespaces 1.1 constructs. This option must be set if source documents 
+                     using XML 1.1 are to be read, or if result documents are to be serialized as XML 1.1. This option
+                     also enables use of XML 1.1 constructs within the stylesheet itself.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-?</p>
+               </td>
+               <td>
+                  <p>Display command syntax</p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>stylesheet</p>
+               </td>
+               <td>
+                  <p>Identifies the stylesheet. Mandatory unless the <code>-a</code> option is used. If the -c option
+                     is used, this argument identifies a compiled stylesheet. The stylesheet argument can be
+                     specified as "-" to read the stylesheet from standard input.
+                  </p>
+               </td>
+            </tr>
+         </table>
+         <p>A <i>param</i> takes the form <code>name=value</code>, <i>name</i> being the
+            name of the parameter, and <i>value</i> the value of the parameter. These parameters are
+            accessible within the stylesheet as normal variables, using the <code>$name</code> syntax, provided
+            they are declared using a top-level <code>xsl:param</code> element. If there is no such declaration, the supplied
+            parameter value is silently ignored. If the <code>xsl:param</code> element has an <code>as</code>
+            attribute indicating the required type, then the string value supplied on the command line is cast
+            to this type: this may result in an error, for example if an integer is required and the supplied value
+            cannot be converted to an integer.
+         </p>
+         <p>A <i>param</i> preceded by a leading exclamation mark (!) is interpreted as an output parameter.
+            For example, <code>!indent=yes</code> requests indented output. This is equivalent to specifying
+            the attribute <code>indent="yes"</code> on an <code>xsl:output</code> declaration in the stylesheet.
+            An output parameter specified on the command line overrides one specified within the stylesheet.
+         </p>
+         <p>A <i>param</i> preceded by a leading plus sign (+) is interpreted as a filename or directory.
+            The content of the file is parsed as XML, and the resulting document node is passed to the stylesheet
+            as the value of the parameter. If the parameter value is a directory, then all the immediately contained
+            files are parsed as XML, and the resulting sequence of document nodes is passed as the value of the
+            parameter. For example, <code>+lookup=lookup.xml</code> sets the value of the stylesheet parameter
+            <code>lookup</code> to the document node at the root of the tree representing the parsed contents
+            of the file <code>lookup.xml</code>.
+         </p>
+         <p>Under most operating systems it is possible to supply a value containing
+            spaces by enclosing it in double quotes, for example <code>name="John Smith"</code>. This is a feature
+            of the operating system shell, not something Saxon does, so it may not work the
+            same way under every operating system or command processor. (In the jEdit console plugin, for example, 
+            it has to be written as <code>"name=John Smith"</code>)
+         </p>
+         <p>If the parameter name is in a non-null namespace, the parameter can be given a value using
+            the syntax <code>{uri}localname=value</code>. Here <code>uri</code> is the namespace URI of the
+            parameter's name, and <code>localname</code> is the local part of the name.
+         </p>
+         <p>This applies also to output parameters. For example, you can set the indentation level to 4 by
+            using the parameter <code>!{http://saxon.sf.net/}indent-spaces=4</code>. See also
+            <a class="bodylink" href="../extensions/output-extras.html">Additional attributes for xsl:output</a>.
+         </p>
+         <p>If the <code>-a</code> option is used, the name of the stylesheet is
+            omitted. The source document must contain a <code>&lt;?xml-stylesheet?&gt;</code> processing instruction
+            before the first element start tag; this processing instruction must have a pseudo-attribute <code>href</code> that
+            identifies the relative or absolute URL of the stylsheet document, and a pseudo-attribute type whose
+            value is <code>text/xml</code>, <code>application/xml</code>, or <code>text/xsl</code>. For example:
+         </p>
+         <p class="command">&lt;?xml-stylesheet type="text/xsl" href="../style3.xsl" ?&gt;</p>
+         <p>It is also possible to refer to a stylesheet embedded within the source document, provided
+            it has an id attribute and the id attribute is declared in the DTD as being of type ID. For example:
+         </p>
+         <div class="codeblock" style="border: solid thin; background-color: #B1CCC7; padding: 2px"><pre><code>
+&lt;?xml-stylesheet type="text/xsl" href="#style1" ?&gt;
+&lt;!DOCTYPE BOOKLIST SYSTEM "books.dtd"
+  &lt;!ATTLIST xsl:transform id ID #IMPLIED&gt;
+&lt;
+&lt;BOOKLIST&gt;
+  ...
+  &lt;xsl:transform id="style1" version="1.0" xmlns:xsl="..."&gt;
+  ...
+  &lt;/xsl:transform&gt;
+&lt;/BOOKLIST&gt;</code></pre></div>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="compiling.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

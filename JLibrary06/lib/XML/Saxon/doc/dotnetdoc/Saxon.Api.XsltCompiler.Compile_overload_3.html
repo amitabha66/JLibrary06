@@ -1,0 +1,18 @@
+﻿<html dir="LTR"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5"><title>XsltCompiler.Compile Method (XmlReader)</title><xml></xml><link rel="stylesheet" type="text/css" href="MSDN.css"></head><body id="bodyID" class="dtBODY"><div id="nsbanner"><div id="bannerrow1"><table class="bannerparthead" cellspacing="0"><tr id="hdr"><td class="runninghead">Saxon API for .NET</td><td class="product"></td></tr></table></div><div id="TitleRow"><h1 class="dtH1">XsltCompiler.Compile Method (XmlReader)</h1></div></div><div id="nstext"><p>
+            Compile a stylesheet, delivered using an XmlReader.
+            </p><div class="syntax">public <a href="Saxon.Api.XsltExecutable.html">XsltExecutable</a> Compile(<br>   <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemXmlXmlReaderClassTopic.htm">XmlReader</a> <i>reader</i><br>);</div><h4 class="dtH4">Return Value</h4><p>An <code>XsltExecutable</code> which represents the compiled stylesheet object.
+            The XsltExecutable may be run as many times as required, in the same or a different
+            thread. The <code>XsltExecutable</code> is not affected by any changes made to the <code>XsltCompiler</code>
+            once it has been compiled.</p><h4 class="dtH4">Remarks</h4><p>
+            The <code>XmlReader</code> is responsible for parsing the document; this method builds a tree
+            representation of the document (in an internal Saxon format) and compiles it.
+            If the <code>XmlReader</code> is an <code>XmlTextReader</code>, Saxon will set its <code>Normalization</code>
+            property to true, and will wrap it in a (non-validating) <code>XmlValidatingReader</code> to ensure
+            that entity references are expanded.
+            
+            If the <code>XmlReader</code> has a <code>BaseUri</code> property, then that property determines
+            the base URI of the stylesheet module, which is used when resolving any <code>xsl:include</code>
+            or <code>xsl:import</code> declarations. If the <code>XmlReader</code> has no <code>BaseUri</code>
+            property, then the <code>BaseUri</code> property of the <code>Compiler</code> is used instead.
+            An <code>ArgumentNullException</code> is thrown if this property has not been supplied.
+            </p><h4 class="dtH4">See Also</h4><p><a href="Saxon.Api.XsltCompiler.html">XsltCompiler Class</a> | <a href="Saxon.Api.html">Saxon.Api Namespace</a> | <a href="Saxon.Api.XsltCompiler.Compile_overloads.html">XsltCompiler.Compile Overload List</a></p><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;"><param name="Keyword" value="Compile method"><param name="Keyword" value="Compile method, XsltCompiler class"><param name="Keyword" value="XsltCompiler.Compile method"></object></div></body></html>

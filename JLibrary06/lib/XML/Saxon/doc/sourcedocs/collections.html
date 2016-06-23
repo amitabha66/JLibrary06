@@ -1,0 +1,356 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: Collections</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: Collections">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:1666px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:1666px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:1666px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:1666px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../index/intro.html"><img src="../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="command-line.html">Source Documents on the Command Line</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="collections.html">Collections</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="builder-api.html">Building a Source Document from an application</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="input-filters.html">Writing input filters</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="XInclude.html">XInclude processing</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="xml11.html">Saxon and XML 1.1</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="jaxpsources.html">JAXP Source Types</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="thirdparty.html">Third-party Object Models: DOM, JDOM, XOM, and DOM4J</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="choosingmodel.html">Choosing a Tree Model</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="ptree.html">The PTree File Format</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="validation.html">Validation of Source Documents</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="whitespace.html">Whitespace Stripping in Source Documents</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="serial.html">Streaming of Large Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>Collections</h1>
+         <p>Saxon implements the <code>collection()</code> function by passing the given URI
+            (or null, if the default collection is requested) to a user-provided <code>CollectionURIResolver</code>.
+            This section describes how the standard collection resolver behaves, if no user-written collection
+            resolver is supplied.
+         </p>
+         <p>The default collection resolver returns the empty sequence as the default collection. The only
+            way of specifying a default collection it to provide your own <code>CollectionURIResolver</code>.
+         </p>
+         <p>If a collection URI is provided, Saxon attempts to dereference it. What happens next depends on whether
+            the URI identifies a file or a directory.
+         </p>
+         <p class="subhead">Using catalog files</p>
+         <p>If a file is identified, Saxon treats this as a catalog file. This is a file in XML format that lists the
+            documents comprising the collection. Here is an example of such a catalog file:
+         </p>
+         <div class="codeblock" style="border: solid thin; background-color: #B1CCC7; padding: 2px"><pre><code>
+&lt;catalog stable="true"&gt;
+  &lt;doc href="dir/chap1.xml"/&gt;
+  &lt;doc href="dir/chap2.xml"/&gt;
+  &lt;doc href="dir/chap3.xml"/&gt;
+  &lt;doc href="&gt;dir/chap4.xml"/&gt;
+&lt;/catalog&gt;</code></pre></div>
+         <p>The <code>stable</code> attribute indicates whether the collection is stable or not. The default value is true.
+            If a collection is stable, then the URIs listed in the <code>doc</code> elements are treated like URIs passed
+            to the <code>doc()</code> function. Each URI is first looked up in the document pool to see if it is already loaded;
+            if it is, then the document node is returned. Otherwise the URI is passed to the registered <code>URIResolver</code>,
+            and the resulting document is added to the document pool. The effect of this process is firstly, that two calls on
+            the <code>collection()</code> function passing the same collection URI will return the same nodes each time, and secondly,
+            that these results are consistent with the results of the <code>doc()</code> function: if the <code>document-uri()</code> of
+            a node returned by the <code>collection()</code> function is passed to the <code>doc()</code> function, the original node
+            will be returned. If <code>stable="false"</code> is specified, however, the URI is dereferenced directly, and the document
+            is not added to the document pool, which means that a subsequent retrieval of the same document will not return the same node.
+         </p>
+         <p class="subhead">Processing directories</p>
+         <p>If the URI passed to the <code>collection()</code> function (still assuming a default <code>CollectionURIResolver</code>)
+            identifies a directory, then the contents of the directory are returned. Such a URI may have a number of query parameters,
+            written
+            in the form <code>file:///a/b/c/d?keyword=value;keyword=value;...</code>. The recognized keywords and their values are as follows:
+         </p>
+         <table>
+            <tr>
+               <td valign="top">
+                  <p><b>keyword</b></p>
+               </td>
+               <td valign="top">
+                  <p><b>values</b></p>
+               </td>
+               <td valign="top">
+                  <p><b>effect</b></p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p><b>recurse</b></p>
+               </td>
+               <td valign="top">
+                  <p><b>yes | no (default no)</b></p>
+               </td>
+               <td valign="top">
+                  <p><b>determine whether subdirectories are searched recursively</b></p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p><b>strip-space</b></p>
+               </td>
+               <td valign="top">
+                  <p><b>yes | ignorable | no</b></p>
+               </td>
+               <td valign="top">
+                  <p><b>determines whether whitespace text nodes are to be stripped.
+                        The default depends on the Configuration settings.</b></p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p><b>validation</b></p>
+               </td>
+               <td valign="top">
+                  <p><b>strip | preserve | lax | strict</b></p>
+               </td>
+               <td valign="top">
+                  <p><b>determines whether and how schema validation is applied to each document.
+                        The default depends on the Configuration settings.</b></p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p><b>select</b></p>
+               </td>
+               <td valign="top">
+                  <p><b>file name pattern</b></p>
+               </td>
+               <td valign="top">
+                  <p><b>determines which files are selected (see below)</b></p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p><b>on-error</b></p>
+               </td>
+               <td valign="top">
+                  <p><b>fail | warning | ignore</b></p>
+               </td>
+               <td valign="top">
+                  <p><b>determines the action to be taken if one of the documents cannot be successfully parsed</b></p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p><b>parser</b></p>
+               </td>
+               <td valign="top">
+                  <p><b>Java class name</b></p>
+               </td>
+               <td valign="top">
+                  <p><b>class name of the Java XMLReader to be used. For example, John Cowan's TagSoup parser may be selected by specifying
+                        <code>parser=org.ccil.cowan.tagsoup.Parser</code> (this parses arbitrary ill-formed HTML and presents it
+                        to Saxon as well-formed XML).</b></p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p><b>xinclude</b></p>
+               </td>
+               <td valign="top">
+                  <p><b>yes | no</b></p>
+               </td>
+               <td valign="top">
+                  <p><b>determines whether XInclude processing should be applied to the selected documents. This overrides
+                        any setting in the <code>Configuration</code> (or any command line option).</b></p>
+               </td>
+            </tr>
+         </table>
+         <p>The pattern used to select files can take the conventional form, for example <code>*.xml</code> selects
+            all files with extension "xml". More generally, the pattern is converted to a regular expression by 
+            prepending "^", appending "$", replacing "." by "\.", and replacing "*" by ".*",
+            and it is then used to match the file names appearing in the directory using
+            the Java regular expression rules. So, for example, you can write <code>*.(xml|xhtml)</code> to match files
+            with either of these two file extensions. Note however, that special characters used in the URL may need
+            to be escaped using the %HH convention: this can be achieved using the iri-to-uri() function.
+         </p>
+         <p><i>A collection read in this way is not stable. Calling the <code>collection()</code> function again with the same URI will
+               reprocess the directory, and return a different set of document nodes, even if the contents of the directory have
+               not changed.</i></p>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="builder-api.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

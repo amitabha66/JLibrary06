@@ -1,0 +1,303 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: DOM Level 3 support</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: DOM Level 3 support">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:1474px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:1474px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:1474px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:1474px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../../index/intro.html"><img src="../../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro.html">Version 8.9 (2007-02-12)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro88.html">Version 8.8 (2006-09-05)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro873.html">Version 8.7.3 (2006-06-13)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v872.html">Version 8.7.2 (2006-04-19)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v871.html">Version 8.7.1 (2006-04-13)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro87.html">Version 8.7 (2006-02-24)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro861.html">Version 8.6.1 (24 November 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro86.html">Version 8.6 (3 November 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro851.html">Version 8.5.1 (26 August 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro85.html">Version 8.5 (2 August 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v84.html">Version 8.4 (4 April 2005)</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="../v83.html">Version 8.3 (11 February 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v8.2.html">Version 8.2 (21 December 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v811.html">Version 8.1.1 (8 October 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro81.html">Version 8.1 (24 September 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v8.0.html">Version 8.0 (1 June 2004)</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>DOM Level 3 support</h1>
+         <p>Saxon 8.2 introduced support for JAXP 1.3 and DOM Level 3. Unfortunately this caused
+            complications in the installation procedure, because these specifications are not supported
+            "out of the box" with Java JDK 1.4. Saxon 8.3 includes various changes designed to remove
+            these problems. This section describes the changes to DOM support; the next section describes
+            changes to the XPath API.
+         </p>
+         <p><b>Saxon 8.3 introduces significant changes in the way that DOM interfaces are supported.</b></p>
+         <p>The two implementations of the Saxon object model, Tree and TinyTree, no longer implement
+            DOM interfaces. This change is made for two reasons: firstly, there are incompatibilities between
+            the DOM interface in JDK 1.4 and JDK 1.5 that make it impossible to support both
+            with the same code, and secondly, the ever-increasing complexity of the DOM interface burdens
+            the Saxon implementation without adding anything useful for most users.
+         </p>
+         <p>So the <code>NodeInfo</code> implementations in these two tree models no longer implement <code>org.w3.dom.Node</code>
+            and its subclasses. Instead, it is possible to wrap a Saxon <code>NodeInfo</code> object in a new class,
+            <code>NodeOverNodeInfo</code>, which adds the DOM methods.
+            When a Saxon node is supplied to an extension function
+            that expects a DOM Node or NodeList, Saxon performs this wrapping automatically. This actually means that
+            it is now possible to supply any kind of Saxon node to an extension function that expects a DOM Node - previously
+            not all Saxon nodes implemented the DOM Node interface (for example some parentless nodes, or text nodes in
+            some temporary trees, or nodes that wrap JDOM or XOM nodes).
+         </p>
+         <p>Because the Saxon tree implementations no longer implement the DOM, the JAXP factory class
+            <code>net.sf.saxon.om.DocumentBuilderFactoryImpl</code> is no longer available. In addition, it is no longer
+            possible to use the JAXP <code>DOMSource</code> class to supply a Saxon tree as a source or result for
+            a transformation. Instead, you can supply a <code>NodeInfo</code> directly as a <code>Source</code>, or a
+            <code>TreeBuilder</code> or <code>TinyBuilder</code> as a <code>Result</code>.
+            There are examples in <code>TraxExamples.java</code> that show how to do this.
+         </p>
+         <p>Saxon still supports <code>DOMSource</code> and <code>DOMResult</code> as the source or result
+            of a transformation. However, they must now encapsulate a third-party DOM Node.
+            They are not used when transforming to or from Saxon trees.
+         </p>
+         <p>All modules in Saxon that are concerned with DOM support have been moved out of the
+            main JAR file into <code>saxon-dom.jar</code>, which need not be on the classpath if DOM interfaces are
+            not required. There are now no references to DOM interfaces in the main body of Saxon code. DOM therefore
+            has exactly the same status as other external object models, for example JDOM and XOM. In fact, it is now
+            possible to register a support module for an additional external object model with the Saxon <code>Configuration</code>,
+            so object models are now completely pluggable.
+         </p>
+         <p>If DOM interfaces are needed, then the classpath should contain both <code>saxon-dom.jar</code>
+            and the DOM level 3 classes. The DOM level 3 classes are a standard part of JDK 1.5, but under JDK 1.4
+            they must be installed separately, as part of the JAXP 1.3 package. The requisite JAR file is simply called
+            <code>dom.jar</code>.
+         </p>
+         <p>The <code>SchemaType</code> interface in Saxon no longer implements the DOM <code>TypeInfo</code>
+            interface. Instead, a <code>TypeInfo</code> can be now be obtained by wrapping a <code>SchemaType</code>
+            in a <code>TypeInfoImpl</code>.
+         </p>
+         <p>Similarly, Saxon no longer provides native support for the DOM <code>LSResourceResolver</code> interface.
+            In places where it is needed, for example in the validation API, an <code>LSResourceResolver</code> can be
+            packaged inside a <code>URIResourceResolver</code>, which makes it look like a standard JAXP
+            <code>URIResolver</code>. The Saxon <code>Configuration</code> and <code>PipelineConfiguration</code>
+            now allow only a <code>URIResolver</code> to be registered directly, but the validation APIs get round this
+            by registering a <code>URIResourceResolver</code> that wraps the <code>LSResourceResolver</code>.
+         </p>
+         <p>A method <code>getPrefix()</code> has been added to <code>NodeInfo</code>. This method was
+            previously available on nodes that implemented the DOM <code>Node</code> interface, but not on
+            other nodes.
+         </p>
+         <p>The net effect of these changes is:</p>
+         <ul>
+            <li>
+               <p>To run XQuery or XSLT, the only JAR file you need on the classpath is saxon8.jar, and this will run
+                  under either JDK 1.4 or JDK 1.5.
+               </p>
+            </li>
+            <li>
+               <p>If you use the XPath API defined in JAXP 1.3, you will also need saxon8-xpath.jar on the classpath. If you
+                  use this with JDK 1.4, you will also need to download the JAXP 1.3 component from Sun, and place the jaxp-api.jar
+                  JAR file on your classpath.
+               </p>
+            </li>
+            <li>
+               <p>If you use DOM level 3 interfaces under JAXP 1.3, you will also need the dom.jar file from the JAXP 1.3 distribution
+                  on your classpath.
+               </p>
+            </li>
+            <li>
+               <p>If you recompile Saxon, it is easiest to do so under JDK 1.5; but you can recompile under JDK 1.4 if all the
+                  necessary JAXP components are present.
+               </p>
+            </li>
+         </ul>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="xpathapi83.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

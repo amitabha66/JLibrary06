@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Sealed: false
+Specification-Title: Java API for XML Processing
+Specification-Version: @jaxp.spec.version@
+Specification-Vendor: Sun Microsystems, Inc.
+Implementation-Title: Java API for XML Processing Reference Implementation
+Implementation-Version: @jaxp.impl.version@
+Implementation-Vendor: Sun Microsystems, Inc.
+Implementation-Vendor-Id: com.sun 
+Implementation-URL: http://java.sun.com/xml/jaxp
+Extension-Name: javax.xml.parsers, javax.xml.transform

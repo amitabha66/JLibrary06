@@ -1,0 +1,15 @@
+cc=d:/cygwin/bin/gcc
+
+liboption1=-shared
+liboption2=
+
+jdkdir=D:/jdk1.5.0_06
+osrootdir=.
+libxml2dir=D:/cygwin/usr/include/libxml2
+
+srcdir1=src
+
+srcdir2=src_ubl
+
+libprefix=
+libsuffix=.dll

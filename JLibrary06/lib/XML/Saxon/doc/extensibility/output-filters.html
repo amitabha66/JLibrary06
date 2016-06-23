@@ -1,0 +1,288 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: Customizing Serialization</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: Customizing Serialization">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:1504px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:1504px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:1504px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:1504px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../index/intro.html"><img src="../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro.html">Introduction</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="functions.html">Writing extension functions in Java</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="converting-args.html">Converting Arguments to Java Extension Functions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="function-result.html">Converting the Result of a Java Extension Function</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="dotnetextensions.html">Writing extension functions for .NET</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="converting-args.net.html">Converting Arguments to .NET Extension Functions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="function-result.net.html">Converting the Result of a .NET Extension Function</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="instructions.html">Writing XSLT extension instructions</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="output-filters.html">Customizing Serialization</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="collation.html">Implementing a collating sequence</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="localizing.html">Localizing numbers and dates</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="output-encoding.html">Adding an output encoding</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="uri-resolver.html">Writing a URI Resolver for Input Files</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="output-uri-resolver.html">Writing a URI Resolver for Output Files</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>Customizing Serialization</h1>
+         <p>The output of a Saxon stylesheet or query can be directed to a user-defined output filter. This filter can be
+            defined either as a SAX2 <code>ContentHandler</code>, or
+            as a subclass of the Saxon classes <code>net.sf.saxon.event.Receiver</code>.
+         </p>
+         <p>One advantage of using the Saxon classes is that more information is available
+            from the stylesheet, for example the attributes of the <code>xsl:output</code> element; another is
+            that (if you are using the schema-aware version of the product) type annotations are available on
+            element and attribute nodes.
+         </p>
+         <p>A transformation can be invoked from the Java API using the standard JAXP method 
+            <code>transformer.transform(source, result)</code>. The second argument must implement the
+            JAXP class <code>javax.xml.transform.Result</code>. To send output to a SAX <code>ContentHandler</code>,
+            you can wrap the <code>ContentHandler</code> in a JAXP <code>SAXResult</code> object. To send output
+            to a Saxon <code>Receiver</code> (which might also be an <code>Emitter</code>), 
+            you can supply the <code>Receiver</code> directly, since the
+            Saxon <code>Receiver</code> interface extends the JAXP <code>Result</code> interface.
+         </p>
+         <p>When running XQuery, Saxon offers a similar method on the <code>XQueryExpression</code> object:
+            the <code>run()</code> method. This also takes an argument of type <code>Result</code>, which may be
+            (among other things) a <code>SAXResult</code> or a Saxon <code>Receiver</code>.
+         </p>
+         <p>Some <code>ContentHandler</code> implementations require a sequence of events corresponding
+            to a well-formed document (that is, one whose document node has exactly one element node and no text nodes
+            among its children). If this is the case, you can specify the additional output property
+            <code>saxon:require-well-formed="yes"</code>, which will cause Saxon to report an error if the result
+            tree is not well-formed.
+         </p>
+         <p>As specified in the JAXP interface, requests to disable or re-enable output escaping
+            are also notified to the content handler by means of special processing instructions. The
+            names of these processing instructions are defined by the constants PI_DISABLE_OUTPUT_ESCAPING
+            and PI_ENABLE_OUTPUT_ESCAPING defined in class <code>javax.xml.transform.Result</code>.
+         </p>
+         <p>As an alternative to specifying the destination in the <code>transform()</code> or <code>run()</code> methods,
+            the <code>Receiver</code> or <code>ContentHandler</code> to be used may be specified in the
+            <code>method</code> attribute of the <code>xsl:output</code> 
+            element, as a fully-qualified class name; for example
+            <code>method="prefix:com.acme.xml.SaxonOutputFilter"</code>. The namespace prefix is ignored, but
+            must be present to meet XSLT conformance rules.
+         </p>
+         <p>An abstract implementation of the <code>Receiver</code> interface is available in the <code>Emitter</code>
+            class. This class provides additional functionality useful if you want to serialize the result to a byte or character output
+            stream. If the <code>Receiver</code> that you supply as an output destination is an instance of <code>Emitter</code>,
+            then it has access to all the serialization parameters supplied in the <code>xsl:output</code> declaration, or made
+            available using the Java API.
+         </p>
+         <p>See the documentation of class <code>net.sf.saxon.event.Receiver</code> for details of the methods available, or
+            implementations such as <code>HTMLEmitter</code> and <code>XMLEmitter</code> and <code>TEXTEmitter</code> for 
+            the standard output formats supported by Saxon.
+         </p>
+         <p>It can sometimes be useful to set up a chain of Receivers working as a pipeline. To write a filter
+            that participates in such a pipeline, the class <code>ProxyReceiver</code> is supplied. Use the class <code>XMLIndenter</code>,
+            which handles XML indentation, as an example of how to write a <code>ProxyReceiver</code>.
+         </p>
+         <p>Saxon sets up such a pipeline when an output file is opened, using a class called the <code>SerializerFactory</code>.
+            The standard <code>SerializerFactory</code> is in class <code>net.sf.saxon.event.SerializerFactory</code>, but you
+            can override this with your own subclass, which you can nominate to the <code>setSerializerFactory()</code>
+            method of the <code>Configuration</code>. This uses individual methods to create each stage of the pipeline,
+            so you can either override the method that constructs the entire pipeline, or override a method that creates one
+            of its stages. For example, if you want to subclass the <code>XMLEmitter</code> (perhaps to force all non-ASCII
+            characters to be output as hexadecimal character references), you can override the method <code>newXMLEmitter()</code>
+            to return an instance of your own subclass of <code>XMLEmitter</code>, which might override the method
+            <code>writeEscape()</code>.
+         </p>
+         <p>Rather than writing an output filter in Java, Saxon also allows you to process the output through
+            another XSLT stylesheet. To do this, simply name the next stylesheet in the <code>saxon:next-in-chain</code> attribute
+            of <code>xsl:output</code>. 
+         </p>
+         <p>Any number of user-defined attributes may be defined on  <code>xsl:output</code>. These 
+            attributes must have names in a non-null namespace, which must not be either the XSLT
+            or the Saxon namespace. These attributes are interpreted as attribute value templates.
+            The value of the attribute is inserted into the <code>Properties</code> object made available to 
+            the <code>Emitter</code> handling the output; they will be ignored by the standard output methods,
+            but can supply arbitrary information to a user-defined output method. The name of the
+            property will be the expanded name of the attribute in JAXP format, for example
+            <code>{http://my-namespace/uri}local-name</code>, and the value will be the value as given,
+            after evaluation as an attribute value template.
+         </p>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="collation.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

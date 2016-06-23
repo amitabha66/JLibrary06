@@ -1,0 +1,574 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: Running XQuery from the Command Line</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: Running XQuery from the Command Line">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:3732px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:3732px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:3732px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:3732px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../index/intro.html"><img src="../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro.html">Introduction</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="commandline.html">Running XQuery from the Command Line</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="xqj.html">Invoking XQuery using the XQJ API</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="embedding.html">Invoking XQuery from an application</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="callingfunctions.html">Calling XQuery Functions from Java</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="resultformat.html">Result Format</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="querycompilation.html">Compiling Queries to Java code</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="extensibility.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="extensions.html">Extensions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="usecases.html">Use Cases</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>Running XQuery from the Command Line</h1>
+         <p>A command is available to run a query contained in a file. The form of
+            command on the Java platform is:
+         </p>
+         <p class="command">java&nbsp; net.sf.saxon.Query &nbsp; [options]&nbsp;&nbsp; query&nbsp;&nbsp; [ <i>params...</i>]
+            
+         </p>
+         <p>On the .NET platform, the command is simply:</p>
+         <p class="command">Query &nbsp; [options]&nbsp;&nbsp; query&nbsp;&nbsp; [ <i>params...</i>]
+            
+         </p>
+         <p>The options must come first, then the file name containing the query, then the params.</p>
+         <p>The options are as follows (in any order): </p>
+         <table>
+            <tr>
+               <td valign="top">
+                  <p>-cr classname</p>
+               </td>
+               <td>
+                  <p>Use the specified CollectionURIResolver to process collection URIs passed to the
+                     <code>collection()</code> function.
+                     The CollectionURIResolver is a user-defined class
+                     that implements the <code>net.sf.saxon.CollectionURIResolver</code> interface.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top" width="20%">
+                  <p>-ds</p>
+               </td>
+               <td>
+                  <p>Use the linked tree model for source documents. 
+                     See <a class="bodylink" href="../using-xsl/choosingmodel.html">Choosing a Tree Model</a>.
+                     
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top" width="20%">
+                  <p>-dt</p>
+               </td>
+               <td>
+                  <p>Use the "tinytree" tree model for source documents. This is the default tree model.
+                     See <a class="bodylink" href="../using-xsl/choosingmodel.html">Choosing a Tree Model</a>. 
+                     
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top" width="20%">
+                  <p>-e</p>
+               </td>
+               <td>
+                  <p>Display a query execution plan. This is a representation of the
+                     expression tree after rewriting by the optimizer.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top" width="20%">
+                  <p>-l</p>
+               </td>
+               <td>
+                  <p>Causes line numbers to be maintained for source documents. These are accessible
+                     using the extension function <code>saxon:line-number()</code>. Line numbers are useful
+                     when the purpose of the query is to find errors or anomalies in the source XML file.
+                     Without this option, line numbers are available while source documents are being parsed
+                     and validated, but they are not retained in the tree representation of the document.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-mr classname</p>
+               </td>
+               <td>
+                  <p>Use the specified ModuleURIResolver to process all query module URIs.
+                     The ModuleURIResolver is a user-defined class
+                     that implements the <code>net.sf.saxon.query.ModuleURIResolver</code> interface.
+                     It is invoked to process URIs used in the <code>import module</code> declaration in the query prolog,
+                     and (if -u is also specified, or if the file name begins with "http:" or "file:") to process the URI
+                     of the query source file provided on the command line.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top" width="20%">
+                  <p>-noext</p>
+               </td>
+               <td>
+                  <p>Prevents the query calling external Java functions. This is useful for safety if the query
+                     is untrusted. 
+                     
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top" width="20%">
+                  <p>-o filename</p>
+               </td>
+               <td>
+                  <p>Send output to named file. In the absence of this option, the results go to standard output.
+                     The output format depends on whether the -wrap option is present.
+                     
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-p</p>
+               </td>
+               <td>
+                  <p>Use the PTreeURIResolver. This option is available in Saxon-SA only. It cannot be used in conjunction
+                     with the -r option, and it automatically switches on the -u and -sa options. The effect is twofold. Firstly, Saxon-specific
+                     file extensions are recognized in URIs (including the URI of the source document on the command line). Currently
+                     the only Saxon-specific file extension is <code>.ptree</code>, which indicates that the source document is supplied
+                     in the form of a Saxon PTree. This is a binary representation of an XML document, designed for speed of loading.
+                     Secondly, Saxon-specific query parameters are recognized in a URI. Currently the only query parameter that is
+                     recognized is <code>val</code>. This may take the values <code>strict</code>, <code>lax</code>, or <code>strip</code>.
+                     For example, <code>source.xml?validation=strict</code> loads a document with strict schema validation.
+                     
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top" width="20%">
+                  <p>-pull</p>
+               </td>
+               <td>
+                  <p>Execute query in pull mode. This may give performance advantages for certain kinds of query,
+                     especially queries that construct intermediate trees in memory.
+                     
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-r classname</p>
+               </td>
+               <td>
+                  <p>Use the specified URIResolver to process all URIs. The URIResolver is a user-defined class,
+                     that implements the URIResolver interface defined in JAXP, whose function is to take a URI supplied as
+                     a string, and return a SAX InputSource. It is invoked to process URIs used in the doc() function,
+                     and (if -u is also specified) to process the URI
+                     of the source file provided on the command line.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-s filename-or-URI</p>
+               </td>
+               <td>
+                  <p>Take input from the specified file. If the -u option is specified, or if the name begins with "file:"
+                     or "http:", then the name is assumed to be a URI rather than a filename. This file must contain an
+                     XML document. The document node of the document is made available to the query as the context item. 
+                     The source document can be
+                     specified as "-" to take the source from standard input. 
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-sall</p>
+               </td>
+               <td>
+                  <p>Strips all whitespace text nodes from source documents before any further processing,
+                     regardless of any 
+                     <code>xml:space</code> attributes in the source document.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-signorable</p>
+               </td>
+               <td>
+                  <p>Strips all ignorable whitespace text nodes from source documents before any further processing,
+                     regardless of any
+                     <code>xml:space</code> attributes in the source document. Whitespace text nodes are ignorable
+                     if they appear in elements defined in the DTD or schema as having element-only content.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-snone</p>
+               </td>
+               <td>
+                  <p>Strips no whitespace before further processing.</p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-strip</p>
+               </td>
+               <td>
+                  <p>Equivalent to -sall: retained for compatibility.</p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-t</p>
+               </td>
+               <td>
+                  <p>Display version and timing information to the standard error output. The output also traces
+                     the files that are read and written, and extension modules that are loaded.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-T</p>
+               </td>
+               <td>
+                  <p>Enable execution tracing. This will cause a trace of the query execution to be output
+                     to the standard error output. The events that are traced are currently function calls (entry
+                     and exit) and element construction.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-TJ</p>
+               </td>
+               <td>
+                  <p>Switches on tracing of the binding of calls to external Java methods.
+                     This is useful when analyzing why Saxon fails to find a Java method to match
+                     an extension function call in the stylesheet, or why it chooses one method over another when several
+                     are available.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-u</p>
+               </td>
+               <td>
+                  <p>Indicates that the name of the source document is a URI;
+                     otherwise it is taken as a filename, unless it starts with "http:" or "file:", in which
+                     case they it is taken as a URL.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-v</p>
+               </td>
+               <td>
+                  <p>Indicates that source documents are to be parsed using a validating parser
+                     (this invokes DTD validation, not schema validation).
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-val</p>
+               </td>
+               <td>
+                  <p>This option is available only with Saxon-SA, and it automatically switches on the -sa option.
+                     It requests strict validation of source documents using an XML Schema.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-vlax</p>
+               </td>
+               <td>
+                  <p>This option is available only with Saxon-SA, and it automatically switches on the -sa option.
+                     It requests lax validation of source documents using an XML Schema. That is, the
+                     document will be validated if a suitable schema is available, and will not be validated
+                     otherwise.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-vw</p>
+               </td>
+               <td>
+                  <p>Indicates that validation errors found when validating the result tree should be treated as warnings only.
+                     This option is available only with the Saxon-SA version of the command, <code>com.saxonica.Query</code>.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-wrap</p>
+               </td>
+               <td>
+                  <p>Wraps the result sequence in an XML element structure that indicates the type of each node or
+                     atomic value in the query result. This format can handle any type of query result. In the
+                     absence of this option, the command effectively wraps a <code>document{}</code> constructor
+                     around the supplied query, so that the result is a single XML document, which is then serialized.
+                     This will fail if the query result includes constructs that cannot be added to a document node
+                     in this way, notably free-standing attribute nodes.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-xi</p>
+               </td>
+               <td>
+                  <p>Apply XInclude processing to all input XML documents (including schema documents as
+                     well as source documents). This currently only works when documents are parsed using the Xerces
+                     parser, which is the default in JDK 1.5 and later.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-1.1</p>
+               </td>
+               <td>
+                  <p>Allow XML 1.1 and XML Namespaces 1.1 constructs. This option must be set if source documents 
+                     using XML 1.1 are to be read, or if result documents are to be serialized as XML 1.1. This option
+                     also enables use of XML 1.1 constructs within the query itself.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>-?</p>
+               </td>
+               <td>
+                  <p>Display command syntax</p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>query</p>
+               </td>
+               <td>
+                  <p>Identifies the file containing the query. Mandatory. The argument can be
+                     specified as "-" to read the query from standard input. The query can also be specified
+                     inline by enclosing it in curly braces (if it contains spaces, you will also need quotes
+                     outside the curly braces to keep the command line processor happy). 
+                     For example <code>java net.sf.saxon.Query {doc('a.xml')//p[1]}</code> selects elements
+                     within the file a.xml in the current directory.
+                  </p>
+               </td>
+            </tr>
+         </table>
+         <p>A <i>param</i> takes the form <code>name=value</code>, <i>name</i> being the
+            name of the parameter, and <i>value</i> the value of the parameter. These parameters are
+            accessible within the query as external variables, using the <code>$name</code> syntax, provided
+            they are declared in the query prolog. If there is no such declaration, the supplied
+            parameter value is silently ignored.
+         </p>
+         <p>A <i>param</i> preceded by a leading plus sign (+) is interpreted as a filename or directory.
+            The content of the file is parsed as XML, and the resulting document node is passed to the stylesheet
+            as the value of the parameter. If the parameter value is a directory, then all the immediately contained
+            files are parsed as XML, and the resulting sequence of document nodes is passed as the value of the
+            parameter. For example, <code>+lookup=lookup.xml</code> sets the value of the external variable
+            <code>lookup</code> to the document node at the root of the tree representing the parsed contents
+            of the file <code>lookup.xml</code>.
+         </p>
+         <p>A <i>param</i> preceded by a leading exclamation mark is interpreted as a serialization parameter.
+            For example, <code>!indent=yes</code> requests indented output, and <code>!encoding=iso-8859-1</code>
+            requests that the serialized output be in ISO 8859/1 encoding. This is equivalent to specifying
+            the option declaration <code>declare option saxon:output "indent=yes";</code> or 
+            <code>declare option saxon:output "encoding=iso-8859-1";</code>
+            in the query prolog.
+         </p>
+         <p>Under Windows, and some other operating systems, it is possible to supply a value containing
+            spaces by enclosing it in double quotes, for example <code>name="John Smith"</code>. This is a feature
+            of the operating system shell, not something Saxon does, so it may not work the
+            same way under every operating system.
+         </p>
+         <p>If the parameter name is in a non-null namespace, the parameter can be given a value using
+            the syntax <code>{uri}localname=value</code>. Here <code>uri</code> is the namespace URI of the
+            parameter's name, and <code>localname</code> is the local part of the name.
+         </p>
+         <p>This applies also to output parameters. For example, you can set the indentation level to 4 by
+            using the parameter <code>!{http://saxon.sf.net/}indent-spaces=4</code>. For the extended set of
+            output parameters supported by Saxon, see 
+            <a class="bodylink" href="../extensions/output-extras.html">Additional serialization parameters</a>.
+         </p>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="xqj.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

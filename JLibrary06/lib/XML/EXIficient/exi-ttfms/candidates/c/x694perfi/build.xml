@@ -1,0 +1,228 @@
+<project name="candidate-x694perfi" default="dist"  basedir=".">
+    <property environment="env"/>
+    
+    <property name="lib.dir" value="lib/${os.name}/${os.arch}"/>
+
+    <property name="xsdcengine" value="xsdcfi_engine"/>
+    <property name="xsdcrt" value="ossxlean22"/>
+    <property name="xsdcrt2" value="ossxcode"/>
+    
+    <property file="properties.${os.name}.${os.arch}"/>
+
+    <property name="app.jar" value="${ant.project.name}.jar"/>
+
+    <property name="build.dir" value="build"/>
+    <property name="dist.dir" value="dist"/>
+    <property name="japex.lib.dir" value="../../../japex/lib"/>
+    <property name="jdsl.lib.dir" value="../../../japex/jdsl"/>
+    <property name="framework.dir" value="../../../framework/dist"/>
+
+    <condition property="hasOSSXSDTools">
+	<and>
+	    <available filepath="include" type="file" file="ossxfidef.h"/>
+	    <available filepath="include" type="file" file="ossxsd.h"/>
+	    <available filepath="${lib.dir}" type="file" file="${libprefix}${xsdcrt}${libsuffix}"/>
+	    <available filepath="${lib.dir}" type="file" file="${libprefix}${xsdcrt2}${libsuffix}"/>
+	</and>
+    </condition>
+
+    <path id="compile.class.path">
+        <fileset dir="${japex.lib.dir}" includes="*.jar"/>
+        <fileset dir="${jdsl.lib.dir}" includes="*.jar"/>
+        <fileset dir="${framework.dir}" includes="*.jar"/>
+        <fileset dir="${lib.dir}" includes="*.jar"/>
+    </path>
+
+    <target name="prepare">
+	<mkdir dir="${lib.dir}/drivers"/>
+        <mkdir dir="${build.dir}/classes"/>
+        <mkdir dir="${dist.dir}"/>
+    </target>
+
+    <target name="clean">
+	<delete dir="${lib.dir}/drivers"/>
+	<delete dir="${build.dir}"/>
+	<delete dir="${dist.dir}"/>
+    </target>
+
+    <target name="dist" depends="prepare, java-runtime, native-runtime, map"/>
+    
+    <target name="map"
+    	    description="Copy XML test data">
+	<copy file="src/schemas.properties" todir="${dist.dir}" preservelastmodified="true"/>
+    </target>
+
+    <target name="native-runtime" 
+	    depends="jni-xsd-core, jni-xsd-drivers"
+	    description="Build native libraries for OSS X.694+FI Japex Benchmark Suite"/>
+
+    <target name="jni-xsd-core" depends="check-jni-xsd-core" unless="jni-xsd-core-skip">
+	<exec dir="." executable="${cc}" failonerror="true">
+	    <arg value="-DOSSX_USE_SOED_AND_LED"/>
+	    <arg value="${debugoption}"/>
+            <arg value="-Wall"/>
+            <arg value="-Iinclude"/>
+            <arg value="-Isrc"/>
+	    <arg value="-I${java.home}/../include"/>
+	    <arg value="-I${includedir1}"/>
+	    <arg value="-I${includedir2}"/>
+	    <arg value="${liboption1}"/>
+	    <arg value="${liboption2}"/>
+	    <arg value="${liboption3}"/>
+	    <arg value="-L${lib.dir}"/>
+	    <arg value="-o"/>
+	    <arg value="${lib.dir}/drivers/${libprefix}${xsdcengine}${libsuffix}"/>
+	    <arg value="src/xsdcfi_engine.c"/>
+	    <arg value="src/utils.c"/>
+            <arg value="src/decode.c"/>
+            <arg value="src/encode.c"/>
+            <arg value="src/freeevns.c"/>
+	    <arg value="${z.lib}"/>
+	    <arg value="${xsdc.lib}"/>
+	    <arg value="${xsdc2.lib}"/>
+	</exec>
+    </target>
+
+    <target name="check-jni-xsd-core">
+	<condition property="jni-xsd-core-skip">
+	    <or>
+		<not>
+		    <isset property="hasOSSXSDTools"/>
+		</not>
+    		<uptodate targetfile="${lib.dir}/drivers/${libprefix}${xsdcengine}${libsuffix}">
+        	    <srcfiles dir=".">
+            		<include name="src/xsdcfi_engine.c"/>
+            		<include name="src/utils.c"/>
+            		<include name="src/decode.c"/>
+            		<include name="src/encode.c"/>
+            		<include name="src/freeevns.c"/>
+            		<include name="src/utils.h"/>
+            		<include name="src/engine.h"/>
+            		<include name="${lib.dir}/${libprefix}${xsdcrt}${libsuffix}"/>
+            		<include name="${lib.dir}/${libprefix}${xsdcrt2}${libsuffix}"/>
+        	    </srcfiles>
+    		</uptodate>
+	    </or>
+	</condition>
+    </target>
+    
+    <target name="jni-xsd-drivers" depends="jni-xsd-core, check-jni-xsd-drivers" unless="jni-xsd-drivers-skip">
+	<ossxsddriver name="${ant.project.name}-XML">
+	    <arg value="-DOPTIONS=2"/>
+	</ossxsddriver>
+	<ossxsddriver name="${ant.project.name}-XML+GZIP">
+	    <arg value="-DOPTIONS=18"/>
+	</ossxsddriver>
+	<ossxsddriver name="${ant.project.name}-PER">
+	    <arg value="-DOPTIONS=11"/>
+	</ossxsddriver>
+	<ossxsddriver name="${ant.project.name}-PER+GZIP">
+	    <arg value="-DOPTIONS=27"/>
+	</ossxsddriver>
+    </target>
+    
+    <target name="check-jni-xsd-drivers">
+        <condition property="jni-xsd-drivers-skip">
+	    <or>
+		<not>
+		    <isset property="hasOSSXSDTools"/>
+		</not>
+        	<and>
+            	    <uptodate targetfile="${lib.dir}/drivers/${libprefix}${ant.project.name}-XML${libsuffix}">
+                	<srcfiles dir=".">
+                    	    <include name="src/jni_stub.h"/>
+                    	    <include name="src/jni_stub.c"/>
+                    	    <include name="src/engine.h"/>
+                    	    <include name="${lib.dir}/drivers/${libprefix}${xsdcengine}${libsuffix}"/>
+                	</srcfiles>
+            	    </uptodate>
+            	    <uptodate targetfile="${lib.dir}/drivers/${libprefix}${ant.project.name}-XML+GZIP${libsuffix}">
+                	<srcfiles dir=".">
+                    	    <include name="src/jni_stub.h"/>
+                    	    <include name="src/jni_stub.c"/>
+                    	    <include name="src/engine.h"/>
+                    	    <include name="${lib.dir}/drivers/${libprefix}${xsdcengine}${libsuffix}"/>
+                	</srcfiles>
+            	    </uptodate>
+            	    <uptodate targetfile="${lib.dir}/drivers/${libprefix}${ant.project.name}-PER${libsuffix}">
+                	<srcfiles dir=".">
+                    	    <include name="src/jni_stub.h"/>
+                    	    <include name="src/jni_stub.c"/>
+                    	    <include name="src/engine.h"/>
+                    	    <include name="${lib.dir}/drivers/${libprefix}${xsdcengine}${libsuffix}"/>
+                	</srcfiles>
+            	    </uptodate>
+            	    <uptodate targetfile="${lib.dir}/drivers/${libprefix}${ant.project.name}-PER+GZIP${libsuffix}">
+                	<srcfiles dir=".">
+                    	    <include name="src/jni_stub.h"/>
+                    	    <include name="src/jni_stub.c"/>
+                    	    <include name="src/engine.h"/>
+                    	    <include name="${lib.dir}/drivers/${libprefix}${xsdcengine}${libsuffix}"/>
+                	</srcfiles>
+            	    </uptodate>
+        	</and>
+	    </or>
+        </condition>
+    </target>
+    
+    <target name="java-runtime"
+            depends="java-runtime-check"
+            description="Build Java class libraries for OSS X.694+FI Japex Benchmark Suite"
+            unless="java-runtime-skip">
+        <javac srcdir="src" destdir="${build.dir}/classes" debug="on" optimize="on" deprecation="on">
+             <classpath>
+		<path refid="compile.class.path"/>
+		<pathelement location="${build.dir}/classes"/>
+             </classpath>
+        </javac>
+        <jar destfile="${dist.dir}/${app.jar}" basedir="${build.dir}/classes">
+            <manifest>
+                <attribute name="Implementation-Title" value="OSS Japex micro-benchmark drivers for XSD/C tools"/>
+                <attribute name="Implementation-Version" value="1.0"/>
+                <attribute name="Implementation-Vendor" value="OSS Nokalva, Inc."/>
+                <attribute name="Implementation-Vendor-Id" value="com.oss"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="java-runtime-check">
+	<condition property="java-runtime-skip">
+	    <or>
+		<not>
+		    <isset property="hasOSSXSDTools"/>
+		</not>
+    		<uptodate targetfile="${dist.dir}/${app.jar}">
+        	    <srcfiles dir="src">
+            		<include name="org/**/*.java"/>
+        	    </srcfiles>
+    		</uptodate>
+	    </or>
+	</condition>
+    </target>
+
+    <macrodef name="ossxsddriver">
+	<attribute name="name"/>
+	<element name="options" implicit="yes"/>
+	<sequential>
+	    <exec dir="." executable="${cc}" failonerror="true">
+		<options/>
+		<arg value="-DDRIVER_ID=X694PERFINativeDriver"/>
+		<arg value="${debugoption}"/>
+		<arg value="-Wall"/>
+		<arg value="-Iinclude"/>
+		<arg value="-Isrc"/>
+		<arg value="-I${java.home}/../include"/>
+		<arg value="-I${includedir1}"/>
+		<arg value="-I${includedir2}"/>
+		<arg value="${liboption1}"/>
+		<arg value="${liboption2}"/>
+    		<arg value="${liboption3}"/>
+		<arg value="-L${basedir}/${lib.dir}/drivers"/>
+		<arg value="-o"/>
+		<arg value="${lib.dir}/drivers/${libprefix}@{name}${libsuffix}"/>
+		<arg value="src/jni_stub.c"/>
+		<arg value="${xsdcore.lib}"/>
+	    </exec>
+	</sequential>
+    </macrodef>       
+</project>

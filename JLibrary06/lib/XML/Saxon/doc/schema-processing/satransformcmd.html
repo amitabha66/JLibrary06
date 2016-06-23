@@ -1,0 +1,242 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: Schema-Aware XSLT from the Command Line</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: Schema-Aware XSLT from the Command Line">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:1323px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:1323px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:1323px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:1323px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../index/intro.html"><img src="../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro.html">Introduction</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="commandline.html">Running Validation from the Command Line</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="validation-api.html">Controlling Validation from Java</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="satransformcmd.html">Schema-Aware XSLT from the Command Line</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="satransformapi.html">Schema-Aware XSLT from Java</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="saquerycmd.html">Schema-Aware XQuery from the Command Line</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="saqueryapi.html">Schema-Aware XQuery from Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>Schema-Aware XSLT from the Command Line</h1>
+         <p>To run a schema-aware transformation from the command line, use the <code>com.saxonica.Transform</code> command
+            instead of the usual <code>net.sf.saxon.Transform</code>. This has an additional option <code>-val</code> to
+            request strict validation of the source document. This applies not only to the principal source document loaded from the
+            command line, but to all documents loaded via the <code>doc()</code> and <code>document()</code> functions.
+         </p>
+         <p>As an alternative to the <code>-val</code> option, you can specify <code>-vlax</code> to request lax
+            validation.
+         </p>
+         <p>The schemas to be used to validate these source documents can be specified either by using the
+            <code>xsl:import-schema</code> declaration in the stylesheet, or using <code>xsi:schemaLocation</code>
+            (or <code>xsi:noNamespaceSchemaLocation</code>) attributes within the source documents themselves.
+         </p>
+         <p>Validating the source document has several effects. Most obviously, it will cause the transformation to fail
+            if the document is invalid. It will also cause default values for attributes and elements to be expanded, so they
+            will appear to the stylesheet as if they were present on the source document. In addition, element and attribute nodes
+            that have been validated will be annotated with a type. This enables operations to be performed in a type-safe way.
+            This may cause error messages, for example if you try to use an xs:decimal value as an argument to a function that
+            expects a string. It may also cause some operations to produce different results: for example when using
+            elements or attribute that have been given a list type in the schema, the typed value of the node will appear
+            in the stylesheet as a sequence rather than as a single string value.
+         </p>
+         <p>Saxon-SA also allows you to validate result documents (both final result documents
+            and temporary trees), using the <code>validation</code> and <code>type</code> attributes. For details of these,
+            refer to the XSLT 2.0 specification. Validation of result documents is done on-the-fly, so if the stylesheet
+            attempts to produce invalid output, you will usually get an error message that identifies the offending instruction
+            in the stylesheet. Type annotations on final result documents are lost if you send the output to a standard JAXP
+            <code>Result</code> object (whether it's a <code>StreamResult</code>, <code>SAXResult</code>, or <code>DOMResult</code>,
+            but they remain available if you capture the output in a Saxon <code>Receiver</code> or in a <code>DOMResult</code>
+            that encapsulates a Saxon <code>NodeInfo</code>. For details of the way in which type annotations are represented
+            in the Saxon implementation of the data model, see the JavaDoc documentation. The <code>getTypeAnnotation()</code>
+            method on a <code>NodeInfo</code> object returns an integer fingerprint, which can be used to locate the name of the
+            relevant type in the <code>NamePool</code>. The <code>NamePool</code> also provides the ability to locate the actual
+            type definitions in the schema model, starting from these integer fingerprints.
+         </p>
+         <p>The <code>-vw</code> option on the command line 
+            causes validation errors encountered in processing a final result
+            tree to be treated as warnings, allowing processing to continue. This allows more than one error
+            to be reported in a single run. The result document is serialized as if validation were successful,
+            but with XML comments inserted to show where the validation errors were found. This option does
+            not necessarily recover from all validation errors, for example at present it does not recover from
+            errors in uniqueness or referential constraints. It applies only to result trees
+            validated using the <code>validation</code> attribute of <code>xsl:result-document</code>.
+         </p>
+         <p>With the schema-aware version of Saxon, type declarations (the <code>as</code> attribute on elements such as
+            <code>xsl:function</code>, <code>xsl:variable</code>, and <code>xsl:param</code>) can refer to schema-defined types,
+            for example you can write <code>&lt;xsl:variable name="a" as="schema-element(ipo:invoice)"/&gt;</code>. You can also use
+            the <code>element()</code> and <code>attribute()</code> tests to select nodes by their schema type in path expressions
+            and match patterns.
+         </p>
+         <p>Saxon does a certain amount of static analysis of the XSLT and XPath code based on schema information.
+            For example, if a template rule is defined with a match pattern such as <code>match="schema-element(invoice)"</code>,
+            then it will check any path expressions used in the template rule to ensure that they are valid against the schema
+            when starting from <code>invoice</code> as the context node. Similarly, if the result type of a template rule
+            or function is declared using an <code>as</code> attribute, then Saxon will check any literal result elements
+            in the body of the template or function to ensure that they are consistent with this declared type. This
+            analysis can reveal many simple user errors at compile time that would otherwise result in run-time errors or
+            simply in incorrect output. But this is only possible if the source code explicitly declares the types of parameters,
+            template and function results, and match patterns.
+         </p>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="satransformapi.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

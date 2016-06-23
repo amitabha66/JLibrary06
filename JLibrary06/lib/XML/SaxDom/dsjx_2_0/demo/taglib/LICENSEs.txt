@@ -1,0 +1,14 @@
+Some files from the xjtldemo.war web application archive are not the intellectual property of Devsphere. They are redistributed under the following licenses:
+
+File             Filename containing license information
+--------------------------------------------------------
+c.tld            LICENSE-JSTL.txt
+fmt.tld          LICENSE-JSTL.txt
+sql.tld          LICENSE-JSTL.txt
+x.tld            LICENSE-JSTL.txt
+jstl.jar         LICENSE-JSTL.txt
+standard.jar     LICENSE-JSTL.txt
+jaxen-full.jar   LICENSE-JAXEN.txt
+saxpath.jar      LICENSE-SAXPATH.txt
+
+The rest of the files are owned by Devsphere and they are distributed under the license contained by the LICENSE-DSJX.txt file.

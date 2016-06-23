@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+<TITLE>XML Output JSP Actions: Code Generator</TITLE>
+</HEAD>
+<BODY>
+
+<CENTER>
+<H1>XML Output JSP Actions
+<BR>Code Generator</H1>
+<h3>JSP Tag Library for Generating XML Dynamically</h3>
+</CENTER>
+
+<P><CENTER>
+<A HREF="index.html">Overview</A>&nbsp;&nbsp;&nbsp;
+<A HREF="deploy.html">Deployment</A>&nbsp;&nbsp;&nbsp;
+<A HREF="examples.html">Examples</A>&nbsp;&nbsp;&nbsp;
+<A HREF="reference.html">Reference</A>&nbsp;&nbsp;&nbsp;
+<A HREF="../../api/index.html">API</A>
+</CENTER></P>
+
+<P>Devsphere XML JSP Tag Library (XJTL) comes with a code builder that takes a sample XML document and generates a JSP page that outputs the sample XML content. You may edit the generated JSP in order to make it more general so that it can output XML documents that are similar to the given XML sample.</P>
+
+<H2>Syntax</H2>
+
+<PRE>
+java com.devsphere.xml.taglib.output.builder.Main    
+    -sample  XML_file_path    
+    -output  JSP_file_path
+</PRE>
+
+<P>where 
+<UL>
+<LI><CODE>XML_file_path</CODE> is the file path of the sample XML file
+<LI><CODE>JSP_file_path</CODE> is the file path of the JSP that will be generated
+</UL></P>
+
+<H2>Example</H2>
+
+<P>This is the <CODE>Dynamic.jsp</CODE> example explained in a different <A HREF="examples.html">page</A> of this documentation.</P>
+
+<P>Command Line:</P>
+
+<PRE>
+java com.devsphere.xml.taglib.output.builder.Main 
+-sample xjtldemo\output\sample.xml -output xjtldemo\builder\output.jsp
+</PRE>
+
+<P>Generated Code:</P>
+
+<PRE>
+&lt;%@ page language="java" %&gt;
+&lt;%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %&gt;
+&lt;%@ taglib prefix="x" uri="http://java.sun.com/jstl/xml" %&gt;
+&lt;%@ taglib prefix="o" uri="http://devsphere.com/xml/taglib/output" %&gt;
+
+&lt;o:document&gt;
+    &lt;c:set var="id" value="js890"/&gt;
+    &lt;o:element name="person" attr="id"&gt;
+        &lt;o:element name="name"&gt;
+            &lt;o:data&gt;John Smith&lt;/o:data&gt;
+        &lt;/o:element&gt;
+        &lt;o:element name="email"&gt;
+            &lt;o:data&gt;John.Smith@yahoo.com&lt;/o:data&gt;
+        &lt;/o:element&gt;
+        &lt;o:element name="phone"&gt;
+            &lt;o:data&gt;650-123-4567&lt;/o:data&gt;
+        &lt;/o:element&gt;
+        &lt;c:set var="city" value="Palo Alto"/&gt;
+        &lt;c:set var="state" value="CA"/&gt;
+        &lt;c:set var="zip" value="94303"/&gt;
+        &lt;c:set var="country" value="USA"/&gt;
+        &lt;o:element name="address" attr="city state zip country"&gt;
+            &lt;o:element name="line1"&gt;
+                &lt;o:data&gt;JS Information Systems, Inc.&lt;/o:data&gt;
+            &lt;/o:element&gt;
+            &lt;o:element name="line2"&gt;
+                &lt;o:data&gt;1001 San Antonio Road&lt;/o:data&gt;
+            &lt;/o:element&gt;
+        &lt;/o:element&gt;
+    &lt;/o:element&gt;
+&lt;/o:document&gt;
+</PRE>
+
+<P><CENTER><A HREF="../../index.html">Devsphere Java XML Projects - Documentation</A></CENTER>
+
+</BODY>
+</HTML>

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Sealed: false
+Specification-Title: DOM Level 3
+Specification-Version: @dom.spec.version@
+Specification-Vendor: W3C 
+Implementation-Title: DOM Implementation 
+Implementation-Version: @xerces.version@
+Implementation-Vendor: Apache Software Foundation
+Implementation-Vendor-Id: org.apache 
+Extension-Name: org.w3c.dom

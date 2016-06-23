@@ -1,0 +1,84 @@
+<HTML>
+<HEAD>
+<TITLE>Logging and Debugging</TITLE>
+</HEAD>
+<BODY>
+
+<CENTER>
+<H1>Logging and Debugging</H1>
+<h3>Logging Class Library and Debugging Features</h3>
+</CENTER>
+
+<P>The <A HREF="../api/index.html"><CODE>com.devsphere.logging</CODE></A> package provides a common logging API that can be used with the standard logging API (introduced by JDK 1.4) or the older Servlet logging API. It can also be used to print messages and exceptions to the console. There are four types of loggers presented in the following table. You may create your own logging mechanisms by extending <CODE>com.devsphere.logging.AbstractLogger</CODE>.</P>
+
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0">
+<TR>
+<TD><B>StandardLogger</B></TD>
+<TD>Based on the logging API introduced by JDK 1.4.</TD>
+</TR>
+<TR>
+<TD><B>ServletLogger</B></TD>
+<TD>Uses the <CODE>log()</CODE> methods of <CODE>javax.servlet.ServletContext</CODE>.</TD>
+</TR>
+<TR>
+<TD><B>PrintLogger</B></TD>
+<TD>Uses a <CODE>java.io.PrintStream</CODE> or a <CODE>java.io.PrintWriter</CODE>.</TD>
+</TR>
+<TR>
+<TD><B>CompoundLogger</B></TD>
+<TD>Redirects the logging requests to two other loggers.</TD>
+</TR>
+</TABLE>
+
+<P>By default, the XML JSP Tag Library (XJTL) does not use the <CODE>StandardLogger</CODE> so that it can run with JDK 1.3. You can specify your own logger by setting a JSP variable called <CODE>com.devsphere.xml.taglib.logger</CODE>. Depending on the scope of this variable, the logger will be used for a page, HTTP request, user session or the whole application. For example, if you have JDK 1.4+ installed and want to use the global logger, you can create a <CODE>StandardLogger</CODE> object and register it like this:</P>
+
+<PRE>
+synchronized (application) {
+    if (application.getAttribute("com.devsphere.xml.taglib.logger") == null) {
+        Object logger = new com.devsphere.logging.StandardLogger(
+            java.util.logging.Logger.global, 
+            java.util.logging.Level.SEVERE);
+        application.setAttribute("com.devsphere.xml.taglib.logger", logger);
+    }
+}
+</PRE>
+
+<P>The above code fragment could be placed in a login JSP page. If you replace <CODE>application</CODE> with <CODE>getServletContext()</CODE>, you could include the above code within the <CODE>init()</CODE> method of a servlet that is loaded automatically when the application is initialized.</P>
+
+<P>The XML JSP Tag Library treats exceptions differently depending on the value of the <CODE>com.devsphere.xml.taglib.debug</CODE> JSP variable. If this debugging flag is <CODE>true</CODE>, XJTL lets exceptions propagate and interrupt the execution of the JSP page (if not intercepted). If the debugging flag is <CODE>false</CODE>, XJTL handles any exception that occurs during the tag handling or during the tag body evaluation. The handling consists of logging those errors and not letting them to interrupt the execution of the page. This behavior is implemented by the <CODE>doCatch()</CODE> method of <CODE>com.devsphere.xml.taglib.support.tag.CommonSupport</CODE>.</P>
+
+<P>By default, the debugging flag is false. If you are debugging a JSP page, you could set this flag to <CODE>true</CODE> using JSTL:</P>
+
+<PRE>
+&lt;c:set var="com.devsphere.xml.taglib.debug" value="true"/&gt;
+</PRE>
+
+<P>During the development of a web application, you should set the default value of the debugging flag to <CODE>true</CODE> in the <CODE>web.xml</CODE> file:</P>
+
+<PRE>
+&lt;context-param&gt;
+    &lt;param-name&gt;com.devsphere.xml.taglib.debug&lt;/param-name&gt;
+    &lt;param-value&gt;true&lt;/param-value&gt;
+&lt;/context-param&gt;
+</PRE>
+
+<P>When <CODE>com.devsphere.xml.taglib.debug</CODE> is true, XJTL logs the SAX events during the processing of an XML file, printing 
+<UL>
+<LI>the name of the XJTL action that handled the SAX event
+<LI>the indentation level of the XJTL action
+<LI>the iteration counter of the event loop implemented by the XJTL action
+<LI>"C" if the event was just consumed/handled by an XJTL action
+<LI>"NC" if the event will not be consumed/handled by any XJTL action
+<LI>information about the SAX event 
+</UL></P>
+
+<PRE>
+actionName indentLevel #loopCounter [C/NC] SAXEventInfo
+</PRE>
+
+<P>The SAX event logging is implemented by <CODE>com.devsphere.xml.taglib.process.tag.ProcessSupport</CODE> and its subclasses.</P>
+
+<P><CENTER><A HREF="../index.html">Devsphere Java XML Projects - Documentation</A></CENTER>
+
+</BODY>
+</HTML>

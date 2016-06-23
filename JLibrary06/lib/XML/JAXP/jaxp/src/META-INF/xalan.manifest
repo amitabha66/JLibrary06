@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Main-Class: org.apache.xalan.xslt.Process
+
+Name: org/apache/xalan
+Comment: Main Xalan engine implementing TrAX/JAXP
+Specification-Title: Java API for XML Processing
+Specification-Version: @jaxp.spec.version@
+Specification-Vendor: Sun Microsystems Inc.
+Implementation-Title: Main Xalan Engine Implementation
+Implementation-Version: @xalan.version@
+Implementation-Vendor: Apache Software Foundation
+Implementation-Vendor-Id: org.apache
+Implementation-URL: http://xml.apache.org/xalan-j/dist/
+Extension-Name: org.apache.xalan
+
+Name: org/apache/xpath
+Comment: XPath engine
+Implementation-Title: XPath Engine Implementation of Xalan
+Implementation-Version: @xalan.version@
+Implementation-Vendor: Apache Software Foundation
+Implementation-Vendor-Id: org.apache
+Implementation-URL: http://xml.apache.org/xalan-j/dist/
+Extension-Name: org.apache.xpath
+
+Name: org/apache/xml
+Comment: DTM implementation and utilities
+Implementation-Title: DTM and utitlity Implementation of Xalan
+Implementation-Version: @xalan.version@
+Implementation-Vendor: Apache Software Foundation
+Implementation-Vendor-Id: org.apache
+Implementation-URL: http://xml.apache.org/xalan-j/dist/
+Extension-Name: org.apache.xml

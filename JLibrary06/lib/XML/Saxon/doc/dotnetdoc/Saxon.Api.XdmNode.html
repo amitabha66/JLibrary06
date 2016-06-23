@@ -1,0 +1,12 @@
+﻿<html dir="LTR"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5"><title>XdmNode Class</title><xml></xml><link rel="stylesheet" type="text/css" href="MSDN.css"></head><body id="bodyID" class="dtBODY"><div id="nsbanner"><div id="bannerrow1"><table class="bannerparthead" cellspacing="0"><tr id="hdr"><td class="runninghead">Saxon API for .NET</td><td class="product"></td></tr></table></div><div id="TitleRow"><h1 class="dtH1">XdmNode Class</h1></div></div><div id="nstext"><p>
+            The class <code>XdmNode</code> represents a Node in the XDM Data Model. A Node
+            is an <code>XdmItem</code>, and is therefore an <code>XdmValue</code> in its own right, and may also participate
+            as one item within a sequence value.
+            </p><p>For a list of all members of this type, see <a href="Saxon.Api.XdmNodeMembers.html">XdmNode Members</a>.</p><p><a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassTopic.htm">System.Object</a><br>   <a href="Saxon.Api.XdmValue.html">XdmValue</a><br>      <a href="Saxon.Api.XdmItem.html">XdmItem</a><br>         <b>XdmNode</b></p><div class="syntax"><div>public class XdmNode : XdmItem</div></div><h4 class="dtH4">Remarks</h4><p>An <code>XdmNode</code> is implemented as a wrapper around an object
+            of type <code>net.sf.saxon.NodeInfo</code>. Because this is a key interface
+            within Saxon, it is exposed via this API, even though it is a Java
+            interface that is not part of the API proper.</p><p>The <code>XdmNode</code> interface exposes basic properties of the node, such
+            as its name, its string value, and its typed value. Navigation to other nodes
+            is supported through a single method, <code>EnumerateAxis</code>, which allows
+            other nodes to be retrieved by following any of the XPath axes.</p><h4 class="dtH4">Requirements</h4><p><b>Namespace: </b><a href="Saxon.Api.html">Saxon.Api</a></p><p><b>Assembly: </b>saxon8api (in saxon8api.netmodule)
+					</p><h4 class="dtH4">See Also</h4><p><a href="Saxon.Api.XdmNodeMembers.html">XdmNode Members</a> | <a href="Saxon.Api.html">Saxon.Api Namespace</a></p><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;"><param name="Keyword" value="XdmNode class, about XdmNode class"></object></div></body></html>

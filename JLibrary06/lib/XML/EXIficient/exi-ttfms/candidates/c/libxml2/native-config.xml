@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testSuite name="ParsingPerformance"
+    xmlns="http://www.sun.com/japex/testSuite"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+
+    <param name="japex.classPath" value="../../../japex/jdsl/*.jar"/>
+    
+    <param name="japex.resultUnit" value="ms"/>
+    <param name="japex.warmupIterations" value="1"/>
+    <param name="japex.runIterations" value="10"/>
+
+    <param name="org.w3c.exi.ttf.measurementProperty" value="decode"/>
+
+    <param name="japex.exi.ttfms.testCasesDir" value="../../../data"/>
+    <param name="testsDir" value="${japex.exi.ttfms.testCasesDir}"/>
+
+    <driver name="JapexNativeDriver">
+        <param name="japex.driverClass" value="com.sun.japex.jdsl.nativecode.JapexNativeDriver"/>
+        <param name="description" value="Japex Native Driver"/>
+        <param name="libraryName" value="JapexNativeDriver"/>
+    </driver>
+
+    <xi:include href="../../../config/testCases-restricted/all-v1.xml"/>
+
+</testSuite>
+

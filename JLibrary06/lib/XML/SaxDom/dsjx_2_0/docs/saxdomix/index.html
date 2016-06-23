@@ -1,0 +1,153 @@
+<HTML>
+<HEAD>
+<TITLE>SAXDOMIX</TITLE>
+</HEAD>
+<BODY>
+
+<CENTER>
+<H1>SAXDOMIX</H1>
+<H3>FREE Open-Source Standards-based Framework
+<BR>for Scalable XML Processing</H3>
+</CENTER>
+
+<P>SAX and DOM are the standard APIs for XML parsing and they are supported by JDK 1.4+. Each of those two APIs has PROs and CONs, which are explained next. Why not mixing SAX and DOM to get maximum advantage?
+
+<P>Simple API for XML (SAX) is used to obtain the content of an XML document as a sequence of events. For example, you'll be notified when the parsing starts and ends, when a start / end tag is found or when a chunk of character data is read. This approach is very efficient because the parser doesn't hold the information in memory and the processing is minimal at the parser's level. In most cases, however, you can't do much with the information of a single SAX event. For example, when you get a chunk of character data, you don't know the parent element, unless you've kept in memory the name of the last start tag. You don't even know whether the character data is the entire text of a continuous string or just a fragment, unless you wait for the following events. Therefore, you have to store relevant information in memory for further usage. The good thing is that an application knows exactly what it needs and it also knows when each piece of information isn't necessary anymore. Therefore, SAX lets you build efficient parsing mechanisms, but it is hard-to-use like any low-level API.
+
+<P>Document Object Model (DOM) is used to build in memory a tree structure containing the information of an entire XML document. The DOM API defines interfaces whose instances are linked in a tree and maintain information about elements, attributes, character data sections, processing instructions, etc. DOM isn't the easiest way to manipulate the information of a document, but it has a huge advantage: a DOM tree is a mirror of the original document's structure and content. This makes DOM the ideal foundation for many XML tools such as XPath and XSLT processors. The problems start to occur when you need to process large documents. Some of them will simply not fit into the computer's memory. Therefore, DOM is much easier to use than SAX, but has scalability problems.
+
+<P>Suppose you have a large table stored in an XML format. If you just want to count the records, SAX would do the job. If you must access the records multiple times to sort the table using some algorithm, a DOM tree would be very useful supposing that you have enough memory for the entire table. In many cases, however, you just need to process one record at a time in a loop. It doesn't make sense to read the entire table in a DOM tree, while with SAX you have to code the grouping of the record information into some memory structure. What you really need, in this case, is to get a small DOM sub-tree for each record, process it and then be able to make it available for garbage collection. This can be done by mixing the usage of the standard SAX and DOM APIs.
+
+<P>SAXDOMIX contains classes that can forward SAX events or DOM sub-trees to your application during the parsing of an XML document. The framework defines simple interfaces that allow the application to get DOM sub-trees in the middle of a SAX parsing. After handling, all DOM sub-trees become eligible for garbage collection. This solves the DOM scalability problem. In the above example, you can process a very large table and get each record as a DOM sub-tree. 
+
+<P>Mixing SAX and DOM, you can reduce dramatically the memory requirements when the application doesn't need the entire DOM tree in memory. In addition, there are pieces of information that can be extracted directly from the SAX events without the need to build a DOM sub-tree. For example, the application could analyze the attributes of an element and decide if it needs the entire DOM sub-tree rooted by that element. Such a technique improves the performance of the application because the creation of many DOM objects takes a lot of CPU-time and memory resources.
+
+<P>Finally, Extensible Stylesheet Language Transformations (XSLT) are the most used way to process XML documents. SAXDOMIX provides special support for this kind of processing. In a mixed transformation, the same XSLT instructions are applied to each DOM sub-tree and the results are inserted into the output document.
+
+<BR>
+
+<H2>Framework</H2>
+
+<P>The <A HREF="../api/index.html"><CODE>com.devsphere.xml.saxdomix</CODE></A> package provides support for mixed SAX-DOM parsing and transforming.
+
+<P>A builder is a SAX handler that receives events from a SAX parser.
+These events can be forwarded to the application or can be used 
+to construct DOM sub-trees. Therefore, a builder can operate in two
+parsing modes: SAX and DOM. 
+
+<P><IMG SRC="../api/com/devsphere/xml/saxdomix/ParsingModes.gif" WIDTH="780" HEIGHT="440">
+
+<P>Each builder object needs from the application a SAX handler 
+and a controller. The handler gets the SAX events during the SAX parsing
+mode. The controller has a double role: 
+<UL><LI>to tell the builder when to switch to the DOM parsing mode and 
+<LI>to handle the DOM sub-trees created during the DOM parsing mode.</UL>
+
+<P>The builder is initially in SAX parsing mode, which means that SAX events 
+are forwarded to the SAX handler provided by the application. During the SAX 
+parsing mode, the <CODE>wantDOM()</CODE> method of the controller object is called 
+for each element start. When <CODE>wantDOM()</CODE> returns <CODE>true</CODE>, 
+the builder retains the SAX events and uses them to build a DOM sub-tree, 
+which is then passed for handling to the <CODE>handleDOM()</CODE> method 
+of the controller object. The builder returns to the SAX parsing mode 
+automatically after the DOM sub-tree is completed and handled. This process 
+is repeated until the end of the parsed document, which means that multiple 
+DOM sub-trees can be constructed during the parsing of a single XML document. 
+All SAX events that aren't used to build the DOM sub-trees are passed to 
+the application's SAX handler.
+
+<P>SAXDOMIX also has a mixed transformer that uses a builder to do mixed SAX-DOM parsing. 
+By default, all SAX events that aren't used to build DOM sub-trees will 
+be part of the final result. The DOM sub-trees are transformed using
+a "fragment transformer" and the produced SAX events will also be 
+inserted into the final result. In other words, the mixed transformer
+implements the handling of the DOM sub-trees, which consists
+of applying an XSLT transformation. The application still has to
+control the switch from the SAX parsing mode to the DOM parsing mode.
+
+<P><IMG SRC="../api/com/devsphere/xml/saxdomix/MixedTransformation.gif" WIDTH="653" HEIGHT="653">
+
+<P><B>API Requirements:</B>
+<TABLE CELLPADDING="5" CELLSPACING="5" BORDER="1">
+	<TR>
+		<TD ALIGN="left"><B>Class / Interface</B></TD>
+		<TD ALIGN="right"><B>SAX</B></TD>
+		<TD ALIGN="left"><B>DOM</B></TD>
+		<TD ALIGN="right"><B>JAXP</B></TD>
+	</TR>
+	<TR>
+		<TD ALIGN="left">SDXBuilder</TD>
+		<TD ALIGN="right">2.0</TD>
+		<TD ALIGN="left">Level 2</TD>
+		<TD ALIGN="right">1.1</TD>
+	</TR>
+	<TR>
+		<TD ALIGN="left">SDXBuilderT</TD>
+		<TD ALIGN="right">2.0</TD>
+		<TD ALIGN="left">Level 2</TD>
+		<TD ALIGN="right">1.1</TD>
+	</TR>
+	<TR>
+		<TD ALIGN="left">SDXController</TD>
+		<TD ALIGN="right">2.0</TD>
+		<TD ALIGN="left">Level 2</TD>
+		<TD ALIGN="right">1.1</TD>
+	</TR>
+	<TR>
+		<TD ALIGN="left">SDXOldBuilder</TD>
+		<TD ALIGN="right">1.0</TD>
+		<TD ALIGN="left">Level 1</TD>
+		<TD ALIGN="right">1.0</TD>
+	</TR>
+	<TR>
+		<TD ALIGN="left">SDXOldController</TD>
+		<TD ALIGN="right">1.0</TD>
+		<TD ALIGN="left">Level 1</TD>
+		<TD ALIGN="right">1.0</TD>
+	</TR>
+	<TR>
+		<TD ALIGN="left">SDXTransformer</TD>
+		<TD ALIGN="right">2.0</TD>
+		<TD ALIGN="left">Level 2</TD>
+		<TD ALIGN="right">1.1</TD>
+	</TR>
+</TABLE>
+
+<BR>
+
+<H2>Helpers</H2>
+
+<P>The <A HREF="../api/index.html"><CODE>com.devsphere.xml.saxdomix.helpers</CODE></A> package provides interfaces and default implementations for creating the DOM nodes. Each builder lets you replace its default helper with your own, though this is usually not necessary.
+
+<BR>
+
+<H2>Examples</H2>
+
+<P>The <A HREF="../api/index.html"><CODE>com.devsphere.examples.xml.saxdomix</CODE></A> package contains examples that use the SAXDOMIX framework.
+
+<UL>
+<LI><A HREF="examples/MixedParsing.html">MixedParsing</A></LI>
+<LI><A HREF="examples/MixedTransformer.html">MixedTransformer</A></LI>
+<LI><A HREF="examples/SmartTransformer.html">SmartTransformer</A></LI>
+<LI><A HREF="examples/WrapperTransformer.html">WrapperTransformer</A></LI>
+</UL>
+
+<BR>
+
+<H2>Benchmark</H2>
+
+<P>The <A HREF="../api/index.html"><CODE>com.devsphere.xml.benchmark</CODE></A> package contains the benchmark classes that allow you to compare the SAX, DOM and mixed SAX-DOM parsing methods.
+
+<P><A HREF="http://www.devsphere.com/">Devsphere</A> 
+has used these classes to compare not only the parsing methods,
+but also different JDK versions with various versions of 
+the Apache Xerces parser and the JAXP reference implementation. 
+Time and used memory are measured and the scalability is studied.
+
+<P>Visit <A HREF="http://www.devsphere.com/xml/benchmark/index.html">http://www.devsphere.com/xml/benchmark/index.html</A> 
+for charts, results and conclusions.
+
+<P><CENTER><A HREF="../index.html">Devsphere Java XML Projects - Documentation</A></CENTER>
+
+</BODY>
+</HTML>

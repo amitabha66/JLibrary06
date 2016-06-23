@@ -1,0 +1,11 @@
+﻿<html dir="LTR"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5"><title>SchemaValidator.ErrorList Property</title><xml></xml><link rel="stylesheet" type="text/css" href="MSDN.css"></head><body id="bodyID" class="dtBODY"><div id="nsbanner"><div id="bannerrow1"><table class="bannerparthead" cellspacing="0"><tr id="hdr"><td class="runninghead">Saxon API for .NET</td><td class="product"></td></tr></table></div><div id="TitleRow"><h1 class="dtH1">SchemaValidator.ErrorList Property
+					</h1></div></div><div id="nstext"><p>
+            List of errors. The caller may supply an empty list before calling Compile;
+            the processor will then populate the list with error information obtained during
+            the schema compilation. Each error will be included as an object of type StaticError.
+            If no error list is supplied by the caller, error information will be written to
+            the standard error stream.
+            </p><div class="syntax">public <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemCollectionsIListClassTopic.htm">System.Collections.IList</a> ErrorList {get; set;}</div><p></p><h4 class="dtH4">Remarks</h4><p>By supplying a custom List with a user-written add() method, it is possible to
+            intercept error conditions as they occur.</p><p>Note that this error list is used only for errors detected while 
+            using the schema to validate a source document. It is not used to report errors
+            in the schema itself.</p><h4 class="dtH4">See Also</h4><p><a href="Saxon.Api.SchemaValidator.html">SchemaValidator Class</a> | <a href="Saxon.Api.html">Saxon.Api Namespace</a></p><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;"><param name="Keyword" value="ErrorList property"><param name="Keyword" value="ErrorList property, SchemaValidator class"><param name="Keyword" value="SchemaValidator.ErrorList property"></object></div></body></html>

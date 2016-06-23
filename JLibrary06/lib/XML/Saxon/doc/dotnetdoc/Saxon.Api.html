@@ -1,0 +1,114 @@
+﻿<html dir="LTR"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5"><title>Saxon.Api</title><xml></xml><link rel="stylesheet" type="text/css" href="MSDN.css"></head><body id="bodyID" class="dtBODY"><div id="nsbanner"><div id="bannerrow1"><table class="bannerparthead" cellspacing="0"><tr id="hdr"><td class="runninghead">Saxon API for .NET</td><td class="product"></td></tr></table></div><div id="TitleRow"><h1 class="dtH1">Saxon.Api Namespace</h1></div></div><div id="nstext"><p></p><h3 class="dtH3">Classes</h3><div class="tablediv"><table class="dtTABLE" cellspacing="0"><tr valign="top"><th width="50%">Class</th><th width="50%">Description</th></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.DocumentBuilder.html">DocumentBuilder</a></td><td width="50%">
+            The <code>DocumentBuilder</code> class enables XDM documents to be built from various sources.
+            The class is always instantiated using the <code>NewDocumentBuilder</code> method
+            on the <code>Processor</code> object.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.DomDestination.html">DomDestination</a></td><td width="50%">
+            A <code>DomDestination</code> represents an XmlDocument that is constructed to hold the
+            output of a query or transformation.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.DynamicError.html">DynamicError</a></td><td width="50%">
+            The DynamicError class contains information about a dynamic error detected during
+            execution of a stylesheet, query, or XPath expression.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.Processor.html">Processor</a></td><td width="50%">
+            The Processor class serves three purposes: it allows global Saxon configuration
+            options to be set; it acts as a factory for generating XQuery, XPath, and XSLT
+            compilers; and it owns certain shared resources such as the Saxon NamePool and 
+            compiled schemas. This is the first object that a Saxon application should create. Once
+            established, a Processor may be used in multiple threads.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.QName.html">QName</a></td><td width="50%">
+            The QName class represents an instance of xs:QName, as defined in the XPath 2.0
+            data model. Internally, it has three components, a namespace URI, a local name, and
+            a prefix. The prefix is intended to be used only when converting the value back to 
+            a string.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.SchemaManager.html">SchemaManager</a></td><td width="50%">
+            A <code>SchemaManager</code> is responsible for compiling schemas and
+            maintaining a cache of compiled schemas that can be used for validating
+            instance documents.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.SchemaValidator.html">SchemaValidator</a></td><td width="50%">
+            A <code>SchemaValidator</code> is an object that is used for validating instance documents
+            against a schema. The schema consists of the collection of schema components that are
+            available within the schema cache maintained by the <code>SchemaManager</code>, together with
+            any additional schema components located during the course of validation by means of an
+            <code>xsl:schemaLocation</code> or <code>xsi:noNamespaceSchemaLocation</code> attribute within the
+            instance document.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.SequenceEnumerator.html">SequenceEnumerator</a></td><td width="50%">
+            This class represents an enumeration of the values in an XPath
+            sequence. It implements the IEnumerator interface, and the objects
+            returned are always instances of <code>XPathItem</code></td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.Serializer.html">Serializer</a></td><td width="50%">
+            A <code>Serializer</code> takes a tree representation of XML and turns
+            it into lexical XML markup.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.StaticError.html">StaticError</a></td><td width="50%">
+            The StaticError class contains information about a static error detected during
+            compilation of a stylesheet, query, or XPath expression.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.TextWriterDestination.html">TextWriterDestination</a></td><td width="50%">
+            A <code>TextWriterDestination</code> is an implementation of <code>XmlDestination</code> that wraps
+            an instance of <code>XmlTextWriter</code>.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.XdmAtomicValue.html">XdmAtomicValue</a></td><td width="50%">
+            The class <code>XdmAtomicValue</code> represents an item in an XPath 2.0 sequence
+            that is an atomic value. The value may belong to any of the 19 primitive types
+            defined in XML Schema, or to a type derived from these primitive types, or to 
+            the XPath 2.0 type <code>xdt:untypedAtomic</code></td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.XdmDestination.html">XdmDestination</a></td><td width="50%">
+            An <code>XdmDestination</code> represents an XdmNode that is constructed to hold the
+            output of a query or transformation: that is, a tree using Saxon's implementation of the
+            XDM data model
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.XdmEmptySequence.html">XdmEmptySequence</a></td><td width="50%">
+            The class <code>XdmEmptySequence</code> represents an empty sequence in the XDM Data Model.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.XdmItem.html">XdmItem</a></td><td width="50%">
+            The class <code>XdmItem</code> represents an item in a sequence, as defined
+            by the XDM data model. An item is either an atomic value or a node.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.XdmNode.html">XdmNode</a></td><td width="50%">
+            The class <code>XdmNode</code> represents a Node in the XDM Data Model. A Node
+            is an <code>XdmItem</code>, and is therefore an <code>XdmValue</code> in its own right, and may also participate
+            as one item within a sequence value.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.XdmValue.html">XdmValue</a></td><td width="50%">
+            An value in the XDM data model. A value is a sequence of zero or more
+            items, each item being either an atomic value or a node.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.XmlDestination.html">XmlDestination</a></td><td width="50%">
+            An abstract destination for the results of a query or transformation
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.XPathCompiler.html">XPathCompiler</a></td><td width="50%">
+            An XPathCompiler object allows XPath queries to be compiled.
+            The compiler holds information that represents the static context
+            for the expression.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.XPathExecutable.html">XPathExecutable</a></td><td width="50%">
+            An <code>XPathExecutable</code> represents the compiled form of an XPath expression. 
+            To evaluate the expression,
+            it must first be loaded to form an <code>XPathSelector</code>.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.XPathSelector.html">XPathSelector</a></td><td width="50%">
+            An <code>XPathSelector</code> represents a compiled and loaded XPath expression ready for execution.
+            The <code>XPathSelector</code> holds details of the dynamic evaluation context for the XPath expression.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.XQueryCompiler.html">XQueryCompiler</a></td><td width="50%">
+            An XQueryCompiler object allows XQuery queries to be compiled.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.XQueryEvaluator.html">XQueryEvaluator</a></td><td width="50%">
+            An <code>XQueryEvaluator</code> represents a compiled and loaded query ready for execution.
+            The <code>XQueryEvaluator</code> holds details of the dynamic evaluation context for the query.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.XQueryExecutable.html">XQueryExecutable</a></td><td width="50%">
+            An <code>XQueryExecutable</code> represents the compiled form of a query. To execute the query,
+            it must first be loaded to form an <code>XQueryEvaluator</code>.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.XsltCompiler.html">XsltCompiler</a></td><td width="50%">
+            An <code>XsltCompiler</code> object allows XSLT 2.0 stylesheets to be compiled.
+            The compiler holds information that represents the static context
+            for the compilation.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.XsltExecutable.html">XsltExecutable</a></td><td width="50%">
+            An <code>XsltExecutable</code> represents the compiled form of a stylesheet. To execute the stylesheet,
+            it must first be loaded to form an <code>XsltTransformer</code>.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.XsltTransformer.html">XsltTransformer</a></td><td width="50%">
+            An <code>XsltTransformer</code> represents a compiled and loaded stylesheet ready for execution.
+            The <code>XsltTransformer</code> holds details of the dynamic evaluation context for the stylesheet.
+            </td></tr></table></div><h3 class="dtH3">Interfaces</h3><div class="tablediv"><table class="dtTABLE" cellspacing="0"><tr valign="top"><th width="50%">Interface</th><th width="50%">Description</th></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.IQueryResolver.html">IQueryResolver</a></td><td width="50%">
+            Interface defining a user-supplied class used to retrieve XQUery library modules listed
+            in an <code>import module</code> declaration in the query prolog.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.IResultDocumentHandler.html">IResultDocumentHandler</a></td><td width="50%">An <code>IResultDocumentHandler</code> can be nominated to handle output
+             produced by the <code>xsl:result-document</code> instruction in an XSLT stylesheet.
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.SchemaResolver.html">SchemaResolver</a></td><td width="50%">
+            The SchemaResolver is a user-supplied class used for resolving references to
+            schema documents. It applies to references from one schema document to another
+            appearing in <code>xs:import</code>, <code>xs:include</code>, and <code>xs:redefine</code>; to
+            references from an instance document to a schema in <code>xsi:schemaLocation</code> and
+            <code>xsi:noNamespaceSchemaLocation</code>, to <code>xsl:import-schema</code> in XSLT, and to
+            the <code>import schema</code> declaration in XQuery.
+            </td></tr></table></div><h3 class="dtH3">Enumerations</h3><div class="tablediv"><table class="dtTABLE" cellspacing="0"><tr valign="top"><th width="50%">Enumeration</th><th width="50%">Description</th></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.SchemaValidationMode.html">SchemaValidationMode</a></td><td width="50%">
+            Enumeration identifying the various Schema validation modes
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.WhitespacePolicy.html">WhitespacePolicy</a></td><td width="50%">
+            Enumeration identifying the various Whitespace stripping policies
+            </td></tr><tr valign="top"><td width="50%"><a href="Saxon.Api.XdmAxis.html">XdmAxis</a></td><td width="50%">
+            Enumeration identifying the thirteen XPath axes
+            </td></tr></table></div></div></body></html>

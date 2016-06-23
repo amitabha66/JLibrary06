@@ -1,0 +1,449 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: Choosing a software package</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: Choosing a software package">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:1957px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:1957px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:1957px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:1957px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../index/intro.html"><img src="../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro.html">Introduction</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="gettingstarted.html">Getting Started</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="whatis.html">What is Saxon?</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="packages.html">Choosing a software package</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="installationjava.html">Installation: Java platform</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="installationdotnet.html">Installation: .NET platform</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="historical.html">Historical Note</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="support.html">Technical Support</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="related.html">Related Products</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>Choosing a software package</h1>
+         <p>Saxon is distributed in two packages: Saxon-B and Saxon-SA, 
+            each of which is available for both the Java and .NET platforms. Saxon-B is available under an open-source
+            license and all its features are available to all users. Saxon-SA requires activation by a license key, and it
+            is possible to purchase various subsets of the functionality. These are summarized in the table below.
+         </p>
+         <table>
+            <thead>
+               <tr>
+                  <td>
+                     <p>Feature</p>
+                  </td>
+                  <td>
+                     <p><b>Saxon-B</b></p>
+                  </td>
+                  <td colspan="4">
+                     <p><b>Saxon-SA</b></p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p></p>
+                  </td>
+                  <td>
+                     <p>all</p>
+                  </td>
+                  <td>
+                     <p>SA001 (Full)</p>
+                  </td>
+                  <td>
+                     <p>SA030 (XSLT)</p>
+                  </td>
+                  <td>
+                     <p>SA040 (XQuery)</p>
+                  </td>
+                  <td>
+                     <p>SA050 (Schema)</p>
+                  </td>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>
+                     <p>Basic XSLT</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Basic XQuery</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Schema-Aware XSLT</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Schema-Aware XQuery</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Schema Validation</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Java Code Generation</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Advanced Extension Functions (see Note 1)</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Advanced Optimizer (see Note 2)</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Serial Processing of Large Documents</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Binary Document Storage (PTree)</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>yes</p>
+                  </td>
+                  <td>
+                     <p>no</p>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <p><b>Note 1:</b> Extension functions in this category include <code>saxon:try()</code>, which provides
+            the ability to catch run-time errors; <code>saxon:function()</code> which provides higher-order functions;
+            <code>saxon:analyze-string()</code> and <code>saxon:for-each-group()</code> which provide XQuery users
+            with an equivalent to the <code>xsl:analyze-string</code> and <code>xsl:for-each-group</code> instructions
+            in XSLT; and <code>saxon:index()</code> and <code>saxon:find()</code> which provide a "manual" indexing
+            capability for XQuery, similar to the <code>xsl:key</code> construct in XSLT.
+         </p>
+         <p><b>Note 2:</b> Saxon-B always implements joins using a nested-loop strategy, which takes increasingly
+            long as the documents become larger. Saxon-SA where possible uses a hash-join algorithm. This applies whether
+            the join is expressed as a path expression, an XQuery FLWOR expression, or a nested set of <code>xsl:for-each</code>
+            instructions in XSLT. In some of the queries in the XMark benchmark, the effect is to reduce query time on a
+            10Mb source document from 16 seconds to 45 milliseconds.
+         </p>
+         <p>For some of these products, it is also possible for existing users to purchase an upgrade license.</p>
+         <p>For product prices, see the <a href="http://www.saxonica.com/erol/erol.html" target="_blank" class="bodylink">online store</a>.
+         </p>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="installationjava.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

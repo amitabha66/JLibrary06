@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <elem1 wantDOM="true">
+        <!-- comment1 -->
+        <elem11>text11</elem11>
+        <elem12><![CDATA[cdata12]]></elem12>
+        <elem13>
+            <elem131/>
+            <elem132/>
+        </elem13>
+        <?proc1 data?>
+    </elem1>
+    <elem2>
+        <!-- comment2 -->
+        <elem21 wantDOM="true">data21</elem21>
+        <elem22 wantDOM="true"><![CDATA[cdata22]]></elem22>
+        <elem23>text23</elem23>
+        <?proc2 data?>
+    </elem2>
+</root>

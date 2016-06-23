@@ -1,0 +1,743 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: XQuery 1.0 Conformance</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: XQuery 1.0 Conformance">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:4058.4px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:4058.4px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:4058.4px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:4058.4px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../index/intro.html"><img src="../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro.html">Introduction</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="xslt20.html">XSLT 2.0 conformance</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="xpath20.html">XPath 2.0 conformance</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="xquery.html">XQuery 1.0 Conformance</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="schema.html">Conformance with XML Schema 1.0</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="serialization.html">Serialization</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="other.html">Conformance with other specifications</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="encodings.html">Character Encodings Supported</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="jaxp.html">JAXP 1.3 Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>XQuery 1.0 Conformance</h1>
+         <p>This release of Saxon implements
+            the full XQuery 1.0 language as defined in the 
+            <a href="http://www.w3.org/TR/xquery/" target="_blank" class="bodylink">Recommendation</a> of 23 January 2007.
+            The <a class="bodylink" href="../conformance/xpath20.html">restrictions</a> noted with respect to XPath 2.0 apply equally to Saxon's support for
+            XQuery 1.0.
+         </p>
+         <p>XQuery conformance levels are described in
+            <a href="http://www.w3.org/TR/xquery/#id-xquery-conformance" target="_blank" class="bodylink">Section 5 of the XQuery specification</a>.
+         </p>
+         <p>Saxon-B provides <b>Minimal Conformance</b> plus the following <b>Optional Features</b>:
+         </p>
+         <ul>
+            <li>
+               <p>Full Axis Feature</p>
+            </li>
+            <li>
+               <p>Module Feature</p>
+            </li>
+            <li>
+               <p>Serialization Feature</p>
+            </li>
+         </ul>
+         <p>Saxon-SA provides <b>Minimal Conformance</b> plus the following <b>Optional Features</b>:
+         </p>
+         <ul>
+            <li>
+               <p>Schema Import Feature</p>
+            </li>
+            <li>
+               <p>Schema Validation Feature</p>
+            </li>
+            <li>
+               <p>Full Axis Feature</p>
+            </li>
+            <li>
+               <p>Module Feature</p>
+            </li>
+            <li>
+               <p>Serialization Feature</p>
+            </li>
+         </ul>
+         <p>Neither Saxon product supports the Static Typing Feature, and there are no plans to do so.</p>
+         <p>There are some known non-conformances if the product is used in particular ways:</p>
+         <ul>
+            <li>
+               <p>In pull mode (-pull on the command line) there is a restriction that namespace undeclaration
+                  is not supported; this means that the query prolog option "copy-namespaces no-inherit" has no effect.
+               </p>
+            </li>
+            <li>
+               <p>Under .NET, when the <code>System.Xml</code> parser is used, attributes declared in the DTD as being
+                  of type <code>ID</code> are not accessible using the <code>id()</code> function. This is because the
+                  <code>System.Xml</code> parser does not make the DTD-defined attribute type available to the application.
+               </p>
+            </li>
+         </ul>
+         <p class="subhead">Conformance Tests</p>
+         <p>Saxonica has submitted results for the published 
+            <a href="http://www.w3.org/XML/Query/test-suite/" target="_blank" class="bodylink">W3C XQuery Test suite</a>. W3C has published
+            have generated both <a href="http://www.w3.org/XML/Query/test-suite/XQTSReportSimple.html" target="_blank" class="bodylink">summary</a> 
+            and <a href="http://www.w3.org/XML/Query/test-suite/XQTSReport.html" target="_blank" class="bodylink">detail</a> reports from the results;
+            at the time of writing Saxon-SA is the only product to achieve a 100% pass rate.
+         </p>
+         <p>The test driver used to measure these results is included in the Saxon distribution
+            as part of the <code>saxon-resources-8.n</code> download.
+         </p>
+         <p class="subhead">Checklist of Implementation-Defined Items</p>
+         <p>Appendix D of the XQuery specification lists a number of features whose behavior is implementation-defined.
+            For Saxon, the behavior is as follows:
+         </p>
+         <ol>
+            <li>
+               <p><i>The version of Unicode that is used to construct expressions.</i></p>
+               <p>Saxon relies on the underlying Java or .NET I/O mechanisms to read the supplied query, 
+                  so this is dependent on the underlying platform that is used to run Saxon.
+               </p>
+            </li>
+            <li>
+               <p><i>The statically-known collations.</i></p>
+               <p>Collation URIs of the form <code>http://saxon.sf.net/collation?<i>param=value;param=value...</i></code>
+                  are always available: these map to the collations offered by the locales available within the Java VM
+                  in use. Additional collation URIs may be implemented by users and registered with the Saxon configuration
+                  via the Java API.
+               </p>
+            </li>
+            <li>
+               <p><i>The implicit timezone.</i></p>
+               <p>The implicit timezone is normally taken from the system clock. This may, however, be overridden
+                  via the Java API.
+               </p>
+            </li>
+            <li>
+               <p><i>The circumstances in which warnings are raised, and the ways in which warnings are handled.</i></p>
+               <p>Warnings are raised for a variety of conditions. Compile time warnings include:</p>
+               <ul>
+                  <li>
+                     <p>Use of a path expression that can never select anything (for example <code>@a/@b</code>)
+                     </p>
+                  </li>
+                  <li>
+                     <p>Use of an expression that can only succeed if one or more operands are empty sequences</p>
+                  </li>
+                  <li>
+                     <p>Use of a string literal in a PITest that is not a valid NCName</p>
+                  </li>
+               </ul>
+               <p>Warnings may also be raised at run-time, for example if the <code>collection()</code> function
+                  fails to load a document and recovery has been requested.
+               </p>
+               <p>Compile-time warnings are sent to the JAXP <code>ErrorListener</code> registered with the <code>Configuration</code>;
+                  the default <code>ErrorListener</code> displays them as messages on <code>System.err</code>. Run-time
+                  warnings are sent to the JAXP <code>ErrorListener</code> registered with the <code>Controller</code>;
+                  the default is the same.
+               </p>
+            </li>
+            <li>
+               <p><i>The method by which errors are reported to the external processing environment.</i></p>
+               <p>Compile-time errors are sent to the JAXP <code>ErrorListener</code> registered with the <code>Configuration</code>;
+                  the default <code>ErrorListener</code> displays them as messages on <code>System.err</code>. Run-time
+                  errors are sent to the JAXP <code>ErrorListener</code> registered with the <code>Controller</code>;
+                  the default is the same. When queries are invoked from a Java application, any error will also be
+                  notified by throwing an exception.
+               </p>
+            </li>
+            <li>
+               <p><i>Whether the implementation is based on the rules of [XML 1.0] and [XML Names]
+                     or the rules of [XML 1.1] and [XML Names 1.1]. One of these sets of rules must be applied
+                     consistently by all aspects of the implementation.</i></p>
+               <p>Saxon gives the user the choice: see <a class="bodylink" href="../sourcedocs/xml11.html">Saxon and XML 1.1</a>.
+                  Note that since Saxon allows the user to select which XML parser to use on a per-document basis,
+                  achievement of consistency across "all aspects of the implementation" is in part a user
+                  responsibility. Saxon will not reject any attempt to use an XML 1.1 parser in a 1.0 configuration,
+                  or vice versa.
+               </p>
+               <p>There are no known XML parsers available on the .NET 1.1 platform that support XML 1.1.</p>
+            </li>
+            <li>
+               <p><i>Any components of the static context or dynamic context that are overwritten or augmented
+                     by the implementation.</i></p>
+               <p>The following table shows the components of the static context. For each component, the second column
+                  shows whether the component is overwritten or augmented by Saxon itself. The third columns shows whether
+                  it may be overwritten or augmented by an application, through facilities in the Java API.
+               </p>
+               <table>
+                  <tr>
+                     <td>
+                        <p>Component</p>
+                     </td>
+                     <td>
+                        <p>Overritten or augmented by Saxon?</p>
+                     </td>
+                     <td>
+                        <p>Can be set from Java API?</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>XPath 1.0 Compatibility Mode</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Statically known namespaces</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>yes</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Default element/type namespace</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>yes</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Default function namespace</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>In-scope schema types</p>
+                     </td>
+                     <td>
+                        <p>yes: types corresponding to Java classes for use in extension functions</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>In-scope element declarations</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>In-scope attribute declarations</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>In-scope variables</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Context item static type</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Function signatures</p>
+                     </td>
+                     <td>
+                        <p>yes: any Java method on the classpath can be referenced</p>
+                     </td>
+                     <td>
+                        <p>yes: there is a plug-in mechanism</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Statically known collations</p>
+                     </td>
+                     <td>
+                        <p>yes: collations of the form http://saxon.sf.net/collation?<i>params</i></p>
+                     </td>
+                     <td>
+                        <p>yes</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Default collation</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>yes</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Construction mode</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Ordering mode</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Default order for empty sequences</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Boundary-space policy</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Copy-namespaces mode</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Base URI</p>
+                     </td>
+                     <td>
+                        <p>yes: inferred from the location of the query</p>
+                     </td>
+                     <td>
+                        <p>yes</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Statically known documents</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Statically known collections</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Statically known default collection type</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                  </tr>
+               </table>
+               <p>For the dynamic context, the corresponding settings are:</p>
+               <table>
+                  <tr>
+                     <td>
+                        <p>Context item</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>yes</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Context position</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Context size</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Variable values</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>only for declared external variables</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Function implementations</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>yes (extension functions)</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Current dateTime</p>
+                     </td>
+                     <td>
+                        <p>yes (from system clock)</p>
+                     </td>
+                     <td>
+                        <p>yes</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Implicit timezone</p>
+                     </td>
+                     <td>
+                        <p>yes (from system clock)</p>
+                     </td>
+                     <td>
+                        <p>yes</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Available documents</p>
+                     </td>
+                     <td>
+                        <p>yes (all documents reachable using Java URL connections)</p>
+                     </td>
+                     <td>
+                        <p>yes (URIResolver)</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Available collections</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>yes (CollectionResolver/catalog)</p>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <p>Default collection</p>
+                     </td>
+                     <td>
+                        <p>no</p>
+                     </td>
+                     <td>
+                        <p>yes (CollectionResolver/catalog)</p>
+                     </td>
+                  </tr>
+               </table>
+            </li>
+            <li>
+               <p><i>Which of the optional axes are supported by the implementation, if the Full-Axis Feature is not supported.</i></p>
+               <p>The Full-Axis features is supported.</p>
+            </li>
+            <li>
+               <p><i>The default handling of empty sequences returned by an ordering key
+                     (sortspec) in an order by clause (empty least or empty greatest).</i></p>
+               <p>Empty least</p>
+            </li>
+            <li>
+               <p><i>The names and semantics of any extension expressions (pragmas) recognized by the implementation.</i></p>
+               <p>Saxon-SA recognizes one pragma: <code>saxon:validate-type</code>. For details, see
+                  <a class="bodylink" href="../using-xquery/extensions.html">XQuery extensions</a>.
+               </p>
+            </li>
+            <li>
+               <p><i>The names and semantics of any option declarations recognized by the implementation.</i></p>
+               <p>See <a class="bodylink" href="../using-xquery/extensibility.html">XQuery Extensibility</a>.
+               </p>
+            </li>
+            <li>
+               <p><i>Protocols (if any) by which parameters can be passed to an external function, and the
+                     result of the function can be returned to the invoking query.</i></p>
+               <p>Java methods can be called as <a class="bodylink" href="../extensibility/functions.html">Extension Functions</a></p>
+            </li>
+            <li>
+               <p><i>How the implementation handles location hints in module imports,
+                     if the Module Feature is supported.</i></p>
+               <p>The location hint is interpreted as a relative URI, relative to the base URI of the referencing
+                  module. It is then dereferenced using the Java URL mechanisms, unless the user has nominated a
+                  <code>ModuleURIResolver</code>, in which case the interpretation is under user control.
+               </p>
+            </li>
+            <li>
+               <p><i>Any static typing extensions supported by the implementation,
+                     if the Static Typing Feature is supported.</i></p>
+               <p>Not applicable.</p>
+            </li>
+            <li>
+               <p><i>The means by which serialization is invoked, if the Serialization Feature is supported.</i></p>
+               <p>Serialization may be invoked from the command line or from the Java or .NET API. Serialization parameters
+                  may be supplied on the command line, from the Java or .NET API, or through option declarations in the query
+                  prolog.
+               </p>
+            </li>
+            <li>
+               <p><i>The default values for the byte-order-mark, encoding, media-type, normalization-form,
+                     omit-xml-declaration, standalone, and version parameters, if the Serialization Feature is supported.</i></p>
+               <p>As specified in Appendix C.3 of the XQuery specification.</p>
+            </li>
+         </ol>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="schema.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

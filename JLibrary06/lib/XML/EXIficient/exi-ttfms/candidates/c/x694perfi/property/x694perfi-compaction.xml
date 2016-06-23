@@ -1,0 +1,32 @@
+<driverGroup xmlns="http://www.sun.com/japex/testSuite">
+    <param name="japex.classPath" value="${japex.exi.ttfms.frameworkLibDir}/*.jar"/>
+    <param name="japex.classPath" value="${japex.exi.ttfms.candidatesDir}/c/x694perfi/dist/candidate-x694perfi.jar"/>
+
+    <param name="japex.driverClass" value="org.w3c.exi.ttf.candidate.x694perfi.X694PERFINativeDriver"/>
+    <param name="org.w3c.exi.ttf.driver.candidateName" value="x694perfi"/>
+    <param name="ossx.precompiledSchemas" value="${japex.exi.ttfms.candidatesDir}/c/x694perfi/dist/schemas.properties"/>
+    <param name="ossx.precompiledSchemaPath" value="${japex.exi.ttfms.candidatesDir}/c/x694perfi/lib/${japex.osName}/${japex.osArchitecture}"/>
+
+    <driver name="X694FINoCompaction" normal="true">
+        <param name="description" value="XML compaction"/>
+	<param name="libraryName" value="candidate-x694perfi-XML"/>
+        <param name="org.w3c.exi.ttf.applicationClass" value="neither"/>
+    </driver>
+    <driver name="X694FIGZIPCompaction">
+        <param name="description" value="XML compaction using GZIP compression"/>
+	<param name="libraryName" value="candidate-x694perfi-XML+GZIP"/>
+        <param name="org.w3c.exi.ttf.applicationClass" value="document"/>
+        <param name="org.w3c.exi.ttf.applicationClass.documentAnalysing.GZIP" value="true"/>
+    </driver>
+    <driver name="X694PERFICompaction">
+        <param name="description" value="PER compaction"/>
+	<param name="libraryName" value="candidate-x694perfi-PER"/>
+        <param name="org.w3c.exi.ttf.applicationClass" value="schema"/>
+    </driver>
+    <driver name="X694PERFIGZIPCompaction">
+        <param name="description" value="PER compaction enhanced by GZIP compression"/>
+	<param name="libraryName" value="candidate-x694perfi-PER+GZIP"/>
+        <param name="org.w3c.exi.ttf.applicationClass" value="document"/>
+        <param name="org.w3c.exi.ttf.applicationClass.documentAnalysing.GZIP" value="true"/>
+    </driver>
+</driverGroup>

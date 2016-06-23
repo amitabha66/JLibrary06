@@ -1,0 +1,16 @@
+﻿<html dir="LTR"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5"><title>SchemaManager Properties</title><xml></xml><link rel="stylesheet" type="text/css" href="MSDN.css"></head><body id="bodyID" class="dtBODY"><div id="nsbanner"><div id="bannerrow1"><table class="bannerparthead" cellspacing="0"><tr id="hdr"><td class="runninghead">Saxon API for .NET</td><td class="product"></td></tr></table></div><div id="TitleRow"><h1 class="dtH1">SchemaManager Properties</h1></div></div><div id="nstext"><p>The properties of the <b>SchemaManager</b> class are listed below. For a complete list of <b>SchemaManager</b> class members, see the <a href="Saxon.Api.SchemaManagerMembers.html">SchemaManager Members</a> topic.</p><h4 class="dtH4">Public Instance Properties</h4><div class="tablediv"><table class="dtTABLE" cellspacing="0">
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"><a href="Saxon.Api.SchemaManager.ErrorList.html">ErrorList</a></td><td width="50%">
+            List of errors. The caller may supply an empty list before calling Compile;
+            the processor will then populate the list with error information obtained during
+            the schema compilation. Each error will be included as an object of type StaticError.
+            If no error list is supplied by the caller, error information will be written to
+            the standard error stream.
+            </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"><a href="Saxon.Api.SchemaManager.SchemaResolver.html">SchemaResolver</a></td><td width="50%">
+            The SchemaResolver is a user-supplied class used for resolving references to
+            schema documents. It applies to references from one schema document to another
+            appearing in <code>xs:import</code>, <code>xs:include</code>, and <code>xs:redefine</code>; to
+            references from an instance document to a schema in <code>xsi:schemaLocation</code> and
+            <code>xsi:noNamespaceSchemaLocation</code>, to <code>xsl:import-schema</code> in XSLT, and to
+            the <code>import schema</code> declaration in XQuery.
+            </td></tr></table></div><h4 class="dtH4">See Also</h4><p><a href="Saxon.Api.SchemaManager.html">SchemaManager Class</a> | <a href="Saxon.Api.html">Saxon.Api Namespace</a></p><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;"><param name="Keyword" value="SchemaManager class, properties"></object></div></body></html>

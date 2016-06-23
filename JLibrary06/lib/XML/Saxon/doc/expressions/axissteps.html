@@ -1,0 +1,452 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: Axis steps</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: Axis steps">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:1808px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:1808px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:1808px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:1808px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../index/intro.html"><img src="../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro.html">Introduction</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="literals.html">Constants</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="variables.html">Variable References</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="functioncalls.html">Function Calls</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="axissteps.html">Axis steps</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="parentheses.html">Parentheses and operator precedence</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="filter.html">Filter expressions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="path.html">Path expressions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="cast.html">Cast as, Treat as</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="except.html">Set difference and intersection</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="union.html">Union</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="arithmetic.html">Arithmetic expressions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="range.html">Range expressions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="comparisons.html">Comparisons</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="instanceof.html">Instance of and Castable as</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="conditionals.html">Conditional Expressions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="quantified.html">Quantified Expressions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="for.html">For Expressions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="boolean.html">Boolean expressions: AND and OR</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="sequence.html">Sequence expressions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>Axis steps</h1>
+         <p>The basic primitive for accessing a source document is the <i>axis step</i>. Axis steps 
+            may be combined into path expressions using the path operators <code>/</code> and <code>//</code>,
+            and they may be filtered using filter expressions in the same way as the result of any other
+            expression.
+         </p>
+         <p>An axis step has the basic form <code>axis :: node-test</code>, and selects nodes on a given axis
+            that satisfy the node-test. The axes available are:
+         </p>
+         <table>
+            <tr>
+               <td>
+                  <p>ancestor</p>
+               </td>
+               <td>
+                  <p>Selects ancestor nodes starting with the current node and ending
+                     with the document node
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>ancestor-or-self</p>
+               </td>
+               <td>
+                  <p>Selects the current node plus all ancestor nodes</p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>attribute</p>
+               </td>
+               <td>
+                  <p>Selects all attributes of the current node (if it is an element)</p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>child</p>
+               </td>
+               <td>
+                  <p>Selects the children of the current node, in documetn order</p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>descendant</p>
+               </td>
+               <td>
+                  <p>Selects the children of the current node and their children, recursively
+                     (in document order)
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>descendant-or-self</p>
+               </td>
+               <td>
+                  <p>Selects the current node plus all descendant nodes</p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>following</p>
+               </td>
+               <td>
+                  <p>Selects the nodes that follow the current node in document order,
+                     other than its descendants
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>following-sibling</p>
+               </td>
+               <td>
+                  <p>Selects all subsequent child nodes of the same
+                     parent node
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>namespace</p>
+               </td>
+               <td>
+                  <p>Selects all the in-scope namespaces for an element (this axis
+                     is deprecated in XPath 2.0, but Saxon continues to support it)
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>parent</p>
+               </td>
+               <td>
+                  <p>Selects the parent of the current node</p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>preceding</p>
+               </td>
+               <td>
+                  <p>Selects the nodes that precede the current node in document order,
+                     other than its ancestors
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>preceding-sibling</p>
+               </td>
+               <td>
+                  <p>Selects all preceding child nodes of the same
+                     parent node
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p>self</p>
+               </td>
+               <td>
+                  <p>Selects the current node</p>
+               </td>
+            </tr>
+         </table>
+         <p>When the child axis is used, <code>child::</code> may be omitted, and when the attribute
+            axis is used, <code>attribute::</code> may be abbviated to <code>@</code>. The expression
+            <code>parent::node()</code> may be shortened to <code>..</code></p>
+         <p><i>The expression <code>.</code> is no longer synonymous with <code>self::node()</code>,
+               since it may now select items that are not nodes. If the context item is not a node, any use of a
+               path expression will raise an error.</i></p>
+         <p>The node-test may be, for example:</p>
+         <ul>
+            <li>
+               <p>a node name</p>
+            </li>
+            <li>
+               <p><code>prefix:*</code> to select nodes in a given namespace
+               </p>
+            </li>
+            <li>
+               <p><code>*:localname</code> to select nodes with a given local name, regardless of namespace
+               </p>
+            </li>
+            <li>
+               <p><code>text()</code> (to select text nodes)
+               </p>
+            </li>
+            <li>
+               <p><code>node()</code> (to select any node)
+               </p>
+            </li>
+            <li>
+               <p><code>processing-instruction()</code> (to select any processing instruction)
+               </p>
+            </li>
+            <li>
+               <p><code>processing-instruction('literal')</code> to select processing instructions with the given name
+                  (target)
+               </p>
+            </li>
+            <li>
+               <p><code>comment()</code> to select comment nodes
+               </p>
+            </li>
+            <li>
+               <p><code>element()</code> or <code>element(*)</code> to select any element node
+               </p>
+            </li>
+            <li>
+               <p><code>element(N)</code> to select any element node named N
+               </p>
+            </li>
+            <li>
+               <p><code>element(*, T)</code> to select any element node whose type annotation
+                  is T, or a subtype of T
+               </p>
+            </li>
+            <li>
+               <p><code>element(N, T)</code> to select any element node whose name is N
+                  and whose type annotation is T, or a subtype of T
+               </p>
+            </li>
+            <li>
+               <p><code>schema-element(N)</code> to select any element node whose name is N,
+                  or an element in the substitution group of N, that conforms to the schema-defined
+                  type for a global element declaration named N in an imported schema
+               </p>
+            </li>
+            <li>
+               <p><code>attribute</code> or <code>attribute(*)</code> to select any attribute node
+               </p>
+            </li>
+            <li>
+               <p><code>attrbute(N)</code> to select any attribute node named N
+               </p>
+            </li>
+            <li>
+               <p><code>attribute(*, T)</code> to select any attribute node whose type annotation
+                  is T, or a subtype of T
+               </p>
+            </li>
+            <li>
+               <p><code>attribute(N, T)</code> to select any attribute node whose name is N
+                  and whose type annotation is T, or a subtype of T
+               </p>
+            </li>
+            <li>
+               <p><code>schema-attribute(N)</code> to select any attribute node whose name is N,
+                  that conforms to the schema-defined
+                  type for a global attribute declaration named N in an imported schema
+               </p>
+            </li>
+         </ul>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="parentheses.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

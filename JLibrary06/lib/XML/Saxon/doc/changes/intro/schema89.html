@@ -1,0 +1,445 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: Schema Processing</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: Schema Processing">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:3068px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:3068px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:3068px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:3068px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../../index/intro.html"><img src="../../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="../intro.html">Version 8.9 (2007-02-12)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro88.html">Version 8.8 (2006-09-05)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro873.html">Version 8.7.3 (2006-06-13)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v872.html">Version 8.7.2 (2006-04-19)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v871.html">Version 8.7.1 (2006-04-13)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro87.html">Version 8.7 (2006-02-24)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro861.html">Version 8.6.1 (24 November 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro86.html">Version 8.6 (3 November 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro851.html">Version 8.5.1 (26 August 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro85.html">Version 8.5 (2 August 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v84.html">Version 8.4 (4 April 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v83.html">Version 8.3 (11 February 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v8.2.html">Version 8.2 (21 December 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v811.html">Version 8.1.1 (8 October 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro81.html">Version 8.1 (24 September 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v8.0.html">Version 8.0 (1 June 2004)</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>Schema Processing</h1>
+         <p>Saxon now recognizes an <code>xs:import</code> of the XML namespace, and no longer requires a schema location
+            to be provided: the relevant schema components are constructed automatically. (However, if a schema location is
+            supplied, then it is used.)
+         </p>
+         <p>Durations can now be validated against value range facets (<code>minInclusive</code>, <code>minExclusive</code>, 
+            <code>maxInclusive</code>, <code>maxExclusive</code>. The algorithm for comparing durations that mix year/month and day/time
+            components (for example 1 year compared with 365 days) is not precisely the same as the one in the XML Schema specification
+            in a few edge cases.
+         </p>
+         <p>A pattern facet is now checked against the canonical lexical representation of the value, as defined
+            in XML Schema part 2. Previously it was checked against the result of casting the value to a string according
+            to the XPath rules. This makes a difference for the types xs:decimal, xs:float, and xs:double, where the
+            two specifications differ.
+         </p>
+         <p>In most cases Saxon now uses the correct schema-defined semantics when comparing atomic
+            values, for example in evaluating facets and in testing identity constraints. Previously
+            Saxon used the XPath semantics. This means, for example, that when handling identity
+            constraints the xs:integer 1 and the xs:double 1 are no longer considered equal.
+         </p>
+         <p>Erratum E2-25 to XML Schema Part 2 has been implemented. This erratum changes the validation
+            rules for the <code>xs:language</code> data type.
+         </p>
+         <p>The rules for escaping of hyphens in regular expressions have changed. The rules in the specification are
+            still unclear, but Saxon was disallowing some cases which clearly should be allowed, like the subtraction
+            <code>[\c-[X]]</code>. The rules are now that within square brackets, an unescaped hyphen is taken as representing itself
+            (that is, it matches a hyphen in the input) if it appears as the first character, or is followed by ']', or if
+            it immediately follows a character range. (Thus <code>[A-Z-0-9]</code> allows A-Z, 0-9, or hyphen). It is taken
+            as a subtraction operator only if followed by '['. The new rules affect XPath as well as XML Schema.
+         </p>
+         <p>Saxon now enforces the constraint defined in the XML Schema specification that in a hierarchy of types, an element
+            or attribute cannot be dropped at one level (by restriction) and then re-introduced at a deeper level (by extension)
+            with an incompatible type.
+         </p>
+         <p>XPath expressions used in identity constraints in a schema are now statically type-checked;
+            this means that most errors in defining the path (for example, incorrectly spelt element names)
+            will now result in a warning message. (This is a warning rather than an error because such path expressions
+            are not disallowed by the XML Schema specification)
+         </p>
+         <p>Running the new W3C XML Schema Test Suite (some 40,000 test cases) revealed a number of cases
+            where Saxon was doing insufficient checks of schema or document validity. These cases have been
+            fixed. The main ones are:
+         </p>
+         <ul>
+            <li>
+               <p>Additional cross-checks have been implemented between different facets on the 
+                  same simple type, for example checking
+                  that minExclusive is less than maxExclusive, and that fractionDigits does not exceed totalDigits
+               </p>
+            </li>
+            <li>
+               <p>Saxon now checks that an element cannot have two ID attributes where one or both is defined
+                  as an ID by matching an xs:anyAttribute wildcard
+               </p>
+            </li>
+            <li>
+               <p>Saxon now treats a "prohibited" attribute use as if it were not present at all in the schema
+                  component model
+               </p>
+            </li>
+            <li>
+               <p>There are now more checks on the validity of <code>xs:annotation</code> elements 
+                  (and their children and attributes)
+               </p>
+            </li>
+            <li>
+               <p>Whitespace is now consistently trimmed before checking ID/IDREF constraints</p>
+            </li>
+            <li>
+               <p>Saxon was correctly disallowing <code>xsi:nil="true"</code> on a non-nillable element; it should
+                  also disallow <code>xsl:nil="false"</code></p>
+            </li>
+            <li>
+               <p>The <code>block</code> attribute on an element declaration was being checked but
+                  had no effect.
+               </p>
+            </li>
+            <li>
+               <p><code>xsi:nil</code> should be allowed but ignored when validating against a type
+                  rather than against an element declaration
+               </p>
+            </li>
+            <li>
+               <p>A notation declaration must have a name, and either a system identifier or a
+                  public identifier
+               </p>
+            </li>
+            <li>
+               <p>Attributes of elements in a schema document must not be in the XML Schema namespace.</p>
+            </li>
+            <li>
+               <p>Values of fixed attributes were not being passed through to a query or stylesheet</p>
+            </li>
+            <li>
+               <p>There is a rule that the fields in an identity constraint must have a simple type;
+                  Saxon was checking only that the field had no child elements. In fact the test suite also
+                  lets through fields having a complex type with simple content, and after raising a bug
+                  report on the spec I have written the code on the basis that this is the intended meaning. 
+               </p>
+            </li>
+            <li>
+               <p>The whiteSpace facet on a union type should be preserve rather than collapse.</p>
+            </li>
+            <li>
+               <p>Saxon now disallows deriving a simple type as a direct restriction of xs:simpleType.
+                  This is another area where the spec is unclear, but this follows the practice of other schema
+                  validators.
+               </p>
+            </li>
+            <li>
+               <p>A union or list type can be validly derived from xs:anyType; this was previously disallowed</p>
+            </li>
+            <li>
+               <p>Previous releases failed to detect one case of invalid complex type derivation, namely
+                  cases where the subtype differed from the supertype only in allowing an empty content model
+               </p>
+            </li>
+            <li>
+               <p>In previous releases, the algorithm for verifying that one content model was
+                  validly derived from another, in cases where one (but not both) models used xs:all, 
+                  was incorrect. (This fix has required a substantial amount of new code).
+               </p>
+            </li>
+            <li>
+               <p>Documents using xsi:nil in conjunction with an xs:all content model were being
+                  reported as invalid.
+               </p>
+            </li>
+            <li>
+               <p>In testing whether one content model subsumes another, the algorithm needs
+                  to take account of the nillability and fixed value constraints of the element particles.
+               </p>
+            </li>
+            <li>
+               <p>The specification (almost certainly unintentionally) does not say that it is an error to derive 
+                  a complex type with &lt;complexContent&gt; by extension from a complex type with simple content, provided
+                  that the content model of the extension is locally empty; the result is in fact a complex type with
+                  simple content.
+               </p>
+            </li>
+            <li>
+               <p>A bug was found in the Thompson and Tobin (2003) algorithm for determining type subsumption.
+                  The algorithm checks that every path from an initial state to a final state in the derived type corresponds
+                  to a path starting at an initial state in the base type, but it fails to check that this path ends in a final
+                  state in the base type.
+               </p>
+            </li>
+            <li>
+               <p>Within an <code>xs:all</code> group, specifying <code>maxOccurs="0"</code> on an element particle
+                  had no effect.
+               </p>
+            </li>
+            <li>
+               <p>Leading and trailing whitespace was not being trimmed from names in a schema document.</p>
+            </li>
+            <li>
+               <p>When <code>processContents="strict"</code> is specified on an element wildcard, it is not 
+                  necessary that there should be a global element declaration for the element found in the instance; it
+                  is acceptable as an alternative for the element to have an <code>xsi:type</code> attribute.
+               </p>
+            </li>
+            <li>
+               <p>The rules for testing whether two element wildcards overlapped did not cover all cases,
+                  in particular the case where both wildcards specify <code>##other</code>, but from different target namespaces
+               </p>
+            </li>
+            <li>
+               <p>Previous releases ignored fixed and default values, and also the <code>xsi:nil</code> attribute,
+                  on elements having the type <code>xs:anyType</code>.
+               </p>
+            </li>
+            <li>
+               <p>An xsi:schemaLocation or xsi:noNamespaceSchemaLocation attribute is now disallowed if it appears after
+                  the first element or attribute in the specified namespace (or non-namespace).
+               </p>
+            </li>
+            <li>
+               <p>Rules concerning use of the <code>whiteSpace</code> facet are more strictly applied.
+               </p>
+            </li>
+            <li>
+               <p>The rules to test whether wildcards overlap have been refined.</p>
+            </li>
+            <li>
+               <p>Code has been added to check that a non-self-referential redefined model group definition is a valid
+                  restriction of its alter ego.
+               </p>
+            </li>
+            <li>
+               <p>Code has been added to check that an attribute group, model group, or type is not redefined more than once in the
+                  same <code>xs:redefine</code> element (there's no clear ban on this in the spec, but the effect would be incoherent).
+               </p>
+            </li>
+            <li>
+               <p>Pattern and enumeration facets defined on a union type are now checked (previous releases allowed the
+                  facets to be defined but ignored them during validation)
+               </p>
+            </li>
+            <li>
+               <p>The length, minLength, and maxLength facets on a QName or NOTATION are now ignored.</p>
+            </li>
+            <li>
+               <p>Leading and trailing whitespace is now allowed in a value of type xs:QName or xs:NOTATION (including
+                  the value of xsi:type)
+               </p>
+            </li>
+            <li>
+               <p>If xsi:type is used, and the element in question has a fixed or default value that comes into play,
+                  the fixed or default value is now checked for validity against the requested xsi:type
+               </p>
+            </li>
+            <li>
+               <p>Fixed and default values are now recognized in the case of an element that has an empty complex content
+                  model but allows mixed content
+               </p>
+            </li>
+            <li>
+               <p></p>
+            </li>
+            <li>
+               <p></p>
+            </li>
+         </ul>
+         <p>Internally, Saxon now maintains two copies of the content model of a complex type: the version that corresponds
+            to the component model as defined in the XML Schema specification, and a simplified version in which group references
+            are expanded and pointless particles are eliminated.
+         </p>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="fando89.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

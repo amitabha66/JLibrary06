@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="sun" name="zephyr">
+    <target name="init">
+        <property name="classes.dir" location="."/>
+        <property location="." name="src.dir"/>
+        <property location="doc/api" name="javadoc.dir"/>
+        <property name="project.name" value="${ant.project.name}"/>
+        <property location="..\build\zephyr.jar" name="zephyr-jar"/>
+        <!-- CHANGE to BEA's LOCATION -->
+        <property location="D:\jsr173\beari\jsr173_1.0_ri.jar" name="bea-ri-jar"/>
+        <property location="..\lib\jsr173_api.jar" name="stax-apis"/>
+        <property location="..\data\ejb-jar.xml" name="xmlfile"/>
+        <property value="100" name="count"/>
+    </target>
+
+    <target depends="init" name="compile">
+        
+        <javac debug="true" deprecation="true" destdir="${classes.dir}" srcdir="${src.dir}">
+            <!-- To add something to the classpath: -->
+            <classpath><pathelement location="${stax-apis}"/></classpath>
+        </javac>
+    </target>
+
+    <target depends="compile" name="sun">
+        <!-- To make a standalone app, insert into <jar>: -->
+        <!-- <manifest><attribute name="Main-Class" value="com.foo.Main"/></manifest> -->
+        <java classname="CursorParse" classpath=".:${bea-ri-jar}:${stax-apis}${zephyr-jar}:${stax-apis}">
+            <arg value="-x"/>
+            <arg value="${count}"/>
+            <arg value="${xmlfile}"/>
+        </java>
+    </target>
+
+    <target depends="compile" name="bea">
+        <!-- To make a standalone app, insert into <jar>: -->
+        <!-- <manifest><attribute name="Main-Class" value="com.foo.Main"/></manifest> -->
+        <java classname="CursorParse" classpath=".:${bea-ri-jar}:${stax-apis}">
+            <arg value="-x"/>
+            <arg value="${count}"/>
+            <arg value="${xmlfile}"/>
+        </java>
+    </target>
+
+</project>

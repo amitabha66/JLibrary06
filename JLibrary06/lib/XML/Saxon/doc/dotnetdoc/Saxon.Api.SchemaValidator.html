@@ -1,0 +1,16 @@
+﻿<html dir="LTR"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5"><title>SchemaValidator Class</title><xml></xml><link rel="stylesheet" type="text/css" href="MSDN.css"></head><body id="bodyID" class="dtBODY"><div id="nsbanner"><div id="bannerrow1"><table class="bannerparthead" cellspacing="0"><tr id="hdr"><td class="runninghead">Saxon API for .NET</td><td class="product"></td></tr></table></div><div id="TitleRow"><h1 class="dtH1">SchemaValidator Class</h1></div></div><div id="nstext"><p>
+            A <code>SchemaValidator</code> is an object that is used for validating instance documents
+            against a schema. The schema consists of the collection of schema components that are
+            available within the schema cache maintained by the <code>SchemaManager</code>, together with
+            any additional schema components located during the course of validation by means of an
+            <code>xsl:schemaLocation</code> or <code>xsi:noNamespaceSchemaLocation</code> attribute within the
+            instance document.
+            </p><p>For a list of all members of this type, see <a href="Saxon.Api.SchemaValidatorMembers.html">SchemaValidator Members</a>.</p><p><a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassTopic.htm">System.Object</a><br>   <b>SchemaValidator</b></p><div class="syntax"><div>public class SchemaValidator</div></div><h4 class="dtH4">Remarks</h4><p>
+            If validation fails, an exception is thrown. If validation succeeds, the validated
+            document can optionally be written to a specified destination. This will be a copy of
+            the original document, augmented with default values for absent elements and attributes,
+            and carrying type annotations derived from the schema processing. Saxon does not deliver
+            the full PSVI as described in the XML schema specifications, only the subset of the
+            PSVI properties featured in the XDM data model.
+            </p><h4 class="dtH4">Requirements</h4><p><b>Namespace: </b><a href="Saxon.Api.html">Saxon.Api</a></p><p><b>Assembly: </b>saxon8api (in saxon8api.netmodule)
+					</p><h4 class="dtH4">See Also</h4><p><a href="Saxon.Api.SchemaValidatorMembers.html">SchemaValidator Members</a> | <a href="Saxon.Api.html">Saxon.Api Namespace</a></p><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;"><param name="Keyword" value="SchemaValidator class, about SchemaValidator class"></object></div></body></html>

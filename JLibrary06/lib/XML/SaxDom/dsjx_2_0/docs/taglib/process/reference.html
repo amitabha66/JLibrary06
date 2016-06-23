@@ -1,0 +1,462 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>XML Processing JSP Actions</title>
+</head>
+<body>
+<center>
+<h1>XML Processing JSP Actions<br>Tag Reference</h1>
+<h3>JSP Tag Library for Fast and Easy XML Parsing</h3>
+</center>
+<P>
+<CENTER>
+<A HREF="index.html">Overview</A>&nbsp;&nbsp;&nbsp;<A HREF="deploy.html">Deployment</A>&nbsp;&nbsp;&nbsp;<A HREF="examples.html">Examples</A>&nbsp;&nbsp;&nbsp;<A HREF="builder.html">Builder</A>&nbsp;&nbsp;&nbsp;<A HREF="../../api/index.html">API</A>
+</CENTER>
+</P>
+<table cellspacing="1" cellpadding="6" border="1" width="100%">
+<tr bgcolor="#eeeeee" valign="top">
+<td><b>Action</b></td><td width="100%"><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td><a href="#parse">parse</a></td><td width="100%">
+			Parses an XML document using SAX internally.</td>
+</tr>
+<tr valign="top">
+<td><a href="#element">element</a></td><td width="100%">
+			Exports variables that hold an element's namespace URI, local
+			name, qualified name and attributes.</td>
+</tr>
+<tr valign="top">
+<td><a href="#start">start</a></td><td width="100%">
+			Can be placed within &lt;p:parse&gt; or &lt;p:element&gt;
+			in order to handle a startDocument() or startElement() SAX event.</td>
+</tr>
+<tr valign="top">
+<td><a href="#end">end</a></td><td width="100%">
+			Can be placed within &lt;p:parse&gt; or &lt;p:element&gt;
+			in order to handle an endDocument() or endElement() SAX event.</td>
+</tr>
+<tr valign="top">
+<td><a href="#data">data</a></td><td width="100%">
+			Can be placed within &lt;p:element&gt; in order to handle
+			characters() SAX events.</td>
+</tr>
+<tr valign="top">
+<td><a href="#pi">pi</a></td><td width="100%">
+			Can be placed within &lt;p:parse&gt; or &lt;p:element&gt;
+			in order to handle processingInstruction() SAX events.</td>
+</tr>
+</table>
+<p>
+<br>
+</p>
+<h3>
+<a name="parse">&lt;parse&gt;</a>
+</h3>
+<p>
+			Parses an XML document using SAX internally. The body may contain 
+			a &lt;p:start&gt; action for processing the startDocument() SAX event, 
+			followed by a &lt;p:element&gt; action for processing the document's 
+			root element, followed by an optional &lt;p:end&gt; action for 
+			processing the endDocument() SAX event.
+		</p>
+<p>
+<b>Syntax: XML content specified via an input source</b>
+<br>
+<code>
+				&lt;p:parse
+					xml="<i>XML content</i>"
+					[systemId="<i>string</i>"]
+					[validate="true|<u>false</u>"]
+					[ignoreSpaces="true|<u>false</u>"]&gt;
+				<br>
+<i>....actions that process the XML content...</i>
+<br>
+				&lt;/p:parse&gt;
+			</code>
+</p>
+<p>
+<b>Syntax: XML content specified via a system identifier</b>
+<br>
+<code>
+				&lt;p:parse
+					systemId="<i>string</i>"
+					[validate="true|<u>false</u>"]
+					[ignoreSpaces="true|<u>false</u>"]&gt;
+				<br>
+<i>...actions that process the XML content...</i>
+<br>
+				&lt;/p:parse&gt;
+			</code>
+</p>
+<table cellspacing="1" cellpadding="6" border="1" width="100%">
+<tr bgcolor="#eeeeee" valign="top">
+<td><b>Attribute</b></td><td><b>Dynamic</b></td><td><b>Type</b></td><td><b>Default</b></td><td width="100%"><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td>xml</td><td>yes</td><td>
+					org.xml.sax.InputSource<br>
+					java.io.InputStream<br>
+					java.io.Reader<br>
+					String
+				</td><td>null</td><td width="100%">
+				XML input source that must be parsed.
+			</td>
+</tr>
+<tr valign="top">
+<td>systemId</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				System identifier of the XML input source that must be parsed.
+			</td>
+</tr>
+<tr valign="top">
+<td>validate</td><td>yes</td><td>boolean</td><td>false</td><td width="100%">
+				Flag indicating if the parser should validate the XML input
+				source.
+			</td>
+</tr>
+<tr valign="top">
+<td>ignoreSpaces</td><td>yes</td><td>boolean</td><td>false</td><td width="100%">
+				Flag indicating if space character data should be ignored.
+			</td>
+</tr>
+</table>
+<p>
+<br>
+</p>
+<h3>
+<a name="element">&lt;element&gt;</a>
+</h3>
+<p>
+			Exports variables that hold an element's namespace URI, local
+			name, qualified name and attributes. The body may process a DOM
+			sub-tree or may contain sub-actions that process the SAX events that
+			are generated between a startElement() event and an endElement()
+			event. If the varDom attribute is present, this action exports a
+			variable holding the root element of a DOM sub-tree and the body
+			may not contain any actions of this library. If the varDom attribute
+			isn't present, no DOM variable is exported and the body may contain
+			a &lt;p:start&gt; action for processing the startElement() SAX event,
+			followed by one or more &lt;p:element&gt; and &lt;p:data&gt; actions
+			for processing the sub-elements and the character data, followed
+			by an optional &lt;p:end&gt; action for processing the endElement()
+			SAX event.
+		</p>
+<p>
+<b>Syntax: Processing a DOM sub-tree</b>
+<br>
+<code>
+				&lt;p:element
+					varDom="<i>name</i>"
+					[scopeDom="<u>page</u>|request|session|application"]
+					[varName="<i>name</i>"]
+					[scopeName="<u>page</u>|request|session|application"]
+					[testName="<i>string</i>"]
+					[varQname="<i>name</i>"]
+					[scopeQname="<u>page</u>|request|session|application"]
+					[testQname="<i>string</i>"]
+					[varUri="<i>name</i>"]
+					[scopeUri="<u>page</u>|request|session|application"]
+					[testUri="<i>string</i>"]
+					[varAttr="<i>name</i>"]
+					[scopeAttr="<u>page</u>|request|session|application"]
+					[scope="<u>page</u>|request|session|application"]
+					[test="<i>boolean</i>"]&gt;
+				<br>
+<i>...scripting code that processes the DOM sub-tree...</i>
+<br>
+				&lt;/p:element&gt;
+			</code>
+</p>
+<p>
+<b>Syntax: Processing a sequence of SAX events</b>
+<br>
+<code>
+				&lt;p:element
+					[varName="<i>name</i>"]
+					[scopeName="<u>page</u>|request|session|application"]
+					[testName="<i>string</i>"]
+					[varQname="<i>name</i>"]
+					[scopeQname="<u>page</u>|request|session|application"]
+					[testQname="<i>string</i>"]
+					[varUri="<i>name</i>"]
+					[scopeUri="<u>page</u>|request|session|application"]
+					[testUri="<i>string</i>"]
+					[varAttr="<i>name</i>"]
+					[scopeAttr="<u>page</u>|request|session|application"]
+					[scope="<u>page</u>|request|session|application"]
+					[test="<i>boolean</i>"]&gt;
+				<br>
+<i>...actions that process the SAX events...</i>
+<br>
+				&lt;/p:element&gt;
+			</code>
+</p>
+<table cellspacing="1" cellpadding="6" border="1" width="100%">
+<tr bgcolor="#eeeeee" valign="top">
+<td><b>Attribute</b></td><td><b>Dynamic</b></td><td><b>Type</b></td><td><b>Default</b></td><td width="100%"><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td>varDom</td><td>no</td><td>String</td><td>null</td><td width="100%">
+				Name of the dom variable exported by this action.
+				The presence of this variable indicates that the application
+				wants a DOM tree for processing rather than a sequence of SAX
+				events. The root node of the DOM sub-tree will be the value of
+				the dom variable.
+			</td>
+</tr>
+<tr valign="top">
+<td>scopeDom</td><td>no</td><td>String</td><td>page</td><td width="100%">
+				Scope of the dom variable exported by this action.
+			</td>
+</tr>
+<tr valign="top">
+<td>varName</td><td>no</td><td>String</td><td>name</td><td width="100%">
+				Name of the name variable exported by this action.
+				The element's local name will be the value of the name variable.
+			</td>
+</tr>
+<tr valign="top">
+<td>scopeName</td><td>no</td><td>String</td><td>page</td><td width="100%">
+				Scope of the name variable exported by this action.
+			</td>
+</tr>
+<tr valign="top">
+<td>testName</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				If this attribute is present and its value is not the same
+				as the local name of the current parsed element, the body
+				content of &lt;p:element&gt; will not be evaluated.
+			</td>
+</tr>
+<tr valign="top">
+<td>varQname</td><td>no</td><td>String</td><td>qname</td><td width="100%">
+				Name of the qname variable exported by this action.
+				The element's qualified name will be the value of the qname
+				variable.
+			</td>
+</tr>
+<tr valign="top">
+<td>scopeQname</td><td>no</td><td>String</td><td>page</td><td width="100%">
+				Scope of the qname variable exported by this action.
+			</td>
+</tr>
+<tr valign="top">
+<td>testQname</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				If this attribute is present and its value is not the same as
+				the qualified name of the current parsed element, the body
+				content of &lt;p:element&gt; will not be evaluated.
+			</td>
+</tr>
+<tr valign="top">
+<td>varUri</td><td>no</td><td>String</td><td>uri</td><td width="100%">
+				Name of the uri variable exported by this action.
+				The element's namespace URI will be the value of the uri
+				variable.
+			</td>
+</tr>
+<tr valign="top">
+<td>scopeUri</td><td>no</td><td>String</td><td>page</td><td width="100%">
+				Scope of the uri variable exported by this action.
+			</td>
+</tr>
+<tr valign="top">
+<td>testUri</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				If this attribute is present and its value is not the same as
+				the namespace URI of the current parsed element, the body
+				content of &lt;p:element&gt; will not be evaluated.
+			</td>
+</tr>
+<tr valign="top">
+<td>varAttr</td><td>no</td><td>String</td><td>attr</td><td width="100%">
+				Name of the attr variable exported by this action.
+				The element's attributes will be the value of the attr variable.
+			</td>
+</tr>
+<tr valign="top">
+<td>scopeAttr</td><td>no</td><td>String</td><td>page</td><td width="100%">
+				Scope of the attr variable exported by this action.
+			</td>
+</tr>
+<tr valign="top">
+<td>scope</td><td>no</td><td>String</td><td>page</td><td width="100%">
+				Default scope for the variables exported by this action.
+			</td>
+</tr>
+<tr valign="top">
+<td>test</td><td>yes</td><td>boolean</td><td>true</td><td width="100%">
+				If this attribute is present and it evaluates to false,
+				the body of &lt;p:element&gt; will not be evaluated.
+			</td>
+</tr>
+</table>
+<p>
+<br>
+</p>
+<h3>
+<a name="start">&lt;start&gt;</a>
+</h3>
+<p>
+			Can be placed within &lt;p:parse&gt; or &lt;p:element&gt;
+			in order to handle a startDocument() or startElement() SAX event.
+		</p>
+<p>
+<b>Syntax:</b>
+<br>
+<code>
+				&lt;p:start&gt;
+				<br>
+<i>...scripting code that processes the SAX event...</i>
+<br>
+				&lt;/p:parse&gt;
+			</code>
+</p>
+<p>
+<br>
+</p>
+<h3>
+<a name="end">&lt;end&gt;</a>
+</h3>
+<p>
+			Can be placed within &lt;p:parse&gt; or &lt;p:element&gt;
+			in order to handle an endDocument() or endElement() SAX event.
+		</p>
+<p>
+<b>Syntax:</b>
+<br>
+<code>
+				&lt;p:end&gt;
+				<br>
+<i>...scripting code that processes the SAX event...</i>
+<br>
+				&lt;/p:end&gt;
+			</code>
+</p>
+<p>
+<br>
+</p>
+<h3>
+<a name="data">&lt;data&gt;</a>
+</h3>
+<p>
+			Can be placed within &lt;p:element&gt; in order to handle
+			characters() SAX events. It exports a variable that holds
+			the character data.
+		</p>
+<p>
+<b>Syntax:</b>
+<br>
+<code>
+				&lt;p:data
+					[varData="<i>name</i>"]
+					[scopeData="<u>page</u>|request|session|application"]
+					[scope="<u>page</u>|request|session|application"]&gt;
+				<br>
+<i>...scripting code that processes the SAX event...</i>
+<br>
+				&lt;/p:data&gt;
+			</code>
+</p>
+<table cellspacing="1" cellpadding="6" border="1" width="100%">
+<tr bgcolor="#eeeeee" valign="top">
+<td><b>Attribute</b></td><td><b>Dynamic</b></td><td><b>Type</b></td><td><b>Default</b></td><td width="100%"><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td>varData</td><td>no</td><td>String</td><td>data</td><td width="100%">
+				Name of the data variable exported by this action.
+				The value of the data variable will be the XML character data.
+			</td>
+</tr>
+<tr valign="top">
+<td>scopeData</td><td>no</td><td>String</td><td>page</td><td width="100%">
+				Scope of the data variable exported by this action.
+			</td>
+</tr>
+<tr valign="top">
+<td>scope</td><td>no</td><td>String</td><td>page</td><td width="100%">
+				Default scope for the variables exported by this action.
+			</td>
+</tr>
+</table>
+<p>
+<br>
+</p>
+<h3>
+<a name="pi">&lt;pi&gt;</a>
+</h3>
+<p>
+			Can be placed within &lt;p:parse&gt; or &lt;p:element&gt;
+			in order to handle processingInstruction() SAX events.
+			It exports two variables that hold the target and data of
+			the processing instruction.
+		</p>
+<p>
+<b>Syntax:</b>
+<br>
+<code>
+				&lt;p:pi
+					[varTarget="<i>name</i>"]
+					[scopeTarget="<u>page</u>|request|session|application"]
+					[testTarget="<i>string</i>"]
+					[varData="<i>name</i>"]
+					[scopeData="<u>page</u>|request|session|application"]
+					[scope="<u>page</u>|request|session|application"]
+					[test="<i>boolean</i>"]&gt;
+				<br>
+<i>...scripting code that processes the SAX event...</i>
+<br>
+				&lt;/p:pi&gt;
+			</code>
+</p>
+<table cellspacing="1" cellpadding="6" border="1" width="100%">
+<tr bgcolor="#eeeeee" valign="top">
+<td><b>Attribute</b></td><td><b>Dynamic</b></td><td><b>Type</b></td><td><b>Default</b></td><td width="100%"><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td>varTarget</td><td>no</td><td>String</td><td>target</td><td width="100%">
+				Name of the target variable exported by this action.
+				The processing instruction's target will be the value of the
+				target variable.
+			</td>
+</tr>
+<tr valign="top">
+<td>scopeTarget</td><td>no</td><td>String</td><td>page</td><td width="100%">
+				Scope of the target variable exported by this action.
+			</td>
+</tr>
+<tr valign="top">
+<td>testTarget</td><td>yes</td><td>String</td><td>null</td><td width="100%">
+				If this attribute is present and its value is not the same
+				as the target of the current processing instruction, the body
+				content of &lt;p:pi&gt; will not be evaluated.
+			</td>
+</tr>
+<tr valign="top">
+<td>varData</td><td>no</td><td>String</td><td>data</td><td width="100%">
+				Name of the data variable exported by this action.
+				The processing instruction's data will be the value of the
+				data variable.
+			</td>
+</tr>
+<tr valign="top">
+<td>scopeData</td><td>no</td><td>String</td><td>page</td><td width="100%">
+				Scope of the data variable exported by this action.
+			</td>
+</tr>
+<tr valign="top">
+<td>scope</td><td>no</td><td>String</td><td>page</td><td width="100%">
+				Default scope for the variables exported by this action.
+			</td>
+</tr>
+<tr valign="top">
+<td>test</td><td>yes</td><td>boolean</td><td>true</td><td width="100%">
+				If this attribute is present and it evaluates to false,
+				the body of &lt;p:pi&gt; will not be evaluated.
+			</td>
+</tr>
+</table>
+<P>
+<CENTER>
+<A HREF="../../index.html">Devsphere Java XML Projects - Documentation</A>
+</CENTER>
+</P>
+</body>
+</html>

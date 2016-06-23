@@ -1,0 +1,350 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: Version 8.7.1 (2006-04-13)</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: Version 8.7.1 (2006-04-13)">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:2573px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:2573px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:2573px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:2573px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../index/intro.html"><img src="../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro.html">Version 8.9 (2007-02-12)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro88.html">Version 8.8 (2006-09-05)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro873.html">Version 8.7.3 (2006-06-13)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="v872.html">Version 8.7.2 (2006-04-19)</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="v871.html">Version 8.7.1 (2006-04-13)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro87.html">Version 8.7 (2006-02-24)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro861.html">Version 8.6.1 (24 November 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro86.html">Version 8.6 (3 November 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro851.html">Version 8.5.1 (26 August 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro85.html">Version 8.5 (2 August 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="v84.html">Version 8.4 (4 April 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="v83.html">Version 8.3 (11 February 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="v8.2.html">Version 8.2 (21 December 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="v811.html">Version 8.1.1 (8 October 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro81.html">Version 8.1 (24 September 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="v8.0.html">Version 8.0 (1 June 2004)</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>Version 8.7.1 (2006-04-13)</h1>
+         <p>This page summarizes the changes in 8.7.1. In addition to the changes listed here, all bugs
+            listed on the SourceForge site under group v8.7.1 have been fixed.
+         </p>
+         <p class="subhead">New features</p>
+         <p>A new extension attribute <code>saxon:allow-all-built-in-types="yes"</code> has been added to enable
+            the use of types such as <code>xs:int</code> which are not permitted by the W3C conformance rules for
+            a Basic XSLT Processor. These types are already allowed by Saxon-SA, of course, but this switch also
+            enables their use with Saxon-B. The particular use case that prompted this extension was Dimitre Novatchev's
+            XPath 2.0 Visualizer tool, which uses dynamically-constructed XSLT stylesheets as a vehicle for exercising
+            XPath expressions.
+         </p>
+         <p>Saxon-B is now capable of taking as input a source tree that contains typed elements and attributes,
+            provided that the type annotations are restricted to the built-in types. Such input can be supplied, for example
+            by sending the document to Saxon in the form of a sequence of Receiver events with type annotations included,
+            or by creating a user-defined implementation of the NodeInfo interface. If it is known that all nodes will be
+            untyped, it is useful to call the method <code>Configuration.setAllNodesUntyped(true)</code> because this information
+            is useful to the compiler. This is done automatically when the XSLT or XQuery processor is invoked from the
+            command line with Saxon-B.
+         </p>
+         <p>A number of new output character encodings are now supported natively, including EUC-JP, EUC-KR, Big5, GB2312, ISO 8859-5,
+            ISO 8859-7, ISO8859-8, ISO8859-9. Thanks to Lauren Ward of Hewlett Packard for supplying these.
+         </p>
+         <p>The DOM4J object model is now recognized in the same way as DOM, JDOM, and XOM. The code has been
+            lifted from the Orbeon OPS server (it was originally written as a modification of the JDOM
+            support module in Saxon). A few minor bugs have been fixed. Thanks to Erik Bruchez for identifying this
+            opportunity.
+         </p>
+         <p>The <code>StaxBridge</code> class now has a method that allows you to supply your own
+            <code>XMLStreamReader</code>.
+         </p>
+         <p>Previously, the default language for <code>format-date()</code> and related functions in XSLT was taken from the
+            Java default locale. This has been changed so that a non-English language is used as the default only if (a)
+            it is the language of the Java default locale, and (b) there is an installed numberer for that language. The effect
+            of this change is to eliminate the warning output [Language: en] produced when the Java default locale is non-English
+            but there is no localized numberer available for that language.
+         </p>
+         <p class="subhead">Problems fixed</p>
+         <p>The new code introduced in Saxon 8.7 for converting floating point numbers to strings was found
+            to be unsatisfactory, and has been completely rewritten using a different algorithm.
+         </p>
+         <p>An optimization used by the schema validator while constructing finite state machines to implement
+            the schema grammar was found to be unsound in a very small number of cases; the optimization has
+            therefore been removed. Unfortunately this means that compiling a schema is now a little slower.
+         </p>
+         <p>In <code>xsl:analyze-string</code>, a check is now made for error XTDE1150 (regex matches a zero-length string) in the
+            case where the regex is not known until run-time.
+         </p>
+         <p>In XSLT, the attribute <code>stable="yes"</code> or <code>stable="no"</code> is now permitted on <code>xsl:sort</code>.
+            It currently has no effect (sorting is always stable in Saxon). This is conformant behaviour, because the effect
+            of <code>stable="no"</code> is implementation-dependent.
+         </p>
+         <p>In XQuery, when a <code>ModuleURIResolver</code> is set on the <code>StaticQueryContext</code> for a main
+            module, it is now also used for resolving module imports contained in any transitively-imported library modules.
+         </p>
+         <p>The "tiny forest" mechanism, whereby a single TinyTree structure is used to hold multiple trees
+            (root nodes) in a sequence, was found not to be working reliably in Saxon 8.7, and has been redesigned
+            to make it more robust. Generally speaking, this mechanism reduces the number of objects that are
+            allocated but increases their size; this may affect the performance profile of some applications.
+         </p>
+         <p>The XSLT <code>xsl:number</code> instruction now recognizes non-BMP digits in its format string.
+            (This works best with JDK 1.5; there are some restrictions under JDK 1.4)
+         </p>
+         <p>The <code>TypeHierarchy</code> object, which holds a cache of type information, is now held
+            as part of the <code>Configuration</code> and no longer as part of the <code>NamePool</code>. This
+            is to avoid memory leaks in cases where one long-lived <code>NamePool</code> was used with many
+            transient <code>Configuration</code> objects. (This happened with the schema-aware product only,
+            because user-defined types held in the <code>TypeHierarchy</code> hold a reference to the
+            <code>Configuration</code> under which they were created.)
+         </p>
+         <p>A change has been made to the way in which XSLT current template rule is maintained. This
+            is to implement the rule that when a template is defined using a union pattern, it is treated
+            as a set of template rules with potentially different priorities. The <code>xsl:next-match</code>
+            instruction can therefore invoke the same template more than once. To implement this, the
+            currentTemplate maintained in the context is now a Rule object rather than a Template object.
+         </p>
+         <p>In schema-aware processing, improvements have been made to the type inferencing. The type
+            of a path expresssion starting with a variable whose static type is <code>document-node(schema-element(x))</code>
+            is now inferred more precisely, and the cardinality of an expression using the child axis is also
+            now inferred more precisely. This enables better compile-time detection of type errors, and in some cases
+            better optimization.
+         </p>
+         <p>On .NET, Saxon 8.7.1 is built using IKVM 0.26. The associated version of GNU Classpath fixes a number
+            of bugs, including a serious one involving decimal arithmetic.
+         </p>
+         <p class="subhead">W3C language conformance</p>
+         <p>The component extraction functions <code>get-years-from-duration()</code>, <code>get-months-from-duration()</code>,
+            etc, now operate on any xs:duration value, not only on an <code>xdt:yearMonthDuration</code> or
+            <code>xdt:dayTimeDuration</code> value. (W3C Bugzilla 2934)
+         </p>
+         <p>The type names <code>dayTimeDuration</code>, <code>yearMonthDuration</code>, <code>untypedAtomic</code>,
+            <code>untyped</code>, and <code>anyAtomicType</code> are
+            now recognized in the <code>xs</code> namespace
+            <code>http://www.w3.org/2001/XMLSchema</code> as well as in the
+            previous <code>xdt</code> namespace (in fact several versions of the <code>xdt</code> namespace are
+            recognized. This situation is transitional: eventually only the XMLSchema namespace will be allowed.
+         </p>
+         <p>The functions <code>encode-for-uri()</code> and <code>iri-to-uri()</code> have been modified
+            according to the changes agreed in <a href="http://www.w3.org/Bugs/Public/show_bug.cgi?id=2457" target="_blank" class="bodylink">W3C Bugzilla 2457</a></p>
+         <p>Casting from a derived type to a supertype is no longer a no-op. Although I believe that the
+            language specification permits the previous behavior, it was controversial, and it seems better
+            to do something that causes fewer surprises even if it is slower.
+         </p>
+         <p>In schema-aware XQuery with multiple modules, error XQST0036 (an imported
+            function or variable uses an unknown type) is now reported only if the function or
+            variable is actually referenced in the importing module. See
+            <a href="http://www.w3.org/Bugs/Public/show_bug.cgi?id=2546" target="_blank" class="bodylink">W3C Bugzilla 2546</a>.
+         </p>
+         <p>XSLT and XQuery error codes have been added for most validation errors. I have also started the process
+            of incorporating XML Schema error codes as mandated by Appendix C of XML Schema Part 1.
+         </p>
+         <p class="subhead">Performance tuning</p>
+         <p>The internal <code>MappingIterator</code> and <code>MappingFunction</code> classes have
+            been subdivided into three pairs of classes that provide different subsets of the functionality:
+            <code>ContextMappingIterator</code> is used when each item being mapped becomes the context item;
+            <code>MappingIterator</code> when this is not the case, and <code>ItemMappingIterator</code> when
+            the mapping is from one input item to zero-or-one output items. This change was made to reduce
+            code pathlengths in the most commonly used cases.
+         </p>
+         <p>Handling of decimal values has been speeded up by using the JDK 1.5 method <code>stripTrailingZeros</code>
+            if it is available (Saxon uses an equivalent but slower routine otherwise).
+         </p>
+         <p>There have been some improvements to the join optimizer in Saxon-SA, allowing hash joins to be used in
+            some situations where they were not used previously.
+         </p>
+         <p>Improvements have been made to the memoizing optimization used for
+            <code>&lt;xsl:number level="any"/&gt;</code>.
+         </p>
+         <p class="subhead">API Change on .NET</p>
+         <p>In the .NET API, the BaseUri property of an XsltCompiler is now a Uri rather than a String. This
+            change is for compatibility with the BaseUri property of the DocumentBuilder class.
+         </p>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="intro87.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,16 @@
+cc=gcc
+
+liboption1=-fPIC
+liboption2=-shared
+liboption3=-Wl,-R{basedir}/lib
+
+os=linux
+osrootdir=.
+includedir1=${java.home}/../include
+includedir2=${java.home}/../include/linux
+libxml2dir=../libxml2
+srcdir1=./src
+srcdir2=./src_ubl
+
+libprefix=lib
+libsuffix=.so

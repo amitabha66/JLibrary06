@@ -1,0 +1,339 @@
+<project name="Japex Native Sample" default="run"  basedir=".">
+    <property environment="env"/>
+    
+    <property file="properties.win32"/>
+
+    <property name="compactness_cfg" value="compactness-config.xml"/>
+    <property name="encode_cfg" value="encode-config.xml"/>
+    <property name="decode_cfg" value="decode-config.xml"/>
+
+    <property name="compactness_cfg_ubl" value="compactness-config-ubl.xml"/>
+    <property name="encode_cfg_ubl" value="encode-config-ubl.xml"/>
+    <property name="decode_cfg_ubl" value="decode-config-ubl.xml"/>
+
+    <path id="lib.path" >
+        <pathelement path="${japex.exi.ttfms.candidatesDir}/c/asn1ber/dist/lib"/>
+    </path>
+    
+    <target name="clean">
+	<delete dir="dist"/>
+    </target>
+
+    <target name="prepare">
+	<mkdir dir="dist"/>
+	<mkdir dir="dist/classes"/>
+	<mkdir dir="dist/include"/>
+        <mkdir dir="dist/lib"/>
+	<uptodate property="driver.uptodate"
+		  targetfile="dist/lib/${libprefix}JapexNativeDrvAsn1Ber${libsuffix}">
+	  <srcfiles dir="${srcdir1}" includes="*"/>
+	  <srcfiles dir="." includes="JapexNativeDrvAsn1Ber.c"/>
+	</uptodate>
+    </target>
+    
+    <target name="jni">
+        <javah destdir="dist/include" force="yes">
+            <classpath refid="class.path"/>
+	    <class name="com.sun.japex.jdsl.nativecode.JapexNativeDriver"/>
+        </javah>
+    </target>       
+        
+    <target name="compile" depends="prepare, jni" unless="driver.uptodate">
+	<exec dir="." executable="${cc}">
+	    <arg value="-MD"/>
+	    <arg value="-O2"/>
+
+            <arg value="-Fo${basedir}/dist/obj/"/>
+
+            <arg value="-I${basedir}/dist/include"/>
+	    <arg value="-I${jdkdir}/include"/>
+	    <arg value="-I${jdkdir}/include/win32"/>
+	    <arg value="-I${osrootdir}"/>
+	    <arg value="-I${osrootdir}/rtsrc"/>
+	    <arg value="-I${osrootdir}/rtbersrc"/>
+	    <arg value="-I${libxml2dir}/include"/>
+	    <arg value="-I${srcdir1}"/>
+
+	    <arg value="JapexNativeDrvAsn1Ber.c"/>
+
+	    <arg value="${srcdir1}/Ants.c"/>
+	    <arg value="${srcdir1}/AntsEnc.c"/>
+	    <arg value="${srcdir1}/AntsDec.c"/>
+	    <arg value="${srcdir1}/AntsTest.c"/>
+
+	    <arg value="${srcdir1}/AVCL.c"/>
+	    <arg value="${srcdir1}/AVCLEnc.c"/>
+	    <arg value="${srcdir1}/AVCLDec.c"/>
+	    <arg value="${srcdir1}/AVCLTest.c"/>
+
+	    <arg value="${srcdir1}/Urn-oma-bcast-esg-2005.c"/>
+	    <arg value="${srcdir1}/Urn-oma-bcast-esg-2005Enc.c"/>
+	    <arg value="${srcdir1}/Urn-oma-bcast-esg-2005Dec.c"/>
+	    <arg value="${srcdir1}/Urn-oma-bcast-esg-2005Test.c"/>
+
+	    <arg value="${srcdir1}/FPML-4-0.c"/>
+	    <arg value="${srcdir1}/FPML-4-0Enc.c"/>
+	    <arg value="${srcdir1}/FPML-4-0Dec.c"/>
+	    <arg value="${srcdir1}/FPML-4-0Test.c"/>
+	    <arg value="${srcdir1}/Xmldsig.c"/>
+	    <arg value="${srcdir1}/XmldsigEnc.c"/>
+	    <arg value="${srcdir1}/XmldsigDec.c"/>
+	                          
+	    <arg value="${srcdir1}/Sm-inv.c"/>
+	    <arg value="${srcdir1}/Sm-invEnc.c"/>
+	    <arg value="${srcdir1}/Sm-invDec.c"/>
+	    <arg value="${srcdir1}/Sm-invTest.c"/>
+
+	    <arg value="${srcdir1}/Factbook.c"/>
+	    <arg value="${srcdir1}/FactbookEnc.c"/>
+	    <arg value="${srcdir1}/FactbookDec.c"/>
+	    <arg value="${srcdir1}/FactbookTest.c"/>
+	    <arg value="${srcdir1}/Periodic.c"/>
+	    <arg value="${srcdir1}/PeriodicEnc.c"/>
+	    <arg value="${srcdir1}/PeriodicDec.c"/>
+	    <arg value="${srcdir1}/PeriodicTest.c"/>
+	    <arg value="${srcdir1}/Weblog.c"/>
+	    <arg value="${srcdir1}/WeblogEnc.c"/>
+	    <arg value="${srcdir1}/WeblogDec.c"/>
+	    <arg value="${srcdir1}/WeblogTest.c"/>
+
+	    <arg value="${srcdir1}/XSD.c"/>
+	    <arg value="${srcdir1}/XSDEnc.c"/>
+	    <arg value="${srcdir1}/XSDDec.c"/>
+
+	    <arg value="${srcdir1}/errno.c"/>
+
+	    <arg value="-link"/>
+	    <arg value="-dll"/>
+	    <arg value="-nodefaultlib:libc"/>
+	    <arg value="-nodefaultlib:libcd"/>
+
+	    <arg value="${osrootdir}/c/lib/asn1ber_a.lib"/>
+	    <arg value="${osrootdir}/c/lib/asn1xml_a.lib"/>
+	    <arg value="${osrootdir}/c/lib/asn1rt_a.lib"/>
+	    <arg value="${libxml2dir}/win32/lib/libxml2_a.lib"/>
+	    <arg value="${liboption1}"/>
+	    <arg value="${liboption2}"/>
+
+	    <arg value="-out:dist/lib/${libprefix}JapexNativeDrvAsn1Ber${libsuffix}"/>
+	</exec>
+    </target>       
+
+    <target name="compile-ubl">
+	<exec dir="." executable="${cc}">
+	    <arg value="-MD"/>
+	    <arg value="-O2"/>
+
+            <arg value="-Fo${basedir}/dist/obj_ubl/"/>
+
+            <arg value="-I${basedir}/dist/include"/>
+	    <arg value="-I${jdkdir}/include"/>
+	    <arg value="-I${jdkdir}/include/win32"/>
+	    <arg value="-I${osrootdir}"/>
+	    <arg value="-I${osrootdir}/rtsrc"/>
+	    <arg value="-I${osrootdir}/rtbersrc"/>
+	    <arg value="-I${libxml2dir}/include"/>
+	    <arg value="-I${srcdir2}"/>
+
+	    <arg value="JapexNativeDrvAsn1BerUBL.c"/>
+
+	    <arg value="${srcdir2}/UBL-DespatchAdvice-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-DespatchAdvice-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-DespatchAdvice-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-DespatchAdvice-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-Invoice-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-Invoice-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-Invoice-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-Invoice-1-0Test.c"/>
+	                          
+	    <arg value="${srcdir2}/UBL-Order-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-Order-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-Order-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-Order-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-OrderCancellation-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-OrderCancellation-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-OrderCancellation-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-OrderCancellation-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-OrderChange-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-OrderChange-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-OrderChange-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-OrderChange-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-OrderResponse-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-OrderResponse-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-OrderResponse-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-OrderResponse-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-OrderResponseSimple-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-OrderResponseSimple-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-OrderResponseSimple-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-OrderResponseSimple-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-ReceiptAdvice-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-ReceiptAdvice-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-ReceiptAdvice-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-ReceiptAdvice-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-CodeList-AcknowledgementResponseCode-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-AcknowledgementResponseCode-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-AcknowledgementResponseCode-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-AcknowledgementResponseCode-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-CodeList-AllowanceChargeReasonCode-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-AllowanceChargeReasonCode-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-AllowanceChargeReasonCode-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-AllowanceChargeReasonCode-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-CodeList-ChannelCode-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-ChannelCode-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-ChannelCode-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-ChannelCode-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-CodeList-ChipCode-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-ChipCode-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-ChipCode-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-ChipCode-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-CodeList-CountryIdentificationCode-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-CountryIdentificationCode-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-CountryIdentificationCode-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-CountryIdentificationCode-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-CodeList-CurrencyCode-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-CurrencyCode-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-CurrencyCode-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-CurrencyCode-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-CodeList-DocumentStatusCode-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-DocumentStatusCode-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-DocumentStatusCode-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-DocumentStatusCode-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-CodeList-LatitudeDirectionCode-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-LatitudeDirectionCode-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-LatitudeDirectionCode-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-LatitudeDirectionCode-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-CodeList-LineStatusCode-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-LineStatusCode-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-LineStatusCode-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-LineStatusCode-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-CodeList-LongitudeDirectionCode-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-LongitudeDirectionCode-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-LongitudeDirectionCode-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-LongitudeDirectionCode-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-CodeList-OperatorCode-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-OperatorCode-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-OperatorCode-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-OperatorCode-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-CodeList-PaymentMeansCode-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-PaymentMeansCode-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-PaymentMeansCode-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-PaymentMeansCode-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-CodeList-SubstitutionStatusCode-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-SubstitutionStatusCode-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-SubstitutionStatusCode-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-CodeList-SubstitutionStatusCode-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-CommonAggregateComponents-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-CommonAggregateComponents-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-CommonAggregateComponents-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-CommonAggregateComponents-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-CommonBasicComponents-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-CommonBasicComponents-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-CommonBasicComponents-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-CommonBasicComponents-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/UBL-UnspecializedDatatypes-1-0.c"/>
+	    <arg value="${srcdir2}/UBL-UnspecializedDatatypes-1-0Enc.c"/>
+	    <arg value="${srcdir2}/UBL-UnspecializedDatatypes-1-0Dec.c"/>
+	    <arg value="${srcdir2}/UBL-UnspecializedDatatypes-1-0Test.c"/>
+
+	    <arg value="${srcdir2}/XSD.c"/>
+	    <arg value="${srcdir2}/XSDEnc.c"/>
+	    <arg value="${srcdir2}/XSDDec.c"/>
+	    
+            <arg value="${srcdir2}/errno.c"/>
+
+	    <arg value="-link"/>
+	    <arg value="-dll"/>
+	    <arg value="-nodefaultlib:libc"/>
+	    <arg value="-nodefaultlib:libcd"/>
+
+	    <arg value="${osrootdir}/c/lib/asn1ber_a.lib"/>
+	    <arg value="${osrootdir}/c/lib/asn1xml_a.lib"/>
+	    <arg value="${osrootdir}/c/lib/asn1rt_a.lib"/>
+	    <arg value="${libxml2dir}/win32/lib/libxml2_a.lib"/>
+	    <arg value="${liboption1}"/>
+	    <arg value="${liboption2}"/>
+
+	    <arg value="-out:dist/lib/${libprefix}JapexNativeDrvAsn1BerUBL${libsuffix}"/>
+	</exec>
+    </target>       
+<!--    
+    <target name="compile" depends="prepare, jni" description="Compile JUnitSuite">
+        <javac srcdir="src" destdir="dist/classes" debug="on" optimize="on" deprecation="on">
+             <classpath refid="class.path"/>
+        </javac>
+    </target>
+-->
+    <target name="dist" depends="prepare, jni, compile"/>
+    <target name="dist-ubl" depends="prepare, jni, compile-ubl"/>
+    
+    <target name="compactness" depends="dist">
+        <java dir="." fork="true" classname="com.sun.japex.Japex">
+            <classpath refid="class.path"/>
+            <jvmarg value="-Djava.library.path=./dist/lib"/>
+            <arg line="${compactness_cfg} -verbose"/>
+        </java>
+    </target>
+
+    <target name="encode" depends="dist">
+        <java dir="." fork="true" classname="com.sun.japex.Japex">
+            <classpath refid="class.path"/>
+            <jvmarg value="-Djava.library.path=./dist/lib"/>
+            <arg line="${encode_cfg} -verbose"/>
+        </java>
+    </target>
+
+    <target name="decode" depends="dist">
+        <java dir="." fork="true" classname="com.sun.japex.Japex">
+            <classpath refid="class.path"/>
+            <jvmarg value="-Djava.library.path=./dist/lib"/>
+            <arg line="${decode_cfg} -verbose"/>
+        </java>
+    </target>
+
+    <target name="compactness-ubl" depends="dist-ubl">
+        <java dir="." fork="true" classname="com.sun.japex.Japex">
+            <classpath refid="class.path"/>
+            <jvmarg value="-Djava.library.path=./dist/lib"/>
+            <arg line="${compactness_cfg_ubl} -verbose"/>
+        </java>
+    </target>
+
+    <target name="encode-ubl" depends="dist-ubl">
+        <java dir="." fork="true" classname="com.sun.japex.Japex">
+            <classpath refid="class.path"/>
+            <jvmarg value="-Djava.library.path=./dist/lib"/>
+            <arg line="${encode_cfg_ubl} -verbose"/>
+        </java>
+    </target>
+
+    <target name="decode-ubl" depends="dist-ubl">
+        <java dir="." fork="true" classname="com.sun.japex.Japex">
+            <classpath refid="class.path"/>
+            <jvmarg value="-Djava.library.path=./dist/lib"/>
+            <arg line="${decode_cfg_ubl} -verbose"/>
+        </java>
+    </target>
+
+</project>

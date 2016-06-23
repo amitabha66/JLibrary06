@@ -1,0 +1,341 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: Writing XSLT extension instructions</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: Writing XSLT extension instructions">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:2043px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:2043px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:2043px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:2043px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../index/intro.html"><img src="../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro.html">Introduction</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="functions.html">Writing extension functions in Java</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="converting-args.html">Converting Arguments to Java Extension Functions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="function-result.html">Converting the Result of a Java Extension Function</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="dotnetextensions.html">Writing extension functions for .NET</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="converting-args.net.html">Converting Arguments to .NET Extension Functions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="function-result.net.html">Converting the Result of a .NET Extension Function</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="instructions.html">Writing XSLT extension instructions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="output-filters.html">Customizing Serialization</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="collation.html">Implementing a collating sequence</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="localizing.html">Localizing numbers and dates</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="output-encoding.html">Adding an output encoding</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="uri-resolver.html">Writing a URI Resolver for Input Files</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="output-uri-resolver.html">Writing a URI Resolver for Output Files</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>Writing XSLT extension instructions</h1>
+         <p>Saxon implements the element extensibility feature defined in the XSLT standard.
+            This feature allows you to define your own instruction types for use in the stylesheet. These
+            instructions can be used anywhere within a <i>content constructor</i>, for example as a child
+            of <code>xsl:template</code>, <code>xsl:if</code>, <code>xsl:variable</code>, or of a literal
+            result element.
+         </p>
+         <p><i>User-written extension instructions are not currently supported on the .NET platform.</i></p>
+         <p>If a namespace prefix is to be used to denote extension elements, it must be declared in the
+            <code>extension-element-prefixes</code> attribute on the <code>xsl:stylesheet</code> element, or the
+            <code>xsl:extension-element-prefixes</code> attribute on any enclosing literal result element or
+            extension element.
+         </p>
+         <p>Saxon itself provides a number of stylesheet elements beyond those defined in the
+            XSLT specification, including <code>saxon:assign</code>, <code>saxon:entity-ref</code>, 
+            and <code>saxon:while</code>. To enable these, use the standard XSLT extension mechanism: define
+            <code>extension-element-prefixes="saxon"</code> on the xsl:stylesheet element, or 
+            <code>xsl:extension-element-prefixes="saxon"</code> on any enclosing literal result element.
+         </p>
+         <p>Any element whose prefix matches a namespace listed in the <code>extension-element-prefixes</code>
+            attribute of an enclosing element is treated as an extension element. If no class can be
+            instantiated for the element (for example, because no ExtensionElementFactory can be loaded,
+            or because the ExtensionElementFactory doesn't recognise the local name), then fallback
+            action is taken as follows. If the element has one or more <code>xsl:fallback</code> children, they are
+            processed. Otherwise, an error is reported. When <code>xsl:fallback</code> is used in any other context, it
+            and its children are ignored.
+         </p>
+         <p>Within the stylesheet it is possible to test whether an extension element is implemented by using the system
+            function <code>element-available()</code>. This returns true if the namespace of the element identifies
+            it as an extension element (or indeed as a standard XSLT instruction) and if a class can be instantiated
+            to represent it. If the namespace is not that of an extension element, or if no class can be
+            instantiated, it returns false.
+         </p>
+         <p>To invoke a user-defined set of extension elements, include the prefix in this attribute as
+            described, and associate it with a namespace URI that ends in "/" followed by the fully qualified
+            class name of a Java class that implements the <code>net.sf.saxon.style.ExtensionElementFactory</code> interface.
+            This interface defines a single method, <code>getExtensionClass()</code>, which takes the local name of the element
+            (that is, the name without its namespace prefix) as a parameter, and returns the Java class used to
+            implement this extension element (for example, <code>return SQLConnect.class</code>). The class returned must
+            be a subclass of <code>net.sf.saxon.style.StyleElement</code>, and the easiest way to implement it is as a subclass of
+            <code>net.sf.saxon.style.ExtensionInstruction</code>.
+         </p>
+         <p class="subhead">Implementing extension instructions</p>
+         <p>The best way to see how to implement an extension element is by looking at the example, for SQL
+            extension elements, provided in package <code>net.sf.saxon.sql</code>, and at the sample stylesheet <b>books-sql.xsl</b>
+            which uses these extension elements.
+         </p>
+         <p>The <code>StyleElement</code> class represents an element node in the stylesheet document. Saxon calls methods
+            on this class to validate and type-check the element, and to generate a node in the expression tree that is
+            evaluated at run-time. Assuming that the class is written to extend <code>ExtensionInstruction</code>,
+            the methods it should provide are:
+         </p>
+         <table>
+            <tr>
+               <td valign="top" width="30%">
+                  <p>prepareAttributes()</p>
+               </td>
+               <td>
+                  <p>This is called while the stylesheet tree is still being built, so it should not attempt
+                     to navigate the tree. Its task is to validate the attributes of the stylesheet element and
+                     perform any preprocessing necessary. For example, if the attribute is an attribute value template,
+                     this includes creating an Expression that can subsequently be evaluated to get the AVT's
+                     value.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>validate()</p>
+               </td>
+               <td>
+                  <p>This is called once the tree has been built, and its task is to check that the stylesheet
+                     element is valid "in context": that is, it may navigate the tree and check the validity of the element in
+                     relation to other elements in the stylesheet module, or in the stylesheet as a whole. 
+                     By convention, a parent element contains checks on its children, rather than the other way around: this allows
+                     child elements to be reused in a new context without changing their code. The system will automatically call the
+                     method <code>mayContainSequenceConstructor()</code>. If this returns true, it will automatically check that all
+                     the children are instructions (that is, that their <code>isInstruction()</code> method returns true).
+                  </p>
+                  <p>If the extension element is not allowed to have any children, you can call <code>checkEmpty()</code> from
+                     the <code>validate()</code> method. However, users will normally expect that an extension instruction is allowed
+                     to contain an <code>xsl:fallback</code> child instruction, and you should design for this.
+                  </p>
+                  <p>If there are any XPath expressions in attributes of the extension instruction (for example a <code>select</code>
+                     attribute or an attribute value template), then the <code>validate()</code> method should call the 
+                     <code>typeCheck()</code> method to process these expressions: for example 
+                     <code>select = typeCheck("select", select);</code></p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>compile()</p>
+               </td>
+               <td>
+                  <p>This is called to create an Expression object which is added to the expression tree. See below
+                     for further details.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>isInstruction()</p>
+               </td>
+               <td>
+                  <p>This should return true, to ensure that the element is allowed to appear
+                     within a template body.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td valign="top">
+                  <p>mayContainSequenceConstructor()</p>
+               </td>
+               <td>
+                  <p>This should return true, to ensure that the element can contain instructions.
+                     Even if it can't contain anything else, extension elements should allow an xsl:fallback
+                     instruction to provide portability between processors
+                  </p>
+               </td>
+            </tr>
+         </table>
+         <p>The <code>StyleElement</code> class has access to many services supplied either via its superclasses or via
+            the XPathContext object. For details, see the API documentation of the individual classes.
+         </p>
+         <p>The simplest way to implement the <code>compile()</code> method is to return an instance of a class that is
+            defined as a subclass of <code>SimpleExpression</code>. However, in principle any <code>Expression</code> object
+            can be returned, either an expression class that already exists within Saxon, or a user-written implementation.
+            A subclass of <code>SimpleExpression</code> should implement the methods <code>getImplementationMethod()</code> and
+            <code>getExpressionType()</code>, and depending on the value returned by <code>getImplementationMethod()</code>,
+            should implement one of the methods <code>evaluateItem()</code>, <code>iterate()</code>, or <code>process()</code>.
+         </p>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="output-filters.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

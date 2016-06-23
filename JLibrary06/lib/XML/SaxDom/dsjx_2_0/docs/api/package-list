@@ -1,0 +1,15 @@
+com.devsphere.examples.xml.saxdomix
+com.devsphere.examples.xml.taglib
+com.devsphere.logging
+com.devsphere.xml.benchmark
+com.devsphere.xml.saxdomix
+com.devsphere.xml.saxdomix.helpers
+com.devsphere.xml.taglib.output.builder
+com.devsphere.xml.taglib.output.tag
+com.devsphere.xml.taglib.output.write
+com.devsphere.xml.taglib.process.builder
+com.devsphere.xml.taglib.process.event
+com.devsphere.xml.taglib.process.parse
+com.devsphere.xml.taglib.process.tag
+com.devsphere.xml.taglib.support.builder
+com.devsphere.xml.taglib.support.tag

@@ -1,0 +1,13 @@
+﻿<html dir="LTR"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5"><title>IResultDocumentHandler Interface</title><xml></xml><link rel="stylesheet" type="text/css" href="MSDN.css"></head><body id="bodyID" class="dtBODY"><div id="nsbanner"><div id="bannerrow1"><table class="bannerparthead" cellspacing="0"><tr id="hdr"><td class="runninghead">Saxon API for .NET</td><td class="product"></td></tr></table></div><div id="TitleRow"><h1 class="dtH1">IResultDocumentHandler Interface</h1></div></div><div id="nstext"><p>An <code>IResultDocumentHandler</code> can be nominated to handle output
+             produced by the <code>xsl:result-document</code> instruction in an XSLT stylesheet.
+            </p><p>For a list of all members of this type, see <a href="Saxon.Api.IResultDocumentHandlerMembers.html">IResultDocumentHandler Members</a>.</p><p></p><div class="syntax"><div>public interface IResultDocumentHandler</div></div><h4 class="dtH4">Remarks</h4><p>This interface affects any <code>xsl:result-document</code> instruction
+             executed by the stylesheet, provided that it has an <code>href</code> attribute.</p><p>If no <code>IResultDocumentHandler</code> is nominated (in the
+             <code>IResultDocumentHandler</code> property of the <code>XsltTransformer</code>, the output
+             of <pre class="code">xsl:result-document</pre> is serialized, and is written to the file
+             or other resource identified by the URI in the <code>href</code> attribute, resolved
+             (if it is relative&gt; against the URI supplied in the <code>BaseOutputUri</code> property
+             of the <code>XsltTransformer</code>.</p><p>If an <code>IResultDocumentHandler</code> is nominated, however, its
+             <code>HandleResultDocument</code> method will be called whenever an <code>xsl:result-document</code>
+             instruction with an <code>href</code> attribute is evaluated, and the generated result tree
+             will be passed to the <code>XmlDestination</code> returned by that method.</p><h4 class="dtH4">Requirements</h4><p><b>Namespace: </b><a href="Saxon.Api.html">Saxon.Api</a></p><p><b>Assembly: </b>saxon8api (in saxon8api.netmodule)
+					</p><h4 class="dtH4">See Also</h4><p><a href="Saxon.Api.IResultDocumentHandlerMembers.html">IResultDocumentHandler Members</a> | <a href="Saxon.Api.html">Saxon.Api Namespace</a></p><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;"><param name="Keyword" value="IResultDocumentHandler interface, about IResultDocumentHandler interface"></object></div></body></html>

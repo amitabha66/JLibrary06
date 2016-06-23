@@ -1,0 +1,315 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: Defects Cleared</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: Defects Cleared">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:1000px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:1000px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:1000px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:1000px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../../index/intro.html"><img src="../../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro.html">Version 8.9 (2007-02-12)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro88.html">Version 8.8 (2006-09-05)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro873.html">Version 8.7.3 (2006-06-13)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v872.html">Version 8.7.2 (2006-04-19)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v871.html">Version 8.7.1 (2006-04-13)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro87.html">Version 8.7 (2006-02-24)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro861.html">Version 8.6.1 (24 November 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro86.html">Version 8.6 (3 November 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro851.html">Version 8.5.1 (26 August 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../intro85.html">Version 8.5 (2 August 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v84.html">Version 8.4 (4 April 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v83.html">Version 8.3 (11 February 2005)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v8.2.html">Version 8.2 (21 December 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v811.html">Version 8.1.1 (8 October 2004)</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="../intro81.html">Version 8.1 (24 September 2004)</a></td>
+            </tr>
+            <tr>
+               <td><img src="../../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="../v8.0.html">Version 8.0 (1 June 2004)</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>Defects Cleared</h1>
+         <p>The following defects have been cleared in Saxon 8.1:</p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=927057&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">927057</a>&nbsp;
+            		Under various circumstances (especially with DOM and JDOM sources) Saxon may fail
+            with the message "Unknown type annotation 0"
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=972314&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">972314</a>&nbsp;
+            		The format-date() function gets the day of the week wrong when using the [F] option.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=973477&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">973477</a>&nbsp;
+            		The -s option on the XQuery command line does not work unless the -wrap option is used;
+            the corresponding facility in the Java API doesn't work either
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=974605&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">974605</a>&nbsp;
+            		A NullPointerException can occur in XQuery when an empty element constructor is used
+            as part of an expression, for example "<a></a>/."
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=979108&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">979108</a>&nbsp;
+            		A ClassCastException can occur while optimizing the expression used to initialize a global
+            variable in XQuery.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=981277&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">981277</a>&nbsp;
+            		An internal error can occur in XQuery, with the error
+            message "Children of an ExprInstruction must themselves be ExprInstructions".
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=98379&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">98379</a>&nbsp;
+            		The schema processor does not allow an xs:annotation element to appear as a child
+            of xs:include or xs:import.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=983753&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">983753</a>&nbsp;
+            		A NullPointerException occurs if the second argument of an arithmetic operator is the empty
+            sequence.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=985577&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">985577</a>&nbsp;
+            		The Saxon schema processor does not handle xs:notation; this is a documented restriction,
+            but the processor instead of recovering cleanly fails with an exception when xs:notation is encountered.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=985578&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">985578</a>&nbsp;
+            		The Saxon schema processor validates the xs:minInclusive facet incorrectly, leading to
+            spurious error messages.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=985841&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">985841</a>&nbsp;
+            		Spurious static type errors may be reported when the static type
+            of an operand is xdt:untypedAtomic.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=998978&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">998978</a>&nbsp;
+            		Variables used in match patterns can corrupt the caller's stack frame.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1000949&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">1000949</a>&nbsp;
+            		A NullPointerException occurs when comparing two QNames if either is in no namespace.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1000973&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">1000973</a>&nbsp;
+            		An infinite loop occurs getting the base URI of a node in a DOM or JDOM tree.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1001158&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">1001158</a>&nbsp;
+            		The stack frame allocated for saxon:evaluate() may be too small, leading to an
+            ArrayIndexOutOfBounds exception
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1001659&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">1001659</a>&nbsp;
+            		When (in XSLT) character maps are used with the text output method, spurious spaces
+            appear in the output.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1003836&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">1003836</a>&nbsp;
+            		A ClassCastException occurs if an XPath expression evaluated using the Java XPath API
+            returns a date or time value.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1003848&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">1003848</a>&nbsp;
+            		A NullPointerException occurs if an XPath expression evaluated using the Java XPath API
+            requires access to the default collation.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1004442&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">1004442</a>&nbsp;
+            		When the count() function is applied to an expression that selects a sub-range of a sequence,
+            the wrong answer is given.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1006108&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">1006108</a>&nbsp;
+            		The namespace-uri() function can give the wrong answer when the source is a DOM source.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1014271&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">1014271</a>&nbsp;
+            		Two nodes in different DOM documents may share the same identity.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1017755&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">1017755</a>&nbsp;
+            		The XQuery API does not validate the values of serialization parameters.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1024025&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">1024025</a>&nbsp;
+            		This is a duplicate of 979108.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1026414&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">1026414</a>&nbsp;
+            		The schema processor does not handle recursive xs:import elements.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1029493&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">1029493</a>&nbsp;
+            		In XQuery, the default element namespace (as used for path expressions)
+            is not reset when it goes out of scope.
+         </p>
+         <p><a href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1029810&amp;group_id=29872&amp;atid=397617" target="_new" class="bodylink">1029810</a>&nbsp;
+            		In the schema processor, the specification mixed="yes" on a complex type is not inherited
+            on another type derived from that type by extension.
+         </p>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="xslt-81.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

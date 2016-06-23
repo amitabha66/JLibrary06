@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Sealed: false
+Specification-Title: Simple API for XML Processing
+Specification-Version: @sax.spec.version@
+Specification-Vendor: http://www.saxproject.org ( David Megginson ) 
+Implementation-Title: SAX Implementation 
+Implementation-Version: @xerces.version@
+Implementation-Vendor: Apache Software Foundation
+Implementation-Vendor-Id: org.apache 
+Extension-Name: org.xml.sax

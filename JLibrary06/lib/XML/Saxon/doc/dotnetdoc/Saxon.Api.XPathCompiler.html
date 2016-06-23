@@ -1,0 +1,11 @@
+﻿<html dir="LTR"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5"><title>XPathCompiler Class</title><xml></xml><link rel="stylesheet" type="text/css" href="MSDN.css"></head><body id="bodyID" class="dtBODY"><div id="nsbanner"><div id="bannerrow1"><table class="bannerparthead" cellspacing="0"><tr id="hdr"><td class="runninghead">Saxon API for .NET</td><td class="product"></td></tr></table></div><div id="TitleRow"><h1 class="dtH1">XPathCompiler Class</h1></div></div><div id="nstext"><p>
+            An XPathCompiler object allows XPath queries to be compiled.
+            The compiler holds information that represents the static context
+            for the expression.
+            </p><p>For a list of all members of this type, see <a href="Saxon.Api.XPathCompilerMembers.html">XPathCompiler Members</a>.</p><p><a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassTopic.htm">System.Object</a><br>   <b>XPathCompiler</b></p><div class="syntax"><div>public class XPathCompiler</div></div><h4 class="dtH4">Remarks</h4><p>To construct an XPathCompiler, use the factory method
+            <code>newXPathCompiler</code> on the <code>Processor</code> object.</p><p>An XPathCompiler may be used repeatedly to compile multiple
+            queries. Any changes made to the XPathCompiler (that is, to the
+            static context) do not affect queries that have already been compiled.
+            An XPathCompiler may be used concurrently in multiple threads, but
+            it should not then be modified once initialized.</p><h4 class="dtH4">Requirements</h4><p><b>Namespace: </b><a href="Saxon.Api.html">Saxon.Api</a></p><p><b>Assembly: </b>saxon8api (in saxon8api.netmodule)
+					</p><h4 class="dtH4">See Also</h4><p><a href="Saxon.Api.XPathCompilerMembers.html">XPathCompiler Members</a> | <a href="Saxon.Api.html">Saxon.Api Namespace</a></p><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;"><param name="Keyword" value="XPathCompiler class, about XPathCompiler class"></object></div></body></html>

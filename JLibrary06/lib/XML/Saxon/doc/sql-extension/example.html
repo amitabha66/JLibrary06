@@ -1,0 +1,296 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: Example</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: Example">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:1000px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:1000px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:1000px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:1000px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../index/intro.html"><img src="../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro.html">Introduction</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="connect.html">sql:connect</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="query.html">sql:query</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="insert.html">sql:insert and sql:column</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="update.html">sql:update and sql:column</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="delete.html">sql:delete</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="close.html">sql:close</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="example.html">Example</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="warning.html">A Warning about Side-Effects</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>Example</h1>
+         <p>A specimen stylesheet that uses these XSL extension is <b>books-sql.xsl</b>. This loads the contents
+            of the books.xml file into a database table, To use it, you need to create a database
+            database containing a table "Book" with three character columns,
+            "Title", "Author", and "Category"
+         </p>
+         <p>Here is the stylesheet:</p>
+         <div class="codeblock" style="border: solid thin; background-color: #B1CCC7; padding: 2px"><pre><code>&lt;xsl:stylesheet
+	xmlns:sql="java:/net.sf.saxon.sql.SQLElementFactory"
+ 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
+	xmlns:saxon="http://saxon.sf.net/"
+ 	extension-element-prefixes="saxon sql"&gt;
+
+&lt;!-- insert your database details here, or supply them in parameters --&gt;
+&lt;xsl:param name="driver" select="'sun.jdbc.odbc.JdbcOdbcDriver'"/&gt;
+&lt;xsl:param name="database" select="'jdbc:odbc:test'"/&gt;  
+&lt;xsl:param name="user"/&gt;
+&lt;xsl:param name="password"/&gt;
+
+&lt;!-- This stylesheet writes the book list to a SQL database --&gt;
+
+&lt;xsl:variable name="count" select="0" saxon:assignable="yes"/&gt;
+
+&lt;xsl:output method="xml" indent="yes"/&gt;
+
+&lt;xsl:template match="BOOKLIST"&gt;
+    &lt;xsl:if test="not(element-available('sql:connect'))"&gt;
+        &lt;xsl:message&gt;sql:connect is not available&lt;/xsl:message&gt;
+    &lt;/xsl:if&gt;
+    
+    &lt;xsl:message&gt;Connecting to &lt;xsl:value-of select="$database"/&gt;...&lt;/xsl:message&gt;
+
+    &lt;xsl:variable name="connection" 
+         as="java:java.sql.Connection" xmlns:java="http://saxon.sf.net/java-type"&gt;   
+      &lt;sql:connect driver="{$driver}" database="{$database}" 
+                 user="{$user}" password="{$password}"&gt;
+        &lt;xsl:fallback&gt;
+          &lt;xsl:message terminate="yes"&gt;SQL extensions are not installed&lt;/xsl:message&gt;
+        &lt;/xsl:fallback&gt;
+      &lt;/sql:connect&gt;
+    &lt;/xsl:variable&gt;
+    
+    &lt;xsl:message&gt;Connected...&lt;/xsl:message&gt;
+    
+    &lt;xsl:apply-templates select="BOOKS"&gt;
+      &lt;xsl:with-param name="connection" select="$connection"/&gt;
+    &lt;/xsl:apply-templates&gt;
+    
+    &lt;xsl:message&gt;Inserted &lt;xsl:value-of select="$count"/&gt; records.&lt;/xsl:message&gt;
+
+    &lt;xsl:variable name="book-table"&gt;
+      &lt;sql:query connection="$connection" table="book" column="*" row-tag="book" column-tag="col"/&gt; 
+    &lt;/xsl:variable&gt;
+    
+    &lt;xsl:message&gt;There are now &lt;xsl:value-of select="count($book-table//book)"/&gt; books.&lt;/xsl:message&gt;
+    &lt;new-book-table&gt;
+        &lt;xsl:copy-of select="$book-table"/&gt;
+    &lt;/new-book-table&gt;
+    
+    &lt;sql:close connection="$connection"/&gt;
+    
+&lt;/xsl:template&gt;
+
+&lt;xsl:template match="BOOKS"&gt;
+    &lt;xsl:param name="connection"/&gt;
+    &lt;xsl:for-each select="ITEM"&gt;
+    	&lt;sql:insert connection="$connection" table="book"&gt;
+    	    &lt;sql:column name="title" select="TITLE"/&gt;
+            &lt;sql:column name="author" select="AUTHOR"/&gt;
+            &lt;sql:column name="category" select="@CAT"/&gt;
+    	&lt;/sql:insert&gt;
+    	&lt;saxon:assign name="count" select="$count+1"/&gt;
+    &lt;/xsl:for-each&gt;
+&lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;	
+</code></pre></div>
+         <p>To run this stylesheet you will need to do the following:</p>
+         <ul>
+            <li>
+               <p>Create a database (e.g. Microsoft Access) containing a table "Book" with three character columns,
+                  "Title", "Author", and "Category".
+               </p>
+            </li>
+            <li>
+               <p>Register this database as a JDBC data source. (If you use Microsoft Access, register it as an
+                  ODBC data source called, say, Books, and then it will automatically be available under JDBC as
+                  "jdbc:odbc:Books".
+               </p>
+            </li>
+            <li>
+               <p>Modify the <code>&lt;sql:connect&gt;</code> element in the stylesheet to specify the correct JDBC connection
+                  name for the database, and if necessary to supply a username and password. Alternatively you can
+                  supply the driver class, database name, username, and password as parameters on the command line.
+               </p>
+            </li>
+            <li>
+               <p>Execute the stylesheet from the command line, as follows:</p>
+               <p class="command">
+                  java &nbsp; net.sf.saxon.Transform &nbsp; data\books.xml &nbsp; books-sql.xsl <br>
+                  
+               </p>
+            </li>
+         </ul>
+         <p>The database will be populated with data from the <code>books.xml</code> document.
+         </p>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="warning.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

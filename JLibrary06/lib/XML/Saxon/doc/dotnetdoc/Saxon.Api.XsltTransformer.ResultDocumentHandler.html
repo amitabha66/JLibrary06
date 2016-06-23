@@ -1,0 +1,12 @@
+﻿<html dir="LTR"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5"><title>XsltTransformer.ResultDocumentHandler Property</title><xml></xml><link rel="stylesheet" type="text/css" href="MSDN.css"></head><body id="bodyID" class="dtBODY"><div id="nsbanner"><div id="bannerrow1"><table class="bannerparthead" cellspacing="0"><tr id="hdr"><td class="runninghead">Saxon API for .NET</td><td class="product"></td></tr></table></div><div id="TitleRow"><h1 class="dtH1">XsltTransformer.ResultDocumentHandler Property
+					</h1></div></div><div id="nstext"><p>
+            The <code>IResultDocumentHandler</code> to be used at run-time to process the output
+            produced by any <code>xsl:result-document</code> instruction with an <code>href</code>
+            attribute.
+            </p><div class="syntax">public <a href="Saxon.Api.IResultDocumentHandler.html">IResultDocumentHandler</a> ResultDocumentHandler {get; set;}</div><p></p><h4 class="dtH4">Remarks</h4><p>
+            In the absence of a user-supplied result document handler, the <code>href</code>
+            attribute of the <code>xsl:result-document</code> instruction must be a valid relative
+            URI, which is resolved against the value of the <code>BaseOutputUri</code> property,
+            and the resulting absolute URI must identify a writable resource (typically
+            a file in filestore, using the <code>file:</code> URI scheme).
+            </p><h4 class="dtH4">See Also</h4><p><a href="Saxon.Api.XsltTransformer.html">XsltTransformer Class</a> | <a href="Saxon.Api.html">Saxon.Api Namespace</a></p><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;"><param name="Keyword" value="ResultDocumentHandler property"><param name="Keyword" value="ResultDocumentHandler property, XsltTransformer class"><param name="Keyword" value="XsltTransformer.ResultDocumentHandler property"></object></div></body></html>

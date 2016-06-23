@@ -1,0 +1,17 @@
+cc=gcc
+
+liboption1=-fPIC
+liboption2=-shared
+liboption3=-Wl,-R./lib64
+liboption4=-Wl,-R./candidates/c/asn1ber/lib64
+
+os=linux
+osrootdir=.
+includedir1=${java.home}/../include
+includedir2=${java.home}/../include/linux
+libxml2dir=../libxml2
+srcdir1=./src
+rtlibsubdir=lib64
+
+libprefix=lib
+libsuffix=.so

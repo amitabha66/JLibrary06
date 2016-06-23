@@ -1,0 +1,69 @@
+<project name="Libxml2 Japex Native Driver" default="run"  basedir=".">
+    <property environment="env"/>
+    
+    <property file="properties.linux"/>
+
+    <property name="config" value="native-config.xml"/>
+
+    <path id="class.path">
+	<pathelement location="dist/classes"/>
+        <fileset dir="../../../japex/lib/" includes="*.jar"/>
+        <fileset dir="../../../japex/jdsl/" includes="*.jar"/>
+    </path>
+        
+    <target name="clean">
+	<delete dir="dist"/>
+    </target>
+
+    <target name="prepare">
+	<mkdir dir="dist"/>
+	<mkdir dir="dist/classes"/>
+	<mkdir dir="dist/include"/>
+        <mkdir dir="dist/lib"/>
+    </target>
+    
+    <target name="jni">
+        <javah destdir="dist/include" force="yes">
+            <classpath refid="class.path"/>
+	    <class name="com.sun.japex.jdsl.nativecode.JapexNativeDriver"/>
+        </javah>
+        
+	<exec dir="." executable="${cc}">
+            <!-- <arg value="-D_TRACE"/> -->
+            <arg value="-I${basedir}/dist/include"/>
+	    <arg value="-I${java.home}/../include"/>
+	    <arg value="-I${java.home}/../include/linux"/>
+	    <arg value="-I./include"/>
+	    <arg value="-I./src"/>
+            <arg value="${liboption1}"/>
+            <arg value="${liboption2}"/>
+	    <arg value="-L/usr/local/lib"/>
+	    <arg value="-L./lib64"/>
+	    <arg value="-L./lib"/>
+	    <arg value="-lxml2"/>
+	    <arg value="-lz"/>
+	    <arg value="-o"/>
+	    <arg value="dist/lib/${libprefix}JapexNativeDriver${libsuffix}"/>
+	    <arg value="JapexNativeDriver.c"/>
+	</exec>
+
+	<copy file="dist/lib/${libprefix}JapexNativeDriver${libsuffix}"
+	      tofile="dist/lib/${libprefix}JapexNativeDriver2${libsuffix}"/>
+    </target>       
+    
+    <target name="compile" depends="prepare, jni" description="Compile JUnitSuite">
+        <javac srcdir="." destdir="dist/classes" debug="on" optimize="on" deprecation="on">
+             <classpath refid="class.path"/>
+        </javac>
+    </target>
+
+    <target name="dist" depends="compile"/>
+    
+    <target name="run" depends="dist">
+        <java dir="." fork="true" classname="com.sun.japex.Japex">
+            <classpath refid="class.path"/>
+            <jvmarg value="-Djava.library.path=./dist/lib"/>
+            <arg line="${config}/"/>
+        </java>
+    </target>
+</project>

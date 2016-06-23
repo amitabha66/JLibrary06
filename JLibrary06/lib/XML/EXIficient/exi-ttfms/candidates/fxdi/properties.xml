@@ -1,0 +1,7 @@
+
+<property name="xwandschema.jar" value="lib/xwandschema.jar"/>
+
+<property name="xmlschemac.jar" value="lib/xmlschemac.jar"/>
+
+<property name="xdidecoder.jar" value="lib/xdidecoder.jar"/>
+

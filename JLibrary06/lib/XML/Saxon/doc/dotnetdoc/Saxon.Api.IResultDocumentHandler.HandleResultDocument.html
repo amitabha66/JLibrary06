@@ -1,0 +1,17 @@
+﻿<html dir="LTR"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5"><title>IResultDocumentHandler.HandleResultDocument Method</title><xml></xml><link rel="stylesheet" type="text/css" href="MSDN.css"></head><body id="bodyID" class="dtBODY"><div id="nsbanner"><div id="bannerrow1"><table class="bannerparthead" cellspacing="0"><tr id="hdr"><td class="runninghead">Saxon API for .NET</td><td class="product"></td></tr></table></div><div id="TitleRow"><h1 class="dtH1">IResultDocumentHandler.HandleResultDocument Method </h1></div></div><div id="nstext"><p> Handle output produced by the <code>xsl:result-document</code>
+            instruction in an XSLT stylesheet. This method is called by the XSLT processor
+            when an <code>xsl:result-document</code> with an <code>href</code> attribute is evaluated.
+            </p><div class="syntax"><a href="Saxon.Api.XmlDestination.html">XmlDestination</a> HandleResultDocument(<br>   <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemStringClassTopic.htm">string</a> <i>href</i>,<br>   <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemUriClassTopic.htm">Uri</a> <i>baseUri</i><br>);</div><h4 class="dtH4">Parameters</h4><dl><dt><i>href</i></dt><dd>An absolute or relative URI. This will be the effective value of the 
+            <code>href</code> attribute of the <code>xsl:result-document</code> in the stylesheet.</dd><dt><i>baseUri</i></dt><dd>The base URI that should be used for resolving the value of
+            <code>href</code> if it is relative. This will always be the value of the <code>BaseOutputUri</code>
+            property of the <code>XsltTransformer</code>.</dd></dl><h4 class="dtH4">Return Value</h4><p>An <code>XmlDestination</code> to handle the result tree produced by the
+            <code>xsl:result-document</code> instruction. The <code>Close</code> method of the returned
+            <code>XmlDestination</code> will be called when the output is complete.</p><h4 class="dtH4">Remarks</h4><p>The XSLT processor will ensure that the stylesheet cannot create
+            two distinct result documents which are sent to the same URI. It is the responsibility
+            of the <code>IResultDocumentHandler</code> to ensure that two distinct result documents are
+            not set to the same <code>XmlDestination</code>. Failure to observe this rule can result
+            in output streams being incorrectly closed.
+            </p><p>Note that more than one result document can be open at the same time,
+            and that the order of opening, writing, and closing result documents chosen
+            by the processor does not necessarily bear any direct resemblance to the way
+            that the XSLT source code is written.</p><h4 class="dtH4">See Also</h4><p><a href="Saxon.Api.IResultDocumentHandler.html">IResultDocumentHandler Interface</a> | <a href="Saxon.Api.html">Saxon.Api Namespace</a></p><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;"><param name="Keyword" value="HandleResultDocument method"><param name="Keyword" value="HandleResultDocument method, IResultDocumentHandler interface"><param name="Keyword" value="IResultDocumentHandler.HandleResultDocument method"></object></div></body></html>

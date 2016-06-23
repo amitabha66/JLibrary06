@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE root [
+<!ELEMENT root (elem1, elem2)>
+<!ELEMENT elem1 (elem11, elem12, elem13)>
+<!ELEMENT elem11 (#PCDATA)>
+<!ELEMENT elem12 (#PCDATA)>
+<!ELEMENT elem13 (elem131, elem132)>
+<!ELEMENT elem131 EMPTY>
+<!ELEMENT elem132 EMPTY>
+<!ELEMENT elem2 (elem21, elem22, elem23)>
+<!ELEMENT elem21 (#PCDATA)>
+<!ELEMENT elem22 (#PCDATA)>
+<!ELEMENT elem23 (#PCDATA)>
+]>
+
+<root>
+    <elem1>
+        <!-- comment1 -->
+        <elem11>text11</elem11>
+        <elem12><![CDATA[cdata12]]></elem12>
+        <elem13>
+            <elem131/>
+            <elem132/>
+        </elem13>
+        <?proc1 data?>
+    </elem1>
+    <elem2>
+        <!-- comment2 -->
+        <elem21>data21</elem21>
+        <elem22><![CDATA[cdata22]]></elem22>
+        <elem23>text23</elem23>
+        <?proc2 data?>
+    </elem2>
+</root>

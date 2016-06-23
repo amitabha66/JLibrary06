@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN" "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>p</short-name>
+	<uri>http://devsphere.com/xml/taglib/process</uri>
+	<display-name>XML Processing JSP Actions</display-name>
+
+	<tag>
+		<name>parse</name>
+		<tag-class>com.devsphere.xml.taglib.process.tag.Parse</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>xml</name>
+		</attribute>
+		<attribute>
+			<name>systemId</name>
+		</attribute>
+		<attribute>
+			<name>validate</name>
+		</attribute>
+		<attribute>
+			<name>ignoreSpaces</name>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>element</name>
+		<tag-class>com.devsphere.xml.taglib.process.tag.Element</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>varDom</name>
+		</attribute>
+		<attribute>
+			<name>scopeDom</name>
+		</attribute>
+		<attribute>
+			<name>varName</name>
+		</attribute>
+		<attribute>
+			<name>scopeName</name>
+		</attribute>
+		<attribute>
+			<name>testName</name>
+		</attribute>
+		<attribute>
+			<name>varQname</name>
+		</attribute>
+		<attribute>
+			<name>scopeQname</name>
+		</attribute>
+		<attribute>
+			<name>testQname</name>
+		</attribute>
+		<attribute>
+			<name>varUri</name>
+		</attribute>
+		<attribute>
+			<name>scopeUri</name>
+		</attribute>
+		<attribute>
+			<name>testUri</name>
+		</attribute>
+		<attribute>
+			<name>varAttr</name>
+		</attribute>
+		<attribute>
+			<name>scopeAttr</name>
+		</attribute>
+		<attribute>
+			<name>scope</name>
+		</attribute>
+		<attribute>
+			<name>test</name>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>start</name>
+		<tag-class>com.devsphere.xml.taglib.process.tag.Start</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+
+	<tag>
+		<name>end</name>
+		<tag-class>com.devsphere.xml.taglib.process.tag.End</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+
+	<tag>
+		<name>data</name>
+		<tag-class>com.devsphere.xml.taglib.process.tag.Data</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>varData</name>
+		</attribute>
+		<attribute>
+			<name>scopeData</name>
+		</attribute>
+		<attribute>
+			<name>scope</name>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>pi</name>
+		<tag-class>com.devsphere.xml.taglib.process.tag.PI</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>varTarget</name>
+		</attribute>
+		<attribute>
+			<name>scopeTarget</name>
+		</attribute>
+		<attribute>
+			<name>testTarget</name>
+		</attribute>
+		<attribute>
+			<name>varData</name>
+		</attribute>
+		<attribute>
+			<name>scopeData</name>
+		</attribute>
+		<attribute>
+			<name>scope</name>
+		</attribute>
+		<attribute>
+			<name>test</name>
+		</attribute>
+	</tag>
+
+</taglib>

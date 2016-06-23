@@ -1,0 +1,12 @@
+﻿<html dir="LTR"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5"><title>SchemaManager.NewSchemaValidator Method</title><xml></xml><link rel="stylesheet" type="text/css" href="MSDN.css"></head><body id="bodyID" class="dtBODY"><div id="nsbanner"><div id="bannerrow1"><table class="bannerparthead" cellspacing="0"><tr id="hdr"><td class="runninghead">Saxon API for .NET</td><td class="product"></td></tr></table></div><div id="TitleRow"><h1 class="dtH1">SchemaManager.NewSchemaValidator Method </h1></div></div><div id="nstext"><p>
+            Create a new <code>SchemaValidator</code>, which may be used for validating instance
+            documents.
+            </p><div class="syntax">public <a href="Saxon.Api.SchemaValidator.html">SchemaValidator</a> NewSchemaValidator();</div><h4 class="dtH4">Remarks</h4><p>The <code>SchemaValidator</code> uses the cache of schema components held by the
+            <code>SchemaManager</code>. It may also add new components to this cache (for example,
+            when the instance document references a schema using <code>xsi:schemaLocation</code>).
+            It is also affected by changes to the schema cache that occur after the 
+            <code>SchemaValidator</code> is created.</p><p>When schema components are used for validating instance documents (or for compiling
+            schema-aware queries and stylesheets) they are <i>sealed</i> to prevent subsequent modification.
+            The modifications disallowed once a component is sealed include adding to the substitution group
+            of an element declaration, adding subtypes derived by extension to an existing complex type, and
+            use of <code>&lt;xs:redefine&gt;</code></p><h4 class="dtH4">See Also</h4><p><a href="Saxon.Api.SchemaManager.html">SchemaManager Class</a> | <a href="Saxon.Api.html">Saxon.Api Namespace</a></p><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;"><param name="Keyword" value="NewSchemaValidator method"><param name="Keyword" value="NewSchemaValidator method, SchemaManager class"><param name="Keyword" value="SchemaManager.NewSchemaValidator method"></object></div></body></html>

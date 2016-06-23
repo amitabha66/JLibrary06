@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<TITLE>MixedParsing</TITLE>
+</HEAD>
+<BODY>
+
+ <CENTER><H1>MixedParsing</H1></CENTER>
+
+ <P>This example uses SAXDOMIX to do mixed SAX-DOM parsing.
+
+ <P>The parsing starts in SAX mode, which means that SAX events are forwarded to the application for handling. Certain XML elements trigger the switch to DOM. Each such element will be the root of a DOM tree constructed by SAXDOMIX. All sub-elements, character data, processing instructions and comments that are contained directly or indirectly by a root element will be part of the DOM tree. After building a DOM tree, SAXDOMIX forwards it to the application for handling. Then, SAXDOMIX returns to SAX parsing automatically.
+
+ <P>In the case of this example, the handling of the SAX events and DOM trees consists of printing them to the output console. The names of the elements that trigger the switch from SAX to DOM are given in the command line.
+
+ <P>We have the following <CODE>MixedParsing.xml</CODE> file:
+ <PRE>
+    &lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+    &lt;!DOCTYPE root [
+    &lt;!ELEMENT root (elem1, elem2)&gt;
+    &lt;!ELEMENT elem1 (elem11, elem12, elem13)&gt;
+    &lt;!ELEMENT elem11 (#PCDATA)&gt;
+    &lt;!ELEMENT elem12 (#PCDATA)&gt;
+    &lt;!ELEMENT elem13 (elem131, elem132)&gt;
+    &lt;!ELEMENT elem131 EMPTY&gt;
+    &lt;!ELEMENT elem132 EMPTY&gt;
+    &lt;!ELEMENT elem2 (elem21, elem22, elem23)&gt;
+    &lt;!ELEMENT elem21 (#PCDATA)&gt;
+    &lt;!ELEMENT elem22 (#PCDATA)&gt;
+    &lt;!ELEMENT elem23 (#PCDATA)&gt;
+    ]&gt;
+
+    &lt;root&gt;
+        &lt;elem1&gt;
+            &lt;!-- comment1 --&gt;
+            &lt;elem11&gt;text11&lt;/elem11&gt;
+            &lt;elem12&gt;&lt;![CDATA[cdata12]]&gt;&lt;/elem12&gt;
+            &lt;elem13&gt;
+                &lt;elem131/&gt;
+                &lt;elem132/&gt;
+            &lt;/elem13&gt;
+            &lt;?proc1 data?&gt;
+        &lt;/elem1&gt;
+        &lt;elem2&gt;
+            &lt;!-- comment2 --&gt;
+            &lt;elem21&gt;data21&lt;/elem21&gt;
+            &lt;elem22&gt;&lt;![CDATA[cdata22]]&gt;&lt;/elem22&gt;
+            &lt;elem23&gt;text23&lt;/elem23&gt;
+            &lt;?proc2 data?&gt;
+        &lt;/elem2&gt;
+    &lt;/root&gt;</PRE>
+
+ <P>Execute the following command to get the XML content of the <CODE>elem1, elem21</CODE> and <CODE>elem22</CODE> elements as DOM trees. The rest of the XML content is handled as SAX events.
+ <PRE>
+    java com.devsphere.examples.xml.saxdomix.MixedParsing
+    MixedParsing.xml -validation elem1 elem21 elem22</PRE>
+
+ <P>You'll get the following output:
+ <PRE>
+    SAX setDocumentLocator
+
+    SAX startDocument
+
+        SAX startElement root
+
+            DOM Tree
+                Element elem1
+                    Comment  comment1
+                    Element elem11
+                        Text text11
+                    Element elem12
+                        CDATASection cdata12
+                    Element elem13
+                        Element elem131
+                        Element elem132
+                    ProcessingInstruction proc1
+
+            SAX startElement elem2
+
+                DOM Tree
+                    Element elem21
+                        Text data21
+
+                DOM Tree
+                    Element elem22
+                        CDATASection cdata22
+
+                SAX startElement elem23
+
+                    SAX characters text23
+
+                SAX endElement elem23
+
+                SAX processingInstruction proc2
+
+            SAX endElement elem2
+
+        SAX endElement root
+
+    SAX endDocument</PRE>
+
+<P><CENTER><A HREF="../../index.html">Devsphere Java XML Projects - Documentation</A></CENTER>
+
+</BODY>
+</HTML>

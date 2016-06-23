@@ -1,0 +1,463 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <!--
+		
+		Generated at 2007-02-12T11:38:49.726Z-->
+      <title>Saxonica: XSLT and XQuery Processing: Implementing a collating sequence</title>
+      <meta name="coverage" content="Worldwide">
+      <meta name="copyright" content="Copyright Saxonica Ltd">
+      <meta name="title" content="Saxonica: XSLT and XQuery Processing: Implementing a collating sequence">
+      <meta name="robots" content="noindex,nofollow">
+      <link rel="stylesheet" href="../saxondocs.css" type="text/css">
+   </head>
+   <body class="main">
+      <div id="rhDkBlueArea" style="position:absolute; width:123px; height:3058px; z-index:2; right: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="rhMdBlueArea" style="position:absolute; width:217px; height:3058px; z-index:2; right: 340px; top: 0px; border: 1px none #000000; background-color: #E4EEF0; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhLightArea" style="position:absolute; width:34px; height:3058px; z-index:2; left: 66px; top: 0px; border: 1px none #000000; background-color: #f6fffb; layer-background-color: #E4EEF0; visibility: visible;"></div>
+      <div id="lhDkBlueArea" style="position:absolute; width:66px; height:3058px; z-index:2; left: 0px; top: 0px; border: 1px none #000000; background-color: #C1CEDE; layer-background-color: #C1CEDE; visibility: visible;"></div>
+      <div id="LogoArea" style="position:absolute; width:340px; height:72px; z-index:3; right: 0px; top: 0px; border: 1px none #000000; visibility: visible;"><a href="../index/intro.html"><img src="../img/saxonica_logo.gif" width="340" height="72" border="0" alt="Saxonica.com"></a></div>
+      <div id="MenuArea" style="position:absolute; width:157px; z-index:4; right: 33px; top: 114px; visibility: visible; background-color: #f6fffb; layer-background-color: #f6fffb; border: 1px solid #3D5B96; padding-top:9px; padding-left:15px;padding-right:11px; padding-bottom:9px;">
+         <table width="164" border="0" bgcolor="#3D5B96" cellspacing="1" cellpadding="1">
+            <tr bgcolor="#f6fffb">
+               <td style="padding-left:5px"><a href="http://www.saxonica.com/">SAXONICA</a></td>
+            </tr>
+         </table><br><table border="0" cellspacing="0" cellpadding="1">
+            <tr>
+               <td class="title" colspan="2">Saxon Documentation</td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/spacer.gif" width="120" height="10" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../contents.html">Full Contents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../index/intro.html">About Saxon</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../changes/intro.html">Changes in this Release</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conditions/intro.html">Conditions of Use</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xsl/intro.html">Using XSLT 2.0</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../using-xquery/intro.html">Using XQuery</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sourcedocs/intro.html">Handling Source Documents</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../schema-processing/intro.html">XML Schema Processing</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xpath-api/intro.html">XPath API for Java</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../dotnet/intro.html">Saxon on .NET</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensibility/intro.html">Extensibility</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="intro.html">Introduction</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="functions.html">Writing extension functions in Java</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="converting-args.html">Converting Arguments to Java Extension Functions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="function-result.html">Converting the Result of a Java Extension Function</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="dotnetextensions.html">Writing extension functions for .NET</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="converting-args.net.html">Converting Arguments to .NET Extension Functions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="function-result.net.html">Converting the Result of a .NET Extension Function</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="instructions.html">Writing XSLT extension instructions</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="output-filters.html">Customizing Serialization</a></td>
+            </tr>
+            <tr>
+               <td>»&nbsp;</td>
+               <td><a href="collation.html">Implementing a collating sequence</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="localizing.html">Localizing numbers and dates</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="output-encoding.html">Adding an output encoding</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="uri-resolver.html">Writing a URI Resolver for Input Files</a></td>
+            </tr>
+            <tr>
+               <td><img src="../img/spacer.gif" width="10" height="5" border="0" alt="blank space"></td>
+               <td><a href="output-uri-resolver.html">Writing a URI Resolver for Output Files</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../extensions/intro.html">Saxon Extensions</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../samples/intro.html">Sample Saxon Applications</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../sql-extension/intro.html">The Saxon SQL Extension</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../xsl-elements/intro.html">XSLT Elements</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../expressions/intro.html">XPath 2.0 Expression Syntax</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../functions/intro.html">Function Library</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+               <td colspan="2"><a href="../conformance/intro.html">Standards Conformance</a></td>
+            </tr>
+            <tr>
+               <td colspan="2"><img src="../img/text_blue_dot.gif" width="164" height="1" border="0" alt=""></td>
+            </tr>
+         </table>
+      </div>
+      <div id="MainTextArea" style="position:absolute; height:100%; z-index:5; left: 130px; right: 260px; top: 110px; border: 1px none #000000; visibility: visible;">
+         <h1>Implementing a collating sequence</h1>
+         <p>Collations used for comparing strings can be specified by means of a URI. A collation URI may
+            be used as an argument to many of the <a class="bodylink" href="../functions/intro.html">standard functions</a>, and 
+            also as an attribute of <code>xsl:sort</code> in XSLT, and in the <code>order by</code>
+            clause of a FLWOR expression in XQuery.
+         </p>
+         <p>Saxon provides a range of mechanisms for binding collation URIs. The language specifications simply say
+            that collations used in sorting and in string-comparison functions are identified by a URI, and leaves it up to 
+            the implementation how these URIs are defined.
+         </p>
+         <p>There is one predefined collation that cannot be changed. This is the Unicode Codepoint Collation defined in the
+            W3C specifications <code>http://www.w3.org/2005/xpath-functions/collation/codepoint</code>.
+            This collates strings based on the integer values assigned by Unicode to each character, for example "ah!" sorts before
+            "ah?" because the Unicode codepoints for "ah!" are (97, 104, 33) while the codepoints for "ah?" are (97, 104, 63).
+         </p>
+         <p>In addition, by default, Saxon allows a collation URI to take the form
+            <code>http://saxon.sf.net/collation?keyword=value;keyword=value;...</code>. The query parameters
+            in the URI can be separated either by ampersands or semicolons, but semicolons are usually more
+            convenient.
+         </p>
+         <p>The same keywords are available on the Java and .NET platforms, but because of differences in 
+            collation support between the two platforms, they may interact in slightly different ways. The same
+            collation URI may produce different sort orders on the two platforms. (One noteworthy difference is
+            that the Java collations treat spaces as significant, the .NET collations do not.) 
+         </p>
+         <p>The keywords available are as follows:</p>
+         <table>
+            <thead>
+               <tr>
+                  <td>
+                     <p><b>keyword</b></p>
+                  </td>
+                  <td>
+                     <p><b>values</b></p>
+                  </td>
+                  <td>
+                     <p><b>effect</b></p>
+                  </td>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td valign="top">
+                     <p>class</p>
+                  </td>
+                  <td valign="top">
+                     <p>fully-qualified Java class name of a class that
+                        implements <code>java.util.Comparator</code>.
+                     </p>
+                  </td>
+                  <td valign="top">
+                     <p>This parameter should not be combined with any other parameter.
+                        An instance of the requested class is created, and is used to perform
+                        the comparisons. Note that if the collation is to be used
+                        in functions such as contains() and starts-with(), this class must also be a
+                        <code>java.text.RuleBasedCollator</code>. This approach allows a user-defined collation
+                        to be implemented in Java.
+                     </p>
+                     <p>This option is also available on the .NET platform, but the class must implement
+                        the Java interface java.util.Comparator.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td valign="top">
+                     <p>rules</p>
+                  </td>
+                  <td valign="top">
+                     <p>details of the ordering required, using the syntax of the Java 
+                        <code>RuleBasedCollator</code></p>
+                  </td>
+                  <td valign="top">
+                     <p>This defines exactly how individual characters are collated. (It's not very
+                        convenient to specify this as part of a URI, but the option is provided for completeness.)
+                     </p>
+                     <p>This option is also available on the .NET platform, and if used will select a collation
+                        provided using the GNU Classpath implementation of <code>RuleBasedCollator</code>. At the time of writing,
+                        this is not 100% compatible with the Sun JDK implementation.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td valign="top">
+                     <p>lang</p>
+                  </td>
+                  <td valign="top">
+                     <p>any value allowed for xml:lang, for example <code>en-US</code> for US English
+                     </p>
+                  </td>
+                  <td valign="top">
+                     <p>This is used to find the collation appropriate to a Java locale or .NET culture. 
+                        The collation may be further tailored using the parameters described below.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td valign="top">
+                     <p>ignore-case</p>
+                  </td>
+                  <td valign="top">
+                     <p>yes, no</p>
+                  </td>
+                  <td valign="top">
+                     <p>Indicates whether the upper and lower case letters are considered
+                        equivalent. Note that even when ignore-case is set to "no", case is less significant than
+                        the actual letter value, so that "XPath" and "Xpath" will appear next to each other in the
+                        sorted sequence.
+                     </p>
+                     <p>On the Java platform, setting ignore-case sets the collation strength to secondary.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td valign="top">
+                     <p>ignore-modifiers</p>
+                  </td>
+                  <td valign="top">
+                     <p>yes, no</p>
+                  </td>
+                  <td valign="top">
+                     <p>Indicates whether non-spacing combining characters 
+                        (such as accents and diacritical marks) are considered
+                        significant. Note that even when ignore-modifiers is set to "no", modifiers are less significant than
+                        the actual letter value, so that "Hofen" and "Höfen" will appear next to each other in the
+                        sorted sequence.
+                     </p>
+                     <p>On the Java platform, setting ignore-case sets the collation strength to primary.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td valign="top">
+                     <p>ignore-symbols</p>
+                  </td>
+                  <td valign="top">
+                     <p>yes, no</p>
+                  </td>
+                  <td valign="top">
+                     <p>Indicates whether symbols such as whitespace characters and punctuation
+                        marks are to be ignored. This option currently has no effect on the Java platform, where
+                        such symbols are in most cases ignored by default.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td valign="top">
+                     <p>ignore-width</p>
+                  </td>
+                  <td valign="top">
+                     <p>yes, no</p>
+                  </td>
+                  <td valign="top">
+                     <p>Indicates whether characters that differ only in width should be considered
+                        equivalent.
+                     </p>
+                     <p>On the Java platform, setting ignore-width sets the collation strength to tertiary.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td valign="top">
+                     <p>strength</p>
+                  </td>
+                  <td valign="top">
+                     <p>primary, secondary, tertiary, or identical</p>
+                  </td>
+                  <td valign="top">
+                     <p>Indicates the differences that are considered significant when comparing
+                        two strings. A/B is a primary difference; A/a is a secondary difference;
+                        a/ä is a tertiary difference (though this varies by language). So
+                        if strength=primary then A=a is true; with strength=secondary 
+                        then A=a is false but a=ä is true; with strength=tertiary
+                        then a=ä is false.
+                     </p>
+                     <p>This option should not be combined with the ignore-XXX options. The setting "primary" is
+                        equivalent to ignoring case, modifiers, and width; "secondary" is equivalent to ignoring
+                        case and width; "tertiary" ignores width only; and "identical" ignores nothing.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td valign="top">
+                     <p>decomposition</p>
+                  </td>
+                  <td valign="top">
+                     <p>none, standard, full</p>
+                  </td>
+                  <td valign="top">
+                     <p>Indicates how the collator handles Unicode composed characters. See
+                        the JDK documentation for details. This option is ignored on the .NET platform.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td valign="top">
+                     <p>alphanumeric</p>
+                  </td>
+                  <td valign="top">
+                     <p>yes, no</p>
+                  </td>
+                  <td valign="top">
+                     <p>If set to yes, the string is split into a sequence of alphabetic and numeric parts (a numeric
+                        part is any consecutive sequence of ASCII digits; anything else is considered alphabetic). Each numeric part is considered
+                        to be preceded by an alphabetic part even if it is zero-length. The parts are then compared pairwise: alphabetic parts
+                        using the collation implied by the other query parameters, numeric parts using their numeric value. The result is that,
+                        for example, AD985 collates before AD1066.
+                     </p>
+                     <p>Note that an alphanumeric collation cannot be used in conjunction with functions such as contains() and substring-before().</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td valign="top">
+                     <p>case-order</p>
+                  </td>
+                  <td valign="top">
+                     <p>upper-first, lower-first</p>
+                  </td>
+                  <td valign="top">
+                     <p>Indicates whether upper case letters collate before or after lower case
+                        letters.
+                     </p>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <p>This format of URI, <code>http://saxon.sf.net/collation?keyword=value;keyword=value;...</code>,
+            is handled by Saxon's default <code>CollationURIResolver</code>. It is possible to replace or supplement
+            this mechanism by registering a user-written <code>CollationURIResolver</code>. This must be an implementation
+            of the Java interface <code>net.sf.saxon.sort.CollationURIResolver</code>, which only requires a single method, 
+            <code>resolve()</code>, to be implemented. The result of the method is in general a Java <code>Comparator</code>,
+            though if the collation is to be used in functions such as <code>contains()</code> which match parts of a string
+            rather than the whole string, then the result must also be an instance of either <code>java.text.RuleBasedCollator</code>,
+            or of the Saxon interface <code>net.sf.saxon.sort.SubstringMatcher</code>.
+         </p>
+         <p>In the Java API, a user-written <code>CollationURIResolver</code> is registered with the <code>Configuration</code> object,
+            either directly or in the case of XSLT by using the JAXP <code>setAttribute()</code> method on the
+            <code>TransformerFactory</code> (the relevant property name is <code>FeatureKeys.COLLATION_URI_RESOLVER</code>).
+            This applies to all stylesheets and queries compiled and executed under that configuration.
+         </p>
+         <p>In addition, the APIs provided for executing XPath and XQuery expressions allow named collations to
+            be registered by the calling application, as part of the static context.
+         </p>
+         <p>For XQuery, the class <code>StaticQueryContext</code> also allows collations to be registered directly
+            by individual names. The system attempts to resolve a URI using these directly-registered names before it invokes
+            the <code>CollationURIResolver</code>.
+         </p>
+         <p>At present there are no equivalent facilities in the .NET API, though it is possible to manipulate
+            collations by "dropping down" into the Java interface.
+         </p>
+         <p>In Saxon XSLT stylesheets, collations may also be described using a <code>saxon:collation</code>
+            element as a top-level declaration in the stylesheet. In this case the value of the <code>name</code>
+            attribute of the <code>saxon:collation</code> may be used as a collation URI. There is no constraint
+            on the form this URI takes, but it must be a legal URI. If it is a relative URI, it is interpreted as
+            being relative to the base URI of the stylesheet.
+            See <a class="bodylink" href="../extensions/instructions/collation.html">saxon:collation</a> for more details.
+         </p>
+         <table width="100%">
+            <tr>
+               <td>
+                  <p align="right"><a class="nav" href="localizing.html">Next</a></p>
+               </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

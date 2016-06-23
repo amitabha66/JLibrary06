@@ -1,0 +1,333 @@
+<project name="Japex Native Sample" default="run"  basedir=".">
+    <property environment="env"/>
+    
+    <property file="properties.${os.name}.${os.arch}"/>
+
+    <property name="compactness_cfg" value="compactness-config.xml"/>
+    <property name="encode_cfg" value="encode-config.xml"/>
+    <property name="decode_cfg" value="decode-config.xml"/>
+
+    <path id="class.path">
+	<pathelement location="dist/classes"/>
+        <fileset dir="../../../japex/lib/" includes="*.jar"/>
+        <fileset dir="../../../japex/jdsl/" includes="*.jar"/>
+    </path>
+        
+    <path id="lib.path" >
+        <pathelement path="${japex.exi.ttfms.candidatesDir}/c/asn1ber/dist/lib"/>
+    </path>
+    
+    <property name="library.path" refid="lib.path"/>
+    
+    <target name="clean">
+	<delete dir="dist"/>
+    </target>
+
+    <target name="prepare">
+	<mkdir dir="dist"/>
+	<mkdir dir="dist/classes"/>
+	<mkdir dir="dist/include"/>
+        <mkdir dir="dist/lib"/>
+	<uptodate property="driver.uptodate"
+		  targetfile="dist/lib/${libprefix}JapexNativeDrvAsn1Ber${libsuffix}">
+	  <srcfiles dir="${srcdir1}" includes="*"/>
+	  <srcfiles dir="." includes="JapexNativeDrvAsn1Ber.c"/>
+	</uptodate>
+    </target>
+    
+    <target name="jni">
+        <javah destdir="dist/include" force="yes">
+            <classpath refid="class.path"/>
+	    <class name="com.sun.japex.jdsl.nativecode.JapexNativeDriver"/>
+        </javah>
+    </target>       
+        
+    <target name="compile" depends="prepare, jni" unless="driver.uptodate">
+	<exec dir="." executable="${cc}">
+            <arg value="-I${basedir}/dist/include"/>
+	    <arg value="-I${java.home}/../include"/>
+	    <arg value="-I${java.home}/../include/linux"/>
+	    <arg value="-I${osrootdir}"/>
+	    <arg value="-I${osrootdir}/rtsrc"/>
+	    <arg value="-I${osrootdir}/rtbersrc"/>
+	    <arg value="-I${libxml2dir}/include"/>
+	    <arg value="-I${srcdir1}"/>
+	    <arg value="-I${srcdir2}"/>
+
+	    <arg value="${liboption1}"/>
+	    <arg value="${liboption2}"/>
+	    <arg value="${liboption3}"/>
+	    <arg value="${liboption4}"/>
+
+	    <arg value="-o"/>
+	    <arg value="dist/lib/${libprefix}JapexNativeDrvAsn1Ber${libsuffix}"/>
+
+	    <arg value="JapexNativeDrvAsn1Ber.c"/>
+<!--
+	    <arg value="${srcdir1}/Ants.c"/>
+	    <arg value="${srcdir1}/AntsEnc.c"/>
+	    <arg value="${srcdir1}/AntsDec.c"/>
+	    <arg value="${srcdir1}/AntsTest.c"/>
+-->
+	    <arg value="${srcdir1}/AVCL.c"/>
+	    <arg value="${srcdir1}/AVCLEnc.c"/>
+	    <arg value="${srcdir1}/AVCLDec.c"/>
+	    <arg value="${srcdir1}/AVCLTest.c"/>
+
+	    <arg value="${srcdir1}/CoreComponentTypes.c"/>
+	    <arg value="${srcdir1}/CoreComponentTypesEnc.c"/>
+	    <arg value="${srcdir1}/CoreComponentTypesDec.c"/>
+	    <arg value="${srcdir1}/CoreComponentTypesTest.c"/>
+
+	    <arg value="${srcdir1}/Datastore.c"/>
+	    <arg value="${srcdir1}/DatastoreEnc.c"/>
+	    <arg value="${srcdir1}/DatastoreDec.c"/>
+	    <arg value="${srcdir1}/DatastoreTest.c"/>
+
+	    <arg value="${srcdir1}/Dahut-sighting.c"/>
+	    <arg value="${srcdir1}/Dahut-sightingEnc.c"/>
+	    <arg value="${srcdir1}/Dahut-sightingDec.c"/>
+	    <arg value="${srcdir1}/Dahut-sightingTest.c"/>
+
+	    <arg value="${srcdir1}/FIXML-4-4.c"/>
+	    <arg value="${srcdir1}/FIXML-4-4Enc.c"/>
+	    <arg value="${srcdir1}/FIXML-4-4Dec.c"/>
+	    <arg value="${srcdir1}/FIXML-4-4Test.c"/>
+
+	    <arg value="${srcdir1}/FpML-4-0.c"/>
+	    <arg value="${srcdir1}/FpML-4-0Enc.c"/>
+	    <arg value="${srcdir1}/FpML-4-0Dec.c"/>
+	    <arg value="${srcdir1}/FpML-4-0Test.c"/>
+	    <arg value="${srcdir1}/Xmldsig.c"/>
+	    <arg value="${srcdir1}/XmldsigEnc.c"/>
+	    <arg value="${srcdir1}/XmldsigDec.c"/>
+	    <arg value="${srcdir1}/XmldsigTest.c"/>
+
+	    <arg value="${srcdir1}/Gaml100.c"/>
+	    <arg value="${srcdir1}/Gaml100Enc.c"/>
+	    <arg value="${srcdir1}/Gaml100Dec.c"/>
+	    <arg value="${srcdir1}/Gaml100Test.c"/>
+
+	    <arg value="${srcdir1}/HepRep.c"/>
+	    <arg value="${srcdir1}/HepRepEnc.c"/>
+	    <arg value="${srcdir1}/HepRepDec.c"/>
+	    <arg value="${srcdir1}/HepRepTest.c"/>
+
+	    <arg value="${srcdir1}/MAGE-ML.c"/>
+	    <arg value="${srcdir1}/MAGE-MLEnc.c"/>
+	    <arg value="${srcdir1}/MAGE-MLDec.c"/>
+	    <arg value="${srcdir1}/MAGE-MLTest.c"/>
+
+	    <arg value="${srcdir1}/Elements.c"/>
+	    <arg value="${srcdir1}/ElementsEnc.c"/>
+	    <arg value="${srcdir1}/ElementsDec.c"/>
+	    <arg value="${srcdir1}/MathML.c"/>
+	    <arg value="${srcdir1}/MathMLEnc.c"/>
+	    <arg value="${srcdir1}/MathMLDec.c"/>
+	    <arg value="${srcdir1}/Ns1.c"/>
+	    <arg value="${srcdir1}/Ns1Enc.c"/>
+	    <arg value="${srcdir1}/Ns1Dec.c"/>
+	    <arg value="${srcdir1}/Ns2.c"/>
+	    <arg value="${srcdir1}/Ns2Enc.c"/>
+	    <arg value="${srcdir1}/Ns2Dec.c"/>
+	    <arg value="${srcdir1}/Ns3.c"/>
+	    <arg value="${srcdir1}/Ns3Enc.c"/>
+	    <arg value="${srcdir1}/Ns3Dec.c"/>
+	    <arg value="${srcdir1}/Ns4.c"/>
+	    <arg value="${srcdir1}/Ns4Enc.c"/>
+	    <arg value="${srcdir1}/Ns4Dec.c"/>
+	    <arg value="${srcdir1}/Ns5.c"/>
+	    <arg value="${srcdir1}/Ns5Enc.c"/>
+	    <arg value="${srcdir1}/Ns5Dec.c"/>
+	    <arg value="${srcdir1}/Ns6.c"/>
+	    <arg value="${srcdir1}/Ns6Enc.c"/>
+	    <arg value="${srcdir1}/Ns6Dec.c"/>
+	    <arg value="${srcdir1}/Ns7.c"/>
+	    <arg value="${srcdir1}/Ns7Enc.c"/>
+	    <arg value="${srcdir1}/Ns7Dec.c"/>
+	    <arg value="${srcdir1}/Ns8.c"/>
+	    <arg value="${srcdir1}/Ns8Enc.c"/>
+	    <arg value="${srcdir1}/Ns8Dec.c"/>
+	    <arg value="${srcdir1}/Ns9.c"/>
+	    <arg value="${srcdir1}/Ns9Enc.c"/>
+	    <arg value="${srcdir1}/Ns9Dec.c"/>
+	    <arg value="${srcdir1}/Ns10.c"/>
+	    <arg value="${srcdir1}/Ns10Enc.c"/>
+	    <arg value="${srcdir1}/Ns10Dec.c"/>
+	    <arg value="${srcdir1}/Ns11.c"/>
+	    <arg value="${srcdir1}/Ns11Enc.c"/>
+	    <arg value="${srcdir1}/Ns11Dec.c"/>
+	    <arg value="${srcdir1}/Ns12.c"/>
+	    <arg value="${srcdir1}/Ns12Enc.c"/>
+	    <arg value="${srcdir1}/Ns12Dec.c"/>
+	    <arg value="${srcdir1}/Ns13.c"/>
+	    <arg value="${srcdir1}/Ns13Enc.c"/>
+	    <arg value="${srcdir1}/Ns13Dec.c"/>
+	    <arg value="${srcdir1}/Ns14.c"/>
+	    <arg value="${srcdir1}/Ns14Enc.c"/>
+	    <arg value="${srcdir1}/Ns14Dec.c"/>
+	    <arg value="${srcdir1}/Ns15.c"/>
+	    <arg value="${srcdir1}/Ns15Enc.c"/>
+	    <arg value="${srcdir1}/Ns15Dec.c"/>
+	    <arg value="${srcdir1}/Ns16.c"/>
+	    <arg value="${srcdir1}/Ns16Enc.c"/>
+	    <arg value="${srcdir1}/Ns16Dec.c"/>
+	    <arg value="${srcdir1}/Odf.c"/>
+	    <arg value="${srcdir1}/OdfEnc.c"/>
+	    <arg value="${srcdir1}/OdfDec.c"/>
+	    <arg value="${srcdir1}/Xforms.c"/>
+	    <arg value="${srcdir1}/XformsEnc.c"/>
+	    <arg value="${srcdir1}/XformsDec.c"/>
+	    <arg value="${srcdir1}/Xlink.c"/>
+	    <arg value="${srcdir1}/XlinkEnc.c"/>
+	    <arg value="${srcdir1}/XlinkDec.c"/>
+
+	    <arg value="${srcdir1}/Seis.c"/>
+	    <arg value="${srcdir1}/SeisEnc.c"/>
+	    <arg value="${srcdir1}/SeisDec.c"/>
+	    <arg value="${srcdir1}/SeisTest.c"/>
+
+	    <arg value="${srcdir1}/Soap-1-1.c"/>
+	    <arg value="${srcdir1}/Soap-1-1Enc.c"/>
+	    <arg value="${srcdir1}/Soap-1-1Dec.c"/>
+	    <arg value="${srcdir1}/Soap-1-1Test.c"/>
+
+	    <arg value="${srcdir1}/Svg.c"/>
+	    <arg value="${srcdir1}/SvgEnc.c"/>
+	    <arg value="${srcdir1}/SvgDec.c"/>
+	    <arg value="${srcdir1}/SvgTest.c"/>
+
+	    <arg value="${srcdir1}/Sm-common.c"/>
+	    <arg value="${srcdir1}/Sm-commonEnc.c"/>
+	    <arg value="${srcdir1}/Sm-commonDec.c"/>
+	    <arg value="${srcdir1}/Sm-commonTest.c"/>
+	    <arg value="${srcdir1}/Sm-inv.c"/>
+	    <arg value="${srcdir1}/Sm-invEnc.c"/>
+	    <arg value="${srcdir1}/Sm-invDec.c"/>
+	    <arg value="${srcdir1}/Sm-invTest.c"/>
+
+	    <arg value="${srcdir1}/Urn-GoogleSearch.c"/>
+	    <arg value="${srcdir1}/Urn-GoogleSearchEnc.c"/>
+	    <arg value="${srcdir1}/Urn-GoogleSearchDec.c"/>
+	    <arg value="${srcdir1}/Urn-GoogleSearchTest.c"/>
+
+	    <arg value="${srcdir1}/Urn-oma-bcast-esg-2005.c"/>
+	    <arg value="${srcdir1}/Urn-oma-bcast-esg-2005Enc.c"/>
+	    <arg value="${srcdir1}/Urn-oma-bcast-esg-2005Dec.c"/>
+	    <arg value="${srcdir1}/Urn-oma-bcast-esg-2005Test.c"/>
+
+            <arg value="${srcdir1}/Urn-dvb-ipdc-esg-2005.c"/>
+            <arg value="${srcdir1}/Urn-dvb-ipdc-esg-2005Dec.c"/>
+            <arg value="${srcdir1}/Urn-dvb-ipdc-esg-2005Enc.c"/>
+            <arg value="${srcdir1}/Urn-dvb-ipdc-esg-2005Test.c"/>
+            <arg value="${srcdir1}/Urn-mpeg-mpeg7-schema-2001.c"/>
+            <arg value="${srcdir1}/Urn-mpeg-mpeg7-schema-2001Dec.c"/>
+            <arg value="${srcdir1}/Urn-mpeg-mpeg7-schema-2001Enc.c"/>
+            <arg value="${srcdir1}/Urn-mpeg-mpeg7-schema-2001Test.c"/>
+            <arg value="${srcdir1}/Urn-tva-metadata-2005.c"/>
+            <arg value="${srcdir1}/Urn-tva-metadata-2005Dec.c"/>
+            <arg value="${srcdir1}/Urn-tva-metadata-2005Enc.c"/>
+            <arg value="${srcdir1}/Urn-tva-metadata-2005Test.c"/>
+
+	    <arg value="${srcdir1}/Factbook.c"/>
+	    <arg value="${srcdir1}/FactbookEnc.c"/>
+	    <arg value="${srcdir1}/FactbookDec.c"/>
+	    <arg value="${srcdir1}/FactbookTest.c"/>
+	    <arg value="${srcdir1}/Periodic.c"/>
+	    <arg value="${srcdir1}/PeriodicEnc.c"/>
+	    <arg value="${srcdir1}/PeriodicDec.c"/>
+	    <arg value="${srcdir1}/PeriodicTest.c"/>
+	    <arg value="${srcdir1}/Weblog.c"/>
+	    <arg value="${srcdir1}/WeblogEnc.c"/>
+	    <arg value="${srcdir1}/WeblogDec.c"/>
+	    <arg value="${srcdir1}/WeblogTest.c"/>
+
+	    <arg value="${srcdir1}/XSD.c"/>
+	    <arg value="${srcdir1}/XSDEnc.c"/>
+	    <arg value="${srcdir1}/XSDDec.c"/>
+	    <arg value="${srcdir1}/XSDTest.c"/>
+
+<!--
+	    <arg value="${srcdir2}/UBL.c"/>
+	    <arg value="${srcdir1}/errno.c"/>
+-->
+            <arg value="-L${osrootdir}/${rtlibsubdir}"/>
+            <arg value="-lasn1ber"/>
+	    <arg value="-lasn1xml"/>
+	    <arg value="-lasn1rt"/>
+            <arg value="-L../libxml2/${rtlibsubdir}"/>
+	    <arg value="-lxml2"/>
+	    <arg value="-lz"/>
+	</exec>
+
+	<copy file="dist/lib/${libprefix}JapexNativeDrvAsn1Ber${libsuffix}"
+	      tofile="dist/lib/${libprefix}JapexNativeDrvAsn1Ber1${libsuffix}"/>
+
+	<copy file="dist/lib/${libprefix}JapexNativeDrvAsn1Ber${libsuffix}"
+	      tofile="dist/lib/${libprefix}JapexNativeDrvAsn1Ber2${libsuffix}"/>
+
+	<copy file="dist/lib/${libprefix}JapexNativeDrvAsn1Ber${libsuffix}"
+	      tofile="dist/lib/${libprefix}JapexNativeDrvAsn1Ber3${libsuffix}"/>
+
+    </target>       
+
+
+    <target name="dist" depends="prepare, jni, compile"/>
+    
+    <target name="compactness" depends="dist">
+        <java dir="." fork="true" classname="com.sun.japex.Japex">
+            <classpath refid="class.path"/>
+            <jvmarg value="-Djava.library.path=./dist/lib"/>
+            <arg line="${compactness_cfg}"/>
+        </java>
+    </target>
+
+    <target name="encode" depends="dist">
+        <java dir="." fork="true" classname="com.sun.japex.Japex">
+            <classpath refid="class.path"/>
+            <jvmarg value="-Djava.library.path=./dist/lib"/>
+            <arg line="${encode_cfg}"/>
+        </java>
+    </target>
+
+    <target name="decode" depends="dist">
+        <java dir="." fork="true" classname="com.sun.japex.Japex">
+            <classpath refid="class.path"/>
+            <jvmarg value="-Djava.library.path=./dist/lib"/>
+            <arg line="${decode_cfg}"/>
+        </java>
+    </target>
+
+    <target name="compactness-verbose" depends="dist">
+        <java dir="." fork="true" classname="com.sun.japex.Japex">
+            <classpath refid="class.path"/>
+            <jvmarg value="-Djava.library.path=./dist/lib"/>
+            <arg line="${compactness_cfg} -verbose"/>
+        </java>
+    </target>
+
+    <target name="encode-verbose" depends="dist">
+        <java dir="." fork="true" classname="com.sun.japex.Japex">
+            <classpath refid="class.path"/>
+            <jvmarg value="-Djava.library.path=./dist/lib"/>
+            <arg line="${encode_cfg} -verbose"/>
+        </java>
+    </target>
+
+    <target name="decode-verbose" depends="dist">
+        <java dir="." fork="true" classname="com.sun.japex.Japex">
+            <classpath refid="class.path"/>
+            <jvmarg value="-Djava.library.path=./dist/lib"/>
+            <arg line="${decode_cfg} -verbose"/>
+        </java>
+    </target>
+
+    <target name="test" depends="dist">
+        <java dir="." fork="true" classname="com.sun.japex.Japex">
+            <classpath refid="class.path"/>
+            <jvmarg value="-Djava.library.path=./dist/lib"/>
+            <arg line="test-config.xml -verbose"/>
+        </java>
+    </target>
+
+</project>

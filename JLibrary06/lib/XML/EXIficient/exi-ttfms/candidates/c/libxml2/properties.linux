@@ -1,0 +1,11 @@
+cc=/usr/bin/gcc
+
+liboption1=-fPIC
+liboption2=-shared
+
+os=linux
+jdkdir=/home/eday/jdk1.5.0_06
+includedir1=./src
+
+libprefix=lib
+libsuffix=.so

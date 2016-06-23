@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>XML Output JSP Actions: Overview</TITLE>
+</HEAD>
+<BODY>
+
+<CENTER>
+<H1>XML Output JSP Actions
+<BR>Overview</H1>
+<h3>JSP Tag Library for Generating XML Dynamically</h3>
+</CENTER>
+
+<P><CENTER>
+<A HREF="deploy.html">Deployment</A>&nbsp;&nbsp;&nbsp;
+<A HREF="examples.html">Examples</A>&nbsp;&nbsp;&nbsp;
+<A HREF="builder.html">Builder</A>&nbsp;&nbsp;&nbsp;
+<A HREF="reference.html">Reference</A>&nbsp;&nbsp;&nbsp;
+<A HREF="../../api/index.html">API</A>
+</CENTER></P>
+
+<P>Devsphere has designed the XML JSP Tag Library (XJTL) for building Java XML-driven Web Applications together with the JSP Standard Tag Library (JSTL). XJTL provides specialized actions for XML output (&lt;o:document&gt;, &lt;o:element&gt;, &lt;o:data&gt;, &lt;o:comment&gt;, &lt;o:pi&gt;, etc) while JSTL has general output actions (&lt;c:out&gt; and &lt;x:out&gt;). Both XJTL and JSTL escape the character data, i.e. they replace &amp;, &lt;, &gt; and " with &amp;amp;, &amp;lt;, &amp;gt; and &amp;quot;. However, XJTL knows when to disable the escaping (e.g. in CDATA sections and XML comments) while in the case of JSTL the escaping has to be disabled explicitly.</P>
+
+<P>DOM serialization is an important output feature that is missing from JSTL and is offered by XJTL. You can take a DOM tree and output it as XML using the &lt;o:document&gt; XJTL action. XJTL also provides actions for processing SAX events and mixing DOM with SAX to achieve better parsing scalability. JSTL has additional actions for DOM parsing, DOM querying via XPath, XML flow control, XML transforming and other actions unrelated to XML.</P>
+
+<P>XJTL is very good at generating XML dynamically because its actions do not interfere with the XML syntax. Many times, the name of an element or the values of its attributes are computed at runtime. With JSTL, you would have to include &lt;c:out&gt; actions between &lt; and &gt; and within the quotes of the XML attributes. To avoid such messy constructs, you can use the &lt;o:element&gt; and &lt;o:attributes&gt; XJTL actions. XJTL also generates the start and end of the XML comments, CDATA sections and processing instructions. These features make the JSP code very clean. See <A HREF="examples.html">examples</A>.</P>
+
+<P>The Devsphere Java XML Projects download includes a code generator that takes an XML sample and produces a JSP page that outputs the given XML document using the JSP actions provided by XJTL.</P>
+
+<P>XJTL needs JSP 1.2+ and uses the expression language introduced by JSTL that is now part of JSP 2.0.</P>
+
+<P><CENTER><A HREF="../../index.html">Devsphere Java XML Projects - Documentation</A></CENTER>
+
+</BODY>
+</HTML>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : stream.MyStreamReader.xml
+    Created on : March 1, 2006, 3:43 PM
+    Author     : Jeff.Suttor@Sun.com
+    Description: test data for StAX sample: reader.MyStreamReader
+-->
+
+<document>
+    
+    <head>
+        <approver domain="space">
+            <maybeOfInterest />
+        </approver>
+        <approver domain="time">
+            <maybeOfInterest />
+        </approver>
+    </head>
+    
+    <body>
+        <veggies />
+        <fiber />
+        <nutrition />
+        <nootropics />
+    </body>
+
+</document>

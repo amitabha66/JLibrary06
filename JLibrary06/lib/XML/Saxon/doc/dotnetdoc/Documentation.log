@@ -1,0 +1,20 @@
+Microsoft HTML Help Compiler 4.74.8702
+
+Compiling c:\MyDotNet\dotnetdoc\Documentation.chm
+
+HHC3000: Warning: Invalid syntax: A <PARAM> tag appears outside of an <OBJECT> tag.
+HHC3000: Warning: Invalid syntax: A <PARAM> tag appears outside of an <OBJECT> tag.
+HHC3000: Warning: Invalid syntax: A <PARAM> tag appears outside of an <OBJECT> tag.
+HHC3000: Warning: Invalid syntax: A <PARAM> tag appears outside of an <OBJECT> tag.
+HHC3000: Warning: Invalid syntax: A <PARAM> tag appears outside of an <OBJECT> tag.
+HHC3000: Warning: Invalid syntax: A <PARAM> tag appears outside of an <OBJECT> tag.
+
+Compile time: 0 minutes, 6 seconds
+338	Topics
+2,120	Local links
+1	Internet link
+6	Graphics
+
+
+Created c:\MyDotNet\dotnetdoc\Documentation.chm, 194,616 bytes
+Compression decreased file by 770,729 bytes.

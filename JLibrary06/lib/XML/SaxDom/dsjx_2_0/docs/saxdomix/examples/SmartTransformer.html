@@ -1,0 +1,102 @@
+<HTML>
+<HEAD>
+<TITLE>SmartTransformer</TITLE>
+</HEAD>
+<BODY>
+
+ <CENTER><H1>SmartTransformer</H1></CENTER>
+
+ <P>This example is similar to <CODE>MixedTransformer</CODE>, but it "knows"
+ when to request the DOM trees for transformation.
+ <CODE>SmartTransformer</CODE> parses the XSL file and analyzes
+ the <CODE>match</CODE> attribute of the <CODE>xsl:template</CODE> and
+ <CODE>xsl:key</CODE> tags in order to find out the names of the elements that have associated 
+ template rules in the XSL file. This process is done before the mixed SAX-DOM parsing.
+
+ <P>We have the following <CODE>SmartTransformer.xml</CODE> file:
+ <PRE>
+    &lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+    &lt;table&gt;
+        &lt;row painter="Matisse, Henri"
+             title="La Musique"
+             year="1939" size="115.2 x 115.2 cm"/&gt;
+        &lt;row painter="Monet, Claude"
+             title="The Artist's Garden at Vetheuil"
+             year="1881" size="100 x 80 cm"/&gt;
+        &lt;row painter="Monet, Claude"
+             title="Poplars along the River Epte, Autumn"
+             year="1891" size="100 x 65 cm"/&gt;
+        &lt;row painter="Monet, Claude"
+             title="Meule, Soleil Couchant"
+             year="1891" size="73.3 x 92.6 cm"/&gt;
+        &lt;row painter="Turner, Joseph Mallord William"
+             title="Snowstorm"
+             year="1842" size="91.5 x 122 cm"/&gt;
+    &lt;/table&gt;</PRE>
+
+ <P>We want to apply the transformation instructions contained
+ by a file called <CODE>SmartTransformer.xsl</CODE> to each row of the table.
+ The content of <CODE>SmartTransformer.xsl</CODE> is included below:
+ <PRE>
+    &lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+    &lt;xsl:stylesheet version="1.0"
+        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+        &lt;xsl:template match="row"&gt;
+            &lt;record&gt;
+                &lt;painter&gt;&lt;xsl:value-of select="@painter"/&gt;&lt;/painter&gt;
+                &lt;title&gt;&lt;xsl:value-of select="@title"/&gt;&lt;/title&gt;
+                &lt;year&gt;&lt;xsl:value-of select="@year"/&gt;&lt;/year&gt;
+                &lt;size&gt;&lt;xsl:value-of select="@size"/&gt;&lt;/size&gt;
+            &lt;/record&gt;
+        &lt;/xsl:template&gt;
+
+    &lt;/xsl:stylesheet&gt;</PRE>
+
+ <P>Execute this command:
+ <PRE>
+    java com.devsphere.examples.xml.saxdomix.SmartTransformer
+    -xsl SmartTransformer.xsl -in SmartTransformer.xml</PRE>
+
+ <P>You'll get the following output:
+ <PRE>
+    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;table&gt;
+        &lt;record&gt;
+            &lt;painter&gt;Matisse, Henri&lt;/painter&gt;
+            &lt;title&gt;La Musique&lt;/title&gt;
+            &lt;year&gt;1939&lt;/year&gt;
+            &lt;size&gt;115.2 x 115.2 cm&lt;/size&gt;
+        &lt;/record&gt;
+        &lt;record&gt;
+            &lt;painter&gt;Monet, Claude&lt;/painter&gt;
+            &lt;title&gt;The Artist's Garden at Vetheuil&lt;/title&gt;
+            &lt;year&gt;1881&lt;/year&gt;
+            &lt;size&gt;100 x 80 cm&lt;/size&gt;
+        &lt;/record&gt;
+        &lt;record&gt;
+            &lt;painter&gt;Monet, Claude&lt;/painter&gt;
+            &lt;title&gt;Poplars along the River Epte, Autumn&lt;/title&gt;
+            &lt;year&gt;1891&lt;/year&gt;
+            &lt;size&gt;100 x 65 cm&lt;/size&gt;
+        &lt;/record&gt;
+        &lt;record&gt;
+            &lt;painter&gt;Monet, Claude&lt;/painter&gt;
+            &lt;title&gt;Meule, Soleil Couchant&lt;/title&gt;
+            &lt;year&gt;1891&lt;/year&gt;
+            &lt;size&gt;73,3 x 92.6 cm&lt;/size&gt;
+        &lt;/record&gt;
+        &lt;record&gt;
+            &lt;painter&gt;Turner, Joseph Mallord William&lt;/painter&gt;
+            &lt;title&gt;Snowstorm&lt;/title&gt;
+            &lt;year&gt;1842&lt;/year&gt;
+            &lt;size&gt;91.5 x 122 cm&lt;/size&gt;
+        &lt;/record&gt;
+    &lt;/table&gt;</PRE>
+
+<P><CENTER><A HREF="../../index.html">Devsphere Java XML Projects - Documentation</A></CENTER>
+
+</BODY>
+</HTML>

@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<TITLE>XML Output JSP Actions: Deployment</TITLE>
+</HEAD>
+<BODY>
+
+<CENTER>
+<H1>XML Output JSP Actions
+<BR>Deployment</H1>
+<h3>JSP Tag Library for Generating XML Dynamically</h3>
+</CENTER>
+
+<P><CENTER>
+<A HREF="index.html">Overview</A>&nbsp;&nbsp;&nbsp;
+<A HREF="examples.html">Examples</A>&nbsp;&nbsp;&nbsp;
+<A HREF="builder.html">Builder</A>&nbsp;&nbsp;&nbsp;
+<A HREF="reference.html">Reference</A>&nbsp;&nbsp;&nbsp;
+<A HREF="../../api/index.html">API</A>
+</CENTER></P>
+
+<P>To use the actions from this library in your JSP pages, copy <CODE>xmltaglib.jar, saxdomix.jar</CODE> and <CODE>dslogging.jar</CODE> to the <CODE>/WEB-INF/lib</CODE> subdirectory of your web application. Then add the following directive at the top of each JSP. You can change the <CODE>"o"</CODE> prefix if it conflicts with the prefix of another tag library.</P>
+
+<PRE>
+    &lt;%@ taglib prefix="o" uri="http://devsphere.com/xml/taglib/output" %&gt;
+</PRE>
+
+<P>The tag library descriptor (TLD) is contained by the <CODE>xmltaglib.jar</CODE> file and the application server looks for it using the same mechanism that loads the classes. If you think there might be multiple files called <CODE>OutputXML.tld</CODE> in your <CODE>CLASSPATH</CODE>, copy this TLD file to the <CODE>/WEB-INF</CODE> subdirectory of your web application. Then add a <CODE>&lt;taglib&gt;</CODE> element to your web application deployment descriptor in <CODE>/WEB-INF/web.xml</CODE> like this:</P>
+
+<PRE>
+    &lt;taglib&gt;
+        &lt;taglib-uri&gt;http://devsphere.com/xml/taglib/output&lt;/taglib-uri&gt;
+        &lt;taglib-location&gt;/WEB-INF/OutputXML.tld&lt;/taglib-location&gt;
+    &lt;/taglib&gt;
+</PRE>
+
+<P><B>Note:</B> Currently, XJTL supports JSP 1.2 and uses Apache JSTL 1.0 
+to evaluate the ${...} expressions. Therefore, you have to deploy XJTL together 
+with JSTL. The next version of XJTL will be based only on JSP 2.0.</P>
+
+<P><CENTER><A HREF="../../index.html">Devsphere Java XML Projects - Documentation</A></CENTER>
+
+</BODY>
+</HTML>
